@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     fun assignment(view: View) {
         val intent = Intent(this, ButtonsActivity::class.java)
         startActivity(intent)
+        println("*")
     }
 
     fun clustering(view: View) {
