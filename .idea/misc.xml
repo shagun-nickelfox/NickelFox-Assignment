@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/circle.xml" value="0.201" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/map_background.xml" value="0.1395" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_animations_demo_screen.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_base.xml" value="0.10891590678824721" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_buttons.xml" value="0.1" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_calculator_ui.xml" value="0.1609375" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_detailed.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_form_submission.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_google_maps_screen.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_main.xml" value="0.13821138211382114" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_maps.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/my_toolbar.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/sharedtransition/activity_main2.xml" value="0.22826086956521738" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

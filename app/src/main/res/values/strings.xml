@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Nickelfox Assignment</string>
+    <string name="profile">profile</string>
+    <string name="title">title</string>
+    <string name="description">Image of a cartoon</string>
+    <string name="hello_world">Hello World</string>
+    <string name="hello_world_hope_you_all_are_doing_good">Hello World, Hope you all are doing good!!</string>
+    <string name="google_map_key">AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58</string>
+    <string name="cartoon">Image of a cartoon</string>
+    <string name="zoom">zoom</string>
+    <string name="rotation">Rotation</string>
+    <string name="fade">fade</string>
+    <string name="blink">blink</string>
+    <string name="move">move</string>
+    <string name="slide">slide</string>
+    <string name="form_submission">Form Submission</string>
+    <string name="animations_demo_screen">Animations Demo Screen</string>
+    <string name="calculator_ui">Calculator UI</string>
+    <string name="google_maps_screen">Google Maps Screen</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="name">Name</string>
+    <string name="person_icon">Person Icon</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="mother_tongue">Mother Tongue</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="rating">Rating</string>
+    <string name="terms">Accept all the terms and conditions</string>
+    <string name="submit">Submit</string>
+    <string name="find">Find</string>
+    <string name="assignment_0">Assignment 0</string>
+    <string name="marker_clustering">Marker Clustering</string>
+    <string name="shared_transition">Shared Transition</string>
+</resources>

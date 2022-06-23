@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".assignment0.CalculatorUI">
+
+    <include layout="@layout/my_toolbar" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_launcher_background"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rectangle_2"
+        android:layout_width="423dp"
+        android:layout_height="537dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-23dp"
+        app:cardBackgroundColor="@color/rectangle_2"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rectangle_4"
+            android:layout_width="70dp"
+            android:layout_height="430dp"
+            android:layout_marginLeft="319dp"
+            android:layout_marginTop="60dp"
+            app:cardBackgroundColor="@color/rectangle_4"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="15dp" >
+
+            <TextView
+                android:id="@+id/divide"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:text="÷"
+                android:textSize="26sp"
+                android:textColor="#FBFBFB"
+                android:textStyle="bold"
+                android:gravity="center_horizontal|center_vertical"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rectangle_5"
+            android:layout_width="260dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="50dp"
+            android:elevation="15dp"
+            app:cardBackgroundColor="@color/rectangle_4"
+            app:cardCornerRadius="40dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
