@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="rectangle_2" >#0A202C</color>
-    <color name="rectangle_4">#002235</color>
-    <color name="rectangle_5">#4D0A202C</color>
+    <color name="rectangle_4">#99002235</color>
+    <color name="rectangle_5">#4D050505</color>
     <color name="primaryColor">#12A058</color>
+    <color name="bar1Color">#3D76AB</color>
+    <color name="text1Color">#80FBFBFB</color>
 </resources>

@@ -13,6 +13,7 @@ class CalculatorUI : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         toolbar.title = "Calculator UI"
+        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
         setSupportActionBar(toolbar)
     }
 }

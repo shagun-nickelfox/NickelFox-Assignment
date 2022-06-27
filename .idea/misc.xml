@@ -3,18 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/bar.xml" value="0.1" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/circle.xml" value="0.201" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/ic_history.xml" value="0.214" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/drawable/map_background.xml" value="0.1395" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout-large-long-xhdpi/activity_calculator_ui.xml" value="0.1911073108165883" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_animations_demo_screen.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_base.xml" value="0.10891590678824721" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_buttons.xml" value="0.1" />
-        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_calculator_ui.xml" value="0.1609375" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_calculator_ui.xml" value="0.14685792349726776" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_crash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_detailed.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_form_submission.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_google_maps_screen.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_login.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_main.xml" value="0.13821138211382114" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_maps.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_sign_up.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_user.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/activity_user_login.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/my_toolbar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/Shagun Bansal/AndroidStudioProjects/NickelfoxAssignment/app/src/main/res/layout/sharedtransition/activity_main2.xml" value="0.22826086956521738" />
       </map>

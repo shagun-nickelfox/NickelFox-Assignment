@@ -38,7 +38,6 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         fetchLocation()
     }
 
-
     //Fetch user current location
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
@@ -75,12 +74,12 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             1000 -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 fetchLocation()
             }
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

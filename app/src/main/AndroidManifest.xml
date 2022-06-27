@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.nickelfoxassignment">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NickelfoxAssignment"
         tools:targetApi="31">
+        <activity
+            android:name=".useronboarding.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".useronboarding.UserLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".useronboarding.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".useronboarding.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crashlytics.CrashActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -26,40 +42,33 @@
         <activity
             android:name=".sharedtransition.DetailedActivity"
             android:exported="false" />
-
         <activity
             android:name=".sharedtransition.BaseActivity"
             android:exported="false" />
-
         <activity
             android:name=".demomap.MapsActivity"
             android:exported="false" />
-
         <activity
             android:name=".assignment0.ButtonsActivity"
             android:exported="false" />
-
         <activity
             android:name=".assignment0.FormSubmission"
             android:exported="false" />
-
         <activity
             android:name=".assignment0.GoogleMapsScreen"
             android:exported="false" />
-
         <activity
             android:name=".assignment0.CalculatorUI"
             android:exported="false" />
-
         <activity
             android:name=".assignment0.AnimationsDemoScreen"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

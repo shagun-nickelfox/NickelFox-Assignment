@@ -10,6 +10,7 @@ import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityFormSubmissionBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import java.lang.RuntimeException
 import java.util.*
 
 class FormSubmission : AppCompatActivity() {
@@ -33,6 +34,7 @@ class FormSubmission : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         toolbar.title = "Form Submission"
+        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
         setSupportActionBar(toolbar)
         datePickerDialog = DatePickerDialog(
             this@FormSubmission,
