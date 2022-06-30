@@ -18,6 +18,7 @@ class ButtonsActivity : AppCompatActivity() {
 
         setupToolbar()
         setupListeners()
+
     }
 
     private fun setupToolbar() {
