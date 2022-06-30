@@ -5,16 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RatingBar
-import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityFormSubmissionBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import java.lang.RuntimeException
 import java.util.*
 
 class FormSubmission : AppCompatActivity() {
-    private lateinit var toolbar: Toolbar
     private lateinit var message: String
     private lateinit var datePickerDialog: DatePickerDialog
     private var gender: String? = null
@@ -32,53 +30,77 @@ class FormSubmission : AppCompatActivity() {
         binding = ActivityFormSubmissionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        toolbar = findViewById(R.id.toolbar)
-        toolbar.title = "Form Submission"
-        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
-        setSupportActionBar(toolbar)
+        setupToolbar()
+        setUpDatePicker()
+        setUpListeners()
+
+    }
+
+    override fun onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.right_in, R.anim.right_out)
+        super.onBackPressed()
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.root.apply {
+            title = "Form Submission"
+            setBackgroundColor(ContextCompat.getColor(this@FormSubmission, R.color.yellow))
+            setTitleTextColor(ContextCompat.getColor(this@FormSubmission, R.color.purple_700))
+            setSupportActionBar(this)
+        }
+    }
+
+
+
+    private fun setUpDatePicker() {
         datePickerDialog = DatePickerDialog(
             this@FormSubmission,
-            DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                binding.textInputDob.setText("$dayOfMonth/${(month + 1)}/$year")
+            { _, year, month, dayOfMonth ->
+                binding.tvDOBInput.setText("$dayOfMonth/${(month + 1)}/$year")
             },
             mYear,
             mMonth,
             mDay
         )
+    }
 
+    private fun setUpListeners() {
         binding.apply {
-            textInputDob.apply {
+            tvDOBInput.apply {
                 setOnClickListener {
                     datePickerDialog.show()
                 }
             }
-            radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            rgGenderOptions.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
-                    R.id.radio_button_1 -> {
+                    R.id.rbMale -> {
                         gender = "Male"
                     }
-                    R.id.radio_button_2 -> {
+                    R.id.rbFemale -> {
                         gender = "Female"
                     }
                 }
             }
-            switch1.setOnCheckedChangeListener { _, onSwitch ->
+            switchHindi.setOnCheckedChangeListener { _, onSwitch ->
                 if (onSwitch) {
                     language = "Hindi"
                 }
             }
-            switch2.setOnCheckedChangeListener { _, onSwitch ->
+            switchEnglish.setOnCheckedChangeListener { _, onSwitch ->
                 if (onSwitch) {
                     language = "English"
                 }
             }
-            rBar.onRatingBarChangeListener =
+
+           rbBar.onRatingBarChangeListener =
                 RatingBar.OnRatingBarChangeListener { _, rating, _ ->
                     rate = rating
                 }
-            submitButton.setOnClickListener {
+
+            btnSubmit.setOnClickListener {
                 message =
-                    "Name: ${textInput.text.toString()} \n Date Of Birth: ${textInputDob.text.toString()} \n Gender: $gender \n Language: $language \n Rate Us: $rate"
+                    "Name: ${tvNameInput.text.toString()} \n Date Of Birth: ${tvDOBInput.text.toString()} \n Gender: $gender \n Language: $language \n Rate Us: $rate"
 
                 if (checkBox.isChecked) {
                     MaterialAlertDialogBuilder(this@FormSubmission)

@@ -18,13 +18,17 @@ class UserActivity : AppCompatActivity() {
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         preferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val name = preferences.getString("Name", "")
-        binding.text2.text = name
+        binding.tvUserEmail.text = name
 
-        binding.logout.setOnClickListener {
+        binding.btnLogout.setOnClickListener {
             firebaseAuth.signOut()
 
             val intent = Intent(this@UserActivity, UserLoginActivity::class.java)

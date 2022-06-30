@@ -21,38 +21,42 @@ public final class ActivityAnimationsDemoScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button;
+  public final Button btnBlink;
 
   @NonNull
-  public final Button button2;
+  public final Button btnFade;
 
   @NonNull
-  public final Button button3;
+  public final Button btnMove;
 
   @NonNull
-  public final Button button4;
+  public final Button btnRotation;
 
   @NonNull
-  public final Button button5;
+  public final Button btnSlide;
 
   @NonNull
-  public final Button button6;
+  public final Button btnZoom;
 
   @NonNull
-  public final ImageView imageView;
+  public final ImageView ivBartImage;
+
+  @NonNull
+  public final MyToolbarBinding toolbar;
 
   private ActivityAnimationsDemoScreenBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button button, @NonNull Button button2, @NonNull Button button3,
-      @NonNull Button button4, @NonNull Button button5, @NonNull Button button6,
-      @NonNull ImageView imageView) {
+      @NonNull Button btnBlink, @NonNull Button btnFade, @NonNull Button btnMove,
+      @NonNull Button btnRotation, @NonNull Button btnSlide, @NonNull Button btnZoom,
+      @NonNull ImageView ivBartImage, @NonNull MyToolbarBinding toolbar) {
     this.rootView = rootView;
-    this.button = button;
-    this.button2 = button2;
-    this.button3 = button3;
-    this.button4 = button4;
-    this.button5 = button5;
-    this.button6 = button6;
-    this.imageView = imageView;
+    this.btnBlink = btnBlink;
+    this.btnFade = btnFade;
+    this.btnMove = btnMove;
+    this.btnRotation = btnRotation;
+    this.btnSlide = btnSlide;
+    this.btnZoom = btnZoom;
+    this.ivBartImage = ivBartImage;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -82,50 +86,57 @@ public final class ActivityAnimationsDemoScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button;
-      Button button = ViewBindings.findChildViewById(rootView, id);
-      if (button == null) {
+      id = R.id.btnBlink;
+      Button btnBlink = ViewBindings.findChildViewById(rootView, id);
+      if (btnBlink == null) {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.btnFade;
+      Button btnFade = ViewBindings.findChildViewById(rootView, id);
+      if (btnFade == null) {
         break missingId;
       }
 
-      id = R.id.button3;
-      Button button3 = ViewBindings.findChildViewById(rootView, id);
-      if (button3 == null) {
+      id = R.id.btnMove;
+      Button btnMove = ViewBindings.findChildViewById(rootView, id);
+      if (btnMove == null) {
         break missingId;
       }
 
-      id = R.id.button4;
-      Button button4 = ViewBindings.findChildViewById(rootView, id);
-      if (button4 == null) {
+      id = R.id.btnRotation;
+      Button btnRotation = ViewBindings.findChildViewById(rootView, id);
+      if (btnRotation == null) {
         break missingId;
       }
 
-      id = R.id.button5;
-      Button button5 = ViewBindings.findChildViewById(rootView, id);
-      if (button5 == null) {
+      id = R.id.btnSlide;
+      Button btnSlide = ViewBindings.findChildViewById(rootView, id);
+      if (btnSlide == null) {
         break missingId;
       }
 
-      id = R.id.button6;
-      Button button6 = ViewBindings.findChildViewById(rootView, id);
-      if (button6 == null) {
+      id = R.id.btnZoom;
+      Button btnZoom = ViewBindings.findChildViewById(rootView, id);
+      if (btnZoom == null) {
         break missingId;
       }
 
-      id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
-      if (imageView == null) {
+      id = R.id.ivBartImage;
+      ImageView ivBartImage = ViewBindings.findChildViewById(rootView, id);
+      if (ivBartImage == null) {
         break missingId;
       }
 
-      return new ActivityAnimationsDemoScreenBinding((ConstraintLayout) rootView, button, button2,
-          button3, button4, button5, button6, imageView);
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      return new ActivityAnimationsDemoScreenBinding((ConstraintLayout) rootView, btnBlink, btnFade,
+          btnMove, btnRotation, btnSlide, btnZoom, ivBartImage, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

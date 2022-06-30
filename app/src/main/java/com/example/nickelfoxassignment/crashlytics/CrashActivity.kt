@@ -2,19 +2,20 @@ package com.example.nickelfoxassignment.crashlytics
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.databinding.ActivityCrashBinding
+import kotlinx.android.synthetic.main.activity_crash.*
 import java.lang.RuntimeException
 
 class CrashActivity : AppCompatActivity() {
-    lateinit var  button : Button
+
+    private lateinit var binding: ActivityCrashBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crash)
+        binding = ActivityCrashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        button = findViewById(R.id.button)
-
-        button.setOnClickListener{
+        btnCrash.setOnClickListener {
             throw RuntimeException("Crashed")
         }
     }

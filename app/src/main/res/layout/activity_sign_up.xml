@@ -10,7 +10,7 @@
     tools:context=".useronboarding.SignUpActivity">
 
     <ImageView
-        android:id="@+id/logoImage"
+        android:id="@+id/ivLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:contentDescription="@string/logo_image"
@@ -18,7 +18,7 @@
         android:transitionName="logoImage" />
 
     <TextView
-        android:id="@+id/logoText"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-20dp"
@@ -29,7 +29,7 @@
         android:transitionName="logoText" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up_to_start_your_new_journey"
@@ -45,7 +45,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
+            android:id="@+id/tvName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username"
+            android:id="@+id/tvUserName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+                android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
@@ -87,7 +87,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phoneNo"
+            android:id="@+id/tvPhoneNo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+                android:id="@+id/tvPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
@@ -118,7 +118,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"
@@ -127,7 +127,7 @@
         android:transitionName="login_btn" />
 
     <Button
-        android:id="@+id/alreadyAccount"
+        android:id="@+id/btnAlreadyAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"

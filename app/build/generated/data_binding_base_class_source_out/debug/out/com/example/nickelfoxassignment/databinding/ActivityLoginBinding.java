@@ -21,16 +21,16 @@ public final class ActivityLoginBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView image;
+  public final ImageView ivLogo;
 
   @NonNull
-  public final TextView text;
+  public final TextView tvTitle;
 
-  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView image,
-      @NonNull TextView text) {
+  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivLogo,
+      @NonNull TextView tvTitle) {
     this.rootView = rootView;
-    this.image = image;
-    this.text = text;
+    this.ivLogo = ivLogo;
+    this.tvTitle = tvTitle;
   }
 
   @Override
@@ -60,19 +60,19 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.image;
-      ImageView image = ViewBindings.findChildViewById(rootView, id);
-      if (image == null) {
+      id = R.id.ivLogo;
+      ImageView ivLogo = ViewBindings.findChildViewById(rootView, id);
+      if (ivLogo == null) {
         break missingId;
       }
 
-      id = R.id.text;
-      TextView text = ViewBindings.findChildViewById(rootView, id);
-      if (text == null) {
+      id = R.id.tvTitle;
+      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitle == null) {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, image, text);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, ivLogo, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

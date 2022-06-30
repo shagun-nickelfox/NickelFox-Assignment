@@ -30,12 +30,16 @@ public final class ActivityBaseBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
+  @NonNull
+  public final MyToolbarBinding toolbar;
+
   private ActivityBaseBinding(@NonNull RelativeLayout rootView, @NonNull CardView card,
-      @NonNull ImageView profile, @NonNull TextView title) {
+      @NonNull ImageView profile, @NonNull TextView title, @NonNull MyToolbarBinding toolbar) {
     this.rootView = rootView;
     this.card = card;
     this.profile = profile;
     this.title = title;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -83,7 +87,15 @@ public final class ActivityBaseBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityBaseBinding((RelativeLayout) rootView, card, profile, title);
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      return new ActivityBaseBinding((RelativeLayout) rootView, card, profile, title,
+          binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

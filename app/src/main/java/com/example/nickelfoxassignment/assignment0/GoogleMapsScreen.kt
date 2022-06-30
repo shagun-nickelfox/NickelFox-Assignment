@@ -38,6 +38,12 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         fetchLocation()
     }
 
+    override fun onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.bottom_out, R.anim.top_in)
+        super.onBackPressed()
+    }
+
     //Fetch user current location
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(

@@ -16,12 +16,8 @@ public final class MyToolbarBinding implements ViewBinding {
   @NonNull
   private final Toolbar rootView;
 
-  @NonNull
-  public final Toolbar toolbar;
-
-  private MyToolbarBinding(@NonNull Toolbar rootView, @NonNull Toolbar toolbar) {
+  private MyToolbarBinding(@NonNull Toolbar rootView) {
     this.rootView = rootView;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -51,8 +47,6 @@ public final class MyToolbarBinding implements ViewBinding {
       throw new NullPointerException("rootView");
     }
 
-    Toolbar toolbar = (Toolbar) rootView;
-
-    return new MyToolbarBinding((Toolbar) rootView, toolbar);
+    return new MyToolbarBinding((Toolbar) rootView);
   }
 }

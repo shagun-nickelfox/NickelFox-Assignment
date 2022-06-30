@@ -22,19 +22,23 @@ class UserLoginActivity : AppCompatActivity() {
         binding = ActivityUserLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
-        binding.signup.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this@UserLoginActivity,
-                Pair.create(binding.logoImage, "logoImage"),
-                Pair.create(binding.logoText, "logoText"),
-                Pair.create(binding.text, "description"),
-                Pair.create(binding.textemail, "username"),
-                Pair.create(binding.textpassword, "password"),
-                Pair.create(binding.go, "login_btn"),
-                Pair.create(binding.signup, "signup_btn")
+                Pair.create(binding.ivLogo, "logoImage"),
+                Pair.create(binding.tvTitle, "logoText"),
+                Pair.create(binding.tvSubtitle, "description"),
+                Pair.create(binding.tvEmail, "username"),
+                Pair.create(binding.tvPassword, "password"),
+                Pair.create(binding.btnGo, "login_btn"),
+                Pair.create(binding.btnSignup, "signup_btn")
             )
             startActivity(intent, options.toBundle())
             finish()
@@ -42,9 +46,9 @@ class UserLoginActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.go.setOnClickListener {
-            val userName = binding.email.text.toString()
-            val passWord = binding.password.text.toString()
+        binding.btnGo.setOnClickListener {
+            val userName = binding.tvEmailInput.text.toString()
+            val passWord = binding.tvPasswordInput.text.toString()
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putString("Name", userName)
             editor.commit()

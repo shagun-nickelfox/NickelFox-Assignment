@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NickelfoxAssignment"
         tools:targetApi="31">
+
         <activity
             android:name=".useronboarding.SignUpActivity"
             android:exported="false" />
@@ -33,6 +34,10 @@
             android:exported="false" />
         <activity
             android:name=".crashlytics.CrashActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".viewpager.ViewPagerActivity"
             android:exported="false" />
 
         <meta-data

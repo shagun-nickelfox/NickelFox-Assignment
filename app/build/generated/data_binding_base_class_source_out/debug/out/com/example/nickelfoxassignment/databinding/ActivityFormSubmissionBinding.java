@@ -29,78 +29,91 @@ public final class ActivityFormSubmissionBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button btnSubmit;
+
+  @NonNull
   public final CheckBox checkBox;
 
   @NonNull
-  public final TextInputLayout dob;
+  public final ImageView ivGender;
 
   @NonNull
-  public final ImageView genderImage;
+  public final ImageView ivLanguage;
 
   @NonNull
-  public final TextView genderText;
+  public final ImageView ivRating;
 
   @NonNull
-  public final RatingBar rBar;
+  public final RatingBar rbBar;
 
   @NonNull
-  public final RadioButton radioButton1;
+  public final RadioButton rbFemale;
 
   @NonNull
-  public final RadioButton radioButton2;
+  public final RadioButton rbMale;
 
   @NonNull
-  public final RadioGroup radioGroup;
+  public final RadioGroup rgGenderOptions;
 
   @NonNull
-  public final TextView rating;
+  public final SwitchMaterial switchEnglish;
 
   @NonNull
-  public final Button submitButton;
+  public final SwitchMaterial switchHindi;
 
   @NonNull
-  public final SwitchMaterial switch1;
+  public final MyToolbarBinding toolbar;
 
   @NonNull
-  public final SwitchMaterial switch2;
+  public final TextInputLayout tvDOB;
 
   @NonNull
-  public final TextInputLayout text;
+  public final TextInputEditText tvDOBInput;
 
   @NonNull
-  public final TextInputEditText textInput;
+  public final TextView tvGender;
 
   @NonNull
-  public final TextInputEditText textInputDob;
+  public final TextView tvLanguage;
 
   @NonNull
-  public final TextView tongueText;
+  public final TextInputLayout tvName;
+
+  @NonNull
+  public final TextInputEditText tvNameInput;
+
+  @NonNull
+  public final TextView tvRating;
 
   private ActivityFormSubmissionBinding(@NonNull ConstraintLayout rootView,
-      @NonNull CheckBox checkBox, @NonNull TextInputLayout dob, @NonNull ImageView genderImage,
-      @NonNull TextView genderText, @NonNull RatingBar rBar, @NonNull RadioButton radioButton1,
-      @NonNull RadioButton radioButton2, @NonNull RadioGroup radioGroup, @NonNull TextView rating,
-      @NonNull Button submitButton, @NonNull SwitchMaterial switch1,
-      @NonNull SwitchMaterial switch2, @NonNull TextInputLayout text,
-      @NonNull TextInputEditText textInput, @NonNull TextInputEditText textInputDob,
-      @NonNull TextView tongueText) {
+      @NonNull Button btnSubmit, @NonNull CheckBox checkBox, @NonNull ImageView ivGender,
+      @NonNull ImageView ivLanguage, @NonNull ImageView ivRating, @NonNull RatingBar rbBar,
+      @NonNull RadioButton rbFemale, @NonNull RadioButton rbMale,
+      @NonNull RadioGroup rgGenderOptions, @NonNull SwitchMaterial switchEnglish,
+      @NonNull SwitchMaterial switchHindi, @NonNull MyToolbarBinding toolbar,
+      @NonNull TextInputLayout tvDOB, @NonNull TextInputEditText tvDOBInput,
+      @NonNull TextView tvGender, @NonNull TextView tvLanguage, @NonNull TextInputLayout tvName,
+      @NonNull TextInputEditText tvNameInput, @NonNull TextView tvRating) {
     this.rootView = rootView;
+    this.btnSubmit = btnSubmit;
     this.checkBox = checkBox;
-    this.dob = dob;
-    this.genderImage = genderImage;
-    this.genderText = genderText;
-    this.rBar = rBar;
-    this.radioButton1 = radioButton1;
-    this.radioButton2 = radioButton2;
-    this.radioGroup = radioGroup;
-    this.rating = rating;
-    this.submitButton = submitButton;
-    this.switch1 = switch1;
-    this.switch2 = switch2;
-    this.text = text;
-    this.textInput = textInput;
-    this.textInputDob = textInputDob;
-    this.tongueText = tongueText;
+    this.ivGender = ivGender;
+    this.ivLanguage = ivLanguage;
+    this.ivRating = ivRating;
+    this.rbBar = rbBar;
+    this.rbFemale = rbFemale;
+    this.rbMale = rbMale;
+    this.rgGenderOptions = rgGenderOptions;
+    this.switchEnglish = switchEnglish;
+    this.switchHindi = switchHindi;
+    this.toolbar = toolbar;
+    this.tvDOB = tvDOB;
+    this.tvDOBInput = tvDOBInput;
+    this.tvGender = tvGender;
+    this.tvLanguage = tvLanguage;
+    this.tvName = tvName;
+    this.tvNameInput = tvNameInput;
+    this.tvRating = tvRating;
   }
 
   @Override
@@ -130,105 +143,125 @@ public final class ActivityFormSubmissionBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnSubmit;
+      Button btnSubmit = ViewBindings.findChildViewById(rootView, id);
+      if (btnSubmit == null) {
+        break missingId;
+      }
+
       id = R.id.checkBox;
       CheckBox checkBox = ViewBindings.findChildViewById(rootView, id);
       if (checkBox == null) {
         break missingId;
       }
 
-      id = R.id.dob;
-      TextInputLayout dob = ViewBindings.findChildViewById(rootView, id);
-      if (dob == null) {
+      id = R.id.ivGender;
+      ImageView ivGender = ViewBindings.findChildViewById(rootView, id);
+      if (ivGender == null) {
         break missingId;
       }
 
-      id = R.id.genderImage;
-      ImageView genderImage = ViewBindings.findChildViewById(rootView, id);
-      if (genderImage == null) {
+      id = R.id.ivLanguage;
+      ImageView ivLanguage = ViewBindings.findChildViewById(rootView, id);
+      if (ivLanguage == null) {
         break missingId;
       }
 
-      id = R.id.genderText;
-      TextView genderText = ViewBindings.findChildViewById(rootView, id);
-      if (genderText == null) {
+      id = R.id.ivRating;
+      ImageView ivRating = ViewBindings.findChildViewById(rootView, id);
+      if (ivRating == null) {
         break missingId;
       }
 
-      id = R.id.rBar;
-      RatingBar rBar = ViewBindings.findChildViewById(rootView, id);
-      if (rBar == null) {
+      id = R.id.rbBar;
+      RatingBar rbBar = ViewBindings.findChildViewById(rootView, id);
+      if (rbBar == null) {
         break missingId;
       }
 
-      id = R.id.radio_button_1;
-      RadioButton radioButton1 = ViewBindings.findChildViewById(rootView, id);
-      if (radioButton1 == null) {
+      id = R.id.rbFemale;
+      RadioButton rbFemale = ViewBindings.findChildViewById(rootView, id);
+      if (rbFemale == null) {
         break missingId;
       }
 
-      id = R.id.radio_button_2;
-      RadioButton radioButton2 = ViewBindings.findChildViewById(rootView, id);
-      if (radioButton2 == null) {
+      id = R.id.rbMale;
+      RadioButton rbMale = ViewBindings.findChildViewById(rootView, id);
+      if (rbMale == null) {
         break missingId;
       }
 
-      id = R.id.radioGroup;
-      RadioGroup radioGroup = ViewBindings.findChildViewById(rootView, id);
-      if (radioGroup == null) {
+      id = R.id.rgGenderOptions;
+      RadioGroup rgGenderOptions = ViewBindings.findChildViewById(rootView, id);
+      if (rgGenderOptions == null) {
         break missingId;
       }
 
-      id = R.id.rating;
-      TextView rating = ViewBindings.findChildViewById(rootView, id);
-      if (rating == null) {
+      id = R.id.switchEnglish;
+      SwitchMaterial switchEnglish = ViewBindings.findChildViewById(rootView, id);
+      if (switchEnglish == null) {
         break missingId;
       }
 
-      id = R.id.submitButton;
-      Button submitButton = ViewBindings.findChildViewById(rootView, id);
-      if (submitButton == null) {
+      id = R.id.switchHindi;
+      SwitchMaterial switchHindi = ViewBindings.findChildViewById(rootView, id);
+      if (switchHindi == null) {
         break missingId;
       }
 
-      id = R.id.switch1;
-      SwitchMaterial switch1 = ViewBindings.findChildViewById(rootView, id);
-      if (switch1 == null) {
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      id = R.id.tvDOB;
+      TextInputLayout tvDOB = ViewBindings.findChildViewById(rootView, id);
+      if (tvDOB == null) {
         break missingId;
       }
 
-      id = R.id.switch2;
-      SwitchMaterial switch2 = ViewBindings.findChildViewById(rootView, id);
-      if (switch2 == null) {
+      id = R.id.tvDOBInput;
+      TextInputEditText tvDOBInput = ViewBindings.findChildViewById(rootView, id);
+      if (tvDOBInput == null) {
         break missingId;
       }
 
-      id = R.id.text;
-      TextInputLayout text = ViewBindings.findChildViewById(rootView, id);
-      if (text == null) {
+      id = R.id.tvGender;
+      TextView tvGender = ViewBindings.findChildViewById(rootView, id);
+      if (tvGender == null) {
         break missingId;
       }
 
-      id = R.id.textInput;
-      TextInputEditText textInput = ViewBindings.findChildViewById(rootView, id);
-      if (textInput == null) {
+      id = R.id.tvLanguage;
+      TextView tvLanguage = ViewBindings.findChildViewById(rootView, id);
+      if (tvLanguage == null) {
         break missingId;
       }
 
-      id = R.id.textInputDob;
-      TextInputEditText textInputDob = ViewBindings.findChildViewById(rootView, id);
-      if (textInputDob == null) {
+      id = R.id.tvName;
+      TextInputLayout tvName = ViewBindings.findChildViewById(rootView, id);
+      if (tvName == null) {
         break missingId;
       }
 
-      id = R.id.tongueText;
-      TextView tongueText = ViewBindings.findChildViewById(rootView, id);
-      if (tongueText == null) {
+      id = R.id.tvNameInput;
+      TextInputEditText tvNameInput = ViewBindings.findChildViewById(rootView, id);
+      if (tvNameInput == null) {
         break missingId;
       }
 
-      return new ActivityFormSubmissionBinding((ConstraintLayout) rootView, checkBox, dob,
-          genderImage, genderText, rBar, radioButton1, radioButton2, radioGroup, rating,
-          submitButton, switch1, switch2, text, textInput, textInputDob, tongueText);
+      id = R.id.tvRating;
+      TextView tvRating = ViewBindings.findChildViewById(rootView, id);
+      if (tvRating == null) {
+        break missingId;
+      }
+
+      return new ActivityFormSubmissionBinding((ConstraintLayout) rootView, btnSubmit, checkBox,
+          ivGender, ivLanguage, ivRating, rbBar, rbFemale, rbMale, rgGenderOptions, switchEnglish,
+          switchHindi, binding_toolbar, tvDOB, tvDOBInput, tvGender, tvLanguage, tvName,
+          tvNameInput, tvRating);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

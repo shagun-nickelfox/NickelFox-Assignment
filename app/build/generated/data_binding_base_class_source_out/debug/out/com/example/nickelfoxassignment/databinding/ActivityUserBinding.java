@@ -21,20 +21,20 @@ public final class ActivityUserBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button logout;
+  public final Button btnLogout;
 
   @NonNull
-  public final TextView text1;
+  public final TextView tvUserEmail;
 
   @NonNull
-  public final TextView text2;
+  public final TextView tvWelcome;
 
-  private ActivityUserBinding(@NonNull ConstraintLayout rootView, @NonNull Button logout,
-      @NonNull TextView text1, @NonNull TextView text2) {
+  private ActivityUserBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLogout,
+      @NonNull TextView tvUserEmail, @NonNull TextView tvWelcome) {
     this.rootView = rootView;
-    this.logout = logout;
-    this.text1 = text1;
-    this.text2 = text2;
+    this.btnLogout = btnLogout;
+    this.tvUserEmail = tvUserEmail;
+    this.tvWelcome = tvWelcome;
   }
 
   @Override
@@ -64,25 +64,26 @@ public final class ActivityUserBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.logout;
-      Button logout = ViewBindings.findChildViewById(rootView, id);
-      if (logout == null) {
+      id = R.id.btnLogout;
+      Button btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
         break missingId;
       }
 
-      id = R.id.text1;
-      TextView text1 = ViewBindings.findChildViewById(rootView, id);
-      if (text1 == null) {
+      id = R.id.tvUserEmail;
+      TextView tvUserEmail = ViewBindings.findChildViewById(rootView, id);
+      if (tvUserEmail == null) {
         break missingId;
       }
 
-      id = R.id.text2;
-      TextView text2 = ViewBindings.findChildViewById(rootView, id);
-      if (text2 == null) {
+      id = R.id.tvWelcome;
+      TextView tvWelcome = ViewBindings.findChildViewById(rootView, id);
+      if (tvWelcome == null) {
         break missingId;
       }
 
-      return new ActivityUserBinding((ConstraintLayout) rootView, logout, text1, text2);
+      return new ActivityUserBinding((ConstraintLayout) rootView, btnLogout, tvUserEmail,
+          tvWelcome);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

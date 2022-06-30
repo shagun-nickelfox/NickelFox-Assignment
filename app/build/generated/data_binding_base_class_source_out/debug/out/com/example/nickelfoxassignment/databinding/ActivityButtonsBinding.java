@@ -4,9 +4,9 @@ package com.example.nickelfoxassignment.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,24 +20,29 @@ public final class ActivityButtonsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button1;
+  public final CardView cvAnimation;
 
   @NonNull
-  public final Button button2;
+  public final CardView cvCalculator;
 
   @NonNull
-  public final Button button3;
+  public final CardView cvFormSubmission;
 
   @NonNull
-  public final Button button4;
+  public final CardView cvGoogleMaps;
 
-  private ActivityButtonsBinding(@NonNull ConstraintLayout rootView, @NonNull Button button1,
-      @NonNull Button button2, @NonNull Button button3, @NonNull Button button4) {
+  @NonNull
+  public final MyToolbarBinding toolbar;
+
+  private ActivityButtonsBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cvAnimation,
+      @NonNull CardView cvCalculator, @NonNull CardView cvFormSubmission,
+      @NonNull CardView cvGoogleMaps, @NonNull MyToolbarBinding toolbar) {
     this.rootView = rootView;
-    this.button1 = button1;
-    this.button2 = button2;
-    this.button3 = button3;
-    this.button4 = button4;
+    this.cvAnimation = cvAnimation;
+    this.cvCalculator = cvCalculator;
+    this.cvFormSubmission = cvFormSubmission;
+    this.cvGoogleMaps = cvGoogleMaps;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -67,32 +72,39 @@ public final class ActivityButtonsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button1;
-      Button button1 = ViewBindings.findChildViewById(rootView, id);
-      if (button1 == null) {
+      id = R.id.cvAnimation;
+      CardView cvAnimation = ViewBindings.findChildViewById(rootView, id);
+      if (cvAnimation == null) {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.cvCalculator;
+      CardView cvCalculator = ViewBindings.findChildViewById(rootView, id);
+      if (cvCalculator == null) {
         break missingId;
       }
 
-      id = R.id.button3;
-      Button button3 = ViewBindings.findChildViewById(rootView, id);
-      if (button3 == null) {
+      id = R.id.cvFormSubmission;
+      CardView cvFormSubmission = ViewBindings.findChildViewById(rootView, id);
+      if (cvFormSubmission == null) {
         break missingId;
       }
 
-      id = R.id.button4;
-      Button button4 = ViewBindings.findChildViewById(rootView, id);
-      if (button4 == null) {
+      id = R.id.cvGoogleMaps;
+      CardView cvGoogleMaps = ViewBindings.findChildViewById(rootView, id);
+      if (cvGoogleMaps == null) {
         break missingId;
       }
 
-      return new ActivityButtonsBinding((ConstraintLayout) rootView, button1, button2, button3,
-          button4);
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      return new ActivityButtonsBinding((ConstraintLayout) rootView, cvAnimation, cvCalculator,
+          cvFormSubmission, cvGoogleMaps, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

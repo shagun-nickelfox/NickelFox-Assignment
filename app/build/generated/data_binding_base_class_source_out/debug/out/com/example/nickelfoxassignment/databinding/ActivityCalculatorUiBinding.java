@@ -21,19 +21,100 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView ac;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final View bar1;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final View bar2;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final ConstraintLayout clBaseRectangle;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView divide;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView equal;
 
   /**
@@ -52,34 +133,199 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
   @Nullable
   public final LinearLayout linear1;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final LinearLayout linear2;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final LinearLayout linear3;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final LinearLayout linear4;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView multiply;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView percent;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView plus;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView plusminus;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final View rectangle2;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final CardView rectangle4;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final CardView rectangle5;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView subtract;
 
   @NonNull
   public final TextView textView1;
 
-  @NonNull
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView textView2;
 
   /**
@@ -96,21 +342,223 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
-  public final View vector;
+  public final MyToolbarBinding toolbar;
 
-  private ActivityCalculatorUiBinding(@NonNull ConstraintLayout rootView, @NonNull TextView ac,
-      @NonNull View bar1, @NonNull View bar2, @NonNull TextView divide, @NonNull TextView equal,
-      @Nullable LinearLayout linear1, @NonNull TextView multiply, @NonNull TextView percent,
-      @NonNull TextView plus, @NonNull TextView plusminus, @NonNull View rectangle2,
-      @NonNull CardView rectangle4, @NonNull CardView rectangle5, @NonNull TextView subtract,
-      @NonNull TextView textView1, @NonNull TextView textView2, @Nullable View vector) {
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvAC;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvDivide;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvEqual;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvMultiply;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvPercent;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvPlus;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvPlusMinus;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvSubtract;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final View viewBar1;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final View viewBar2;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final View viewHorizontalBar;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final View viewVerticalBar;
+
+  private ActivityCalculatorUiBinding(@NonNull ConstraintLayout rootView, @Nullable TextView ac,
+      @Nullable View bar1, @Nullable View bar2, @Nullable ConstraintLayout clBaseRectangle,
+      @Nullable TextView divide, @Nullable TextView equal, @Nullable LinearLayout linear1,
+      @Nullable LinearLayout linear2, @Nullable LinearLayout linear3,
+      @Nullable LinearLayout linear4, @Nullable TextView multiply, @Nullable TextView percent,
+      @Nullable TextView plus, @Nullable TextView plusminus, @Nullable View rectangle2,
+      @Nullable CardView rectangle4, @Nullable CardView rectangle5, @Nullable TextView subtract,
+      @NonNull TextView textView1, @Nullable TextView textView2, @Nullable MyToolbarBinding toolbar,
+      @Nullable TextView tvAC, @Nullable TextView tvDivide, @Nullable TextView tvEqual,
+      @Nullable TextView tvMultiply, @Nullable TextView tvPercent, @Nullable TextView tvPlus,
+      @Nullable TextView tvPlusMinus, @Nullable TextView tvSubtract, @Nullable View viewBar1,
+      @Nullable View viewBar2, @Nullable View viewHorizontalBar, @Nullable View viewVerticalBar) {
     this.rootView = rootView;
     this.ac = ac;
     this.bar1 = bar1;
     this.bar2 = bar2;
+    this.clBaseRectangle = clBaseRectangle;
     this.divide = divide;
     this.equal = equal;
     this.linear1 = linear1;
+    this.linear2 = linear2;
+    this.linear3 = linear3;
+    this.linear4 = linear4;
     this.multiply = multiply;
     this.percent = percent;
     this.plus = plus;
@@ -121,7 +569,19 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
     this.subtract = subtract;
     this.textView1 = textView1;
     this.textView2 = textView2;
-    this.vector = vector;
+    this.toolbar = toolbar;
+    this.tvAC = tvAC;
+    this.tvDivide = tvDivide;
+    this.tvEqual = tvEqual;
+    this.tvMultiply = tvMultiply;
+    this.tvPercent = tvPercent;
+    this.tvPlus = tvPlus;
+    this.tvPlusMinus = tvPlusMinus;
+    this.tvSubtract = tvSubtract;
+    this.viewBar1 = viewBar1;
+    this.viewBar2 = viewBar2;
+    this.viewHorizontalBar = viewHorizontalBar;
+    this.viewVerticalBar = viewVerticalBar;
   }
 
   @Override
@@ -153,84 +613,57 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
     missingId: {
       id = R.id.ac;
       TextView ac = ViewBindings.findChildViewById(rootView, id);
-      if (ac == null) {
-        break missingId;
-      }
 
       id = R.id.bar_1;
       View bar1 = ViewBindings.findChildViewById(rootView, id);
-      if (bar1 == null) {
-        break missingId;
-      }
 
       id = R.id.bar_2;
       View bar2 = ViewBindings.findChildViewById(rootView, id);
-      if (bar2 == null) {
-        break missingId;
-      }
+
+      id = R.id.clBaseRectangle;
+      ConstraintLayout clBaseRectangle = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.divide;
       TextView divide = ViewBindings.findChildViewById(rootView, id);
-      if (divide == null) {
-        break missingId;
-      }
 
       id = R.id.equal;
       TextView equal = ViewBindings.findChildViewById(rootView, id);
-      if (equal == null) {
-        break missingId;
-      }
 
       id = R.id.linear1;
       LinearLayout linear1 = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.linear2;
+      LinearLayout linear2 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.linear3;
+      LinearLayout linear3 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.linear4;
+      LinearLayout linear4 = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.multiply;
       TextView multiply = ViewBindings.findChildViewById(rootView, id);
-      if (multiply == null) {
-        break missingId;
-      }
 
       id = R.id.percent;
       TextView percent = ViewBindings.findChildViewById(rootView, id);
-      if (percent == null) {
-        break missingId;
-      }
 
       id = R.id.plus;
       TextView plus = ViewBindings.findChildViewById(rootView, id);
-      if (plus == null) {
-        break missingId;
-      }
 
       id = R.id.plusminus;
       TextView plusminus = ViewBindings.findChildViewById(rootView, id);
-      if (plusminus == null) {
-        break missingId;
-      }
 
       id = R.id.rectangle_2;
       View rectangle2 = ViewBindings.findChildViewById(rootView, id);
-      if (rectangle2 == null) {
-        break missingId;
-      }
 
       id = R.id.rectangle_4;
       CardView rectangle4 = ViewBindings.findChildViewById(rootView, id);
-      if (rectangle4 == null) {
-        break missingId;
-      }
 
       id = R.id.rectangle_5;
       CardView rectangle5 = ViewBindings.findChildViewById(rootView, id);
-      if (rectangle5 == null) {
-        break missingId;
-      }
 
       id = R.id.subtract;
       TextView subtract = ViewBindings.findChildViewById(rootView, id);
-      if (subtract == null) {
-        break missingId;
-      }
 
       id = R.id.textView1;
       TextView textView1 = ViewBindings.findChildViewById(rootView, id);
@@ -240,16 +673,54 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
 
       id = R.id.textView2;
       TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
-        break missingId;
-      }
 
-      id = R.id.vector;
-      View vector = ViewBindings.findChildViewById(rootView, id);
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      MyToolbarBinding binding_toolbar = toolbar != null
+          ? MyToolbarBinding.bind(toolbar)
+          : null;
 
-      return new ActivityCalculatorUiBinding((ConstraintLayout) rootView, ac, bar1, bar2, divide,
-          equal, linear1, multiply, percent, plus, plusminus, rectangle2, rectangle4, rectangle5,
-          subtract, textView1, textView2, vector);
+      id = R.id.tvAC;
+      TextView tvAC = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvDivide;
+      TextView tvDivide = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvEqual;
+      TextView tvEqual = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvMultiply;
+      TextView tvMultiply = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvPercent;
+      TextView tvPercent = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvPlus;
+      TextView tvPlus = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvPlusMinus;
+      TextView tvPlusMinus = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvSubtract;
+      TextView tvSubtract = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.viewBar1;
+      View viewBar1 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.viewBar2;
+      View viewBar2 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.viewHorizontalBar;
+      View viewHorizontalBar = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.viewVerticalBar;
+      View viewVerticalBar = ViewBindings.findChildViewById(rootView, id);
+
+      return new ActivityCalculatorUiBinding((ConstraintLayout) rootView, ac, bar1, bar2,
+          clBaseRectangle, divide, equal, linear1, linear2, linear3, linear4, multiply, percent,
+          plus, plusminus, rectangle2, rectangle4, rectangle5, subtract, textView1, textView2,
+          binding_toolbar, tvAC, tvDivide, tvEqual, tvMultiply, tvPercent, tvPlus, tvPlusMinus,
+          tvSubtract, viewBar1, viewBar2, viewHorizontalBar, viewVerticalBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

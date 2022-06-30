@@ -5,21 +5,21 @@
     //zoom in
     <scale
         android:duration="5000"
-        android:fromXScale="1"
-        android:fromYScale="1"
+        android:fromXScale="0"
+        android:fromYScale="0"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:toXScale="1.5"
-        android:toYScale="1.5" />
+        android:toXScale="0.5"
+        android:toYScale="0.5" />
 
     //zoom out
     <scale
         android:duration="5000"
-        android:fromXScale="1.0"
-        android:fromYScale="1.0"
+        android:fromXScale="2.1"
+        android:fromYScale="2.1"
         android:pivotX="50%"
         android:pivotY="50%"
         android:startOffset="5000"
-        android:toXScale="0.5"
-        android:toYScale="0.5" />
+        android:toXScale="0"
+        android:toYScale="0" />
 </set>

@@ -20,11 +20,11 @@ public final class ActivityCrashBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button;
+  public final Button btnCrash;
 
-  private ActivityCrashBinding(@NonNull ConstraintLayout rootView, @NonNull Button button) {
+  private ActivityCrashBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnCrash) {
     this.rootView = rootView;
-    this.button = button;
+    this.btnCrash = btnCrash;
   }
 
   @Override
@@ -54,13 +54,13 @@ public final class ActivityCrashBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button;
-      Button button = ViewBindings.findChildViewById(rootView, id);
-      if (button == null) {
+      id = R.id.btnCrash;
+      Button btnCrash = ViewBindings.findChildViewById(rootView, id);
+      if (btnCrash == null) {
         break missingId;
       }
 
-      return new ActivityCrashBinding((ConstraintLayout) rootView, button);
+      return new ActivityCrashBinding((ConstraintLayout) rootView, btnCrash);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

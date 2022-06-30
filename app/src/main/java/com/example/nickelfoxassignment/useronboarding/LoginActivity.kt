@@ -20,9 +20,15 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupListeners()
+
+    }
+
+    private fun setupListeners() {
         binding.apply {
-            image.animation = AnimationUtils.loadAnimation(this@LoginActivity, R.anim.top_animation)
-            text.animation =
+            ivLogo.animation =
+                AnimationUtils.loadAnimation(this@LoginActivity, R.anim.top_animation)
+            tvTitle.animation =
                 AnimationUtils.loadAnimation(this@LoginActivity, R.anim.bottom_animation)
 
         }
@@ -32,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, UserLoginActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this@LoginActivity,
-                Pair.create(binding.image, "logoImage"), Pair.create(binding.text, "logoText")
+                Pair.create(binding.ivLogo, "logoImage"), Pair.create(binding.tvTitle, "logoText")
             )
             startActivity(intent, options.toBundle())
             finish()

@@ -26,11 +26,15 @@ public final class ActivityDetailedBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
+  @NonNull
+  public final MyToolbarBinding toolbar;
+
   private ActivityDetailedBinding(@NonNull LinearLayout rootView, @NonNull ImageView profile,
-      @NonNull TextView title) {
+      @NonNull TextView title, @NonNull MyToolbarBinding toolbar) {
     this.rootView = rootView;
     this.profile = profile;
     this.title = title;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -72,7 +76,14 @@ public final class ActivityDetailedBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDetailedBinding((LinearLayout) rootView, profile, title);
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      return new ActivityDetailedBinding((LinearLayout) rootView, profile, title, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

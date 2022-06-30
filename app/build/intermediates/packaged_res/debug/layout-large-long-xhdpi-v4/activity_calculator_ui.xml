@@ -68,7 +68,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="172dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/subtrsct"
+            android:text="@string/subtract"
             android:textColor="#FBFBFB"
             android:textSize="26sp"
             android:textStyle="bold" />

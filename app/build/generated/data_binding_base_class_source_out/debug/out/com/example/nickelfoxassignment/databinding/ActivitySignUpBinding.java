@@ -24,51 +24,51 @@ public final class ActivitySignUpBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button alreadyAccount;
+  public final Button btnAlreadyAccount;
 
   @NonNull
-  public final TextInputEditText email;
+  public final Button btnSignup;
 
   @NonNull
-  public final ImageView logoImage;
+  public final ImageView ivLogo;
 
   @NonNull
-  public final TextView logoText;
+  public final TextInputEditText tvEmail;
 
   @NonNull
-  public final TextInputLayout name;
+  public final TextInputLayout tvName;
 
   @NonNull
-  public final TextInputEditText password;
+  public final TextInputEditText tvPassword;
 
   @NonNull
-  public final TextInputLayout phoneNo;
+  public final TextInputLayout tvPhoneNo;
 
   @NonNull
-  public final Button signup;
+  public final TextView tvSubtitle;
 
   @NonNull
-  public final TextView text;
+  public final TextView tvTitle;
 
   @NonNull
-  public final TextInputLayout username;
+  public final TextInputLayout tvUserName;
 
-  private ActivitySignUpBinding(@NonNull LinearLayout rootView, @NonNull Button alreadyAccount,
-      @NonNull TextInputEditText email, @NonNull ImageView logoImage, @NonNull TextView logoText,
-      @NonNull TextInputLayout name, @NonNull TextInputEditText password,
-      @NonNull TextInputLayout phoneNo, @NonNull Button signup, @NonNull TextView text,
-      @NonNull TextInputLayout username) {
+  private ActivitySignUpBinding(@NonNull LinearLayout rootView, @NonNull Button btnAlreadyAccount,
+      @NonNull Button btnSignup, @NonNull ImageView ivLogo, @NonNull TextInputEditText tvEmail,
+      @NonNull TextInputLayout tvName, @NonNull TextInputEditText tvPassword,
+      @NonNull TextInputLayout tvPhoneNo, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle,
+      @NonNull TextInputLayout tvUserName) {
     this.rootView = rootView;
-    this.alreadyAccount = alreadyAccount;
-    this.email = email;
-    this.logoImage = logoImage;
-    this.logoText = logoText;
-    this.name = name;
-    this.password = password;
-    this.phoneNo = phoneNo;
-    this.signup = signup;
-    this.text = text;
-    this.username = username;
+    this.btnAlreadyAccount = btnAlreadyAccount;
+    this.btnSignup = btnSignup;
+    this.ivLogo = ivLogo;
+    this.tvEmail = tvEmail;
+    this.tvName = tvName;
+    this.tvPassword = tvPassword;
+    this.tvPhoneNo = tvPhoneNo;
+    this.tvSubtitle = tvSubtitle;
+    this.tvTitle = tvTitle;
+    this.tvUserName = tvUserName;
   }
 
   @Override
@@ -98,68 +98,68 @@ public final class ActivitySignUpBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.alreadyAccount;
-      Button alreadyAccount = ViewBindings.findChildViewById(rootView, id);
-      if (alreadyAccount == null) {
+      id = R.id.btnAlreadyAccount;
+      Button btnAlreadyAccount = ViewBindings.findChildViewById(rootView, id);
+      if (btnAlreadyAccount == null) {
         break missingId;
       }
 
-      id = R.id.email;
-      TextInputEditText email = ViewBindings.findChildViewById(rootView, id);
-      if (email == null) {
+      id = R.id.btnSignup;
+      Button btnSignup = ViewBindings.findChildViewById(rootView, id);
+      if (btnSignup == null) {
         break missingId;
       }
 
-      id = R.id.logoImage;
-      ImageView logoImage = ViewBindings.findChildViewById(rootView, id);
-      if (logoImage == null) {
+      id = R.id.ivLogo;
+      ImageView ivLogo = ViewBindings.findChildViewById(rootView, id);
+      if (ivLogo == null) {
         break missingId;
       }
 
-      id = R.id.logoText;
-      TextView logoText = ViewBindings.findChildViewById(rootView, id);
-      if (logoText == null) {
+      id = R.id.tvEmail;
+      TextInputEditText tvEmail = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmail == null) {
         break missingId;
       }
 
-      id = R.id.name;
-      TextInputLayout name = ViewBindings.findChildViewById(rootView, id);
-      if (name == null) {
+      id = R.id.tvName;
+      TextInputLayout tvName = ViewBindings.findChildViewById(rootView, id);
+      if (tvName == null) {
         break missingId;
       }
 
-      id = R.id.password;
-      TextInputEditText password = ViewBindings.findChildViewById(rootView, id);
-      if (password == null) {
+      id = R.id.tvPassword;
+      TextInputEditText tvPassword = ViewBindings.findChildViewById(rootView, id);
+      if (tvPassword == null) {
         break missingId;
       }
 
-      id = R.id.phoneNo;
-      TextInputLayout phoneNo = ViewBindings.findChildViewById(rootView, id);
-      if (phoneNo == null) {
+      id = R.id.tvPhoneNo;
+      TextInputLayout tvPhoneNo = ViewBindings.findChildViewById(rootView, id);
+      if (tvPhoneNo == null) {
         break missingId;
       }
 
-      id = R.id.signup;
-      Button signup = ViewBindings.findChildViewById(rootView, id);
-      if (signup == null) {
+      id = R.id.tvSubtitle;
+      TextView tvSubtitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvSubtitle == null) {
         break missingId;
       }
 
-      id = R.id.text;
-      TextView text = ViewBindings.findChildViewById(rootView, id);
-      if (text == null) {
+      id = R.id.tvTitle;
+      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitle == null) {
         break missingId;
       }
 
-      id = R.id.username;
-      TextInputLayout username = ViewBindings.findChildViewById(rootView, id);
-      if (username == null) {
+      id = R.id.tvUserName;
+      TextInputLayout tvUserName = ViewBindings.findChildViewById(rootView, id);
+      if (tvUserName == null) {
         break missingId;
       }
 
-      return new ActivitySignUpBinding((LinearLayout) rootView, alreadyAccount, email, logoImage,
-          logoText, name, password, phoneNo, signup, text, username);
+      return new ActivitySignUpBinding((LinearLayout) rootView, btnAlreadyAccount, btnSignup,
+          ivLogo, tvEmail, tvName, tvPassword, tvPhoneNo, tvSubtitle, tvTitle, tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

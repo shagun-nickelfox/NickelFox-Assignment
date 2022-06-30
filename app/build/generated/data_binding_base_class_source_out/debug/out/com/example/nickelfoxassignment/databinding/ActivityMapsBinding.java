@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.nickelfoxassignment.R;
 import java.lang.NullPointerException;
@@ -13,15 +14,20 @@ import java.lang.Override;
 
 public final class ActivityMapsBinding implements ViewBinding {
   @NonNull
-  private final View rootView;
+  private final FragmentContainerView rootView;
 
-  private ActivityMapsBinding(@NonNull View rootView) {
+  @NonNull
+  public final FragmentContainerView map;
+
+  private ActivityMapsBinding(@NonNull FragmentContainerView rootView,
+      @NonNull FragmentContainerView map) {
     this.rootView = rootView;
+    this.map = map;
   }
 
   @Override
   @NonNull
-  public View getRoot() {
+  public FragmentContainerView getRoot() {
     return rootView;
   }
 
@@ -46,6 +52,8 @@ public final class ActivityMapsBinding implements ViewBinding {
       throw new NullPointerException("rootView");
     }
 
-    return new ActivityMapsBinding(rootView);
+    FragmentContainerView map = (FragmentContainerView) rootView;
+
+    return new ActivityMapsBinding((FragmentContainerView) rootView, map);
   }
 }

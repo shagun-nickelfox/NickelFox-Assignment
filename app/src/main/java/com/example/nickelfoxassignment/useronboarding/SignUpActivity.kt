@@ -18,26 +18,30 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.alreadyAccount.setOnClickListener {
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        binding.btnAlreadyAccount.setOnClickListener {
             val intent = Intent(this@SignUpActivity, UserLoginActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this,
-                Pair.create(binding.logoImage, "logoImage"),
-                Pair.create(binding.logoText, "logoText"),
-                Pair.create(binding.text, "description"),
-                Pair.create(binding.username, "username"),
-                Pair.create(binding.password, "password"),
-                Pair.create(binding.signup, "login_btn"),
-                Pair.create(binding.alreadyAccount, "signup_btn")
+                Pair.create(binding.ivLogo, "logoImage"),
+                Pair.create(binding.tvTitle, "logoText"),
+                Pair.create(binding.tvSubtitle, "description"),
+                Pair.create(binding.tvUserName, "username"),
+                Pair.create(binding.tvPassword, "password"),
+                Pair.create(binding.btnSignup, "login_btn"),
+                Pair.create(binding.btnAlreadyAccount, "signup_btn")
             )
             startActivity(intent, options.toBundle())
             finish()
         }
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.signup.setOnClickListener {
-            val usernameF = binding.email.text.toString()
-            val passwordF = binding.password.text.toString()
+        binding.btnSignup.setOnClickListener {
+            val usernameF = binding.tvEmail.text.toString()
+            val passwordF = binding.tvPassword.text.toString()
             if (usernameF.isNotEmpty() && passwordF.isNotEmpty()) {
                 firebaseAuth.createUserWithEmailAndPassword(usernameF, passwordF)
                     .addOnCompleteListener {

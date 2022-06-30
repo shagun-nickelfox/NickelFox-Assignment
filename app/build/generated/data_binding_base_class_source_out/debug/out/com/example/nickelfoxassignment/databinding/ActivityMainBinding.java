@@ -4,9 +4,9 @@ package com.example.nickelfoxassignment.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,29 +20,38 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button button1;
+  public final CardView cvCrashlytics;
 
   @NonNull
-  public final Button button2;
+  public final CardView cvFirstAssignment;
 
   @NonNull
-  public final Button button3;
+  public final CardView cvMarkerClustering;
 
   @NonNull
-  public final Button button4;
+  public final CardView cvOnBoarding;
 
   @NonNull
-  public final Button button5;
+  public final CardView cvSharedTransition;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button button1,
-      @NonNull Button button2, @NonNull Button button3, @NonNull Button button4,
-      @NonNull Button button5) {
+  @NonNull
+  public final CardView cvViewPager;
+
+  @NonNull
+  public final MyToolbarBinding toolbar;
+
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cvCrashlytics,
+      @NonNull CardView cvFirstAssignment, @NonNull CardView cvMarkerClustering,
+      @NonNull CardView cvOnBoarding, @NonNull CardView cvSharedTransition,
+      @NonNull CardView cvViewPager, @NonNull MyToolbarBinding toolbar) {
     this.rootView = rootView;
-    this.button1 = button1;
-    this.button2 = button2;
-    this.button3 = button3;
-    this.button4 = button4;
-    this.button5 = button5;
+    this.cvCrashlytics = cvCrashlytics;
+    this.cvFirstAssignment = cvFirstAssignment;
+    this.cvMarkerClustering = cvMarkerClustering;
+    this.cvOnBoarding = cvOnBoarding;
+    this.cvSharedTransition = cvSharedTransition;
+    this.cvViewPager = cvViewPager;
+    this.toolbar = toolbar;
   }
 
   @Override
@@ -72,38 +81,51 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button1;
-      Button button1 = ViewBindings.findChildViewById(rootView, id);
-      if (button1 == null) {
+      id = R.id.cvCrashlytics;
+      CardView cvCrashlytics = ViewBindings.findChildViewById(rootView, id);
+      if (cvCrashlytics == null) {
         break missingId;
       }
 
-      id = R.id.button2;
-      Button button2 = ViewBindings.findChildViewById(rootView, id);
-      if (button2 == null) {
+      id = R.id.cvFirstAssignment;
+      CardView cvFirstAssignment = ViewBindings.findChildViewById(rootView, id);
+      if (cvFirstAssignment == null) {
         break missingId;
       }
 
-      id = R.id.button3;
-      Button button3 = ViewBindings.findChildViewById(rootView, id);
-      if (button3 == null) {
+      id = R.id.cvMarkerClustering;
+      CardView cvMarkerClustering = ViewBindings.findChildViewById(rootView, id);
+      if (cvMarkerClustering == null) {
         break missingId;
       }
 
-      id = R.id.button4;
-      Button button4 = ViewBindings.findChildViewById(rootView, id);
-      if (button4 == null) {
+      id = R.id.cvOnBoarding;
+      CardView cvOnBoarding = ViewBindings.findChildViewById(rootView, id);
+      if (cvOnBoarding == null) {
         break missingId;
       }
 
-      id = R.id.button5;
-      Button button5 = ViewBindings.findChildViewById(rootView, id);
-      if (button5 == null) {
+      id = R.id.cvSharedTransition;
+      CardView cvSharedTransition = ViewBindings.findChildViewById(rootView, id);
+      if (cvSharedTransition == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, button1, button2, button3,
-          button4, button5);
+      id = R.id.cvViewPager;
+      CardView cvViewPager = ViewBindings.findChildViewById(rootView, id);
+      if (cvViewPager == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      View toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+      MyToolbarBinding binding_toolbar = MyToolbarBinding.bind(toolbar);
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, cvCrashlytics, cvFirstAssignment,
+          cvMarkerClustering, cvOnBoarding, cvSharedTransition, cvViewPager, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
