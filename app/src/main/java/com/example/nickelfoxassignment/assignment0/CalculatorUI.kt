@@ -19,8 +19,8 @@ class CalculatorUI : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        finish();
-        overridePendingTransition(R.anim.zoom_in,R.anim.zoom_out)
+        finish()
+        overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out)
         super.onBackPressed()
     }
 

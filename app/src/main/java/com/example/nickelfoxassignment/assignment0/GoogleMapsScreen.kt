@@ -39,7 +39,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onBackPressed() {
-        finish();
+        finish()
         overridePendingTransition(R.anim.bottom_out, R.anim.top_in)
         super.onBackPressed()
     }

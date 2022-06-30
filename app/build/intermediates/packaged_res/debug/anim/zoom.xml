@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillAfter="true">
+<set xmlns:android="http://schemas.android.com/apk/res/android">
 
     //zoom in
     <scale
         android:duration="5000"
-        android:fromXScale="0"
-        android:fromYScale="0"
+        android:fromXScale="1"
+        android:fromYScale="1"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:toXScale="0.5"
-        android:toYScale="0.5" />
+        android:toXScale="1.5"
+        android:toYScale="1.5" />
 
     //zoom out
     <scale
         android:duration="5000"
-        android:fromXScale="2.1"
-        android:fromYScale="2.1"
+        android:startOffset="6000"
+        android:fromXScale="1.5"
+        android:fromYScale="1.5"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:startOffset="5000"
-        android:toXScale="0"
-        android:toYScale="0" />
+        android:toXScale="1"
+        android:toYScale="1" />
 </set>

@@ -96,6 +96,10 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\activity_user.xml"
     },
     {
+        "merged": "com.example.nickelfoxassignment.app-merged_res-45:/anim_zoom_out.xml.flat",
+        "source": "com.example.nickelfoxassignment.app-main-47:/anim/zoom_out.xml"
+    },
+    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-45:\\drawable_ic_person.png.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\drawable\\ic_person.png"
     },
@@ -224,6 +228,10 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\font\\bangers.ttf"
     },
     {
+        "merged": "com.example.nickelfoxassignment.app-merged_res-45:/anim_zoom_in.xml.flat",
+        "source": "com.example.nickelfoxassignment.app-main-47:/anim/zoom_in.xml"
+    },
+    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-45:\\drawable_cake.png.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\drawable\\cake.png"
     },
@@ -310,10 +318,6 @@
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-45:\\anim_blink.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\anim\\blink.xml"
-    },
-    {
-        "merged": "com.example.nickelfoxassignment.app-merged_res-45:/layout_activity_form_submission.xml.flat",
-        "source": "com.example.nickelfoxassignment.app-main-47:/layout/activity_form_submission.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-45:\\mipmap-xhdpi_ic_launcher_round.webp.flat",

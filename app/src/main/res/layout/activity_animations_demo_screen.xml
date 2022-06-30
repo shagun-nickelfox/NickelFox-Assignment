@@ -17,6 +17,7 @@
         android:layout_width="271dp"
         android:layout_height="363dp"
         android:layout_marginTop="60dp"
+        android:scaleType="center"
         android:layout_marginBottom="300dp"
         android:contentDescription="@string/cartoon"
         android:src="@drawable/bart"

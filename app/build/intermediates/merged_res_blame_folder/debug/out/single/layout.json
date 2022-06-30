@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\activity_user.xml",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\activity_user.xml"
-    },
-    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\fragment_home.xml",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\activity_user.xml",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\activity_user.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\activity_crash.xml",
@@ -28,16 +28,16 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\my_toolbar.xml"
     },
     {
+        "merged": "com.example.nickelfoxassignment.app-mergeDebugResources-44:/layout/activity_calculator_ui.xml",
+        "source": "com.example.nickelfoxassignment.app-main-47:/layout/activity_calculator_ui.xml"
+    },
+    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\activity_buttons.xml",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\activity_buttons.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\fragment_first_screen.xml",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-47:\\layout\\fragment_first_screen.xml"
-    },
-    {
-        "merged": "com.example.nickelfoxassignment.app-mergeDebugResources-44:/layout/activity_form_submission.xml",
-        "source": "com.example.nickelfoxassignment.app-main-47:/layout/activity_form_submission.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-mergeDebugResources-44:\\layout\\fragment_third_screen.xml",

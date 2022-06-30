@@ -518,7 +518,7 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
-  public final View viewHorizontalBar;
+  public final ConstraintLayout viewHorizontalBar;
 
   /**
    * This binding is not available in all configurations.
@@ -547,7 +547,8 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       @Nullable TextView tvAC, @Nullable TextView tvDivide, @Nullable TextView tvEqual,
       @Nullable TextView tvMultiply, @Nullable TextView tvPercent, @Nullable TextView tvPlus,
       @Nullable TextView tvPlusMinus, @Nullable TextView tvSubtract, @Nullable View viewBar1,
-      @Nullable View viewBar2, @Nullable View viewHorizontalBar, @Nullable View viewVerticalBar) {
+      @Nullable View viewBar2, @Nullable ConstraintLayout viewHorizontalBar,
+      @Nullable View viewVerticalBar) {
     this.rootView = rootView;
     this.ac = ac;
     this.bar1 = bar1;
@@ -711,7 +712,7 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       View viewBar2 = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.viewHorizontalBar;
-      View viewHorizontalBar = ViewBindings.findChildViewById(rootView, id);
+      ConstraintLayout viewHorizontalBar = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.viewVerticalBar;
       View viewVerticalBar = ViewBindings.findChildViewById(rootView, id);

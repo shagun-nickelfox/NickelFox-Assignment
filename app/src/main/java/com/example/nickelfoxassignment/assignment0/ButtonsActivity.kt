@@ -49,7 +49,7 @@ class ButtonsActivity : AppCompatActivity() {
             cvCalculator.setOnClickListener {
                 val intent = Intent(this@ButtonsActivity, CalculatorUI::class.java)
                 startActivity(intent)
-                overridePendingTransition(R.anim.zoom_in, 0)
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out)
             }
 
             cvGoogleMaps.setOnClickListener {

@@ -23,7 +23,7 @@ class AnimationsDemoScreen : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        finish();
+        finish()
         overridePendingTransition(R.anim.fade_in, 0)
         super.onBackPressed()
     }
@@ -50,7 +50,8 @@ class AnimationsDemoScreen : AppCompatActivity() {
     private fun setupListeners() {
         binding.apply {
             btnRotation.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.clockwise)
+                animation =
+                    AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.clockwise)
                 ivBartImage.startAnimation(animation)
             }
 
@@ -70,8 +71,21 @@ class AnimationsDemoScreen : AppCompatActivity() {
             }
 
             btnZoom.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom)
-                ivBartImage.startAnimation(animation)
+                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_in_activity)
+                ivBartImage.startAnimation(animation.apply {
+                    setAnimationListener(object : Animation.AnimationListener {
+                        override fun onAnimationStart(animation: Animation?) {
+                        }
+
+                        override fun onAnimationEnd(animation: Animation?) {
+                            ivBartImage.startAnimation(AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_out_activity))
+                        }
+
+                        override fun onAnimationRepeat(animation: Animation?) {
+                        }
+
+                    })
+                })
             }
 
             btnSlide.setOnClickListener {

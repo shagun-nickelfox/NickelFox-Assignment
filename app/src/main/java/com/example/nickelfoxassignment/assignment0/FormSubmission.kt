@@ -33,11 +33,10 @@ class FormSubmission : AppCompatActivity() {
         setupToolbar()
         setUpDatePicker()
         setUpListeners()
-
     }
 
     override fun onBackPressed() {
-        finish();
+        finish()
         overridePendingTransition(R.anim.right_in, R.anim.right_out)
         super.onBackPressed()
     }
@@ -50,7 +49,6 @@ class FormSubmission : AppCompatActivity() {
             setSupportActionBar(this)
         }
     }
-
 
 
     private fun setUpDatePicker() {
@@ -93,7 +91,7 @@ class FormSubmission : AppCompatActivity() {
                 }
             }
 
-           rbBar.onRatingBarChangeListener =
+            rbBar.onRatingBarChangeListener =
                 RatingBar.OnRatingBarChangeListener { _, rating, _ ->
                     rate = rating
                 }
