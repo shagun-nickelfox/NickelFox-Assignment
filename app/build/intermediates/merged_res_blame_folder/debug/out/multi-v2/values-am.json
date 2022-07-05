@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-43:/values-am/values-am.xml",
+            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-50:/values-am/values-am.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\28eff1dffa04a27a047bfbcaa97de0e7\\transformed\\appcompat-1.4.2\\res\\values-am\\values-am.xml",
@@ -35,23 +35,6 @@
                         "startOffsets": "3227,3329,3468,3590,3692,3819,3942,4050,4284,4412,4515,4660,4783,4918,5045,5105,5162",
                         "endColumns": "101,138,121,101,126,122,107,101,127,102,144,122,134,126,59,56,70",
                         "endOffsets": "3324,3463,3585,3687,3814,3937,4045,4147,4407,4510,4655,4778,4913,5040,5100,5157,5228"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\debe87fd949a7c1fa3d7efd278595d7a\\transformed\\core-1.7.0\\res\\values-am\\values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "112",
-                        "startColumns": "4",
-                        "startOffsets": "9592",
-                        "endColumns": "100",
-                        "endOffsets": "9688"
                     }
                 },
                 {
@@ -91,7 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\c1ff9109d5a27623b0dfaf65e60ec8ea\\transformed\\navigation-ui-2.4.2\\res\\values-am\\values-am.xml",
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\4d48809ddcf90fe50011e60bbfb06d1c\\transformed\\navigation-ui-2.5.0\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -105,6 +88,23 @@
                         "startOffsets": "9222,9326",
                         "endColumns": "103,109",
                         "endOffsets": "9321,9431"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\ec575efd9f5471536c56d5be9c8ae956\\transformed\\core-1.8.0\\res\\values-am\\values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "112",
+                        "startColumns": "4",
+                        "startOffsets": "9592",
+                        "endColumns": "100",
+                        "endOffsets": "9688"
                     }
                 },
                 {

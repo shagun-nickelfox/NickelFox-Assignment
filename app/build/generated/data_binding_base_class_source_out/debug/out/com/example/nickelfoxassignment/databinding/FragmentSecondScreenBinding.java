@@ -20,11 +20,12 @@ public final class FragmentSecondScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView text2;
+  public final TextView tvSecondScreen;
 
-  private FragmentSecondScreenBinding(@NonNull ConstraintLayout rootView, @NonNull TextView text2) {
+  private FragmentSecondScreenBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView tvSecondScreen) {
     this.rootView = rootView;
-    this.text2 = text2;
+    this.tvSecondScreen = tvSecondScreen;
   }
 
   @Override
@@ -54,13 +55,13 @@ public final class FragmentSecondScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text2;
-      TextView text2 = ViewBindings.findChildViewById(rootView, id);
-      if (text2 == null) {
+      id = R.id.tvSecondScreen;
+      TextView tvSecondScreen = ViewBindings.findChildViewById(rootView, id);
+      if (tvSecondScreen == null) {
         break missingId;
       }
 
-      return new FragmentSecondScreenBinding((ConstraintLayout) rootView, text2);
+      return new FragmentSecondScreenBinding((ConstraintLayout) rootView, tvSecondScreen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

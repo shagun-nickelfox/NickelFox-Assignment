@@ -64,6 +64,7 @@
     <string name="female">Female</string>
     <string name="find">Find</string>
     <string name="first_assignment">First Assignment</string>
+    <string name="first_screen">First Screen</string>
     <string name="forget_password">Forget Password?</string>
     <string name="form_submission">Form Submission</string>
     <string name="full_name">Full Name</string>
@@ -76,6 +77,7 @@
     <string name="google_map_key">AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58</string>
     <string name="google_maps_screen">Google Maps Screen</string>
     <string name="google_storage_bucket" translatable="false">nickelfox-assignment.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_there_welcome_back">Hello there, Welcome Back</string>
     <string name="hello_world">Hello World</string>
     <string name="hello_world_hope_you_all_are_doing_good">Hello World, Hope you all are doing good!!</string>
@@ -107,6 +109,7 @@
     <string name="rating">Rating</string>
     <string name="result">4002</string>
     <string name="rotation">Rotation</string>
+    <string name="second_screen">Second Screen</string>
     <string name="shared_transition">Shared Transition</string>
     <string name="sign">+/-</string>
     <string name="sign_in_to_continue">Sign In to continue</string>
@@ -115,6 +118,7 @@
     <string name="submit">Submit</string>
     <string name="subtract">-</string>
     <string name="terms">Accept all the terms and conditions</string>
+    <string name="third_screen">Third Screen</string>
     <string name="title">title</string>
     <string name="user_onBoarding">User\'s OnBoarding</string>
     <string name="user_s_onboarding">User\'s OnBoarding</string>

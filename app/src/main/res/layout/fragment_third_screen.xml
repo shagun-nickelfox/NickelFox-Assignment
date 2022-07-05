@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".viewpager.viewpagerclasses.ThirdScreen">
+    tools:context=".viewpager.viewpagerClasses.ThirdScreen">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Third Screen"
-            android:id="@+id/text3"
+            android:text="@string/third_screen"
+            android:id="@+id/tvThirdScreen"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="@color/white"

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-43:/values-el/values-el.xml",
+            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-50:/values-el/values-el.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\28eff1dffa04a27a047bfbcaa97de0e7\\transformed\\appcompat-1.4.2\\res\\values-el\\values-el.xml",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\c1ff9109d5a27623b0dfaf65e60ec8ea\\transformed\\navigation-ui-2.4.2\\res\\values-el\\values-el.xml",
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\4d48809ddcf90fe50011e60bbfb06d1c\\transformed\\navigation-ui-2.5.0\\res\\values-el\\values-el.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -69,6 +69,23 @@
                         "startOffsets": "10278,10395",
                         "endColumns": "116,121",
                         "endOffsets": "10390,10512"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\ec575efd9f5471536c56d5be9c8ae956\\transformed\\core-1.8.0\\res\\values-el\\values-el.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "112",
+                        "startColumns": "4",
+                        "startOffsets": "10694",
+                        "endColumns": "100",
+                        "endOffsets": "10790"
                     }
                 },
                 {
@@ -88,23 +105,6 @@
                         "endLines": "5,33,34,35,36,56,57,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,110",
                         "endColumns": "12,84,101,116,85,65,99,81,62,90,64,61,68,61,53,137,56,60,53,72,152,84,83,108,80,84,89,66,65,77,84,84,71,79,79,70,91,71,96,96,73,73,101,55,71,87,91,61,63,62,115,107,108,107,90",
                         "endOffsets": "270,3136,3238,3355,3441,5983,6083,6507,6570,6661,6726,6788,6857,6919,6973,7111,7168,7229,7283,7356,7509,7594,7678,7787,7868,7953,8043,8110,8176,8254,8339,8424,8496,8576,8656,8727,8819,8891,8988,9085,9159,9233,9335,9391,9463,9551,9643,9705,9769,9832,9948,10056,10165,10273,10603"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\debe87fd949a7c1fa3d7efd278595d7a\\transformed\\core-1.7.0\\res\\values-el\\values-el.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "112",
-                        "startColumns": "4",
-                        "startOffsets": "10694",
-                        "endColumns": "100",
-                        "endOffsets": "10790"
                     }
                 },
                 {

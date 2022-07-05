@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-43:/values-hu/values-hu.xml",
+            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-50:/values-hu/values-hu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\1366e2b469ba869c6c61830620739c65\\transformed\\material-1.6.1\\res\\values-hu\\values-hu.xml",
@@ -23,23 +23,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\c1ff9109d5a27623b0dfaf65e60ec8ea\\transformed\\navigation-ui-2.4.2\\res\\values-hu\\values-hu.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,167",
-                        "endColumns": "111,119",
-                        "endOffsets": "162,282"
-                    },
-                    "to": {
-                        "startLines": "108,109",
-                        "startColumns": "4,4",
-                        "startOffsets": "10149,10261",
-                        "endColumns": "111,119",
-                        "endOffsets": "10256,10376"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\33f7d5fda3a087c67da50190483c49eb\\transformed\\play-services-basement-18.0.0\\res\\values-hu\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -57,6 +40,40 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\ec575efd9f5471536c56d5be9c8ae956\\transformed\\core-1.8.0\\res\\values-hu\\values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "112",
+                        "startColumns": "4",
+                        "startOffsets": "10550",
+                        "endColumns": "100",
+                        "endOffsets": "10646"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\4d48809ddcf90fe50011e60bbfb06d1c\\transformed\\navigation-ui-2.5.0\\res\\values-hu\\values-hu.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,167",
+                        "endColumns": "111,119",
+                        "endOffsets": "162,282"
+                    },
+                    "to": {
+                        "startLines": "108,109",
+                        "startColumns": "4,4",
+                        "startOffsets": "10149,10261",
+                        "endColumns": "111,119",
+                        "endOffsets": "10256,10376"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\5e35f8ab0edf6911b936ef6905743726\\transformed\\browser-1.4.0\\res\\values-hu\\values-hu.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -71,23 +88,6 @@
                         "startOffsets": "5829,6088,6189,6304",
                         "endColumns": "95,100,114,103",
                         "endOffsets": "5920,6184,6299,6403"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\debe87fd949a7c1fa3d7efd278595d7a\\transformed\\core-1.7.0\\res\\values-hu\\values-hu.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "112",
-                        "startColumns": "4",
-                        "startOffsets": "10550",
-                        "endColumns": "100",
-                        "endOffsets": "10646"
                     }
                 },
                 {

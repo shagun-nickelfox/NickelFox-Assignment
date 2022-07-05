@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-43:/values-nl/values-nl.xml",
+            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-50:/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\28eff1dffa04a27a047bfbcaa97de0e7\\transformed\\appcompat-1.4.2\\res\\values-nl\\values-nl.xml",
@@ -55,6 +55,40 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\4d48809ddcf90fe50011e60bbfb06d1c\\transformed\\navigation-ui-2.5.0\\res\\values-nl\\values-nl.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,166",
+                        "endColumns": "110,108",
+                        "endOffsets": "161,270"
+                    },
+                    "to": {
+                        "startLines": "108,109",
+                        "startColumns": "4,4",
+                        "startOffsets": "9995,10106",
+                        "endColumns": "110,108",
+                        "endOffsets": "10101,10210"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\ec575efd9f5471536c56d5be9c8ae956\\transformed\\core-1.8.0\\res\\values-nl\\values-nl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "112",
+                        "startColumns": "4",
+                        "startOffsets": "10379",
+                        "endColumns": "100",
+                        "endOffsets": "10475"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\13670e107926d70e84dc46273ba3bf02\\transformed\\play-services-base-18.0.1\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -69,23 +103,6 @@
                         "startOffsets": "3373,3481,3636,3764,3875,4042,4169,4292,4541,4719,4825,4994,5120,5283,5465,5533,5596",
                         "endColumns": "107,154,127,110,166,126,122,105,177,105,168,125,162,181,67,62,78",
                         "endOffsets": "3476,3631,3759,3870,4037,4164,4287,4393,4714,4820,4989,5115,5278,5460,5528,5591,5670"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\c1ff9109d5a27623b0dfaf65e60ec8ea\\transformed\\navigation-ui-2.4.2\\res\\values-nl\\values-nl.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,166",
-                        "endColumns": "110,108",
-                        "endOffsets": "161,270"
-                    },
-                    "to": {
-                        "startLines": "108,109",
-                        "startColumns": "4,4",
-                        "startOffsets": "9995,10106",
-                        "endColumns": "110,108",
-                        "endOffsets": "10101,10210"
                     }
                 },
                 {
@@ -105,23 +122,6 @@
                         "endLines": "5,33,34,35,36,56,57,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,110",
                         "endColumns": "12,76,96,121,80,63,92,78,62,92,65,57,72,63,55,121,56,61,55,75,133,84,85,107,80,78,89,66,65,77,82,87,74,78,72,70,93,77,88,89,73,80,86,52,66,80,83,61,63,62,107,100,101,102,80",
                         "endOffsets": "269,3068,3165,3287,3368,5837,5930,6320,6383,6476,6542,6600,6673,6737,6793,6915,6972,7034,7090,7166,7300,7385,7471,7579,7660,7739,7829,7896,7962,8040,8123,8211,8286,8365,8438,8509,8603,8681,8770,8860,8934,9015,9102,9155,9222,9303,9387,9449,9513,9576,9684,9785,9887,9990,10291"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\debe87fd949a7c1fa3d7efd278595d7a\\transformed\\core-1.7.0\\res\\values-nl\\values-nl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "112",
-                        "startColumns": "4",
-                        "startOffsets": "10379",
-                        "endColumns": "100",
-                        "endOffsets": "10475"
                     }
                 }
             ]

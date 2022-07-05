@@ -20,11 +20,12 @@ public final class FragmentFirstScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView text1;
+  public final TextView tvFirstScreen;
 
-  private FragmentFirstScreenBinding(@NonNull ConstraintLayout rootView, @NonNull TextView text1) {
+  private FragmentFirstScreenBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView tvFirstScreen) {
     this.rootView = rootView;
-    this.text1 = text1;
+    this.tvFirstScreen = tvFirstScreen;
   }
 
   @Override
@@ -54,13 +55,13 @@ public final class FragmentFirstScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text1;
-      TextView text1 = ViewBindings.findChildViewById(rootView, id);
-      if (text1 == null) {
+      id = R.id.tvFirstScreen;
+      TextView tvFirstScreen = ViewBindings.findChildViewById(rootView, id);
+      if (tvFirstScreen == null) {
         break missingId;
       }
 
-      return new FragmentFirstScreenBinding((ConstraintLayout) rootView, text1);
+      return new FragmentFirstScreenBinding((ConstraintLayout) rootView, tvFirstScreen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -8,12 +8,15 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.maps.android.clustering.ClusterManager
+
 
 class MapsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMapsBinding
     private var users: ArrayList<User> = ArrayList()
+    private lateinit var clusterManager: ClusterManager<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class MapsActivity : AppCompatActivity() {
         mMap.uiSettings.isZoomGesturesEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
 
-        val clusterManager = ClusterManager<User>(this, mMap)
+        clusterManager = ClusterManager<User>(this, mMap)
         mMap.setOnCameraIdleListener(clusterManager)
 
         users = getUsers()
@@ -42,6 +45,20 @@ class MapsActivity : AppCompatActivity() {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(users.toList()[2].latLng, 14.0f))
         clusterManager.addItems(users)
         clusterManager.cluster()
+        clusterManager.setOnClusterClickListener {
+            deCluster(mMap)
+            return@setOnClusterClickListener true
+        }
+    }
+
+    private fun deCluster(mMap: GoogleMap) {
+        val builder = LatLngBounds.builder()
+        for (item in getUsers()) {
+            builder.include(item.position)
+        }
+        val cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(), 100)
+        mMap.animateCamera(cameraUpdate)
+
     }
 
     private fun getUsers(): ArrayList<User> {

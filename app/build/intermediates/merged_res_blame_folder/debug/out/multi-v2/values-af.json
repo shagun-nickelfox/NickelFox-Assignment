@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-43:/values-af/values-af.xml",
+            "outputFile": "com.example.nickelfoxassignment.app-mergeDebugResources-50:/values-af/values-af.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\13670e107926d70e84dc46273ba3bf02\\transformed\\play-services-base-18.0.1\\res\\values-af\\values.xml",
@@ -35,40 +35,6 @@
                         "startOffsets": "279,387,483,589,674,777,895,972,1048,1139,1232,1327,1421,1520,1613,1708,1807,1902,1996,2077,2184,2289,2386,2494,2597,2699,2853,10041",
                         "endColumns": "107,95,105,84,102,117,76,75,90,92,94,93,98,92,94,98,94,93,80,106,104,96,107,102,101,153,97,80",
                         "endOffsets": "382,478,584,669,772,890,967,1043,1134,1227,1322,1416,1515,1608,1703,1802,1897,1991,2072,2179,2284,2381,2489,2592,2694,2848,2946,10117"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\c1ff9109d5a27623b0dfaf65e60ec8ea\\transformed\\navigation-ui-2.4.2\\res\\values-af\\values-af.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,157",
-                        "endColumns": "101,116",
-                        "endOffsets": "152,269"
-                    },
-                    "to": {
-                        "startLines": "108,109",
-                        "startColumns": "4,4",
-                        "startOffsets": "9745,9847",
-                        "endColumns": "101,116",
-                        "endOffsets": "9842,9959"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\debe87fd949a7c1fa3d7efd278595d7a\\transformed\\core-1.7.0\\res\\values-af\\values-af.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "112",
-                        "startColumns": "4",
-                        "startOffsets": "10122",
-                        "endColumns": "100",
-                        "endOffsets": "10218"
                     }
                 },
                 {
@@ -108,6 +74,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\4d48809ddcf90fe50011e60bbfb06d1c\\transformed\\navigation-ui-2.5.0\\res\\values-af\\values-af.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,157",
+                        "endColumns": "101,116",
+                        "endOffsets": "152,269"
+                    },
+                    "to": {
+                        "startLines": "108,109",
+                        "startColumns": "4,4",
+                        "startOffsets": "9745,9847",
+                        "endColumns": "101,116",
+                        "endOffsets": "9842,9959"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\33f7d5fda3a087c67da50190483c49eb\\transformed\\play-services-basement-18.0.0\\res\\values-af\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -122,6 +105,23 @@
                         "startOffsets": "4318",
                         "endColumns": "142",
                         "endOffsets": "4456"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Shagun Bansal\\.gradle\\caches\\transforms-3\\ec575efd9f5471536c56d5be9c8ae956\\transformed\\core-1.8.0\\res\\values-af\\values-af.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "112",
+                        "startColumns": "4",
+                        "startOffsets": "10122",
+                        "endColumns": "100",
+                        "endOffsets": "10218"
                     }
                 }
             ]

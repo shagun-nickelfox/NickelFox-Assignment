@@ -20,11 +20,12 @@ public final class FragmentThirdScreenBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView text3;
+  public final TextView tvThirdScreen;
 
-  private FragmentThirdScreenBinding(@NonNull ConstraintLayout rootView, @NonNull TextView text3) {
+  private FragmentThirdScreenBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView tvThirdScreen) {
     this.rootView = rootView;
-    this.text3 = text3;
+    this.tvThirdScreen = tvThirdScreen;
   }
 
   @Override
@@ -54,13 +55,13 @@ public final class FragmentThirdScreenBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text3;
-      TextView text3 = ViewBindings.findChildViewById(rootView, id);
-      if (text3 == null) {
+      id = R.id.tvThirdScreen;
+      TextView tvThirdScreen = ViewBindings.findChildViewById(rootView, id);
+      if (tvThirdScreen == null) {
         break missingId;
       }
 
-      return new FragmentThirdScreenBinding((ConstraintLayout) rootView, text3);
+      return new FragmentThirdScreenBinding((ConstraintLayout) rootView, tvThirdScreen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

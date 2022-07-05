@@ -45,16 +45,16 @@
         android:testOnly="true"
         android:theme="@style/Theme.NickelfoxAssignment" >
         <activity
-            android:name="com.example.nickelfoxassignment.useronboarding.SignUpActivity"
+            android:name="com.example.nickelfoxassignment.userOnBoarding.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nickelfoxassignment.useronboarding.UserLoginActivity"
+            android:name="com.example.nickelfoxassignment.userOnBoarding.UserLoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nickelfoxassignment.useronboarding.LoginActivity"
+            android:name="com.example.nickelfoxassignment.userOnBoarding.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nickelfoxassignment.useronboarding.UserActivity"
+            android:name="com.example.nickelfoxassignment.userOnBoarding.UserActivity"
             android:exported="false" />
         <activity
             android:name="com.example.nickelfoxassignment.crashlytics.CrashActivity"

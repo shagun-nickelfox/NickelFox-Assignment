@@ -1,9 +1,13 @@
 package com.example.nickelfoxassignment.assignment0
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.RatingBar
 import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
@@ -69,7 +73,22 @@ class FormSubmission : AppCompatActivity() {
                 setOnClickListener {
                     datePickerDialog.show()
                 }
+                setOnFocusChangeListener { v, hasFocus ->
+                    if (hasFocus) {
+                        hideKeyboard(v)
+                        datePickerDialog.show()
+                    }
+                }
             }
+
+            /*tvNameInput.setOnEditorActionListener { v, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    tvNameInput.performClick()
+                    hideKeyboard(v)
+                    true
+                } else false
+            }*/
+
             rgGenderOptions.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
                     R.id.rbMale -> {
@@ -97,17 +116,21 @@ class FormSubmission : AppCompatActivity() {
                 }
 
             btnSubmit.setOnClickListener {
+                val name = tvNameInput.text.toString()
+                val dob = tvDOBInput.text.toString()
                 message =
-                    "Name: ${tvNameInput.text.toString()} \n Date Of Birth: ${tvDOBInput.text.toString()} \n Gender: $gender \n Language: $language \n Rate Us: $rate"
+                    "\n Name: $name \n Date Of Birth: $dob \n Gender: $gender \n Language: $language \n Rate Us: $rate"
 
-                if (checkBox.isChecked) {
+                if (checkBox.isChecked && name.isNotEmpty() && dob.isNotEmpty()
+                    && gender.toString().isNotEmpty() && language.toString()
+                        .isNotEmpty() && rate.toString().isNotEmpty()
+                ) {
                     MaterialAlertDialogBuilder(this@FormSubmission)
-                        .setTitle("Confirmation")
-                        .setMessage("Are you sure you want to share?")
+                        .setTitle("Are you sure you want to share?")
+                        .setMessage(message)
                         .setNegativeButton("No") { _, _ ->
                         }
                         .setPositiveButton("Yes") { _, _ ->
-
                             val intent = Intent()
                             intent.action = Intent.ACTION_SEND
                             intent.putExtra(Intent.EXTRA_TEXT, message)
@@ -120,12 +143,18 @@ class FormSubmission : AppCompatActivity() {
                 } else {
                     Snackbar.make(
                         it,
-                        "Please accept the terms and conditions",
+                        "Empty fields are not allowed!",
                         Snackbar.LENGTH_LONG
                     )
                         .show()
                 }
             }
         }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

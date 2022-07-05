@@ -5,38 +5,38 @@ INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\a
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:2:1-82:12
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:2:1-82:12
 MERGED from [androidx.databinding:viewbinding:7.2.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f7a4ecc8fc6442c63b929b421fbb8140\transformed\viewbinding-7.2.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\11f2b30e3a6122f218bb86c7ce666ded\transformed\navigation-fragment-ktx-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7bcb0f5a8c53d1fad0a383c8df1e4b5a\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e5d576890bbb7749035a5f443f446431\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a63b225452c49e810abe47c154bf0a6f\transformed\navigation-ui-ktx-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fde0004144462754e411c7d15f7c4b45\transformed\navigation-runtime-ktx-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c1ff9109d5a27623b0dfaf65e60ec8ea\transformed\navigation-ui-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\347008c5460539e055fdb491c82bb4fc\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c80a286dd5b9e53effa9e3ab30497bb\transformed\activity-ktx-1.2.3\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\90eb212d03a760e1995b843bcf341118\transformed\navigation-common-ktx-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\93d23c3274740b98c75e3d20b240e458\transformed\navigation-common-2.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2e436bd8c527a34ad2c3c5f9f29abeb3\transformed\lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fb32a9804a52bdf57cd92ab82aa749c8\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\3f4cdf3d2617813344ea2b88a6d36b88\transformed\navigation-fragment-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bb682e7ef92d95a3f14cee1946c4bc5d\transformed\navigation-fragment-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a79e377aadbac63054f8765666cdbee5\transformed\fragment-ktx-1.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\d64bfb45e2b62542db7ed65900e1560d\transformed\navigation-ui-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fae095da9719000a3adab5a1f40d3c6f\transformed\navigation-runtime-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4d48809ddcf90fe50011e60bbfb06d1c\transformed\navigation-ui-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c13fb8403f0b7c7351c2de9d2373eef6\transformed\navigation-runtime-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\35b4b21118fa1f628310158e4902f530\transformed\activity-ktx-1.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\582a6971b1038b7fe11b7b310be6c17c\transformed\navigation-common-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b359d713b589fe5ee64d936001e572c\transformed\navigation-common-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e4693ed5357953ce1a2e5ef596055249\transformed\lifecycle-viewmodel-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f51bf45637b0cebefa992647112158f\transformed\lifecycle-runtime-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\216ee052c0d4185404387e5dcf110d7c\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.window:window:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5ed44a078f57714b1e8a8f1212e6127f\transformed\window-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1366e2b469ba869c6c61830620739c65\transformed\material-1.6.1\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\092713752f2f7c0297b44094a15cc495\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\28eff1dffa04a27a047bfbcaa97de0e7\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:17:1-44:12
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:17:1-73:12
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:17:1-73:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\820e0db3b99a56b3e5be3a5d0df18bd8\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\262d2930c397e19e3362329a664c105b\transformed\play-services-location-20.0.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:2:1-21:12
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b951208380847b30d66f2dca5015ce10\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:2:1-21:12
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4494d9a322b85a4914303ef33de1923d\transformed\firebase-appcheck-interop-16.0.0\AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b12d1b746749e8d15941bcbd8d65c77\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\13670e107926d70e84dc46273ba3bf02\transformed\play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-crashlytics-ktx:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea84b51fe9011bcf5c0c3a42feb823d1\transformed\firebase-crashlytics-ktx-18.2.11\AndroidManifest.xml:15:1-33:12
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c272806f8af71b313d9576ac473ad76a\transformed\firebase-analytics-ktx-21.0.0\AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.firebase:firebase-common-ktx:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6004065e48b3db8bf095e94b7934156c\transformed\firebase-common-ktx-20.1.1\AndroidManifest.xml:2:1-21:12
-MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b58c0ab540d4459a79e59448af7a714\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1a3f2099ca2b84a7607fa8b774c3ebbb\transformed\play-services-measurement-api-21.0.0\AndroidManifest.xml:17:1-37:12
@@ -53,50 +53,50 @@ MERGED from [com.google.android.gms:play-services-measurement-base:21.0.0] C:\Us
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\55a48e8f5b20e1bf33cf35bf9dcf2d1f\transformed\play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf95aa8a4f94ea6cb3d7461a28fe6f1e\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b1892de4bdd5a5d65d3d0442dd2c9eb\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\cdff5b626d0f83c86080a46a3c99ea67\transformed\core-ktx-1.7.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:2:1-17:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\70c6955203f42fd130e0fcca8a5fd271\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9b8ef6491242ebdbb52e873be1fae16\transformed\fragment-1.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f945e778ed61201b1a60d01461afa23f\transformed\activity-1.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5eb0136898059c1361cc1fb67f82a632\transformed\lifecycle-viewmodel-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\48e66b70d31c6e32118b898ed4511be9\transformed\lifecycle-viewmodel-savedstate-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8ff3faae0e3dd085da077a99490fa5a\transformed\core-ktx-1.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4a6ef25c89abd310e3422504ac9b69ac\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2798f26100c0ddd8d4015fa6d001c3b3\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1f6c2362b6a62c023fb16d4f68da7b45\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f9d502718882cec7ebbd63962546de6b\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\227dda379b5bb8878a0d8929c0031b6e\transformed\activity-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4fbe0ab18241bd4db1795171869585b6\transformed\appcompat-resources-1.4.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\00848e7ef45679e2c0397e3f6a32d3a9\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a4583128ac2c2d62a0f8761aac7524d9\transformed\emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\de635915625ca3f2214091a24074ca43\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88f5f323d76cb640564ac7ee54984270\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\21895f2b4a7cd9a63eb56783feb536fd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5e35f8ab0edf6911b936ef6905743726\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\73eb26666b6dd42de036e8d7fb4555f8\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\944eab82bc929dfd20002a1e33e18629\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fb8d2890377fe655d23030704fde3d4c\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88d3bdc8d1ee5f82d8cf10008614741b\transformed\transition-1.4.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d2e4eef8677224f738c36e84ec6e1c1\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9c74517257857e1de104ee2c52f5752b\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9972eb5b4980b3b04d7ab1a8a7db0fc\transformed\savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9dfaf24570d707d63ee60e99cc3eba14\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\0566837c15bb0487924ab2e2443b8b06\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdf1747db0c09e0202be53e42d0ca821\transformed\startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2cbd3f442036130dd531af22fd6610fb\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6ae4ebe81a1ff324bcc2d6238689ec1d\transformed\lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f35f9776bdad8b1abef42882105425ff\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\65871ece50ca98de0975c178a4197c53\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c6a54605aad238b2a3c6f856164f07b3\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\08e1761b7b045202453f652d81db6f85\transformed\transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b674b92c01e2df66dfd71a3ca43ca270\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8538e2646de1e756c80af6350739254\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\80aa308bad0d7e1fb7656263cdc2f96d\transformed\savedstate-ktx-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\91ea2b83f7d10f5ee3c47b3c83d86223\transformed\savedstate-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf03e14988fd37d8892a43cfa5df1de2\transformed\lifecycle-runtime-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\097a8daee6a6e421496b42627973a7cd\transformed\lifecycle-livedata-core-ktx-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d26c80a316bec40dc386f8c50ac287a\transformed\lifecycle-livedata-core-2.5.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8919d3ad730f9586828e51bdf59b323a\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:2:1-82:12
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:2:1-82:12
@@ -119,10 +119,10 @@ INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\a
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:6:5-67
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:10:5-67
@@ -165,30 +165,30 @@ MERGED from [com.google.android.material:material:1.6.1] C:\Users\Shagun Bansal\
 MERGED from [com.google.android.material:material:1.6.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1366e2b469ba869c6c61830620739c65\transformed\material-1.6.1\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\092713752f2f7c0297b44094a15cc495\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\092713752f2f7c0297b44094a15cc495\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:36:5-42:19
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:36:5-42:19
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:26:5-71:19
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:26:5-71:19
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:26:5-71:19
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:26:5-71:19
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\262d2930c397e19e3362329a664c105b\transformed\play-services-location-20.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\262d2930c397e19e3362329a664c105b\transformed\play-services-location-20.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4494d9a322b85a4914303ef33de1923d\transformed\firebase-appcheck-interop-16.0.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4494d9a322b85a4914303ef33de1923d\transformed\firebase-appcheck-interop-16.0.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\13670e107926d70e84dc46273ba3bf02\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\13670e107926d70e84dc46273ba3bf02\transformed\play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-crashlytics-ktx:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea84b51fe9011bcf5c0c3a42feb823d1\transformed\firebase-crashlytics-ktx-18.2.11\AndroidManifest.xml:23:5-31:19
 MERGED from [com.google.firebase:firebase-crashlytics-ktx:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea84b51fe9011bcf5c0c3a42feb823d1\transformed\firebase-crashlytics-ktx-18.2.11\AndroidManifest.xml:23:5-31:19
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c272806f8af71b313d9576ac473ad76a\transformed\firebase-analytics-ktx-21.0.0\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c272806f8af71b313d9576ac473ad76a\transformed\firebase-analytics-ktx-21.0.0\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6004065e48b3db8bf095e94b7934156c\transformed\firebase-common-ktx-20.1.1\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6004065e48b3db8bf095e94b7934156c\transformed\firebase-common-ktx-20.1.1\AndroidManifest.xml:11:5-19:19
-MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b58c0ab540d4459a79e59448af7a714\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:7:5-20
@@ -217,24 +217,24 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf95aa8a4f94ea6cb3d7461a28fe6f1e\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:11:5-15:19
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:11:5-15:19
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:9:5-13:19
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:9:5-13:19
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1f6c2362b6a62c023fb16d4f68da7b45\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1f6c2362b6a62c023fb16d4f68da7b45\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a4583128ac2c2d62a0f8761aac7524d9\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a4583128ac2c2d62a0f8761aac7524d9\transformed\emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\0566837c15bb0487924ab2e2443b8b06\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\0566837c15bb0487924ab2e2443b8b06\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdf1747db0c09e0202be53e42d0ca821\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdf1747db0c09e0202be53e42d0ca821\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:19:9-35
 	android:label
@@ -253,25 +253,25 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gra
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:20:9-57
 	android:dataExtractionRules
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:14:9-65
-activity#com.example.nickelfoxassignment.useronboarding.SignUpActivity
+activity#com.example.nickelfoxassignment.userOnBoarding.SignUpActivity
 ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:24:13-58
-activity#com.example.nickelfoxassignment.useronboarding.UserLoginActivity
+activity#com.example.nickelfoxassignment.userOnBoarding.UserLoginActivity
 ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:27:13-61
-activity#com.example.nickelfoxassignment.useronboarding.LoginActivity
+activity#com.example.nickelfoxassignment.userOnBoarding.LoginActivity
 ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:30:13-57
-activity#com.example.nickelfoxassignment.useronboarding.UserActivity
+activity#com.example.nickelfoxassignment.userOnBoarding.UserActivity
 ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:32:9-34:40
 	android:exported
 		ADDED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml:34:13-37
@@ -365,30 +365,30 @@ INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\a
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:7.2.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f7a4ecc8fc6442c63b929b421fbb8140\transformed\viewbinding-7.2.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.databinding:viewbinding:7.2.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f7a4ecc8fc6442c63b929b421fbb8140\transformed\viewbinding-7.2.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\11f2b30e3a6122f218bb86c7ce666ded\transformed\navigation-fragment-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\11f2b30e3a6122f218bb86c7ce666ded\transformed\navigation-fragment-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7bcb0f5a8c53d1fad0a383c8df1e4b5a\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7bcb0f5a8c53d1fad0a383c8df1e4b5a\transformed\navigation-fragment-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e5d576890bbb7749035a5f443f446431\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e5d576890bbb7749035a5f443f446431\transformed\fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a63b225452c49e810abe47c154bf0a6f\transformed\navigation-ui-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a63b225452c49e810abe47c154bf0a6f\transformed\navigation-ui-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fde0004144462754e411c7d15f7c4b45\transformed\navigation-runtime-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fde0004144462754e411c7d15f7c4b45\transformed\navigation-runtime-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c1ff9109d5a27623b0dfaf65e60ec8ea\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c1ff9109d5a27623b0dfaf65e60ec8ea\transformed\navigation-ui-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\347008c5460539e055fdb491c82bb4fc\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\347008c5460539e055fdb491c82bb4fc\transformed\navigation-runtime-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c80a286dd5b9e53effa9e3ab30497bb\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.2.3] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c80a286dd5b9e53effa9e3ab30497bb\transformed\activity-ktx-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\90eb212d03a760e1995b843bcf341118\transformed\navigation-common-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common-ktx:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\90eb212d03a760e1995b843bcf341118\transformed\navigation-common-ktx-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\93d23c3274740b98c75e3d20b240e458\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\93d23c3274740b98c75e3d20b240e458\transformed\navigation-common-2.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2e436bd8c527a34ad2c3c5f9f29abeb3\transformed\lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2e436bd8c527a34ad2c3c5f9f29abeb3\transformed\lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fb32a9804a52bdf57cd92ab82aa749c8\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fb32a9804a52bdf57cd92ab82aa749c8\transformed\lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\3f4cdf3d2617813344ea2b88a6d36b88\transformed\navigation-fragment-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\3f4cdf3d2617813344ea2b88a6d36b88\transformed\navigation-fragment-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bb682e7ef92d95a3f14cee1946c4bc5d\transformed\navigation-fragment-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bb682e7ef92d95a3f14cee1946c4bc5d\transformed\navigation-fragment-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a79e377aadbac63054f8765666cdbee5\transformed\fragment-ktx-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a79e377aadbac63054f8765666cdbee5\transformed\fragment-ktx-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\d64bfb45e2b62542db7ed65900e1560d\transformed\navigation-ui-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\d64bfb45e2b62542db7ed65900e1560d\transformed\navigation-ui-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fae095da9719000a3adab5a1f40d3c6f\transformed\navigation-runtime-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fae095da9719000a3adab5a1f40d3c6f\transformed\navigation-runtime-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4d48809ddcf90fe50011e60bbfb06d1c\transformed\navigation-ui-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4d48809ddcf90fe50011e60bbfb06d1c\transformed\navigation-ui-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c13fb8403f0b7c7351c2de9d2373eef6\transformed\navigation-runtime-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c13fb8403f0b7c7351c2de9d2373eef6\transformed\navigation-runtime-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\35b4b21118fa1f628310158e4902f530\transformed\activity-ktx-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\35b4b21118fa1f628310158e4902f530\transformed\activity-ktx-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\582a6971b1038b7fe11b7b310be6c17c\transformed\navigation-common-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\582a6971b1038b7fe11b7b310be6c17c\transformed\navigation-common-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b359d713b589fe5ee64d936001e572c\transformed\navigation-common-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b359d713b589fe5ee64d936001e572c\transformed\navigation-common-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e4693ed5357953ce1a2e5ef596055249\transformed\lifecycle-viewmodel-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\e4693ed5357953ce1a2e5ef596055249\transformed\lifecycle-viewmodel-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f51bf45637b0cebefa992647112158f\transformed\lifecycle-runtime-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f51bf45637b0cebefa992647112158f\transformed\lifecycle-runtime-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\216ee052c0d4185404387e5dcf110d7c\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\216ee052c0d4185404387e5dcf110d7c\transformed\slidingpanelayout-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5ed44a078f57714b1e8a8f1212e6127f\transformed\window-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -399,36 +399,36 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Shagun B
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\092713752f2f7c0297b44094a15cc495\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\28eff1dffa04a27a047bfbcaa97de0e7\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\28eff1dffa04a27a047bfbcaa97de0e7\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:21:5-44
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:21:5-44
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\820e0db3b99a56b3e5be3a5d0df18bd8\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\820e0db3b99a56b3e5be3a5d0df18bd8\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\262d2930c397e19e3362329a664c105b\transformed\play-services-location-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\262d2930c397e19e3362329a664c105b\transformed\play-services-location-20.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b951208380847b30d66f2dca5015ce10\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b951208380847b30d66f2dca5015ce10\transformed\play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b91dbfa5beebde91061d9eed5996fea4\transformed\play-services-safetynet-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4494d9a322b85a4914303ef33de1923d\transformed\firebase-appcheck-interop-16.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4494d9a322b85a4914303ef33de1923d\transformed\firebase-appcheck-interop-16.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b12d1b746749e8d15941bcbd8d65c77\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b12d1b746749e8d15941bcbd8d65c77\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\13670e107926d70e84dc46273ba3bf02\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\13670e107926d70e84dc46273ba3bf02\transformed\play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-crashlytics-ktx:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea84b51fe9011bcf5c0c3a42feb823d1\transformed\firebase-crashlytics-ktx-18.2.11\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-crashlytics-ktx:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea84b51fe9011bcf5c0c3a42feb823d1\transformed\firebase-crashlytics-ktx-18.2.11\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c272806f8af71b313d9576ac473ad76a\transformed\firebase-analytics-ktx-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c272806f8af71b313d9576ac473ad76a\transformed\firebase-analytics-ktx-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common-ktx:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6004065e48b3db8bf095e94b7934156c\transformed\firebase-common-ktx-20.1.1\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common-ktx:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6004065e48b3db8bf095e94b7934156c\transformed\firebase-common-ktx-20.1.1\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\836a34df9aa6b42884cd4c6ddca3ac84\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8c6eef15e309cce2f2f47616098d7883\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4b58c0ab540d4459a79e59448af7a714\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:5:5-44
@@ -461,14 +461,26 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf95aa8a4f94ea6cb3d7461a28fe6f1e\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b1892de4bdd5a5d65d3d0442dd2c9eb\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8b1892de4bdd5a5d65d3d0442dd2c9eb\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\cdff5b626d0f83c86080a46a3c99ea67\transformed\core-ktx-1.7.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\cdff5b626d0f83c86080a46a3c99ea67\transformed\core-ktx-1.7.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\70c6955203f42fd130e0fcca8a5fd271\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\70c6955203f42fd130e0fcca8a5fd271\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9b8ef6491242ebdbb52e873be1fae16\transformed\fragment-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9b8ef6491242ebdbb52e873be1fae16\transformed\fragment-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f945e778ed61201b1a60d01461afa23f\transformed\activity-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f945e778ed61201b1a60d01461afa23f\transformed\activity-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5eb0136898059c1361cc1fb67f82a632\transformed\lifecycle-viewmodel-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5eb0136898059c1361cc1fb67f82a632\transformed\lifecycle-viewmodel-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\48e66b70d31c6e32118b898ed4511be9\transformed\lifecycle-viewmodel-savedstate-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\48e66b70d31c6e32118b898ed4511be9\transformed\lifecycle-viewmodel-savedstate-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8ff3faae0e3dd085da077a99490fa5a\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8ff3faae0e3dd085da077a99490fa5a\transformed\core-ktx-1.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4a6ef25c89abd310e3422504ac9b69ac\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4a6ef25c89abd310e3422504ac9b69ac\transformed\coordinatorlayout-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2798f26100c0ddd8d4015fa6d001c3b3\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2798f26100c0ddd8d4015fa6d001c3b3\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1f6c2362b6a62c023fb16d4f68da7b45\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41
@@ -477,8 +489,8 @@ MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f9d502718882cec7ebbd63962546de6b\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f9d502718882cec7ebbd63962546de6b\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\227dda379b5bb8878a0d8929c0031b6e\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.2.4] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\227dda379b5bb8878a0d8929c0031b6e\transformed\activity-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4fbe0ab18241bd4db1795171869585b6\transformed\appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\4fbe0ab18241bd4db1795171869585b6\transformed\appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\00848e7ef45679e2c0397e3f6a32d3a9\transformed\emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -487,18 +499,16 @@ MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches
 MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\a4583128ac2c2d62a0f8761aac7524d9\transformed\emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\de635915625ca3f2214091a24074ca43\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\de635915625ca3f2214091a24074ca43\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\10ea6839044344bd6578ef7919cded8c\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88f5f323d76cb640564ac7ee54984270\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88f5f323d76cb640564ac7ee54984270\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\21895f2b4a7cd9a63eb56783feb536fd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\21895f2b4a7cd9a63eb56783feb536fd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5e35f8ab0edf6911b936ef6905743726\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5e35f8ab0edf6911b936ef6905743726\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2dd94db5c4f59ce5d1956782589056a3\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc2528ee0376df9aa3f6506859f19e4c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\73eb26666b6dd42de036e8d7fb4555f8\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\73eb26666b6dd42de036e8d7fb4555f8\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\944eab82bc929dfd20002a1e33e18629\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
@@ -507,40 +517,16 @@ MERGED from [androidx.customview:customview:1.1.0] C:\Users\Shagun Bansal\.gradl
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\fb8d2890377fe655d23030704fde3d4c\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88d3bdc8d1ee5f82d8cf10008614741b\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.transition:transition:1.4.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\88d3bdc8d1ee5f82d8cf10008614741b\transformed\transition-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.7.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\debe87fd949a7c1fa3d7efd278595d7a\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f92b7d1c5b7df448decb9a3f8a2f4a4b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d2e4eef8677224f738c36e84ec6e1c1\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d2e4eef8677224f738c36e84ec6e1c1\transformed\lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9c74517257857e1de104ee2c52f5752b\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9c74517257857e1de104ee2c52f5752b\transformed\savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9972eb5b4980b3b04d7ab1a8a7db0fc\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b9972eb5b4980b3b04d7ab1a8a7db0fc\transformed\savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9dfaf24570d707d63ee60e99cc3eba14\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\9dfaf24570d707d63ee60e99cc3eba14\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2c605cc7617d6eb8e7935f7fec223b38\transformed\firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f1a49165b850ca2290fd512616423ee2\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.8.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ec575efd9f5471536c56d5be9c8ae956\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\0566837c15bb0487924ab2e2443b8b06\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\0566837c15bb0487924ab2e2443b8b06\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdf1747db0c09e0202be53e42d0ca821\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdf1747db0c09e0202be53e42d0ca821\transformed\startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2cbd3f442036130dd531af22fd6610fb\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\2cbd3f442036130dd531af22fd6610fb\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6ae4ebe81a1ff324bcc2d6238689ec1d\transformed\lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\6ae4ebe81a1ff324bcc2d6238689ec1d\transformed\lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f35f9776bdad8b1abef42882105425ff\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\f35f9776bdad8b1abef42882105425ff\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\65871ece50ca98de0975c178a4197c53\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\65871ece50ca98de0975c178a4197c53\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bc30c9dae91aceca18e0f3c5e556d061\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c6a54605aad238b2a3c6f856164f07b3\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c6a54605aad238b2a3c6f856164f07b3\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\08e1761b7b045202453f652d81db6f85\transformed\transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
@@ -549,6 +535,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Shagun Bansal\.g
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\b674b92c01e2df66dfd71a3ca43ca270\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8538e2646de1e756c80af6350739254\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\c8538e2646de1e756c80af6350739254\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\80aa308bad0d7e1fb7656263cdc2f96d\transformed\savedstate-ktx-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\80aa308bad0d7e1fb7656263cdc2f96d\transformed\savedstate-ktx-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\91ea2b83f7d10f5ee3c47b3c83d86223\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\91ea2b83f7d10f5ee3c47b3c83d86223\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf03e14988fd37d8892a43cfa5df1de2\transformed\lifecycle-runtime-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bf03e14988fd37d8892a43cfa5df1de2\transformed\lifecycle-runtime-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\888430f0f52dbe16a84a94a8b793b7a1\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\097a8daee6a6e421496b42627973a7cd\transformed\lifecycle-livedata-core-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\097a8daee6a6e421496b42627973a7cd\transformed\lifecycle-livedata-core-ktx-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d26c80a316bec40dc386f8c50ac287a\transformed\lifecycle-livedata-core-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8d26c80a316bec40dc386f8c50ac287a\transformed\lifecycle-livedata-core-2.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\23952817f0b9b2f6ec9f89b97a0c0f37\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8919d3ad730f9586828e51bdf59b323a\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\8919d3ad730f9586828e51bdf59b323a\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\Shagun Bansal\AndroidStudioProjects\NickelfoxAssignment\app\src\main\AndroidManifest.xml
@@ -574,9 +574,9 @@ ADDED from [androidx.window:window:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\
 	android:name
 		ADDED from [androidx.window:window:1.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5ed44a078f57714b1e8a8f1212e6127f\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
+ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1a3f2099ca2b84a7607fa8b774c3ebbb\transformed\play-services-measurement-api-21.0.0\AndroidManifest.xml:23:5-79
@@ -594,75 +594,75 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Us
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bca604116b79d08922e956eedaffe8cc\transformed\transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:23:22-76
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:26:5-28:35
+ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:27:9-41
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:27:9-41
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:28:9-32
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:28:9-32
 queries
-ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:30:5-34:15
+ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:30:5-34:15
 package#com.google.android.apps.maps
-ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:33:9-64
+ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:33:9-64
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:33:18-61
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:33:18-61
 uses-library#org.apache.http.legacy
-ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:39:9-41:40
+ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:39:9-41:40
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:41:13-37
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:41:13-37
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04ab6e44a42b11783769fe8acff34568\transformed\play-services-maps-17.0.1\AndroidManifest.xml:40:13-50
+		ADDED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\7b7cc53d9e4db5422406bf5d859b2fbd\transformed\play-services-maps-18.0.2\AndroidManifest.xml:40:13-50
 activity#com.google.firebase.auth.internal.GenericIdpActivity
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:27:9-44:20
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:27:9-44:20
 	android:excludeFromRecents
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:29:13-46
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:29:13-46
 	android:launchMode
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:31:13-44
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:31:13-44
 	android:exported
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:30:13-36
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:30:13-36
 	android:theme
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:32:13-72
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:32:13-72
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:28:13-80
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:28:13-80
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:33:13-43:29
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:33:13-43:29
 action#android.intent.action.VIEW
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:34:17-69
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:34:25-66
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:34:25-66
 category#android.intent.category.DEFAULT
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:36:17-76
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:36:17-76
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:36:27-73
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:36:27-73
 category#android.intent.category.BROWSABLE
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:37:17-78
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:37:17-78
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:37:27-75
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:37:27-75
 data
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:39:17-42:51
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:39:17-42:51
 	android:path
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:41:21-37
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:41:21-37
 	android:host
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:40:21-49
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:40:21-49
 	android:scheme
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:42:21-48
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:42:21-48
 activity#com.google.firebase.auth.internal.RecaptchaActivity
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:45:9-62:20
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:45:9-62:20
 	android:excludeFromRecents
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:47:13-46
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:47:13-46
 	android:launchMode
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:49:13-44
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:49:13-44
 	android:exported
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:48:13-36
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:48:13-36
 	android:theme
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:50:13-72
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:50:13-72
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:46:13-79
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:46:13-79
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:51:13-61:29
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:51:13-61:29
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:64:9-70:19
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:12:9-18:19
 MERGED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:12:9-18:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\dd4b869e89eb5153e791fb2ed949d79d\transformed\firebase-database-20.0.5\AndroidManifest.xml:29:9-35:19
@@ -682,19 +682,19 @@ MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\Shagun 
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdfb15a44fc4c20443ee026b13b48992\transformed\firebase-common-20.1.1\AndroidManifest.xml:33:9-37:35
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdfb15a44fc4c20443ee026b13b48992\transformed\firebase-common-20.1.1\AndroidManifest.xml:33:9-37:35
 	android:exported
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:66:13-37
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:66:13-37
 	tools:targetApi
 		ADDED from [com.google.firebase:firebase-common:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdfb15a44fc4c20443ee026b13b48992\transformed\firebase-common-20.1.1\AndroidManifest.xml:37:13-32
 	android:directBootAware
 		ADDED from [com.google.firebase:firebase-common:20.1.1] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\bdfb15a44fc4c20443ee026b13b48992\transformed\firebase-common-20.1.1\AndroidManifest.xml:35:13-43
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:65:13-84
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:65:13-84
 meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
-ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:67:13-69:85
+ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:67:13-69:85
 	android:value
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:69:17-82
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:69:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\ea34417b665962ca9fc243880aa72a39\transformed\firebase-auth-21.0.5\AndroidManifest.xml:68:17-109
+		ADDED from [com.google.firebase:firebase-auth:21.0.6] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\1b21777882dac36536403d928d6ac42c\transformed\firebase-auth-21.0.6\AndroidManifest.xml:68:17-109
 meta-data#com.google.firebase.components:com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar
 ADDED from [com.google.firebase:firebase-database-ktx:20.0.5] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\04a7ecd0dd158591d5e9c9d7c3922e95\transformed\firebase-database-ktx-20.0.5\AndroidManifest.xml:15:13-17:85
 	android:value
@@ -817,8 +817,8 @@ ADDED from [com.google.android.gms:play-services-measurement:21.0.0] C:\Users\Sh
 		ADDED from [com.google.android.gms:play-services-measurement:21.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\619955d3ec76b8bbd854e3041d863dfa\transformed\play-services-measurement-21.0.0\AndroidManifest.xml:40:13-87
 meta-data#com.google.android.gms.version
 ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:12:9-14:69
-MERGED from [com.google.maps.android:android-maps-utils:1.1.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\5f0e0eb6a3e9c6ebb731a803c185df75\transformed\android-maps-utils-1.1.0\AndroidManifest.xml:12:9-14:69
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:10:9-12:69
+MERGED from [com.google.maps.android:android-maps-utils:2.3.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\59a14e84b4cd54cf8578c36338a8f66c\transformed\android-maps-utils-2.3.0\AndroidManifest.xml:10:9-12:69
 	android:value
 		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Shagun Bansal\.gradle\caches\transforms-3\33f7d5fda3a087c67da50190483c49eb\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
 	android:name

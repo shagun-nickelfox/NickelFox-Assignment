@@ -75,14 +75,13 @@ drawable rate
 drawable rectangles
 drawable studying
 drawable symbol
-drawable textlayout
+drawable text_layout
 drawable translation
 drawable user
 font antic
 font bangers
 font bungee
 id ac
-id action_homeFragment_to_viewPagerFragment
 id bar_1
 id bar_2
 id btnAlreadyAccount
@@ -113,8 +112,6 @@ id cvSharedTransition
 id cvViewPager
 id divide
 id equal
-id fragmentContainerView
-id homeFragment
 id homeMap
 id include2
 id ivBartImage
@@ -128,7 +125,6 @@ id linear3
 id linear4
 id map
 id multiply
-id nav_graph
 id percent
 id plus
 id plusminus
@@ -143,9 +139,6 @@ id rgGenderOptions
 id subtract
 id switchEnglish
 id switchHindi
-id text1
-id text2
-id text3
 id textView1
 id textView2
 id title
@@ -157,6 +150,7 @@ id tvDivide
 id tvEmail
 id tvEmailInput
 id tvEqual
+id tvFirstScreen
 id tvGender
 id tvLanguage
 id tvMultiply
@@ -169,8 +163,10 @@ id tvPhoneNo
 id tvPlus
 id tvPlusMinus
 id tvRating
+id tvSecondScreen
 id tvSubtitle
 id tvSubtract
+id tvThirdScreen
 id tvTitle
 id tvUserEmail
 id tvUserName
@@ -179,7 +175,6 @@ id viewBar1
 id viewBar2
 id viewHorizontalBar
 id viewPager
-id viewPagerFragment
 id viewVerticalBar
 layout activity_animations_demo_screen
 layout activity_base
@@ -197,14 +192,12 @@ layout activity_user
 layout activity_user_login
 layout activity_view_pager
 layout fragment_first_screen
-layout fragment_home
 layout fragment_second_screen
 layout fragment_third_screen
 layout fragment_view_pager
 layout my_toolbar
 mipmap ic_launcher
 mipmap ic_launcher_round
-navigation nav_graph
 string _0
 string _00
 string _1
@@ -242,6 +235,7 @@ string fade
 string female
 string find
 string first_assignment
+string first_screen
 string forget_password
 string form_submission
 string full_name
@@ -254,6 +248,7 @@ string google_crash_reporting_api_key
 string google_map_key
 string google_maps_screen
 string google_storage_bucket
+string hello_blank_fragment
 string hello_there_welcome_back
 string hello_world
 string hello_world_hope_you_all_are_doing_good
@@ -285,6 +280,7 @@ string project_id
 string rating
 string result
 string rotation
+string second_screen
 string shared_transition
 string sign
 string sign_in_to_continue
@@ -293,6 +289,7 @@ string slide
 string submit
 string subtract
 string terms
+string third_screen
 string title
 string user_onBoarding
 string user_s_onboarding
