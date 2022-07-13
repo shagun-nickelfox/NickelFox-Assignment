@@ -9,9 +9,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.RatingBar
-import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityFormSubmissionBinding
+import com.example.nickelfoxassignment.showToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
@@ -46,12 +46,13 @@ class FormSubmission : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.root.apply {
-            title = "Form Submission"
-            setBackgroundColor(ContextCompat.getColor(this@FormSubmission, R.color.yellow))
-            setTitleTextColor(ContextCompat.getColor(this@FormSubmission, R.color.purple_700))
-            setSupportActionBar(this)
-        }
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "Form Submission",
+                R.color.purple_700,
+                R.color.yellow
+            )
+        )
     }
 
 

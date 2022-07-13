@@ -3,9 +3,9 @@ package com.example.nickelfoxassignment.assignment0
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityButtonsBinding
+import com.example.nickelfoxassignment.showToolbar
 
 class ButtonsActivity : AppCompatActivity() {
 
@@ -22,12 +22,13 @@ class ButtonsActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.root.apply {
-            title = "First Assignment"
-            setBackgroundColor(ContextCompat.getColor(this@ButtonsActivity, R.color.skyBlue))
-            setTitleTextColor(ContextCompat.getColor(this@ButtonsActivity, android.R.color.white))
-            setSupportActionBar(this)
-        }
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "First Assignment",
+                android.R.color.white,
+                R.color.skyBlue
+            )
+        )
     }
 
     private fun setupListeners() {

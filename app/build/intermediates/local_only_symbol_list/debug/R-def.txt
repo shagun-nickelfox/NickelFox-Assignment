@@ -85,6 +85,7 @@ id ac
 id bar_1
 id bar_2
 id btnAlreadyAccount
+id btnAnimation
 id btnBlink
 id btnCrash
 id btnFade
@@ -97,7 +98,6 @@ id btnSignup
 id btnSlide
 id btnSubmit
 id btnZoom
-id card
 id checkBox
 id clBaseRectangle
 id cvAnimation
@@ -111,7 +111,11 @@ id cvOnBoarding
 id cvSharedTransition
 id cvViewPager
 id divide
+id editText
 id equal
+id glHorizontal
+id glHorizontal2
+id guideline
 id homeMap
 id include2
 id ivBartImage
@@ -123,6 +127,7 @@ id linear1
 id linear2
 id linear3
 id linear4
+id llCard
 id map
 id multiply
 id percent
@@ -177,20 +182,20 @@ id viewHorizontalBar
 id viewPager
 id viewVerticalBar
 layout activity_animations_demo_screen
-layout activity_base
 layout activity_buttons
 layout activity_calculator_ui
 layout activity_crash
-layout activity_detailed
 layout activity_form_submission
 layout activity_google_maps_screen
 layout activity_login
 layout activity_main
 layout activity_maps
 layout activity_sign_up
+layout activity_transition
 layout activity_user
 layout activity_user_login
 layout activity_view_pager
+layout dialog_forgot_password
 layout fragment_first_screen
 layout fragment_second_screen
 layout fragment_third_screen
@@ -211,6 +216,7 @@ string _8
 string _9
 string ac
 string already_have_an_account_login
+string animation
 string animation_demo
 string animations_demo_screen
 string app_name
@@ -220,6 +226,7 @@ string calculator
 string calculator_ui
 string cartoon
 string com.crashlytics.android.build_id
+string com.google.firebase.crashlytics.mapping_file_id
 string crash
 string crashlytics
 string date_of_birth
@@ -286,6 +293,7 @@ string sign
 string sign_in_to_continue
 string sign_up_to_start_your_new_journey
 string slide
+string start_animation
 string submit
 string subtract
 string terms

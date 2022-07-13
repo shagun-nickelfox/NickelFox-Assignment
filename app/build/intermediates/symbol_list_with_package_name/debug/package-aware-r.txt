@@ -2813,6 +2813,7 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btnAlreadyAccount
+id btnAnimation
 id btnBlink
 id btnCrash
 id btnFade
@@ -2829,7 +2830,6 @@ id buttonPanel
 id cache_measures
 id callMeasure
 id cancel_button
-id card
 id carryVelocity
 id center
 id centerCrop
@@ -2918,6 +2918,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editText
 id edit_query
 id edittext_dropdown_editable
 id edittext_dropdown_noneditable
@@ -2949,6 +2950,8 @@ id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glHorizontal
+id glHorizontal2
 id gone
 id graph
 id graph_wrap
@@ -3001,6 +3004,7 @@ id linear3
 id linear4
 id listMode
 id list_item
+id llCard
 id locale
 id ltr
 id map
@@ -3399,17 +3403,16 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_animations_demo_screen
-layout activity_base
 layout activity_buttons
 layout activity_calculator_ui
 layout activity_crash
-layout activity_detailed
 layout activity_form_submission
 layout activity_google_maps_screen
 layout activity_login
 layout activity_main
 layout activity_maps
 layout activity_sign_up
+layout activity_transition
 layout activity_user
 layout activity_user_login
 layout activity_view_pager
@@ -3434,6 +3437,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_forgot_password
 layout fragment_first_screen
 layout fragment_second_screen
 layout fragment_third_screen
@@ -3558,6 +3562,7 @@ string abc_toolbar_collapse_description
 string ac
 string already_have_an_account_login
 string androidx_startup
+string animation
 string animation_demo
 string animations_demo_screen
 string app_name
@@ -3575,6 +3580,7 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string com_crashlytics_android_build_id
+string com_google_firebase_crashlytics_mapping_file_id
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -3750,6 +3756,7 @@ string sign
 string sign_in_to_continue
 string sign_up_to_start_your_new_journey
 string slide
+string start_animation
 string status_bar_notification_info_overflow
 string submit
 string subtract

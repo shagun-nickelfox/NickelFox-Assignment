@@ -3,10 +3,10 @@ package com.example.nickelfoxassignment.viewpager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.nickelfoxassignment.databinding.ActivityViewPagerBinding
-import com.example.nickelfoxassignment.viewpager.viewpagerClasses.FirstScreen
-import com.example.nickelfoxassignment.viewpager.viewpagerClasses.SecondScreen
-import com.example.nickelfoxassignment.viewpager.viewpagerClasses.ThirdScreen
-import com.example.nickelfoxassignment.viewpager.viewpagerClasses.ViewPagerAdapter
+import com.example.nickelfoxassignment.viewpager.viewpagerclasses.FirstScreen
+import com.example.nickelfoxassignment.viewpager.viewpagerclasses.SecondScreen
+import com.example.nickelfoxassignment.viewpager.viewpagerclasses.ThirdScreen
+import com.example.nickelfoxassignment.viewpager.viewpagerclasses.ViewPagerAdapter
 
 class ViewPagerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewPagerBinding

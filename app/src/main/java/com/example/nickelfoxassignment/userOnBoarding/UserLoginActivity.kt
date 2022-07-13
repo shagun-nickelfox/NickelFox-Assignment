@@ -4,16 +4,23 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Patterns
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.example.nickelfoxassignment.databinding.ActivityUserLoginBinding
+import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_user_login.*
+
 
 class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserLoginBinding
+    private lateinit var forgotPasswordBinding: DialogForgotPasswordBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -42,6 +49,18 @@ class UserLoginActivity : AppCompatActivity() {
             )
             startActivity(intent, options.toBundle())
             finish()
+        }
+
+        btnForgetPassword.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Forgot Password")
+            forgotPasswordBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
+            builder.setView(forgotPasswordBinding.root)
+            builder.setPositiveButton("Reset") { _, _ ->
+                forgotPassword(forgotPasswordBinding.editText)
+            }
+            builder.setNegativeButton("Close") { _, _ -> }
+            builder.show()
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -93,5 +112,24 @@ class UserLoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun forgotPassword(username: EditText) {
+        if (username.text.toString().isEmpty()) {
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+            return
+        }
+
+        firebaseAuth.sendPasswordResetEmail(username.text.toString())
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful)
+                    Toast.makeText(this, "Email Sent", Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(this, "${task.exception}", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Error Failed", Toast.LENGTH_LONG).show()
+            }
     }
 }

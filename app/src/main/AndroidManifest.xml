@@ -45,10 +45,7 @@
             android:value="AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58" />
 
         <activity
-            android:name=".sharedtransition.DetailedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".sharedtransition.BaseActivity"
+            android:name=".sharedtransition.TransitionActivity"
             android:exported="false" />
         <activity
             android:name=".demomap.MapsActivity"

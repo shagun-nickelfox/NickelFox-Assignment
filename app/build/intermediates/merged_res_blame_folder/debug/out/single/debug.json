@@ -8,20 +8,20 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.nickelfoxassignment.app-merged_res-52:/drawable_text_layout.xml.flat",
-        "source": "com.example.nickelfoxassignment.app-main-54:/drawable/text_layout.xml"
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_dialog_forgot_password.xml.flat",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\dialog_forgot_password.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\font_bangers.ttf.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\font\\bangers.ttf"
     },
     {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_ic_dob.png.flat",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\ic_dob.png"
-    },
-    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_fragment_view_pager.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\fragment_view_pager.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_ic_dob.png.flat",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\ic_dob.png"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_user.png.flat",
@@ -128,10 +128,6 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\font\\bungee.ttf"
     },
     {
-        "merged": "com.example.nickelfoxassignment.app-merged_res-52:/layout_activity_form_submission.xml.flat",
-        "source": "com.example.nickelfoxassignment.app-main-54:/layout/activity_form_submission.xml"
-    },
-    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_ic_person.png.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\ic_person.png"
     },
@@ -158,6 +154,10 @@
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_my_toolbar.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\my_toolbar.xml"
+    },
+    {
+        "merged": "com.example.nickelfoxassignment.app-merged_res-52:/layout_activity_main.xml.flat",
+        "source": "com.example.nickelfoxassignment.app-main-54:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_login.xml.flat",
@@ -198,10 +198,6 @@
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_dob.png.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\dob.png"
-    },
-    {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_textlayout.xml.flat",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\textlayout.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_ic_history.xml.flat",
@@ -246,6 +242,10 @@
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_circle.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_transition.xml.flat",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_transition.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\anim_zoom_in.xml.flat",
@@ -308,12 +308,12 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\language.png"
     },
     {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_user.xml.flat",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_user.xml"
-    },
-    {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\anim_zoom_out_activity.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\anim\\zoom_out_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_user.xml.flat",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_user.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\anim_clockwise.xml.flat",
@@ -328,16 +328,12 @@
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\anim\\blink.xml"
     },
     {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_base.xml.flat",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_base.xml"
+        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_text_layout.xml.flat",
+        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\text_layout.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_calculator_ui.xml.flat",
         "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_calculator_ui.xml"
-    },
-    {
-        "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_detailed.xml.flat",
-        "source": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout\\activity_detailed.xml"
     },
     {
         "merged": "C:\\Users\\Shagun Bansal\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout_activity_view_pager.xml.flat",

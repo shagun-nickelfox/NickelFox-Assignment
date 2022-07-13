@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.viewpager.viewpagerClasses
+package com.example.nickelfoxassignment.viewpager.viewpagerclasses
 
 import android.os.Bundle
 import android.view.*

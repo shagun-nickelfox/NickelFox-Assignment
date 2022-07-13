@@ -4,15 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityAnimationsDemoScreenBinding
+import com.example.nickelfoxassignment.showToolbar
 
 class AnimationsDemoScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityAnimationsDemoScreenBinding
     private lateinit var animation: Animation
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAnimationsDemoScreenBinding.inflate(layoutInflater)
@@ -29,22 +28,13 @@ class AnimationsDemoScreen : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.root.apply {
-            title = "Animation Demo Screen"
-            setBackgroundColor(
-                ContextCompat.getColor(
-                    this@AnimationsDemoScreen,
-                    R.color.purple_700
-                )
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "Animation Demo Screen",
+                android.R.color.white,
+                R.color.purple_700
             )
-            setTitleTextColor(
-                ContextCompat.getColor(
-                    this@AnimationsDemoScreen,
-                    android.R.color.white
-                )
-            )
-            setSupportActionBar(this)
-        }
+        )
     }
 
     private fun setupListeners() {
@@ -71,14 +61,20 @@ class AnimationsDemoScreen : AppCompatActivity() {
             }
 
             btnZoom.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_in_activity)
+                animation =
+                    AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_in_activity)
                 ivBartImage.startAnimation(animation.apply {
                     setAnimationListener(object : Animation.AnimationListener {
                         override fun onAnimationStart(animation: Animation?) {
                         }
 
                         override fun onAnimationEnd(animation: Animation?) {
-                            ivBartImage.startAnimation(AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_out_activity))
+                            ivBartImage.startAnimation(
+                                AnimationUtils.loadAnimation(
+                                    this@AnimationsDemoScreen,
+                                    R.anim.zoom_out_activity
+                                )
+                            )
                         }
 
                         override fun onAnimationRepeat(animation: Animation?) {

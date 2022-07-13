@@ -68,10 +68,7 @@
             android:value="AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58" />
 
         <activity
-            android:name="com.example.nickelfoxassignment.sharedtransition.DetailedActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.nickelfoxassignment.sharedtransition.BaseActivity"
+            android:name="com.example.nickelfoxassignment.sharedtransition.TransitionActivity"
             android:exported="false" />
         <activity
             android:name="com.example.nickelfoxassignment.demomap.MapsActivity"

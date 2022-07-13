@@ -3,12 +3,11 @@ package com.example.nickelfoxassignment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.assignment0.ButtonsActivity
 import com.example.nickelfoxassignment.crashlytics.CrashActivity
 import com.example.nickelfoxassignment.databinding.ActivityMainBinding
 import com.example.nickelfoxassignment.demomap.MapsActivity
-import com.example.nickelfoxassignment.sharedtransition.BaseActivity
+import com.example.nickelfoxassignment.sharedtransition.TransitionActivity
 import com.example.nickelfoxassignment.userOnBoarding.LoginActivity
 import com.example.nickelfoxassignment.viewpager.ViewPagerActivity
 
@@ -26,11 +25,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        binding.toolbar.root.apply {
-            title = "NickelFox Assignment"
-            setTitleTextColor(ContextCompat.getColor(this@MainActivity, android.R.color.white))
-            setSupportActionBar(this)
-        }
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "NickelFox Assignment",
+                android.R.color.white,
+                R.color.purple_700
+            )
+        )
     }
 
     private fun setupListeners() {
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             cvSharedTransition.setOnClickListener {
-                val intent = Intent(this@MainActivity, BaseActivity::class.java)
+                val intent = Intent(this@MainActivity, TransitionActivity::class.java)
                 startActivity(intent)
             }
 
