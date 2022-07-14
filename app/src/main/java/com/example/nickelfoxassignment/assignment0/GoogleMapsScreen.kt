@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
@@ -37,6 +38,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     private var currentLocation: Location? = null
     private lateinit var marker: MarkerOptions
     private var polyline: Polyline? = null
+    private lateinit var address : String
     private var navigateToSettings = false
     private val latLngList: MutableList<LatLng> = mutableListOf()
     private var tamWorth = LatLng(46.392014, -117.010826)
@@ -212,10 +214,16 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
 
     //Draw Marker on map
     private fun drawMarker(latLng: LatLng) {
+        val addresses = getAddress(latLng.latitude, latLng.longitude)
+        address = if(addresses.size != 0)
+            addresses[0].getAddressLine(0).toString()
+        else
+            latLng.toString()
+
         marker = MarkerOptions()
             .position(latLng)
             .title("Address")
-            .snippet(getAddress(latLng.latitude, latLng.longitude))
+            .snippet(address)
 
         latLngList.add(latLng)
         mMap.addMarker(marker)
@@ -224,10 +232,9 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     }
 
     //Fetch address of the tapped location
-    private fun getAddress(lat: Double, lan: Double): String {
+    private fun getAddress(lat: Double, lan: Double): MutableList<Address> {
         val geocoder = Geocoder(this, Locale.getDefault())
-        val addresses = geocoder.getFromLocation(lat, lan, 1)
-        return addresses[0].getAddressLine(0).toString()
+        return geocoder.getFromLocation(lat, lan, 1)
     }
 
     private fun setMapClick(map: GoogleMap) {
