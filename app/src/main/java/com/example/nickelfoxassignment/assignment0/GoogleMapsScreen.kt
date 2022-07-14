@@ -38,7 +38,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     private var currentLocation: Location? = null
     private lateinit var marker: MarkerOptions
     private var polyline: Polyline? = null
-    private lateinit var address : String
+    private lateinit var address: String
     private var navigateToSettings = false
     private val latLngList: MutableList<LatLng> = mutableListOf()
     private var tamWorth = LatLng(46.392014, -117.010826)
@@ -215,7 +215,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     //Draw Marker on map
     private fun drawMarker(latLng: LatLng) {
         val addresses = getAddress(latLng.latitude, latLng.longitude)
-        address = if(addresses.size != 0)
+        address = if (addresses.size != 0)
             addresses[0].getAddressLine(0).toString()
         else
             latLng.toString()

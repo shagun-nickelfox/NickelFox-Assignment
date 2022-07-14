@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +37,9 @@ public final class ActivityUserLoginBinding implements ViewBinding {
   public final ImageView ivLogo;
 
   @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final TextInputLayout tvEmail;
 
   @NonNull
@@ -55,7 +59,7 @@ public final class ActivityUserLoginBinding implements ViewBinding {
 
   private ActivityUserLoginBinding(@NonNull LinearLayout rootView,
       @NonNull Button btnForgetPassword, @NonNull Button btnGo, @NonNull Button btnSignup,
-      @NonNull ImageView ivLogo, @NonNull TextInputLayout tvEmail,
+      @NonNull ImageView ivLogo, @NonNull ProgressBar progressBar, @NonNull TextInputLayout tvEmail,
       @NonNull TextInputEditText tvEmailInput, @NonNull TextInputLayout tvPassword,
       @NonNull TextInputEditText tvPasswordInput, @NonNull TextView tvSubtitle,
       @NonNull TextView tvTitle) {
@@ -64,6 +68,7 @@ public final class ActivityUserLoginBinding implements ViewBinding {
     this.btnGo = btnGo;
     this.btnSignup = btnSignup;
     this.ivLogo = ivLogo;
+    this.progressBar = progressBar;
     this.tvEmail = tvEmail;
     this.tvEmailInput = tvEmailInput;
     this.tvPassword = tvPassword;
@@ -123,6 +128,12 @@ public final class ActivityUserLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.tvEmail;
       TextInputLayout tvEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvEmail == null) {
@@ -160,8 +171,8 @@ public final class ActivityUserLoginBinding implements ViewBinding {
       }
 
       return new ActivityUserLoginBinding((LinearLayout) rootView, btnForgetPassword, btnGo,
-          btnSignup, ivLogo, tvEmail, tvEmailInput, tvPassword, tvPasswordInput, tvSubtitle,
-          tvTitle);
+          btnSignup, ivLogo, progressBar, tvEmail, tvEmailInput, tvPassword, tvPasswordInput,
+          tvSubtitle, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

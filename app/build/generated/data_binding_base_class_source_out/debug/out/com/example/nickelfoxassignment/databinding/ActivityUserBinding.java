@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,15 +25,20 @@ public final class ActivityUserBinding implements ViewBinding {
   public final Button btnLogout;
 
   @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final TextView tvUserEmail;
 
   @NonNull
   public final TextView tvWelcome;
 
   private ActivityUserBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLogout,
-      @NonNull TextView tvUserEmail, @NonNull TextView tvWelcome) {
+      @NonNull ProgressBar progressBar, @NonNull TextView tvUserEmail,
+      @NonNull TextView tvWelcome) {
     this.rootView = rootView;
     this.btnLogout = btnLogout;
+    this.progressBar = progressBar;
     this.tvUserEmail = tvUserEmail;
     this.tvWelcome = tvWelcome;
   }
@@ -70,6 +76,12 @@ public final class ActivityUserBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.tvUserEmail;
       TextView tvUserEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvUserEmail == null) {
@@ -82,8 +94,8 @@ public final class ActivityUserBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityUserBinding((ConstraintLayout) rootView, btnLogout, tvUserEmail,
-          tvWelcome);
+      return new ActivityUserBinding((ConstraintLayout) rootView, btnLogout, progressBar,
+          tvUserEmail, tvWelcome);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

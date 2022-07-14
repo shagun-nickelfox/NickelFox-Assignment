@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -53,7 +55,8 @@ class UserLoginActivity : AppCompatActivity() {
 
         btnForgetPassword.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Forgot Password")
+            builder.setTitle("Forgot password?")
+            builder.setMessage("Enter your email id")
             forgotPasswordBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
             builder.setView(forgotPasswordBinding.root)
             builder.setPositiveButton("Reset") { _, _ ->
@@ -63,9 +66,25 @@ class UserLoginActivity : AppCompatActivity() {
             builder.show()
         }
 
+        /*val builder = AlertDialog.Builder(this)
+        val inflater = this.layoutInflater
+        val dialogView: View = inflater.inflate(R.layout.,null)
+        builder.setView(dialogView)
+        builder.setTitle("Forgot password?")
+        builder.setMessage("Enter your email id")
+        builder.setPositiveButton(
+            "Reset"
+        ) { _, _ -> }
+        builder.setNegativeButton(
+            "Cancel"
+        ) { dialog, _ -> dialog.cancel() }
+        val b = builder.create()
+        b.show()*/
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnGo.setOnClickListener {
+            showProgressBar()
             val userName = binding.tvEmailInput.text.toString()
             val passWord = binding.tvPasswordInput.text.toString()
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
@@ -77,6 +96,7 @@ class UserLoginActivity : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(userName, passWord)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
+                            hideProgressBar()
                             Toast.makeText(
                                 this@UserLoginActivity,
                                 "Login Successful",
@@ -87,14 +107,16 @@ class UserLoginActivity : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         } else {
+                            hideProgressBar()
                             Toast.makeText(
                                 this@UserLoginActivity,
-                                it.exception.toString(),
+                                it.exception?.message,
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
                     }
             } else {
+                hideProgressBar()
                 Toast.makeText(
                     this@UserLoginActivity,
                     "Empty fields are not allowed!!",
@@ -116,20 +138,44 @@ class UserLoginActivity : AppCompatActivity() {
 
     private fun forgotPassword(username: EditText) {
         if (username.text.toString().isEmpty()) {
+            Toast.makeText(this, "Please enter email address", Toast.LENGTH_SHORT).show()
             return
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+            Toast.makeText(this, "Invalid email address", Toast.LENGTH_SHORT).show()
             return
         }
 
+        showProgressBar()
+
         firebaseAuth.sendPasswordResetEmail(username.text.toString())
             .addOnCompleteListener { task ->
+                hideProgressBar()
                 if (task.isSuccessful)
-                    Toast.makeText(this, "Email Sent", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "Password reset link sent to your email",
+                        Toast.LENGTH_LONG
+                    ).show()
                 else
-                    Toast.makeText(this, "${task.exception}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
-                Toast.makeText(this, "Error Failed", Toast.LENGTH_LONG).show()
+                hideProgressBar()
+                Toast.makeText(this, "Error in sending email", Toast.LENGTH_LONG).show()
             }
+    }
+
+    private fun showProgressBar() {
+        progressBar.setBackgroundColor(android.R.color.white)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        progressBar.visibility = View.GONE
     }
 }

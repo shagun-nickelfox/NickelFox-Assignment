@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,9 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final ImageView ivLogo;
 
   @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final TextInputEditText tvEmail;
 
   @NonNull
@@ -54,14 +58,16 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final TextInputLayout tvUserName;
 
   private ActivitySignUpBinding(@NonNull LinearLayout rootView, @NonNull Button btnAlreadyAccount,
-      @NonNull Button btnSignup, @NonNull ImageView ivLogo, @NonNull TextInputEditText tvEmail,
-      @NonNull TextInputLayout tvName, @NonNull TextInputEditText tvPassword,
-      @NonNull TextInputLayout tvPhoneNo, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle,
+      @NonNull Button btnSignup, @NonNull ImageView ivLogo, @NonNull ProgressBar progressBar,
+      @NonNull TextInputEditText tvEmail, @NonNull TextInputLayout tvName,
+      @NonNull TextInputEditText tvPassword, @NonNull TextInputLayout tvPhoneNo,
+      @NonNull TextView tvSubtitle, @NonNull TextView tvTitle,
       @NonNull TextInputLayout tvUserName) {
     this.rootView = rootView;
     this.btnAlreadyAccount = btnAlreadyAccount;
     this.btnSignup = btnSignup;
     this.ivLogo = ivLogo;
+    this.progressBar = progressBar;
     this.tvEmail = tvEmail;
     this.tvName = tvName;
     this.tvPassword = tvPassword;
@@ -116,6 +122,12 @@ public final class ActivitySignUpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.tvEmail;
       TextInputEditText tvEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvEmail == null) {
@@ -159,7 +171,8 @@ public final class ActivitySignUpBinding implements ViewBinding {
       }
 
       return new ActivitySignUpBinding((LinearLayout) rootView, btnAlreadyAccount, btnSignup,
-          ivLogo, tvEmail, tvName, tvPassword, tvPhoneNo, tvSubtitle, tvTitle, tvUserName);
+          ivLogo, progressBar, tvEmail, tvName, tvPassword, tvPhoneNo, tvSubtitle, tvTitle,
+          tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

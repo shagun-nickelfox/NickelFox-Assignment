@@ -5,8 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import com.example.nickelfoxassignment.databinding.ActivityUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_user_login.*
 
 class UserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserBinding
@@ -29,11 +32,26 @@ class UserActivity : AppCompatActivity() {
         binding.tvUserEmail.text = name
 
         binding.btnLogout.setOnClickListener {
+            showProgressBar()
             firebaseAuth.signOut()
-
+            hideProgressBar()
             val intent = Intent(this@UserActivity, UserLoginActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun showProgressBar() {
+        progressBar.setBackgroundColor(android.R.color.white)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        progressBar.visibility = View.GONE
     }
 }

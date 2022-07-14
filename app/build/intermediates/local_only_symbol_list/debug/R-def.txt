@@ -134,6 +134,7 @@ id percent
 id plus
 id plusminus
 id profile
+id progressBar
 id rbBar
 id rbFemale
 id rbMale
@@ -235,6 +236,7 @@ string description
 string divide
 string dot
 string email
+string email_address
 string english
 string equal
 string equalTo

@@ -59,6 +59,7 @@
     <string name="divide">÷</string>
     <string name="dot">.</string>
     <string name="email">Email</string>
+    <string name="email_address">Email Address</string>
     <string name="english">English</string>
     <string name="equal">=</string>
     <string name="equalTo">=</string>

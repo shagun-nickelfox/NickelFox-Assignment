@@ -3108,6 +3108,7 @@ id plusminus
 id position
 id postLayout
 id profile
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -3608,6 +3609,7 @@ string description
 string divide
 string dot
 string email
+string email_address
 string english
 string equal
 string equalTo
