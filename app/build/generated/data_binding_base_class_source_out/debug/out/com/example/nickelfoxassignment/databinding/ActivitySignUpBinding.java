@@ -31,10 +31,19 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final Button btnSignup;
 
   @NonNull
+  public final TextInputEditText inputName;
+
+  @NonNull
+  public final TextInputEditText inputPhone;
+
+  @NonNull
+  public final TextInputEditText inputUsername;
+
+  @NonNull
   public final ImageView ivLogo;
 
   @NonNull
-  public final ProgressBar progressBar;
+  public final ProgressBar progressBarSign;
 
   @NonNull
   public final TextInputEditText tvEmail;
@@ -58,7 +67,9 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final TextInputLayout tvUserName;
 
   private ActivitySignUpBinding(@NonNull LinearLayout rootView, @NonNull Button btnAlreadyAccount,
-      @NonNull Button btnSignup, @NonNull ImageView ivLogo, @NonNull ProgressBar progressBar,
+      @NonNull Button btnSignup, @NonNull TextInputEditText inputName,
+      @NonNull TextInputEditText inputPhone, @NonNull TextInputEditText inputUsername,
+      @NonNull ImageView ivLogo, @NonNull ProgressBar progressBarSign,
       @NonNull TextInputEditText tvEmail, @NonNull TextInputLayout tvName,
       @NonNull TextInputEditText tvPassword, @NonNull TextInputLayout tvPhoneNo,
       @NonNull TextView tvSubtitle, @NonNull TextView tvTitle,
@@ -66,8 +77,11 @@ public final class ActivitySignUpBinding implements ViewBinding {
     this.rootView = rootView;
     this.btnAlreadyAccount = btnAlreadyAccount;
     this.btnSignup = btnSignup;
+    this.inputName = inputName;
+    this.inputPhone = inputPhone;
+    this.inputUsername = inputUsername;
     this.ivLogo = ivLogo;
-    this.progressBar = progressBar;
+    this.progressBarSign = progressBarSign;
     this.tvEmail = tvEmail;
     this.tvName = tvName;
     this.tvPassword = tvPassword;
@@ -116,15 +130,33 @@ public final class ActivitySignUpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.inputName;
+      TextInputEditText inputName = ViewBindings.findChildViewById(rootView, id);
+      if (inputName == null) {
+        break missingId;
+      }
+
+      id = R.id.inputPhone;
+      TextInputEditText inputPhone = ViewBindings.findChildViewById(rootView, id);
+      if (inputPhone == null) {
+        break missingId;
+      }
+
+      id = R.id.inputUsername;
+      TextInputEditText inputUsername = ViewBindings.findChildViewById(rootView, id);
+      if (inputUsername == null) {
+        break missingId;
+      }
+
       id = R.id.ivLogo;
       ImageView ivLogo = ViewBindings.findChildViewById(rootView, id);
       if (ivLogo == null) {
         break missingId;
       }
 
-      id = R.id.progressBar;
-      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
-      if (progressBar == null) {
+      id = R.id.progressBarSign;
+      ProgressBar progressBarSign = ViewBindings.findChildViewById(rootView, id);
+      if (progressBarSign == null) {
         break missingId;
       }
 
@@ -171,8 +203,8 @@ public final class ActivitySignUpBinding implements ViewBinding {
       }
 
       return new ActivitySignUpBinding((LinearLayout) rootView, btnAlreadyAccount, btnSignup,
-          ivLogo, progressBar, tvEmail, tvName, tvPassword, tvPhoneNo, tvSubtitle, tvTitle,
-          tvUserName);
+          inputName, inputPhone, inputUsername, ivLogo, progressBarSign, tvEmail, tvName,
+          tvPassword, tvPhoneNo, tvSubtitle, tvTitle, tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

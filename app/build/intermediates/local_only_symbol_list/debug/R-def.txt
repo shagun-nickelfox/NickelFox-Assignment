@@ -118,6 +118,9 @@ id glHorizontal2
 id guideline
 id homeMap
 id include2
+id inputName
+id inputPhone
+id inputUsername
 id ivBartImage
 id ivGender
 id ivLanguage
@@ -135,6 +138,7 @@ id plus
 id plusminus
 id profile
 id progressBar
+id progressBarSign
 id rbBar
 id rbFemale
 id rbMale
@@ -226,7 +230,6 @@ string blink
 string calculator
 string calculator_ui
 string cartoon
-string com.crashlytics.android.build_id
 string com.google.firebase.crashlytics.mapping_file_id
 string crash
 string crashlytics

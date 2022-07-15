@@ -2978,6 +2978,9 @@ id immediateStop
 id include2
 id included
 id info
+id inputName
+id inputPhone
+id inputUsername
 id invisible
 id inward
 id italic
@@ -3109,6 +3112,7 @@ id position
 id postLayout
 id profile
 id progressBar
+id progressBarSign
 id progress_circular
 id progress_horizontal
 id radio
@@ -3580,7 +3584,6 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
-string com_crashlytics_android_build_id
 string com_google_firebase_crashlytics_mapping_file_id
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text

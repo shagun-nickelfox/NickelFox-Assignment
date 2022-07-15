@@ -18,7 +18,6 @@ import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 
-
 class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserLoginBinding

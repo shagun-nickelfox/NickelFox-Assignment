@@ -1,16 +1,17 @@
 package com.example.nickelfoxassignment.userOnBoarding
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.example.nickelfoxassignment.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_user_login.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -43,10 +44,29 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnSignup.setOnClickListener {
-            showProgressBar()
-            val usernameF = binding.tvEmail.text.toString()
-            val passwordF = binding.tvPassword.text.toString()
-            if (usernameF.isNotEmpty() && passwordF.isNotEmpty()) {
+            val usernameF = tvEmail.text.toString()
+            val passwordF = tvPassword.text.toString()
+            val phone = inputPhone.text.toString()
+            if (usernameF.isEmpty() || passwordF.isEmpty() || phone.isEmpty()) {
+                Toast.makeText(
+                    this@SignUpActivity,
+                    "Empty fields are not allowed!!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (!isValidMail(usernameF)) {
+                Toast.makeText(
+                    this@SignUpActivity,
+                    "Invalid email address. Please enter a valid email address.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (!isValidMobile(phone)) {
+                Toast.makeText(
+                    this@SignUpActivity,
+                    "Invalid Phone No. Please enter a valid phone no.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                showProgressBar()
                 firebaseAuth.createUserWithEmailAndPassword(usernameF, passwordF)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -64,28 +84,35 @@ class SignUpActivity : AppCompatActivity() {
                             ).show()
                         }
                     }
-            } else {
-                hideProgressBar()
-                Toast.makeText(
-                    this@SignUpActivity,
-                    "Empty fields are not allowed!!",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
     }
 
+    private fun isValidMail(email: String): Boolean {
+        val emailString = ("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+
+        return Pattern.compile(emailString).matcher(email).matches()
+    }
+
+    private fun isValidMobile(phone: String): Boolean {
+        if (!Pattern.matches("[a-zA-Z]+", phone)) {
+            return phone.length == 10
+        }
+        return false
+    }
+
     private fun showProgressBar() {
-        progressBar.setBackgroundColor(android.R.color.white)
+        progressBarSign.setBackgroundColor(android.R.color.white)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         )
-        progressBar.visibility = View.VISIBLE
+        progressBarSign.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-        progressBar.visibility = View.GONE
+        progressBarSign.visibility = View.GONE
     }
 }
