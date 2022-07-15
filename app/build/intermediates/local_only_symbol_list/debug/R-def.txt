@@ -87,12 +87,14 @@ id bar_2
 id btnAlreadyAccount
 id btnAnimation
 id btnBlink
+id btnCancel
 id btnCrash
 id btnFade
 id btnForgetPassword
 id btnGo
 id btnLogout
 id btnMove
+id btnReset
 id btnRotation
 id btnSignup
 id btnSlide
@@ -156,6 +158,7 @@ id toolbar
 id tvAC
 id tvDOB
 id tvDOBInput
+id tvDescription
 id tvDivide
 id tvEmail
 id tvEmailInput
@@ -229,6 +232,7 @@ string assignment_0
 string blink
 string calculator
 string calculator_ui
+string cancel
 string cartoon
 string com.google.firebase.crashlytics.mapping_file_id
 string crash
@@ -249,6 +253,7 @@ string find
 string first_assignment
 string first_screen
 string forget_password
+string forgot_password
 string form_submission
 string full_name
 string gcm_defaultSenderId
@@ -284,12 +289,14 @@ string name
 string new_user_sign_up
 string operation
 string password
+string passwordReset_description
 string person_icon
 string phone_no
 string plus
 string profile
 string project_id
 string rating
+string reset
 string result
 string rotation
 string second_screen

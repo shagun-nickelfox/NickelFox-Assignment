@@ -1,5 +1,6 @@
 package com.example.nickelfoxassignment.userOnBoarding
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,7 +10,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
@@ -18,10 +18,11 @@ import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 
+
 class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserLoginBinding
-    private lateinit var forgotPasswordBinding: DialogForgotPasswordBinding
+    private lateinit var dialog: Dialog
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -53,32 +54,19 @@ class UserLoginActivity : AppCompatActivity() {
         }
 
         btnForgetPassword.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Forgot password?")
-            builder.setMessage("Enter your email id")
-            forgotPasswordBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
-            builder.setView(forgotPasswordBinding.root)
-            builder.setPositiveButton("Reset") { _, _ ->
-                forgotPassword(forgotPasswordBinding.editText)
+            dialog = Dialog(this)
+            val dialogBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
+            dialogBinding.apply {
+                btnCancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+                btnReset.setOnClickListener {
+                    forgotPassword(dialogBinding.editText)
+                }
             }
-            builder.setNegativeButton("Close") { _, _ -> }
-            builder.show()
+            dialog.setContentView(dialogBinding.root)
+            dialog.show()
         }
-
-        /*val builder = AlertDialog.Builder(this)
-        val inflater = this.layoutInflater
-        val dialogView: View = inflater.inflate(R.layout.,null)
-        builder.setView(dialogView)
-        builder.setTitle("Forgot password?")
-        builder.setMessage("Enter your email id")
-        builder.setPositiveButton(
-            "Reset"
-        ) { _, _ -> }
-        builder.setNegativeButton(
-            "Cancel"
-        ) { dialog, _ -> dialog.cancel() }
-        val b = builder.create()
-        b.show()*/
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -150,17 +138,18 @@ class UserLoginActivity : AppCompatActivity() {
         firebaseAuth.sendPasswordResetEmail(username.text.toString())
             .addOnCompleteListener { task ->
                 hideProgressBar()
-                if (task.isSuccessful)
+                if (task.isSuccessful) {
                     Toast.makeText(
                         this,
                         "Password reset link sent to your email",
                         Toast.LENGTH_LONG
                     ).show()
-                else
+                    dialog.dismiss()
+                } else
                     Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 hideProgressBar()
-                Toast.makeText(this, "Error in sending email", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, "Error in sending email", Toast.LENGTH_LONG).show()
             }
     }
 

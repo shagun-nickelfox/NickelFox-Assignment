@@ -4,29 +4,52 @@ package com.example.nickelfoxassignment.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.nickelfoxassignment.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class DialogForgotPasswordBinding implements ViewBinding {
   @NonNull
-  private final EditText rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final Button btnCancel;
+
+  @NonNull
+  public final Button btnReset;
 
   @NonNull
   public final EditText editText;
 
-  private DialogForgotPasswordBinding(@NonNull EditText rootView, @NonNull EditText editText) {
+  @NonNull
+  public final TextView tvDescription;
+
+  @NonNull
+  public final TextView tvTitle;
+
+  private DialogForgotPasswordBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnCancel,
+      @NonNull Button btnReset, @NonNull EditText editText, @NonNull TextView tvDescription,
+      @NonNull TextView tvTitle) {
     this.rootView = rootView;
+    this.btnCancel = btnCancel;
+    this.btnReset = btnReset;
     this.editText = editText;
+    this.tvDescription = tvDescription;
+    this.tvTitle = tvTitle;
   }
 
   @Override
   @NonNull
-  public EditText getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -47,12 +70,44 @@ public final class DialogForgotPasswordBinding implements ViewBinding {
 
   @NonNull
   public static DialogForgotPasswordBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnCancel;
+      Button btnCancel = ViewBindings.findChildViewById(rootView, id);
+      if (btnCancel == null) {
+        break missingId;
+      }
+
+      id = R.id.btnReset;
+      Button btnReset = ViewBindings.findChildViewById(rootView, id);
+      if (btnReset == null) {
+        break missingId;
+      }
+
+      id = R.id.editText;
+      EditText editText = ViewBindings.findChildViewById(rootView, id);
+      if (editText == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDescription;
+      TextView tvDescription = ViewBindings.findChildViewById(rootView, id);
+      if (tvDescription == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTitle;
+      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitle == null) {
+        break missingId;
+      }
+
+      return new DialogForgotPasswordBinding((ConstraintLayout) rootView, btnCancel, btnReset,
+          editText, tvDescription, tvTitle);
     }
-
-    EditText editText = (EditText) rootView;
-
-    return new DialogForgotPasswordBinding((EditText) rootView, editText);
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

@@ -2815,12 +2815,14 @@ id browser_actions_menu_view
 id btnAlreadyAccount
 id btnAnimation
 id btnBlink
+id btnCancel
 id btnCrash
 id btnFade
 id btnForgetPassword
 id btnGo
 id btnLogout
 id btnMove
+id btnReset
 id btnRotation
 id btnSignup
 id btnSlide
@@ -3257,6 +3259,7 @@ id triangle
 id tvAC
 id tvDOB
 id tvDOBInput
+id tvDescription
 id tvDivide
 id tvEmail
 id tvEmailInput
@@ -3578,6 +3581,7 @@ string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
 string calculator
 string calculator_ui
+string cancel
 string cartoon
 string character_counter_content_description
 string character_counter_overflowed_content_description
@@ -3629,6 +3633,7 @@ string find
 string first_assignment
 string first_screen
 string forget_password
+string forgot_password
 string form_submission
 string full_name
 string gcm_defaultSenderId
@@ -3741,6 +3746,7 @@ string nav_app_bar_open_drawer_description
 string new_user_sign_up
 string operation
 string password
+string passwordReset_description
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -3752,6 +3758,7 @@ string plus
 string profile
 string project_id
 string rating
+string reset
 string result
 string rotation
 string search_menu_title

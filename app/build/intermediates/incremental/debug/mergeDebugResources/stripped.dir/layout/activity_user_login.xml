@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="#000"
+            android:backgroundTint="#000"
             android:text="@string/go"
             android:textColor="#fff"
             android:transitionName="login_btn" />

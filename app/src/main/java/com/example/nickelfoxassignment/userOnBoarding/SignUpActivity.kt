@@ -1,6 +1,8 @@
 package com.example.nickelfoxassignment.userOnBoarding
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -16,6 +18,7 @@ import java.util.regex.Pattern
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +29,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
+        sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+
         binding.btnAlreadyAccount.setOnClickListener {
             val intent = Intent(this@SignUpActivity, UserLoginActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -47,6 +52,11 @@ class SignUpActivity : AppCompatActivity() {
             val usernameF = tvEmail.text.toString()
             val passwordF = tvPassword.text.toString()
             val phone = inputPhone.text.toString()
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putString("Name", usernameF)
+            editor.commit()
+            editor.apply()
+
             if (usernameF.isEmpty() || passwordF.isEmpty() || phone.isEmpty()) {
                 Toast.makeText(
                     this@SignUpActivity,
