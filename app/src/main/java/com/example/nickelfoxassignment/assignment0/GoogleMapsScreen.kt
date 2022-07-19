@@ -12,13 +12,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityGoogleMapsScreenBinding
+import com.example.nickelfoxassignment.shortToast
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -40,6 +40,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
     private var polyline: Polyline? = null
     private lateinit var address: String
     private var navigateToSettings = false
+    private lateinit var locationRequest: LocationRequest
     private val latLngList: MutableList<LatLng> = mutableListOf()
     private var tamWorth = LatLng(46.392014, -117.010826)
     private var newCastle = LatLng(47.702465, -116.796883)
@@ -65,7 +66,7 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
             if (activityResult.resultCode == RESULT_OK) {
                 fetchLocation()
             } else {
-                Toast.makeText(this, "Location required", Toast.LENGTH_SHORT).show()
+                this.shortToast("Location required")
             }
         }
 
@@ -94,6 +95,13 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         super.onBackPressed()
     }
 
+    private fun setupLocationRequest(time: Long) {
+        locationRequest = LocationRequest.create().apply {
+            interval = time
+            priority = Priority.PRIORITY_HIGH_ACCURACY
+        }
+    }
+
     //Fetch user current location
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
@@ -105,24 +113,22 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             if (isLocationEnabled()) {
-                val lr = LocationRequest.create().apply {
-                    interval = 60000
-                    priority = Priority.PRIORITY_HIGH_ACCURACY
-                }
-                fusedLocationProviderClient.requestLocationUpdates(lr, object : LocationCallback() {
-                    override fun onLocationResult(p0: LocationResult) {
-                        super.onLocationResult(p0)
-                        val location = p0.locations.last()
-                        currentLocation = location
-                        val latLng = LatLng(location.latitude, location.longitude)
-                        drawMarker(latLng)
-                    }
-                }, null)
+                setupLocationRequest(60000)
+                fusedLocationProviderClient.requestLocationUpdates(
+                    locationRequest,
+                    object : LocationCallback() {
+                        override fun onLocationResult(p0: LocationResult) {
+                            super.onLocationResult(p0)
+                            val location = p0.locations.last()
+                            currentLocation = location
+                            val latLng = LatLng(location.latitude, location.longitude)
+                            drawMarker(latLng)
+                        }
+                    },
+                    null
+                )
             } else {
-                val locationRequest = LocationRequest.create()
-                    .setInterval(10000)
-                    .setFastestInterval(2000)
-                    .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+                setupLocationRequest(10000)
 
                 val builder = LocationSettingsRequest.Builder()
                     .addLocationRequest(locationRequest)
@@ -193,10 +199,10 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                this.shortToast("Granted")
                 fetchLocation()
             } else {
-                Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                this.shortToast("Denied")
             }
         }
     }

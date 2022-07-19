@@ -6,11 +6,12 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.example.nickelfoxassignment.databinding.ActivitySignUpBinding
+import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.util.regex.Pattern
@@ -28,75 +29,89 @@ class SignUpActivity : AppCompatActivity() {
         setupListeners()
     }
 
-    private fun setupListeners() {
-        sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
-
-        binding.btnAlreadyAccount.setOnClickListener {
+    /**
+     * Create animation when user switch to new activity
+     */
+    private fun createAnimations() {
             val intent = Intent(this@SignUpActivity, UserLoginActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this,
-                Pair.create(binding.ivLogo, "logoImage"),
-                Pair.create(binding.tvTitle, "logoText"),
-                Pair.create(binding.tvSubtitle, "description"),
-                Pair.create(binding.tvUserName, "username"),
-                Pair.create(binding.tvPassword, "password"),
-                Pair.create(binding.btnSignup, "login_btn"),
-                Pair.create(binding.btnAlreadyAccount, "signup_btn")
+                this@SignUpActivity,
+                Pair.create(ivLogo, "logoImage"),
+                Pair.create(tvTitle, "logoText"),
+                Pair.create(tvSubtitle, "description"),
+                Pair.create(tvUserName, "username"),
+                Pair.create(tvPassword, "password"),
+                Pair.create(btnSignup, "login_btn"),
+                Pair.create(btnAlreadyAccount, "signup_btn")
             )
             startActivity(intent, options.toBundle())
             finish()
-        }
-        firebaseAuth = FirebaseAuth.getInstance()
+    }
 
-        binding.btnSignup.setOnClickListener {
-            val usernameF = tvEmail.text.toString()
-            val passwordF = tvPassword.text.toString()
-            val phone = inputPhone.text.toString()
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("Name", usernameF)
-            editor.commit()
-            editor.apply()
+    /**
+     * Save data to shared preferences
+     */
 
-            if (usernameF.isEmpty() || passwordF.isEmpty() || phone.isEmpty()) {
-                Toast.makeText(
-                    this@SignUpActivity,
-                    "Empty fields are not allowed!!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else if (!isValidMail(usernameF)) {
-                Toast.makeText(
-                    this@SignUpActivity,
-                    "Invalid email address. Please enter a valid email address.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else if (!isValidMobile(phone)) {
-                Toast.makeText(
-                    this@SignUpActivity,
-                    "Invalid Phone No. Please enter a valid phone no.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                showProgressBar()
-                firebaseAuth.createUserWithEmailAndPassword(usernameF, passwordF)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            hideProgressBar()
-                            val intent =
-                                Intent(this@SignUpActivity, UserLoginActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            hideProgressBar()
-                            Toast.makeText(
-                                this@SignUpActivity,
-                                it.exception?.message,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
+    private fun saveDataToSharedPreferences(username: String) {
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("Name", username)
+        editor.commit()
+        editor.apply()
+    }
+
+    private fun setupListeners() {
+        sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+
+        binding.apply {
+
+            btnAlreadyAccount.setOnClickListener {
+                createAnimations()
+            }
+
+            firebaseAuth = FirebaseAuth.getInstance()
+
+            btnSignup.setOnClickListener {
+                val usernameF = tvEmail.text.toString()
+                val passwordF = tvPassword.text.toString()
+                val phone = inputPhone.text.toString()
+
+                saveDataToSharedPreferences(usernameF)
+
+                if (usernameF.isEmpty() || passwordF.isEmpty() || phone.isEmpty()) {
+                    this@SignUpActivity.shortToast("Empty fields are not allowed!!")
+                } else if (!isValidMail(usernameF)) {
+                    this@SignUpActivity.shortToast("Invalid Email Address. Please enter correct email address.")
+                } else if (!isValidMobile(phone)) {
+                    this@SignUpActivity.shortToast("Invalid Phone No. Please enter a valid phone no.")
+                } else {
+                    showProgressBar()
+                    createUser(usernameF, passwordF)
+                }
             }
         }
     }
+
+    /**
+     * create a user in the database with the credentials entered by user
+     */
+
+    private fun createUser(username: String, password: String) {
+        firebaseAuth.createUserWithEmailAndPassword(username, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    hideProgressBar()
+                    this@SignUpActivity.showAnotherActivity(UserLoginActivity::class.java)
+                    finish()
+                } else {
+                    hideProgressBar()
+                    this@SignUpActivity.shortToast(it.exception?.message!!)
+                }
+            }
+    }
+
+    /**
+     * Checking the entered email is valid or not
+     */
 
     private fun isValidMail(email: String): Boolean {
         val emailString = ("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -105,6 +120,9 @@ class SignUpActivity : AppCompatActivity() {
         return Pattern.compile(emailString).matcher(email).matches()
     }
 
+    /**
+     * Checking the entered phone no. is valid or not
+     */
     private fun isValidMobile(phone: String): Boolean {
         if (!Pattern.matches("[a-zA-Z]+", phone)) {
             return phone.length == 10

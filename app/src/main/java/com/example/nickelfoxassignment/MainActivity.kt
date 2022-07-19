@@ -37,33 +37,27 @@ class MainActivity : AppCompatActivity() {
     private fun setupListeners() {
         binding.apply {
             cvFirstAssignment.setOnClickListener {
-                val intent = Intent(this@MainActivity, ButtonsActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(ButtonsActivity::class.java)
             }
 
             cvMarkerClustering.setOnClickListener {
-                val intent = Intent(this@MainActivity, MapsActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(MapsActivity::class.java)
             }
 
             cvSharedTransition.setOnClickListener {
-                val intent = Intent(this@MainActivity, TransitionActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(TransitionActivity::class.java)
             }
 
             cvOnBoarding.setOnClickListener {
-                val intent = Intent(this@MainActivity, LoginActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(LoginActivity::class.java)
             }
 
             cvCrashlytics.setOnClickListener {
-                val intent = Intent(this@MainActivity, CrashActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(CrashActivity::class.java)
             }
 
             cvViewPager.setOnClickListener {
-                val intent = Intent(this@MainActivity, ViewPagerActivity::class.java)
-                startActivity(intent)
+                this@MainActivity.showAnotherActivity(ViewPagerActivity::class.java)
             }
         }
     }

@@ -1,13 +1,13 @@
 package com.example.nickelfoxassignment.userOnBoarding
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.example.nickelfoxassignment.databinding.ActivityUserBinding
+import com.example.nickelfoxassignment.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 
@@ -24,19 +24,25 @@ class UserActivity : AppCompatActivity() {
         setupListeners()
     }
 
-    private fun setupListeners() {
-        firebaseAuth = FirebaseAuth.getInstance()
-
+    /**
+     * Get saved data from shared preferences and put it in textview
+     */
+    private fun getDataFromSharedPreferences() {
         preferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val name = preferences.getString("Name", "")
         binding.tvUserEmail.text = name
+    }
+
+    private fun setupListeners() {
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        getDataFromSharedPreferences()
 
         binding.btnLogout.setOnClickListener {
             showProgressBar()
             firebaseAuth.signOut()
             hideProgressBar()
-            val intent = Intent(this@UserActivity, UserLoginActivity::class.java)
-            startActivity(intent)
+            this@UserActivity.showAnotherActivity(UserLoginActivity::class.java)
             finish()
         }
     }

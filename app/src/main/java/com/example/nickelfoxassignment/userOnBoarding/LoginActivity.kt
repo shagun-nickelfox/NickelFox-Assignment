@@ -24,6 +24,19 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * create animation when user go to next activity
+     */
+    private fun createAnimation() {
+        val intent = Intent(this, UserLoginActivity::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this@LoginActivity,
+            Pair.create(binding.ivLogo, "logoImage"), Pair.create(binding.tvTitle, "logoText")
+        )
+        startActivity(intent, options.toBundle())
+        finish()
+    }
+
     private fun setupListeners() {
         binding.apply {
             ivLogo.animation =
@@ -35,13 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, UserLoginActivity::class.java)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this@LoginActivity,
-                Pair.create(binding.ivLogo, "logoImage"), Pair.create(binding.tvTitle, "logoText")
-            )
-            startActivity(intent, options.toBundle())
-            finish()
+            createAnimation()
         }, 3000)
     }
 }

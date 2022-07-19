@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityAnimationsDemoScreenBinding
 import com.example.nickelfoxassignment.showToolbar
+import kotlinx.android.synthetic.main.activity_animations_demo_screen.*
 
 class AnimationsDemoScreen : AppCompatActivity() {
 
@@ -37,27 +38,28 @@ class AnimationsDemoScreen : AppCompatActivity() {
         )
     }
 
+    private fun createAnimation(anim: Int) {
+        animation =
+            AnimationUtils.loadAnimation(this@AnimationsDemoScreen, anim)
+        ivBartImage.startAnimation(animation)
+    }
+
     private fun setupListeners() {
         binding.apply {
             btnRotation.setOnClickListener {
-                animation =
-                    AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.clockwise)
-                ivBartImage.startAnimation(animation)
+                createAnimation(R.anim.clockwise)
             }
 
             btnBlink.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.blink)
-                ivBartImage.startAnimation(animation)
+                createAnimation(R.anim.blink)
             }
 
             btnFade.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.fade)
-                ivBartImage.startAnimation(animation)
+                createAnimation(R.anim.fade)
             }
 
             btnMove.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.move)
-                ivBartImage.startAnimation(animation)
+                createAnimation(R.anim.move)
             }
 
             btnZoom.setOnClickListener {
@@ -85,8 +87,7 @@ class AnimationsDemoScreen : AppCompatActivity() {
             }
 
             btnSlide.setOnClickListener {
-                animation = AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.slide)
-                ivBartImage.startAnimation(animation)
+                createAnimation(R.anim.slide)
             }
         }
     }

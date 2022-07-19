@@ -9,12 +9,14 @@ import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.example.nickelfoxassignment.databinding.ActivityUserLoginBinding
 import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
+import com.example.nickelfoxassignment.longToast
+import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 
@@ -31,84 +33,80 @@ class UserLoginActivity : AppCompatActivity() {
         binding = ActivityUserLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setUpForgotPasswordDialog()
         setupListeners()
+    }
+
+    private fun saveDataToSharedPreferences(username: String) {
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("Name", username)
+        editor.commit()
+        editor.apply()
+    }
+
+    /**
+     * Create animation when user switch to new activity
+     */
+    private fun createAnimations() {
+        val intent = Intent(this@UserLoginActivity, SignUpActivity::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this@UserLoginActivity,
+            Pair.create(ivLogo, "logoImage"),
+            Pair.create(tvTitle, "logoText"),
+            Pair.create(tvSubtitle, "description"),
+            Pair.create(tvEmail, "username"),
+            Pair.create(tvPassword, "password"),
+            Pair.create(btnGo, "login_btn"),
+            Pair.create(btnSignup, "signup_btn")
+        )
+        startActivity(intent, options.toBundle())
+        finish()
+    }
+
+    /**
+     * Initialize forgot password dialog
+     */
+    private fun setUpForgotPasswordDialog() {
+        dialog = Dialog(this)
+        val dialogBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
+        dialogBinding.apply {
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
+            }
+            btnReset.setOnClickListener {
+                forgotPassword(dialogBinding.editText)
+            }
+        }
+        dialog.setContentView(dialogBinding.root)
     }
 
     private fun setupListeners() {
         sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
-        binding.btnSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this@UserLoginActivity,
-                Pair.create(binding.ivLogo, "logoImage"),
-                Pair.create(binding.tvTitle, "logoText"),
-                Pair.create(binding.tvSubtitle, "description"),
-                Pair.create(binding.tvEmail, "username"),
-                Pair.create(binding.tvPassword, "password"),
-                Pair.create(binding.btnGo, "login_btn"),
-                Pair.create(binding.btnSignup, "signup_btn")
-            )
-            startActivity(intent, options.toBundle())
-            finish()
-        }
-
-        btnForgetPassword.setOnClickListener {
-            dialog = Dialog(this)
-            val dialogBinding = DialogForgotPasswordBinding.inflate(layoutInflater)
-            dialogBinding.apply {
-                btnCancel.setOnClickListener {
-                    dialog.dismiss()
-                }
-                btnReset.setOnClickListener {
-                    forgotPassword(dialogBinding.editText)
-                }
+        binding.apply {
+            btnSignup.setOnClickListener {
+                createAnimations()
             }
-            dialog.setContentView(dialogBinding.root)
-            dialog.show()
-        }
 
-        firebaseAuth = FirebaseAuth.getInstance()
+            btnForgetPassword.setOnClickListener {
+                dialog.show()
+            }
 
-        binding.btnGo.setOnClickListener {
-            showProgressBar()
-            val userName = binding.tvEmailInput.text.toString()
-            val passWord = binding.tvPasswordInput.text.toString()
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("Name", userName)
-            editor.commit()
-            editor.apply()
+            firebaseAuth = FirebaseAuth.getInstance()
 
-            if (userName.isNotEmpty() && passWord.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(userName, passWord)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            hideProgressBar()
-                            Toast.makeText(
-                                this@UserLoginActivity,
-                                "Login Successful",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            val intent =
-                                Intent(this@UserLoginActivity, UserActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            hideProgressBar()
-                            Toast.makeText(
-                                this@UserLoginActivity,
-                                it.exception?.message,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-            } else {
-                hideProgressBar()
-                Toast.makeText(
-                    this@UserLoginActivity,
-                    "Empty fields are not allowed!!",
-                    Toast.LENGTH_SHORT
-                ).show()
+            btnGo.setOnClickListener {
+                showProgressBar()
+                val userName = tvEmailInput.text.toString()
+                val passWord = tvPasswordInput.text.toString()
+
+                saveDataToSharedPreferences(userName)
+
+                if (userName.isNotEmpty() && passWord.isNotEmpty()) {
+                    signIn(userName, passWord)
+                } else {
+                    hideProgressBar()
+                    this@UserLoginActivity.shortToast("Empty fields are not allowed!!")
+                }
             }
         }
     }
@@ -117,39 +115,59 @@ class UserLoginActivity : AppCompatActivity() {
         super.onStart()
 
         if (firebaseAuth.currentUser != null) {
-            val intent = Intent(this@UserLoginActivity, UserActivity::class.java)
-            startActivity(intent)
+            this@UserLoginActivity.showAnotherActivity(UserActivity::class.java)
             finish()
         }
     }
 
     private fun forgotPassword(username: EditText) {
         if (username.text.toString().isEmpty()) {
-            Toast.makeText(this, "Please enter email address", Toast.LENGTH_SHORT).show()
+            this.shortToast("Please enter email address")
             return
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
-            Toast.makeText(this, "Invalid email address", Toast.LENGTH_SHORT).show()
+            this.shortToast("Invalid email address")
             return
         }
 
         showProgressBar()
 
-        firebaseAuth.sendPasswordResetEmail(username.text.toString())
+        sendPasswordResetEmail(username.text.toString())
+    }
+
+    /**
+     * SignIn with the entered email and password bby user
+     */
+
+    private fun signIn(username: String, passWord: String) {
+        firebaseAuth.signInWithEmailAndPassword(username, passWord)
+            .addOnCompleteListener {
+                hideProgressBar()
+                if (it.isSuccessful) {
+                    this@UserLoginActivity.shortToast("Login Successful")
+                    this@UserLoginActivity.showAnotherActivity(UserActivity::class.java)
+                    finish()
+                } else {
+                    this@UserLoginActivity.shortToast(it.exception?.message!!)
+                }
+            }
+    }
+
+    /**
+     * send a email that contains password reset link
+     */
+
+    private fun sendPasswordResetEmail(username: String) {
+        firebaseAuth.sendPasswordResetEmail(username)
             .addOnCompleteListener { task ->
                 hideProgressBar()
                 if (task.isSuccessful) {
-                    Toast.makeText(
-                        this,
-                        "Password reset link sent to your email",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    this.longToast("Password reset link sent to your email")
                     dialog.dismiss()
                 } else
-                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    this.shortToast(task.exception?.message!!)
             }.addOnFailureListener {
                 hideProgressBar()
-                //Toast.makeText(this, "Error in sending email", Toast.LENGTH_LONG).show()
             }
     }
 

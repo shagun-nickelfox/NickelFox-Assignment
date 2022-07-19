@@ -55,7 +55,6 @@ class FormSubmission : AppCompatActivity() {
         )
     }
 
-
     private fun setUpDatePicker() {
         datePickerDialog = DatePickerDialog(
             this@FormSubmission,
@@ -81,14 +80,6 @@ class FormSubmission : AppCompatActivity() {
                     }
                 }
             }
-
-            /*tvNameInput.setOnEditorActionListener { v, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    tvNameInput.performClick()
-                    hideKeyboard(v)
-                    true
-                } else false
-            }*/
 
             rgGenderOptions.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
@@ -126,21 +117,7 @@ class FormSubmission : AppCompatActivity() {
                     && gender.toString().isNotEmpty() && language.toString()
                         .isNotEmpty() && rate.toString().isNotEmpty()
                 ) {
-                    MaterialAlertDialogBuilder(this@FormSubmission)
-                        .setTitle("Are you sure you want to share?")
-                        .setMessage(message)
-                        .setNegativeButton("No") { _, _ ->
-                        }
-                        .setPositiveButton("Yes") { _, _ ->
-                            val intent = Intent()
-                            intent.action = Intent.ACTION_SEND
-                            intent.putExtra(Intent.EXTRA_TEXT, message)
-                            intent.setPackage("com.whatsapp")
-                            intent.type = "text/plain"
-
-                            startActivity(Intent.createChooser(intent, "Share to : "))
-                        }
-                        .show()
+                    showDialog()
                 } else {
                     Snackbar.make(
                         it,
@@ -151,6 +128,28 @@ class FormSubmission : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * Show a dialog to confirm whether user wants to share the data or not
+     */
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(this@FormSubmission)
+            .setTitle("Are you sure you want to share?")
+            .setMessage(message)
+            .setNegativeButton("No") { _, _ ->
+            }
+            .setPositiveButton("Yes") { _, _ ->
+                val intent = Intent()
+                intent.action = Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT, message)
+                intent.setPackage("com.whatsapp")
+                intent.type = "text/plain"
+
+                startActivity(Intent.createChooser(intent, "Share to : "))
+            }
+            .show()
     }
 
     private fun Context.hideKeyboard(view: View) {

@@ -2,9 +2,9 @@ package com.example.nickelfoxassignment.viewpager.viewpagerclasses
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.nickelfoxassignment.databinding.FragmentThirdScreenBinding
+import com.example.nickelfoxassignment.shortToast
 
 class ThirdScreen : Fragment() {
     private lateinit var binding: FragmentThirdScreenBinding
@@ -16,7 +16,7 @@ class ThirdScreen : Fragment() {
         binding = FragmentThirdScreenBinding.inflate(inflater, container, false)
 
         binding.tvThirdScreen.setOnClickListener {
-            Toast.makeText(context, "Third Screen Clicked", Toast.LENGTH_SHORT).show()
+            it.context.shortToast("Third Screen Clicked")
         }
         return binding.root
     }
