@@ -1,51 +1,57 @@
 package com.example.nickelfoxassignment.assignment0
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.nickelfoxassignment.R
-
+import com.example.nickelfoxassignment.databinding.ActivityButtonsBinding
+import com.example.nickelfoxassignment.showAnotherActivity
+import com.example.nickelfoxassignment.showToolbar
 
 class ButtonsActivity : AppCompatActivity() {
 
-    private lateinit var toolbar: Toolbar
+    private lateinit var binding: ActivityButtonsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buttons)
+        binding = ActivityButtonsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        toolbar = findViewById(R.id.toolbar)
-        toolbar.title = "Assignment"
-        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
-        setSupportActionBar(toolbar)
+        setupToolbar()
+        setupListeners()
+
     }
 
-    fun formSubmission(view: View) {
-        val intent = Intent(this, FormSubmission::class.java)
-        startActivity(intent)
-        overridePendingTransition(
-            R.anim.slide_in_right,
-            R.anim.slide_in_left
+    private fun setupToolbar() {
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "First Assignment",
+                android.R.color.white,
+                R.color.skyBlue
+            )
         )
     }
 
-    fun animationsDemoScreen(view: View) {
-        val intent = Intent(this, AnimationsDemoScreen::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-    }
+    private fun setupListeners() {
+        binding.apply {
+            cvFormSubmission.setOnClickListener {
+                this@ButtonsActivity.showAnotherActivity(FormSubmission::class.java)
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_in_right)
+            }
 
-    fun calculatorUI(view: View) {
-        val intent = Intent(this, CalculatorUI::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.rotate_clock, R.anim.rotate_anti)
-    }
+            cvAnimation.setOnClickListener {
+                this@ButtonsActivity.showAnotherActivity(AnimationsDemoScreen::class.java)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            }
 
-    fun googleMapsScreen(view: View) {
-        val intent = Intent(this, GoogleMapsScreen::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.move, R.anim.move)
+            cvCalculator.setOnClickListener {
+                this@ButtonsActivity.showAnotherActivity(CalculatorUI::class.java)
+                overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out)
+            }
+
+            cvGoogleMaps.setOnClickListener {
+                this@ButtonsActivity.showAnotherActivity(GoogleMapsScreen::class.java)
+                overridePendingTransition(R.anim.bottom_in, R.anim.top_out)
+            }
+        }
     }
 }

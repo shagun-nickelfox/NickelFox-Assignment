@@ -2,57 +2,93 @@ package com.example.nickelfoxassignment.assignment0
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import androidx.appcompat.widget.Toolbar
 import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.databinding.ActivityAnimationsDemoScreenBinding
+import com.example.nickelfoxassignment.showToolbar
+import kotlinx.android.synthetic.main.activity_animations_demo_screen.*
 
 class AnimationsDemoScreen : AppCompatActivity() {
-    private lateinit var toolbar: Toolbar
-    private lateinit var image: ImageView
-    private lateinit var animation: Animation
 
+    private lateinit var binding: ActivityAnimationsDemoScreenBinding
+    private lateinit var animation: Animation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animations_demo_screen)
+        binding = ActivityAnimationsDemoScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        image = findViewById(R.id.imageView)
-
-        toolbar = findViewById(R.id.toolbar)
-        toolbar.title = "Animations Demo Screen"
-        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
-        setSupportActionBar(toolbar)
+        setupToolbar()
+        setupListeners()
     }
 
-    fun clockwise(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.clockwise)
-        image.startAnimation(animation)
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.fade_in, 0)
+        super.onBackPressed()
     }
 
-    fun fade(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.fade)
-        image.startAnimation(animation)
+    private fun setupToolbar() {
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "Animation Demo Screen",
+                android.R.color.white,
+                R.color.purple_700
+            )
+        )
     }
 
-    fun blink(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.blink)
-        image.startAnimation(animation)
+    private fun createAnimation(anim: Int) {
+        animation =
+            AnimationUtils.loadAnimation(this@AnimationsDemoScreen, anim)
+        ivBartImage.startAnimation(animation)
     }
 
-    fun zoom(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.zoom)
-        image.startAnimation(animation)
-    }
+    private fun setupListeners() {
+        binding.apply {
+            btnRotation.setOnClickListener {
+                createAnimation(R.anim.clockwise)
+            }
 
-    fun move(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.move)
-        image.startAnimation(animation)
-    }
+            btnBlink.setOnClickListener {
+                createAnimation(R.anim.blink)
+            }
 
-    fun slide(view:View) {
-        animation = AnimationUtils.loadAnimation(this, R.anim.slide)
-        image.startAnimation(animation)
+            btnFade.setOnClickListener {
+                createAnimation(R.anim.fade)
+            }
+
+            btnMove.setOnClickListener {
+                createAnimation(R.anim.move)
+            }
+
+            btnZoom.setOnClickListener {
+                animation =
+                    AnimationUtils.loadAnimation(this@AnimationsDemoScreen, R.anim.zoom_in_activity)
+                ivBartImage.startAnimation(animation.apply {
+                    setAnimationListener(object : Animation.AnimationListener {
+                        override fun onAnimationStart(animation: Animation?) {
+                        }
+
+                        override fun onAnimationEnd(animation: Animation?) {
+                            ivBartImage.startAnimation(
+                                AnimationUtils.loadAnimation(
+                                    this@AnimationsDemoScreen,
+                                    R.anim.zoom_out_activity
+                                )
+                            )
+                        }
+
+                        override fun onAnimationRepeat(animation: Animation?) {
+                        }
+
+                    })
+                })
+            }
+
+            btnSlide.setOnClickListener {
+                createAnimation(R.anim.slide)
+            }
+        }
     }
 }

@@ -3,41 +3,62 @@ package com.example.nickelfoxassignment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.widget.Toolbar
 import com.example.nickelfoxassignment.assignment0.ButtonsActivity
+import com.example.nickelfoxassignment.crashlytics.CrashActivity
 import com.example.nickelfoxassignment.databinding.ActivityMainBinding
 import com.example.nickelfoxassignment.demomap.MapsActivity
-import com.example.nickelfoxassignment.sharedtransition.BaseActivity
+import com.example.nickelfoxassignment.sharedtransition.TransitionActivity
+import com.example.nickelfoxassignment.userOnBoarding.LoginActivity
+import com.example.nickelfoxassignment.viewpager.ViewPagerActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        toolbar = findViewById(R.id.toolbar)
-        toolbar.title = "NickelFox Assignment"
-        toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
-        setSupportActionBar(toolbar)
+        setupToolbar()
+        setupListeners()
     }
 
-    fun assignment(view: View) {
-        val intent = Intent(this, ButtonsActivity::class.java)
-        startActivity(intent)
+    private fun setupToolbar() {
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "NickelFox Assignment",
+                android.R.color.white,
+                R.color.purple_700
+            )
+        )
     }
 
-    fun clustering(view: View) {
-        val intent = Intent(this, MapsActivity::class.java)
-        startActivity(intent)
-    }
+    private fun setupListeners() {
+        binding.apply {
+            cvFirstAssignment.setOnClickListener {
+                this@MainActivity.showAnotherActivity(ButtonsActivity::class.java)
+            }
 
-    fun transition(view: View) {
-        val intent = Intent(this, BaseActivity::class.java)
-        startActivity(intent)
+            cvMarkerClustering.setOnClickListener {
+                this@MainActivity.showAnotherActivity(MapsActivity::class.java)
+            }
+
+            cvSharedTransition.setOnClickListener {
+                this@MainActivity.showAnotherActivity(TransitionActivity::class.java)
+            }
+
+            cvOnBoarding.setOnClickListener {
+                this@MainActivity.showAnotherActivity(LoginActivity::class.java)
+            }
+
+            cvCrashlytics.setOnClickListener {
+                this@MainActivity.showAnotherActivity(CrashActivity::class.java)
+            }
+
+            cvViewPager.setOnClickListener {
+                this@MainActivity.showAnotherActivity(ViewPagerActivity::class.java)
+            }
+        }
     }
 }

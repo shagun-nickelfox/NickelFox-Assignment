@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //////////////DPs///////////////
+    <dimen name="dp_10">10dp</dimen>
+
+
+    ////////////////SPs/////////////
+    <dimen name="sp_19">10sp</dimen>
+</resources>

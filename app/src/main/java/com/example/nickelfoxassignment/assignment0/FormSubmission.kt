@@ -1,19 +1,22 @@
 package com.example.nickelfoxassignment.assignment0
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.RatingBar
-import androidx.appcompat.widget.Toolbar
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityFormSubmissionBinding
+import com.example.nickelfoxassignment.showToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class FormSubmission : AppCompatActivity() {
-    private lateinit var toolbar: Toolbar
     private lateinit var message: String
     private lateinit var datePickerDialog: DatePickerDialog
     private var gender: String? = null
@@ -31,79 +34,127 @@ class FormSubmission : AppCompatActivity() {
         binding = ActivityFormSubmissionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        toolbar = findViewById(R.id.toolbar)
-        toolbar.title = "Form Submission"
-        setSupportActionBar(toolbar)
+        setupToolbar()
+        setUpDatePicker()
+        setUpListeners()
+    }
+
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.right_in, R.anim.right_out)
+        super.onBackPressed()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(
+            binding.toolbar.root.showToolbar(
+                "Form Submission",
+                R.color.purple_700,
+                R.color.yellow
+            )
+        )
+    }
+
+    private fun setUpDatePicker() {
         datePickerDialog = DatePickerDialog(
             this@FormSubmission,
-            DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                binding.textInputDob.setText("$dayOfMonth/${(month + 1)}/$year")
+            { _, year, month, dayOfMonth ->
+                binding.tvDOBInput.setText("$dayOfMonth/${(month + 1)}/$year")
             },
             mYear,
             mMonth,
             mDay
         )
+    }
 
+    private fun setUpListeners() {
         binding.apply {
-            textInputDob.apply {
+            tvDOBInput.apply {
                 setOnClickListener {
                     datePickerDialog.show()
                 }
+                setOnFocusChangeListener { v, hasFocus ->
+                    if (hasFocus) {
+                        hideKeyboard(v)
+                        datePickerDialog.show()
+                    }
+                }
             }
-            radioGroup.setOnCheckedChangeListener { _, checkedId ->
+
+            rgGenderOptions.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
-                    R.id.radio_button_1 -> {
+                    R.id.rbMale -> {
                         gender = "Male"
                     }
-                    R.id.radio_button_2 -> {
+                    R.id.rbFemale -> {
                         gender = "Female"
                     }
                 }
             }
-            switch1.setOnCheckedChangeListener { _, onSwitch ->
+            switchHindi.setOnCheckedChangeListener { _, onSwitch ->
                 if (onSwitch) {
                     language = "Hindi"
                 }
             }
-            switch2.setOnCheckedChangeListener { _, onSwitch ->
+            switchEnglish.setOnCheckedChangeListener { _, onSwitch ->
                 if (onSwitch) {
                     language = "English"
                 }
             }
-            rBar.onRatingBarChangeListener =
+
+            rbBar.onRatingBarChangeListener =
                 RatingBar.OnRatingBarChangeListener { _, rating, _ ->
                     rate = rating
                 }
-            submitButton.setOnClickListener {
+
+            btnSubmit.setOnClickListener {
+                val name = tvNameInput.text.toString()
+                val dob = tvDOBInput.text.toString()
                 message =
-                    "Name: ${textInput.text.toString()} \n Date Of Birth: ${textInputDob.text.toString()} \n Gender: $gender \n Language: $language \n Rate Us: $rate"
+                    "\n Name: $name \n Date Of Birth: $dob \n Gender: $gender \n Language: $language \n Rate Us: $rate"
 
-                if (checkBox.isChecked) {
-                    MaterialAlertDialogBuilder(this@FormSubmission)
-                        .setTitle("Confirmation")
-                        .setMessage("Are you sure you want to share?")
-                        .setNegativeButton("No") { _, _ ->
-                        }
-                        .setPositiveButton("Yes") { _, _ ->
-
-                            val intent = Intent()
-                            intent.action = Intent.ACTION_SEND
-                            intent.putExtra(Intent.EXTRA_TEXT, message)
-                            intent.setPackage("com.whatsapp")
-                            intent.type = "text/plain"
-
-                            startActivity(Intent.createChooser(intent, "Share to : "))
-                        }
-                        .show()
+                if (checkBox.isChecked && name.isNotEmpty() && dob.isNotEmpty()
+                    && gender.toString().isNotEmpty() && language.toString()
+                        .isNotEmpty() && rate.toString().isNotEmpty()
+                ) {
+                    showDialog()
                 } else {
                     Snackbar.make(
                         it,
-                        "Please accept the terms and conditions",
+                        "Empty fields are not allowed!",
                         Snackbar.LENGTH_LONG
                     )
                         .show()
                 }
             }
         }
+    }
+
+    /**
+     * Show a dialog to confirm whether user wants to share the data or not
+     */
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(this@FormSubmission)
+            .setTitle("Are you sure you want to share?")
+            .setMessage(message)
+            .setNegativeButton("No") { _, _ ->
+            }
+            .setPositiveButton("Yes") { _, _ ->
+                val intent = Intent()
+                intent.action = Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT, message)
+                intent.setPackage("com.whatsapp")
+                intent.type = "text/plain"
+
+                startActivity(Intent.createChooser(intent, "Share to : "))
+            }
+            .show()
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

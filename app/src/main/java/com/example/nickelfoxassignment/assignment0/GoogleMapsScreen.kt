@@ -1,33 +1,74 @@
 package com.example.nickelfoxassignment.assignment0
 
+import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityGoogleMapsScreenBinding
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.example.nickelfoxassignment.shortToast
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.*
+
 
 class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityGoogleMapsScreenBinding
-    private var fusedLocationProviderClient: FusedLocationProviderClient? = null
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private var currentLocation: Location? = null
+    private lateinit var marker: MarkerOptions
     private var polyline: Polyline? = null
+    private lateinit var address: String
+    private var navigateToSettings = false
+    private lateinit var locationRequest: LocationRequest
     private val latLngList: MutableList<LatLng> = mutableListOf()
     private var tamWorth = LatLng(46.392014, -117.010826)
     private var newCastle = LatLng(47.702465, -116.796883)
     private var brisbane = LatLng(47.538658, -116.129227)
+
+
+    private val locationIntent =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions: Map<String, Boolean> ->
+            if (permissions.values.first()) {
+                fetchLocation()
+            } else {
+                MaterialAlertDialogBuilder(this@GoogleMapsScreen)
+                    .setTitle("Location Permission Needed")
+                    .setMessage("This app needs the Location permission, please accept to use location functionality")
+                    .setNegativeButton("Cancel") { _, _ ->
+                    }
+                    .show()
+            }
+        }
+
+    private val resolutionForResult =
+        registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { activityResult ->
+            if (activityResult.resultCode == RESULT_OK) {
+                fetchLocation()
+            } else {
+                this.shortToast("Location required")
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,39 +76,119 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         setContentView(binding.root)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        fetchLocation()
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.homeMap) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (navigateToSettings) {
+            navigateToSettings = false
+            fetchLocation()
+        }
+    }
+
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.bottom_out, R.anim.top_in)
+        super.onBackPressed()
+    }
+
+    private fun setupLocationRequest(time: Long) {
+        locationRequest = LocationRequest.create().apply {
+            interval = time
+            priority = Priority.PRIORITY_HIGH_ACCURACY
+        }
+    }
 
     //Fetch user current location
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) !=
-            PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ) !=
-            PackageManager.PERMISSION_GRANTED
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                1000
-            )
-            return
-        }
+            if (isLocationEnabled()) {
+                setupLocationRequest(60000)
+                fusedLocationProviderClient.requestLocationUpdates(
+                    locationRequest,
+                    object : LocationCallback() {
+                        override fun onLocationResult(p0: LocationResult) {
+                            super.onLocationResult(p0)
+                            val location = p0.locations.last()
+                            currentLocation = location
+                            val latLng = LatLng(location.latitude, location.longitude)
+                            drawMarker(latLng)
+                        }
+                    },
+                    null
+                )
+            } else {
+                setupLocationRequest(10000)
 
-        val task = fusedLocationProviderClient?.lastLocation
-        task?.addOnSuccessListener { location ->
-            if (location != null) {
-                this.currentLocation = location
-                val mapFragment = supportFragmentManager
-                    .findFragmentById(R.id.homeMap) as SupportMapFragment
-                mapFragment.getMapAsync(this)
+                val builder = LocationSettingsRequest.Builder()
+                    .addLocationRequest(locationRequest)
+
+                LocationServices
+                    .getSettingsClient(this)
+                    .checkLocationSettings(builder.build())
+                    .addOnSuccessListener(this) { }
+                    .addOnFailureListener(this) { ex ->
+                        if (ex is ResolvableApiException) {
+                            try {
+                                val intentSenderRequest =
+                                    IntentSenderRequest.Builder(ex.resolution)
+                                        .build()
+                                resolutionForResult.launch(intentSenderRequest)
+                            } catch (exception: Exception) {
+                                Log.d(TAG, "enableLocationSettings: $exception")
+                            }
+                        }
+                    }
+            }
+        } else {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) ||
+                shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)
+            ) {
+                showDialog()
+            } else {
+                locationIntent.launch(
+                    arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                    )
+                )
             }
         }
+    }
+
+    companion object {
+        private const val TAG = "GoogleMapsScreen"
+        private const val REQUEST_CODE = 100
+    }
+
+    private fun showDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Enable Location")
+            .setMessage("This app needs the Location permission, please turn on your location from app settings")
+            .setPositiveButton("App Settings") { dialog, _ ->
+                Intent().apply {
+                    action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                    val uri = Uri.fromParts("package", packageName, null)
+                    data = uri
+                    dialog.dismiss()
+                    navigateToSettings = true
+                    startActivity(this)
+                }
+            }
+            .setNegativeButton("Not Now") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     override fun onRequestPermissionsResult(
@@ -75,49 +196,54 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        when (requestCode) {
-            1000 -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                this.shortToast("Granted")
                 fetchLocation()
+            } else {
+                this.shortToast("Denied")
             }
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.uiSettings.isCompassEnabled = true
+
         mMap.uiSettings.isZoomGesturesEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
 
-        val latLng = LatLng(currentLocation?.latitude!!, currentLocation?.longitude!!)
-        drawMarker(latLng)
-        setMapLongClick(mMap)
+        fetchLocation()
+        setMapClick(mMap)
         drawPolyGon()
     }
 
     //Draw Marker on map
     private fun drawMarker(latLng: LatLng) {
-        val marker = MarkerOptions()
+        val addresses = getAddress(latLng.latitude, latLng.longitude)
+        address = if (addresses.size != 0)
+            addresses[0].getAddressLine(0).toString()
+        else
+            latLng.toString()
+
+        marker = MarkerOptions()
             .position(latLng)
-            .title("Your Location")
-            .snippet(getAddress(latLng.latitude, latLng.longitude))
+            .title("Address")
+            .snippet(address)
 
         latLngList.add(latLng)
-
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
         mMap.addMarker(marker)
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11.0F))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
     }
 
     //Fetch address of the tapped location
-    private fun getAddress(lat: Double, lan: Double): String {
+    private fun getAddress(lat: Double, lan: Double): MutableList<Address> {
         val geocoder = Geocoder(this, Locale.getDefault())
-        val addresses = geocoder.getFromLocation(lat, lan, 1)
-        return addresses[0].getAddressLine(0).toString()
+        return geocoder.getFromLocation(lat, lan, 1)
     }
 
-    private fun setMapLongClick(map: GoogleMap) {
+    private fun setMapClick(map: GoogleMap) {
         map.setOnMapClickListener { latLng ->
             drawMarker(latLng)
             drawPolyLine(latLng)
@@ -145,5 +271,11 @@ class GoogleMapsScreen : AppCompatActivity(), OnMapReadyCallback {
             .width(5f)
             .color(R.color.black)
         mMap.addPolyline(polyLine)
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        val locationManager: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 }
