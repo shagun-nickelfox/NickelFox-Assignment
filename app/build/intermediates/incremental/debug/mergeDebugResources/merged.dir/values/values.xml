@@ -1698,6 +1698,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
+    <string name="cos">COS</string>
     <string name="crash">Crash</string>
     <string name="crashlytics">Crashlytics</string>
     <string name="date_of_birth">Date Of Birth</string>
@@ -1857,11 +1858,13 @@
     <string name="sign">+/-</string>
     <string name="sign_in_to_continue">Sign In to continue</string>
     <string name="sign_up_to_start_your_new_journey">Sign Up to start your new Journey</string>
+    <string name="sin">SIN</string>
     <string name="slide">slide</string>
     <string name="start_animation">Start Animation</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit">Submit</string>
     <string name="subtract">-</string>
+    <string name="tan">TAN</string>
     <string name="terms">Accept all the terms and conditions</string>
     <string name="third_screen">Third Screen</string>
     <string name="title">title</string>

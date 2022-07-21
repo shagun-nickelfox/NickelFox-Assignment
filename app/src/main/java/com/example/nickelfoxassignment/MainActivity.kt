@@ -1,6 +1,5 @@
 package com.example.nickelfoxassignment
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.nickelfoxassignment.assignment0.ButtonsActivity

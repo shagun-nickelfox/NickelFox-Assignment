@@ -2582,6 +2582,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable allrounded
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
 drawable avd_hide_password
@@ -2851,7 +2852,9 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
-id clBaseRectangle
+id clNumpad
+id clResult
+id clTrignometric
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2952,8 +2955,6 @@ id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
-id glHorizontal
-id glHorizontal2
 id gone
 id graph
 id graph_wrap
@@ -3006,7 +3007,6 @@ id linear
 id linear1
 id linear2
 id linear3
-id linear4
 id listMode
 id list_item
 id llCard
@@ -3257,6 +3257,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvAC
+id tvCos
 id tvDOB
 id tvDOBInput
 id tvDescription
@@ -3277,9 +3278,12 @@ id tvPhoneNo
 id tvPlus
 id tvPlusMinus
 id tvRating
+id tvResult
 id tvSecondScreen
+id tvSin
 id tvSubtitle
 id tvSubtract
+id tvTan
 id tvThirdScreen
 id tvTitle
 id tvUserEmail
@@ -3293,6 +3297,8 @@ id useLogo
 id vertical_only
 id viewBar1
 id viewBar2
+id viewHideHorizontalBar
+id viewHistoryIcon
 id viewHorizontalBar
 id viewPager
 id viewVerticalBar
@@ -3608,6 +3614,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string copy_toast_msg
+string cos
 string crash
 string crashlytics
 string date_of_birth
@@ -3767,11 +3774,13 @@ string shared_transition
 string sign
 string sign_in_to_continue
 string sign_up_to_start_your_new_journey
+string sin
 string slide
 string start_animation
 string status_bar_notification_info_overflow
 string submit
 string subtract
+string tan
 string terms
 string third_screen
 string title
@@ -5007,6 +5016,7 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
+xml activity_calculator_ui_scene
 xml backup_rules
 xml data_extraction_rules
 xml image_share_filepaths

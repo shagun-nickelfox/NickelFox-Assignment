@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    app:layoutDescription="@xml/activity_calculator_ui_scene"
     tools:context=".assignment0.CalculatorUI">
 
     <include
@@ -12,7 +13,7 @@
         layout="@layout/my_toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clBaseRectangle"
+        android:id="@+id/clNumpad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/circle"
@@ -36,7 +37,7 @@
             android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/linear3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/clBaseRectangle">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvDivide"
@@ -131,7 +132,7 @@
             android:paddingHorizontal="16dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/clBaseRectangle">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvAC"
@@ -187,7 +188,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linear2"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linear2">
 
             <TextView
@@ -393,9 +394,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@color/bar1Color"
-            app:layout_constraintBottom_toBottomOf="@id/clBaseRectangle"
-            app:layout_constraintEnd_toEndOf="@id/clBaseRectangle"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear2" />
 
         <View
@@ -405,87 +406,145 @@
             android:layout_marginBottom="14dp"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/viewHorizontalBar"
-            app:layout_constraintEnd_toEndOf="@id/clBaseRectangle"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTrignometric"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/circle"
+        android:paddingHorizontal="25dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/clNumpad"
+        app:layout_constraintStart_toStartOf="parent">
 
-        app:layout_constraintBottom_toTopOf="@id/glHorizontal">
+        <LinearLayout
+            android:id="@+id/viewHideHorizontalBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangles"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvSin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:lines="1"
+                android:padding="10dp"
+                android:text="@string/sin"
+                android:textColor="#FBFBFB"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/viewHideHorizontalBar"
+                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
+
+            <TextView
+                android:id="@+id/tvCos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="@string/cos"
+                android:textColor="#FBFBFB"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/tvSin"
+                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
+
+            <TextView
+                android:id="@+id/tvTan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/tan"
+                android:textColor="#FBFBFB"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/tvCos"
+                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/clTrignometric"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dp_10"
-            android:paddingEnd="34dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/operation"
             android:textAlignment="textEnd"
             android:textColor="@color/grey"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linear4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/tvResult"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linear4"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/equal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/textView1">
+            android:layout_marginStart="37dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/equalTo"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvResult"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="34dp"
-                android:paddingEnd="10dp"
-                android:text="@string/equalTo"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="20dp"
+            android:maxLines="1"
+            android:text="@string/result"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/equal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="34dp"
-                android:layout_weight="1"
-                android:text="@string/result"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:textStyle="bold" />
 
-        </LinearLayout>
+        <View
+            android:id="@+id/viewHistoryIcon"
+            android:layout_width="24.43dp"
+            android:layout_height="25.2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/ic_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:layout_width="24.43dp"
-        android:layout_height="25.2dp"
-        android:layout_marginEnd="36.78dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/ic_history"
-        app:layout_constraintBottom_toTopOf="@+id/glHorizontal2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glHorizontal2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -98,4 +98,7 @@
     <string name="passwordReset_description">Enter your email id to receive a password reset link</string>
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
+    <string name="sin">SIN</string>
+    <string name="cos">COS</string>
+    <string name="tan">TAN</string>
 </resources>
