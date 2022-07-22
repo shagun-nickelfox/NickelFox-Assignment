@@ -129,7 +129,7 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/rectangles"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="10dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -181,7 +181,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/linear1"
             android:layout_width="wrap_content"
@@ -192,6 +191,7 @@
             app:layout_constraintTop_toTopOf="@+id/linear2">
 
             <TextView
+                android:id="@+id/tvOne"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -205,6 +205,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvFour"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
@@ -219,6 +220,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
@@ -233,6 +235,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvDot"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
@@ -258,6 +261,7 @@
             app:layout_constraintTop_toTopOf="@+id/linear3">
 
             <TextView
+                android:id="@+id/tvTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -272,6 +276,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvFive"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -287,6 +292,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvEight"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -302,6 +308,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -327,6 +334,7 @@
             app:layout_constraintEnd_toStartOf="@+id/viewVerticalBar">
 
             <TextView
+                android:id="@+id/tvThree"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -341,6 +349,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvSix"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -356,6 +365,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvNine"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -371,6 +381,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvDoubleZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
@@ -415,10 +426,11 @@
         android:id="@+id/clTrignometric"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="-20dp"
         android:background="@drawable/circle"
         android:paddingHorizontal="25dp"
-        android:paddingTop="25dp"
-        android:paddingBottom="35dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
         app:layout_constraintBottom_toTopOf="@+id/clNumpad"
         app:layout_constraintStart_toStartOf="parent">
 

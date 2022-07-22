@@ -426,6 +426,54 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+  public final TextView tvDot;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvDoubleZero;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvEight;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView tvEqual;
 
   /**
@@ -442,7 +490,71 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+  public final TextView tvFive;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvFour;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView tvMultiply;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvNine;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvOne;
 
   /**
    * This binding is not available in all configurations.
@@ -522,7 +634,39 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+  public final TextView tvSeven;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
   public final TextView tvSin;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvSix;
 
   /**
    * This binding is not available in all configurations.
@@ -555,6 +699,54 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
    */
   @Nullable
   public final TextView tvTan;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvThree;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvTwo;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-large-long-xhdpi/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvZero;
 
   /**
    * This binding is not available in all configurations.
@@ -662,9 +854,13 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       @Nullable CardView rectangle4, @Nullable CardView rectangle5, @Nullable TextView subtract,
       @NonNull TextView textView1, @Nullable TextView textView2, @Nullable MyToolbarBinding toolbar,
       @Nullable TextView tvAC, @Nullable TextView tvCos, @Nullable TextView tvDivide,
-      @Nullable TextView tvEqual, @Nullable TextView tvMultiply, @Nullable TextView tvPercent,
-      @Nullable TextView tvPlus, @Nullable TextView tvPlusMinus, @Nullable TextView tvResult,
-      @Nullable TextView tvSin, @Nullable TextView tvSubtract, @Nullable TextView tvTan,
+      @Nullable TextView tvDot, @Nullable TextView tvDoubleZero, @Nullable TextView tvEight,
+      @Nullable TextView tvEqual, @Nullable TextView tvFive, @Nullable TextView tvFour,
+      @Nullable TextView tvMultiply, @Nullable TextView tvNine, @Nullable TextView tvOne,
+      @Nullable TextView tvPercent, @Nullable TextView tvPlus, @Nullable TextView tvPlusMinus,
+      @Nullable TextView tvResult, @Nullable TextView tvSeven, @Nullable TextView tvSin,
+      @Nullable TextView tvSix, @Nullable TextView tvSubtract, @Nullable TextView tvTan,
+      @Nullable TextView tvThree, @Nullable TextView tvTwo, @Nullable TextView tvZero,
       @Nullable View viewBar1, @Nullable View viewBar2,
       @Nullable LinearLayout viewHideHorizontalBar, @Nullable View viewHistoryIcon,
       @Nullable LinearLayout viewHorizontalBar, @Nullable LinearLayout viewVerticalBar) {
@@ -695,15 +891,27 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
     this.tvAC = tvAC;
     this.tvCos = tvCos;
     this.tvDivide = tvDivide;
+    this.tvDot = tvDot;
+    this.tvDoubleZero = tvDoubleZero;
+    this.tvEight = tvEight;
     this.tvEqual = tvEqual;
+    this.tvFive = tvFive;
+    this.tvFour = tvFour;
     this.tvMultiply = tvMultiply;
+    this.tvNine = tvNine;
+    this.tvOne = tvOne;
     this.tvPercent = tvPercent;
     this.tvPlus = tvPlus;
     this.tvPlusMinus = tvPlusMinus;
     this.tvResult = tvResult;
+    this.tvSeven = tvSeven;
     this.tvSin = tvSin;
+    this.tvSix = tvSix;
     this.tvSubtract = tvSubtract;
     this.tvTan = tvTan;
+    this.tvThree = tvThree;
+    this.tvTwo = tvTwo;
+    this.tvZero = tvZero;
     this.viewBar1 = viewBar1;
     this.viewBar2 = viewBar2;
     this.viewHideHorizontalBar = viewHideHorizontalBar;
@@ -826,11 +1034,32 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       id = R.id.tvDivide;
       TextView tvDivide = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.tvDot;
+      TextView tvDot = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvDoubleZero;
+      TextView tvDoubleZero = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvEight;
+      TextView tvEight = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.tvEqual;
       TextView tvEqual = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.tvFive;
+      TextView tvFive = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvFour;
+      TextView tvFour = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.tvMultiply;
       TextView tvMultiply = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvNine;
+      TextView tvNine = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvOne;
+      TextView tvOne = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.tvPercent;
       TextView tvPercent = ViewBindings.findChildViewById(rootView, id);
@@ -844,14 +1073,29 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       id = R.id.tvResult;
       TextView tvResult = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.tvSeven;
+      TextView tvSeven = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.tvSin;
       TextView tvSin = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvSix;
+      TextView tvSix = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.tvSubtract;
       TextView tvSubtract = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.tvTan;
       TextView tvTan = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvThree;
+      TextView tvThree = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvTwo;
+      TextView tvTwo = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.tvZero;
+      TextView tvZero = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.viewBar1;
       View viewBar1 = ViewBindings.findChildViewById(rootView, id);
@@ -874,8 +1118,9 @@ public final class ActivityCalculatorUiBinding implements ViewBinding {
       return new ActivityCalculatorUiBinding(rootView, ac, bar1, bar2, clNumpad, clResult,
           clTrignometric, divide, equal, guideline, linear1, linear2, linear3, multiply, percent,
           plus, plusminus, rectangle2, rectangle4, rectangle5, subtract, textView1, textView2,
-          binding_toolbar, tvAC, tvCos, tvDivide, tvEqual, tvMultiply, tvPercent, tvPlus,
-          tvPlusMinus, tvResult, tvSin, tvSubtract, tvTan, viewBar1, viewBar2,
+          binding_toolbar, tvAC, tvCos, tvDivide, tvDot, tvDoubleZero, tvEight, tvEqual, tvFive,
+          tvFour, tvMultiply, tvNine, tvOne, tvPercent, tvPlus, tvPlusMinus, tvResult, tvSeven,
+          tvSin, tvSix, tvSubtract, tvTan, tvThree, tvTwo, tvZero, viewBar1, viewBar2,
           viewHideHorizontalBar, viewHistoryIcon, viewHorizontalBar, viewVerticalBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
