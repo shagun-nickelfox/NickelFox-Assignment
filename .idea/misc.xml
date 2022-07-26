@@ -40,11 +40,13 @@
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/drawable/allrounded.xml" value="0.188" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/drawable/circle.xml" value="0.188" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/drawable/rectangles.xml" value="0.188" />
+        <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/drawable/rounded.xml" value="0.1595" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/activity_calculator_ui.xml" value="0.1" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/activity_sign_up.xml" value="0.16302083333333334" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/activity_user.xml" value="0.1109375" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/activity_user_login.xml" value="0.1634963768115942" />
         <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/dialog_forgot_password.xml" value="0.12" />
+        <entry key="..\:/Users/shagun/AndroidStudioProjects/NickelFox-Assignment/app/src/main/res/layout/my_toolbar.xml" value="0.14743589743589744" />
       </map>
     </option>
   </component>

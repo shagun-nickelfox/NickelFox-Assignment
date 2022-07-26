@@ -2691,6 +2691,7 @@ drawable notify_panel_notification_icon_bg
 drawable raphael
 drawable rate
 drawable rectangles
+drawable rounded
 drawable studying
 drawable symbol
 drawable test_custom_background
@@ -2717,7 +2718,6 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id ac
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2795,8 +2795,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id bar_1
-id bar_2
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2852,9 +2850,9 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
-id clNumpad
+id clNumPad
 id clResult
-id clTrignometric
+id clTrigonometric
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2907,7 +2905,6 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
-id divide
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -2978,7 +2975,6 @@ id ignore
 id ignoreRequest
 id image
 id immediateStop
-id include2
 id included
 id info
 id inputName
@@ -3108,8 +3104,6 @@ id pathRelative
 id peekHeight
 id percent
 id pin
-id plus
-id plusminus
 id position
 id postLayout
 id profile
@@ -3122,9 +3116,6 @@ id ratio
 id rbBar
 id rbFemale
 id rbMale
-id rectangle_2
-id rectangle_4
-id rectangle_5
 id rectangles
 id reverseSawtooth
 id rgGenderOptions
@@ -3198,7 +3189,6 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
-id subtract
 id supportScrollUp
 id switchEnglish
 id switchHindi
@@ -3229,7 +3219,6 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView1
-id textView2
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3307,6 +3296,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id viewBackground
 id viewBar1
 id viewBar2
 id viewHideHorizontalBar

@@ -160,8 +160,8 @@
         "source": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\anim\\slide_in_left.xml"
     },
     {
-        "merged": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\layout-large-long-xhdpi_activity_calculator_ui.xml.flat",
-        "source": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\layout-large-long-xhdpi\\activity_calculator_ui.xml"
+        "merged": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_rounded.xml.flat",
+        "source": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-main-54:\\drawable\\rounded.xml"
     },
     {
         "merged": "C:\\Users\\shagun\\.gradle\\daemon\\7.3.3\\com.example.nickelfoxassignment.app-merged_res-52:\\drawable_translation.png.flat",

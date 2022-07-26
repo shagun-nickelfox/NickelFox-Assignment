@@ -13,7 +13,6 @@ import java.text.DecimalFormat
 class CalculatorUI : AppCompatActivity() {
 
     private lateinit var binding: ActivityCalculatorUiBinding
-    private var unaryOperator = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,7 @@ class CalculatorUI : AppCompatActivity() {
     private fun setupToolbar() {
         setSupportActionBar(
             binding.toolbar.root.showToolbar(
-                "Calculator UI",
+                "Calculator",
                 android.R.color.white,
                 R.color.rectangle_2
             )
@@ -45,95 +44,90 @@ class CalculatorUI : AppCompatActivity() {
         /*Number Buttons*/
         binding.apply {
             tvOne.setOnClickListener {
-                evaluateExpression("1", clear = true)
+                evaluateExpression("1")
             }
 
             tvTwo.setOnClickListener {
-                evaluateExpression("2", clear = true)
+                evaluateExpression("2")
             }
 
             tvThree.setOnClickListener {
-                evaluateExpression("3", clear = true)
+                evaluateExpression("3")
             }
             tvFour.setOnClickListener {
-                evaluateExpression("4", clear = true)
+                evaluateExpression("4")
             }
 
             tvFive.setOnClickListener {
-                evaluateExpression("5", clear = true)
+                evaluateExpression("5")
             }
 
             tvSix.setOnClickListener {
-                evaluateExpression("6", clear = true)
+                evaluateExpression("6")
             }
 
             tvSeven.setOnClickListener {
-                evaluateExpression("7", clear = true)
+                evaluateExpression("7")
             }
 
             tvEight.setOnClickListener {
-                evaluateExpression("8", clear = true)
+                evaluateExpression("8")
             }
 
             tvNine.setOnClickListener {
-                evaluateExpression("9", clear = true)
+                evaluateExpression("9")
             }
 
             tvZero.setOnClickListener {
-                evaluateExpression("0", clear = true)
+                evaluateExpression("0")
             }
 
             tvDoubleZero.setOnClickListener {
-                evaluateExpression("00", clear = true)
+                evaluateExpression("00")
             }
 
             /* Trigonometric Functions */
 
             tvSin.setOnClickListener {
-                evaluateExpression("sin ", clear = true)
+                evaluateExpression("sin ")
             }
 
             tvCos.setOnClickListener {
-                evaluateExpression("cos ", clear = true)
+                evaluateExpression("cos ")
             }
 
             tvTan.setOnClickListener {
-                evaluateExpression("tan ", clear = true)
+                evaluateExpression("tan ")
             }
 
             /*Operators*/
 
             tvPlus.setOnClickListener {
-                evaluateExpression("+", clear = true)
+                evaluateExpression("+")
             }
 
             tvSubtract.setOnClickListener {
-                evaluateExpression("-", clear = true)
+                evaluateExpression("-")
             }
 
             tvMultiply.setOnClickListener {
-                evaluateExpression("*", clear = true)
+                evaluateExpression("*")
             }
 
             tvDivide.setOnClickListener {
-                evaluateExpression("/", clear = true)
+                evaluateExpression("/")
             }
 
             tvDot.setOnClickListener {
-                evaluateExpression(".", clear = true)
+                evaluateExpression(".")
             }
 
             tvPercent.setOnClickListener {
-                evaluateExpression("%", clear = true)
+                evaluateExpression("%")
             }
 
             tvPlusMinus.setOnClickListener {
-                if (unaryOperator) {
-                    textView1.text = "-" + textView1.text.toString()
-                    unaryOperator = false
-                } else {
-                    unaryOperator = true
-                }
+                textView1.text = (-1 * textView1.text.toString().toDouble()).toString()
             }
 
             tvAC.setOnClickListener {
@@ -156,15 +150,9 @@ class CalculatorUI : AppCompatActivity() {
 
 /*Function to evaluate the expressions entered by user using NumPad*/
 
-    private fun evaluateExpression(string: String, clear: Boolean) {
-        if (clear) {
-            tvResult.text = ""
-            textView1.append(string)
-        } else {
-            textView1.append(tvResult.text)
-            textView1.append(string)
-            tvResult.text = ""
-        }
+    private fun evaluateExpression(string: String) {
+        tvResult.text = ""
+        textView1.append(string)
     }
 
     private fun getInputExpression(): String {
