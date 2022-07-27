@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.sharedtransition
+package com.example.nickelfoxassignment.transition
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator

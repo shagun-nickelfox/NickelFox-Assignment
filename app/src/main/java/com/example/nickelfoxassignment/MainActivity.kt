@@ -5,9 +5,9 @@ import android.os.Bundle
 import com.example.nickelfoxassignment.assignment0.ButtonsActivity
 import com.example.nickelfoxassignment.crashlytics.CrashActivity
 import com.example.nickelfoxassignment.databinding.ActivityMainBinding
-import com.example.nickelfoxassignment.demomap.MapsActivity
-import com.example.nickelfoxassignment.sharedtransition.TransitionActivity
-import com.example.nickelfoxassignment.userOnBoarding.LoginActivity
+import com.example.nickelfoxassignment.clustering.MapsActivity
+import com.example.nickelfoxassignment.transition.TransitionActivity
+import com.example.nickelfoxassignment.useronboarding.LoginActivity
 import com.example.nickelfoxassignment.viewpager.ViewPagerActivity
 
 class MainActivity : AppCompatActivity() {

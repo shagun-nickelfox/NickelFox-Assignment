@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.demomap
+package com.example.nickelfoxassignment.clustering
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem

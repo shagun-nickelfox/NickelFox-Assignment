@@ -3,6 +3,7 @@ package com.example.nickelfoxassignment.assignment0
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.nickelfoxassignment.Constants
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityCalculatorUiBinding
 import com.example.nickelfoxassignment.showToolbar
@@ -13,6 +14,11 @@ import java.text.DecimalFormat
 class CalculatorUI : AppCompatActivity() {
 
     private lateinit var binding: ActivityCalculatorUiBinding
+
+    companion object {
+        private const val ERROR_MESSAGE = "Error"
+        private const val EMPTY_STRING = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,86 +50,86 @@ class CalculatorUI : AppCompatActivity() {
         /*Number Buttons*/
         binding.apply {
             tvOne.setOnClickListener {
-                evaluateExpression("1")
+                evaluateExpression(Constants.ONE)
             }
 
             tvTwo.setOnClickListener {
-                evaluateExpression("2")
+                evaluateExpression(Constants.TWO)
             }
 
             tvThree.setOnClickListener {
-                evaluateExpression("3")
+                evaluateExpression(Constants.THREE)
             }
             tvFour.setOnClickListener {
-                evaluateExpression("4")
+                evaluateExpression(Constants.FOUR)
             }
 
             tvFive.setOnClickListener {
-                evaluateExpression("5")
+                evaluateExpression(Constants.FIVE)
             }
 
             tvSix.setOnClickListener {
-                evaluateExpression("6")
+                evaluateExpression(Constants.SIX)
             }
 
             tvSeven.setOnClickListener {
-                evaluateExpression("7")
+                evaluateExpression(Constants.SEVEN)
             }
 
             tvEight.setOnClickListener {
-                evaluateExpression("8")
+                evaluateExpression(Constants.EIGHT)
             }
 
             tvNine.setOnClickListener {
-                evaluateExpression("9")
+                evaluateExpression(Constants.NINE)
             }
 
             tvZero.setOnClickListener {
-                evaluateExpression("0")
+                evaluateExpression(Constants.ZERO)
             }
 
             tvDoubleZero.setOnClickListener {
-                evaluateExpression("00")
+                evaluateExpression(Constants.DOUBLE_ZERO)
             }
 
             /* Trigonometric Functions */
 
             tvSin.setOnClickListener {
-                evaluateExpression("sin ")
+                evaluateExpression(Constants.SIN)
             }
 
             tvCos.setOnClickListener {
-                evaluateExpression("cos ")
+                evaluateExpression(Constants.COS)
             }
 
             tvTan.setOnClickListener {
-                evaluateExpression("tan ")
+                evaluateExpression(Constants.TAN)
             }
 
             /*Operators*/
 
             tvPlus.setOnClickListener {
-                evaluateExpression("+")
+                evaluateExpression(Constants.ADD)
             }
 
             tvSubtract.setOnClickListener {
-                evaluateExpression("-")
+                evaluateExpression(Constants.SUBTRACT)
             }
 
             tvMultiply.setOnClickListener {
-                evaluateExpression("*")
+                evaluateExpression(Constants.MULTIPLY)
             }
 
             tvDivide.setOnClickListener {
-                evaluateExpression("/")
+                evaluateExpression(Constants.DIVIDE)
             }
 
             tvDot.setOnClickListener {
-                evaluateExpression(".")
+                evaluateExpression(Constants.DOT)
             }
 
-            tvPercent.setOnClickListener {
-                evaluateExpression("%")
+            tvMod.setOnClickListener {
+                evaluateExpression(Constants.MOD)
             }
 
             tvPlusMinus.setOnClickListener {
@@ -131,17 +137,18 @@ class CalculatorUI : AppCompatActivity() {
             }
 
             tvAC.setOnClickListener {
-                textView1.text = ""
-                tvResult.text = ""
+                textView1.text = EMPTY_STRING
+                tvResult.text = EMPTY_STRING
             }
 
             tvEqual.setOnClickListener {
                 val expression = ExpressionBuilder(getInputExpression()).build()
                 try {
                     val result = expression.evaluate()
-                    tvResult.text = DecimalFormat("0.######").format(result).toString()
+                    tvResult.text =
+                        DecimalFormat(Constants.DECIMAL_FORMAT).format(result).toString()
                 } catch (e: Exception) {
-                    tvResult.text = "Error"
+                    tvResult.text = ERROR_MESSAGE
                     Toast.makeText(this@CalculatorUI, e.message, Toast.LENGTH_LONG).show()
                 }
             }
@@ -151,13 +158,13 @@ class CalculatorUI : AppCompatActivity() {
 /*Function to evaluate the expressions entered by user using NumPad*/
 
     private fun evaluateExpression(string: String) {
-        tvResult.text = ""
+        tvResult.text = EMPTY_STRING
         textView1.append(string)
     }
 
     private fun getInputExpression(): String {
-        var expression = textView1.text.replace(Regex("÷"), "/")
-        expression = expression.replace(Regex("×"), "*")
+        var expression = textView1.text.replace(Regex(Constants.DIVIDE_), Constants.DIVIDE)
+        expression = expression.replace(Regex(Constants.MULTIPLY_), Constants.MULTIPLY)
         return expression
     }
 }

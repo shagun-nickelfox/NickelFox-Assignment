@@ -246,7 +246,7 @@
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
 
             <TextView
-                android:id="@+id/tvPercent"
+                android:id="@+id/tvMod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"

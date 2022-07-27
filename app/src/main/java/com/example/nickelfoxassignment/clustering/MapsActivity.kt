@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.demomap
+package com.example.nickelfoxassignment.clustering
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

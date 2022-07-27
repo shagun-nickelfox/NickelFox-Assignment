@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.viewpager.viewpagerclasses
+package com.example.nickelfoxassignment.viewpager.fragments
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

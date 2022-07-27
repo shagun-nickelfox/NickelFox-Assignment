@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nickelfox Assignment</string>
+    <string name="app_name">NickelFox Assignment</string>
     <string name="profile">profile</string>
     <string name="title">title</string>
     <string name="description">Image of a cartoon</string>
@@ -81,7 +81,7 @@
     <string name="calculator">Calculator</string>
     <string name="image_of_google_maps">Image of google maps</string>
     <string name="first_assignment">First Assignment</string>
-    <string name="user_s_onboarding">User\'s OnBoarding</string>
+    <string name="user_OnBoarding">User\'s OnBoarding</string>
     <string name="viewpager_demo">ViewPager Demo</string>
     <string name="image_of_gender">Image of gender</string>
     <string name="image_of_rating">Image of rating</string>
