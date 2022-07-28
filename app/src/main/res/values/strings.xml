@@ -101,4 +101,5 @@
     <string name="sin">SIN</string>
     <string name="cos">COS</string>
     <string name="tan">TAN</string>
+    <string name="backArrow">←</string>
 </resources>

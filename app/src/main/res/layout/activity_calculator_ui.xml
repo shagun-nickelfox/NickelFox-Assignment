@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    app:layoutDescription="@xml/activity_calculator_ui_scene"
     tools:context=".assignment0.CalculatorUI">
 
     <include
@@ -13,92 +12,11 @@
         layout="@layout/my_toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clTrigonometric"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-20dp"
-        android:background="@drawable/circle"
-        android:paddingHorizontal="25dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/clNumPad"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:id="@+id/viewHideHorizontalBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangles"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvSin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:lines="1"
-                android:padding="10dp"
-                android:text="@string/sin"
-                android:textColor="#FBFBFB"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/viewHideHorizontalBar"
-                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
-
-            <TextView
-                android:id="@+id/tvCos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="10dp"
-                android:text="@string/cos"
-                android:textColor="#FBFBFB"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/tvSin"
-                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
-
-            <TextView
-                android:id="@+id/tvTan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/tan"
-                android:textColor="#FBFBFB"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/tvCos"
-                app:layout_constraintTop_toTopOf="@id/viewHideHorizontalBar" />
-
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/viewBackground"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/rounded"
-        app:layout_constraintBottom_toBottomOf="@+id/clNumPad"
-        app:layout_constraintTop_toTopOf="@+id/clNumPad" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clNumPad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/circle"
-        android:paddingHorizontal="34dp"
+        android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
@@ -110,23 +28,25 @@
 
         <LinearLayout
             android:id="@+id/viewVerticalBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rectangles"
             android:orientation="vertical"
-            android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/linear3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvDivide"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="19dp"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/divide"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -139,8 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="19dp"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/multiply"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -155,8 +77,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="19dp"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/subtract"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -171,8 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="19dp"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/plus"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -187,11 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:padding="19dp"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="@dimen/dp_10"
+                android:padding="15dp"
                 android:text="@string/equal"
                 android:textColor="#FBFBFB"
                 android:textSize="30sp"
@@ -199,30 +123,30 @@
                 app:layout_constraintBottom_toBottomOf="@id/viewVerticalBar"
                 app:layout_constraintEnd_toEndOf="@+id/tvPlus"
                 app:layout_constraintStart_toStartOf="@+id/tvPlus" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/viewHorizontalBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/rectangles"
             android:orientation="horizontal"
-            android:paddingHorizontal="10dp"
+            android:padding="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@id/clNumPad">
 
             <TextView
                 android:id="@+id/tvAC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
                 android:lines="1"
-                android:padding="@dimen/dp_10"
+                android:padding="8dp"
                 android:text="@string/ac"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -231,14 +155,14 @@
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
 
             <TextView
-                android:id="@+id/tvPlusMinus"
+                android:id="@+id/tvMod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="@dimen/dp_10"
-                android:text="@string/sign"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/mod"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold"
@@ -246,28 +170,30 @@
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
 
             <TextView
-                android:id="@+id/tvMod"
+                android:id="@+id/tvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="@dimen/dp_10"
-                android:text="@string/mod"
+                android:padding="8dp"
+                android:text="@string/backArrow"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/tvPlusMinus"
+                app:layout_constraintStart_toEndOf="@id/tvMod"
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linear1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linear2"
+            app:layout_constraintEnd_toStartOf="@id/linear2"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linear2">
 
@@ -276,10 +202,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_1"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -291,10 +217,10 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_4"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -306,10 +232,10 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_7"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -317,14 +243,14 @@
 
             <TextView
                 android:id="@+id/tvDot"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
                 android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingVertical="15dp"
                 android:text="@string/dot"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -333,8 +259,10 @@
 
         <LinearLayout
             android:id="@+id/linear2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linear3"
             app:layout_constraintEnd_toStartOf="@+id/linear3"
@@ -345,12 +273,12 @@
                 android:id="@+id/tvTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
+                android:clickable="true"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_2"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -360,13 +288,12 @@
                 android:id="@+id/tvFive"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_5"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -376,13 +303,12 @@
                 android:id="@+id/tvEight"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_8"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -392,13 +318,12 @@
                 android:id="@+id/tvZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_0"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -407,23 +332,27 @@
 
         <LinearLayout
             android:id="@+id/linear3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/viewVerticalBar"
-            app:layout_constraintEnd_toStartOf="@+id/viewVerticalBar">
+            app:layout_constraintEnd_toStartOf="@+id/viewVerticalBar"
+            app:layout_constraintStart_toEndOf="@id/linear2"
+            app:layout_constraintTop_toBottomOf="@id/viewHorizontalBar">
 
             <TextView
                 android:id="@+id/tvThree"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_3"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -433,13 +362,12 @@
                 android:id="@+id/tvSix"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_6"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -449,13 +377,12 @@
                 android:id="@+id/tvNine"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_9"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -465,13 +392,12 @@
                 android:id="@+id/tvDoubleZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_00"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -491,23 +417,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear2" />
 
-        <View
-            android:id="@+id/viewBar2"
-            android:layout_width="62dp"
-            android:layout_height="5dp"
-            android:layout_marginBottom="14dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/viewHorizontalBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clResult"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/clTrigonometric"
+        app:layout_constraintBottom_toTopOf="@id/clNumPad"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
@@ -515,8 +431,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/operation"
+            android:text=""
             android:textAlignment="textEnd"
             android:textColor="@color/grey"
             android:textSize="22sp"
@@ -541,19 +456,20 @@
 
         <TextView
             android:id="@+id/tvResult"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="37dp"
             android:layout_marginBottom="20dp"
             android:maxLines="1"
-            android:text="@string/result"
+            android:text=""
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/equal" />
-
 
         <View
             android:id="@+id/viewHistoryIcon"
@@ -564,7 +480,6 @@
             android:background="@drawable/ic_history"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
