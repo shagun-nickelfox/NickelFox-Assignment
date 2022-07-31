@@ -70,45 +70,56 @@ class CalculatorUI : AppCompatActivity() {
 
             tvOne.setOnClickListener {
                 numberClick(Constants.ONE)
+                resultText()
             }
 
             tvTwo.setOnClickListener {
                 numberClick(Constants.TWO)
+                resultText()
             }
 
             tvThree.setOnClickListener {
                 numberClick(Constants.THREE)
+                resultText()
             }
             tvFour.setOnClickListener {
                 numberClick(Constants.FOUR)
+                resultText()
             }
 
             tvFive.setOnClickListener {
                 numberClick(Constants.FIVE)
+                resultText()
             }
 
             tvSix.setOnClickListener {
                 numberClick(Constants.SIX)
+                resultText()
             }
 
             tvSeven.setOnClickListener {
                 numberClick(Constants.SEVEN)
+                resultText()
             }
 
             tvEight.setOnClickListener {
                 numberClick(Constants.EIGHT)
+                resultText()
             }
 
             tvNine.setOnClickListener {
                 numberClick(Constants.NINE)
+                resultText()
             }
 
             tvZero.setOnClickListener {
                 numberClick(Constants.ZERO)
+                resultText()
             }
 
             tvDoubleZero.setOnClickListener {
                 numberClick(Constants.DOUBLE_ZERO)
+                resultText()
             }
 
             /*Operators*/
