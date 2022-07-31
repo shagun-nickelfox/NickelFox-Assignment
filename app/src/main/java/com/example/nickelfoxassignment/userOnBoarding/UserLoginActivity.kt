@@ -11,7 +11,9 @@ import android.view.WindowManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
+import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityUserLoginBinding
 import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
 import com.example.nickelfoxassignment.longToast
@@ -172,7 +174,12 @@ class UserLoginActivity : AppCompatActivity() {
     }
 
     private fun showProgressBar() {
-        progressBar.setBackgroundColor(android.R.color.white)
+        progressBar.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.white
+            )
+        )
         window.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE

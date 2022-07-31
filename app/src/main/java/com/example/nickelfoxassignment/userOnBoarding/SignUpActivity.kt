@@ -8,7 +8,9 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
+import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivitySignUpBinding
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showAnotherActivity
@@ -33,19 +35,19 @@ class SignUpActivity : AppCompatActivity() {
      * Create animation when user switch to new activity
      */
     private fun createAnimations() {
-            val intent = Intent(this@SignUpActivity, UserLoginActivity::class.java)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this@SignUpActivity,
-                Pair.create(ivLogo, "logoImage"),
-                Pair.create(tvTitle, "logoText"),
-                Pair.create(tvSubtitle, "description"),
-                Pair.create(tvUserName, "username"),
-                Pair.create(tvPassword, "password"),
-                Pair.create(btnSignup, "login_btn"),
-                Pair.create(btnAlreadyAccount, "signup_btn")
-            )
-            startActivity(intent, options.toBundle())
-            finish()
+        val intent = Intent(this@SignUpActivity, UserLoginActivity::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this@SignUpActivity,
+            Pair.create(ivLogo, "logoImage"),
+            Pair.create(tvTitle, "logoText"),
+            Pair.create(tvSubtitle, "description"),
+            Pair.create(tvUserName, "username"),
+            Pair.create(tvPassword, "password"),
+            Pair.create(btnSignup, "login_btn"),
+            Pair.create(btnAlreadyAccount, "signup_btn")
+        )
+        startActivity(intent, options.toBundle())
+        finish()
     }
 
     /**
@@ -131,7 +133,12 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun showProgressBar() {
-        progressBarSign.setBackgroundColor(android.R.color.white)
+        progressBarSign.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.white
+            )
+        )
         window.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE

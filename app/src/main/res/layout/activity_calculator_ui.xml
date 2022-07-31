@@ -93,7 +93,7 @@
             <TextView
                 android:id="@+id/tvPlus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="68dp"
                 android:layout_weight="1"
                 android:background="@drawable/rippleffectview"
                 android:gravity="center"
@@ -431,7 +431,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
-            android:text=""
             android:textAlignment="textEnd"
             android:textColor="@color/grey"
             android:textSize="22sp"

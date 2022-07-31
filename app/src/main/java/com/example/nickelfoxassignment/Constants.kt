@@ -16,9 +16,8 @@ object Constants {
     const val SUBTRACT = "-"
     const val MULTIPLY = "*"
     const val DIVIDE = "/"
-    const val MOD = "%"
-    const val DOT = "."
-    const val DECIMAL_FORMAT = "0.######"
     const val DIVIDE_ = "÷"
     const val MULTIPLY_ = "×"
+    const val MOD = "%"
+    const val DOT = "."
 }

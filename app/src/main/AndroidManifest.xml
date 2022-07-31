@@ -63,6 +63,9 @@
             android:name=".assignment0.CalculatorUI"
             android:exported="false" />
         <activity
+            android:name=".assignment0.calculatorhistory.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".assignment0.AnimationsDemoScreen"
             android:exported="false" />
         <activity

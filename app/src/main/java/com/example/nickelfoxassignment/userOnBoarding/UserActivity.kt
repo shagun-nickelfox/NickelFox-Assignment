@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.core.content.ContextCompat
+import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityUserBinding
 import com.example.nickelfoxassignment.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -48,7 +50,12 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun showProgressBar() {
-        progressBar.setBackgroundColor(android.R.color.white)
+        progressBar.setBackgroundColor(
+            ContextCompat.getColor(
+                this,
+                R.color.white
+            )
+        )
         window.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
