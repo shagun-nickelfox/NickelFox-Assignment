@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.useronboarding
+package com.example.nickelfoxassignment.usersonboarding
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

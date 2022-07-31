@@ -7,7 +7,7 @@ import com.example.nickelfoxassignment.crashlytics.CrashActivity
 import com.example.nickelfoxassignment.databinding.ActivityMainBinding
 import com.example.nickelfoxassignment.clustering.MapsActivity
 import com.example.nickelfoxassignment.transition.TransitionActivity
-import com.example.nickelfoxassignment.useronboarding.LoginActivity
+import com.example.nickelfoxassignment.usersonboarding.LoginActivity
 import com.example.nickelfoxassignment.viewpager.ViewPagerActivity
 
 class MainActivity : AppCompatActivity() {

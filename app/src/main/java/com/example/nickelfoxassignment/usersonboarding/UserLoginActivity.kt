@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment.useronboarding
+package com.example.nickelfoxassignment.usersonboarding
 
 import android.app.Dialog
 import android.content.Context
