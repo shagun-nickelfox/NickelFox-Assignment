@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         )
         startActivity(intent, options.toBundle())
         finish()
+
     }
 
     private fun setupListeners() {
