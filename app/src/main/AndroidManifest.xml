@@ -17,20 +17,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NickelfoxAssignment"
+        android:theme="@style/Theme.NickelFoxAssignment"
         tools:targetApi="31">
 
         <activity
-            android:name=".userOnBoarding.SignUpActivity"
+            android:name=".usersonboarding.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".userOnBoarding.UserLoginActivity"
+            android:name=".usersonboarding.UserLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".userOnBoarding.LoginActivity"
+            android:name=".usersonboarding.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".userOnBoarding.UserActivity"
+            android:name=".usersonboarding.UserActivity"
             android:exported="false" />
         <activity
             android:name=".crashlytics.CrashActivity"
@@ -45,10 +45,10 @@
             android:value="AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58" />
 
         <activity
-            android:name=".sharedtransition.TransitionActivity"
+            android:name=".transition.TransitionActivity"
             android:exported="false" />
         <activity
-            android:name=".demomap.MapsActivity"
+            android:name=".clustering.MapsActivity"
             android:exported="false" />
         <activity
             android:name=".assignment0.ButtonsActivity"
@@ -61,6 +61,9 @@
             android:exported="false" />
         <activity
             android:name=".assignment0.CalculatorUI"
+            android:exported="false" />
+        <activity
+            android:name=".assignment0.calculatorhistory.HistoryActivity"
             android:exported="false" />
         <activity
             android:name=".assignment0.AnimationsDemoScreen"

@@ -12,11 +12,11 @@
         layout="@layout/my_toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clBaseRectangle"
+        android:id="@+id/clNumPad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/circle"
-        android:paddingHorizontal="34dp"
+        android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
@@ -28,23 +28,25 @@
 
         <LinearLayout
             android:id="@+id/viewVerticalBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rectangles"
             android:orientation="vertical"
-            android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/linear3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/clBaseRectangle">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvDivide"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="19dp"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/divide"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -57,8 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="19dp"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/multiply"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -73,8 +77,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="19dp"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/subtract"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -87,10 +93,12 @@
             <TextView
                 android:id="@+id/tvPlus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="68dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="19dp"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:paddingHorizontal="28dp"
+                android:paddingVertical="22dp"
                 android:text="@string/plus"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -105,11 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:padding="19dp"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="@dimen/dp_10"
+                android:padding="15dp"
                 android:text="@string/equal"
                 android:textColor="#FBFBFB"
                 android:textSize="30sp"
@@ -117,30 +123,30 @@
                 app:layout_constraintBottom_toBottomOf="@id/viewVerticalBar"
                 app:layout_constraintEnd_toEndOf="@+id/tvPlus"
                 app:layout_constraintStart_toStartOf="@+id/tvPlus" />
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/viewHorizontalBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/rectangles"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp"
+            android:padding="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/clBaseRectangle">
+            app:layout_constraintTop_toTopOf="@id/clNumPad">
 
             <TextView
                 android:id="@+id/tvAC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
                 android:lines="1"
-                android:padding="@dimen/dp_10"
+                android:padding="8dp"
                 android:text="@string/ac"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -149,14 +155,14 @@
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
 
             <TextView
-                android:id="@+id/tvPlusMinus"
+                android:id="@+id/tvMod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="@dimen/dp_10"
-                android:text="@string/sign"
+                android:background="@drawable/rippleffectview"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/mod"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold"
@@ -164,82 +170,87 @@
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
 
             <TextView
-                android:id="@+id/tvPercent"
+                android:id="@+id/tvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_weight="1"
+                android:background="@drawable/rippleffectview"
                 android:gravity="center"
-                android:padding="@dimen/dp_10"
-                android:text="@string/mod"
+                android:padding="8dp"
+                android:text="@string/backArrow"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/tvPlusMinus"
+                app:layout_constraintStart_toEndOf="@id/tvMod"
                 app:layout_constraintTop_toTopOf="@id/viewHorizontalBar" />
-
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/linear1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linear2"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle"
+            app:layout_constraintEnd_toStartOf="@id/linear2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linear2">
 
             <TextView
+                android:id="@+id/tvOne"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_1"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvFour"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_4"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_7"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvDot"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
                 android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingVertical="15dp"
                 android:text="@string/dot"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -248,8 +259,10 @@
 
         <LinearLayout
             android:id="@+id/linear2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linear3"
             app:layout_constraintEnd_toStartOf="@+id/linear3"
@@ -257,59 +270,60 @@
             app:layout_constraintTop_toTopOf="@+id/linear3">
 
             <TextView
+                android:id="@+id/tvTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
+                android:clickable="true"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_2"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvFive"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_5"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvEight"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_8"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_0"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -318,67 +332,72 @@
 
         <LinearLayout
             android:id="@+id/linear3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/viewVerticalBar"
-            app:layout_constraintEnd_toStartOf="@+id/viewVerticalBar">
+            app:layout_constraintEnd_toStartOf="@+id/viewVerticalBar"
+            app:layout_constraintStart_toEndOf="@id/linear2"
+            app:layout_constraintTop_toBottomOf="@id/viewHorizontalBar">
 
             <TextView
+                android:id="@+id/tvThree"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_3"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvSix"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_6"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvNine"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="28dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_9"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvDoubleZero"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/bar"
+                android:background="@drawable/ripplebutton"
                 android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="18dp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="15dp"
                 android:text="@string/_00"
                 android:textColor="#FBFBFB"
                 android:textSize="26sp"
@@ -393,99 +412,73 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@color/bar1Color"
-            app:layout_constraintBottom_toBottomOf="@id/clBaseRectangle"
-            app:layout_constraintEnd_toEndOf="@id/clBaseRectangle"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear2" />
-
-        <View
-            android:id="@+id/viewBar2"
-            android:layout_width="62dp"
-            android:layout_height="5dp"
-            android:layout_marginBottom="14dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/viewHorizontalBar"
-            app:layout_constraintEnd_toEndOf="@id/clBaseRectangle"
-            app:layout_constraintStart_toStartOf="@id/clBaseRectangle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clResult"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        app:layout_constraintBottom_toTopOf="@id/glHorizontal">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/clNumPad"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dp_10"
-            android:paddingEnd="34dp"
-            android:text="@string/operation"
+            android:layout_marginEnd="37dp"
             android:textAlignment="textEnd"
             android:textColor="@color/grey"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linear4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/tvResult"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linear4"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/equal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/textView1">
+            android:layout_marginStart="37dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/equalTo"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvResult"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="34dp"
-                android:paddingEnd="10dp"
-                android:text="@string/equalTo"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="20dp"
+            android:maxLines="1"
+            android:text=""
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/equal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="34dp"
-                android:layout_weight="1"
-                android:text="@string/result"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
+        <View
+            android:id="@+id/viewHistoryIcon"
+            android:layout_width="24.43dp"
+            android:layout_height="25.2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/ic_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:layout_width="24.43dp"
-        android:layout_height="25.2dp"
-        android:layout_marginEnd="36.78dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/ic_history"
-        app:layout_constraintBottom_toTopOf="@+id/glHorizontal2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glHorizontal2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

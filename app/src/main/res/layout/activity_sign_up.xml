@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".userOnBoarding.SignUpActivity">
+    tools:context=".usersonboarding.SignUpActivity">
 
     <ImageView
         android:id="@+id/ivLogo"
