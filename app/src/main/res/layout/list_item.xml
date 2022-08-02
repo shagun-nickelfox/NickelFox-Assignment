@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="com.example.nickelfoxassignment.newsapp.retrofit.response.Article" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        android:layout_margin="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/ivHeadline"
+                android:scaleType="centerCrop"
+                android:layout_width="137dp"
+                android:layout_height="140dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:paddingEnd="10dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@{article.title}"
+                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:text="@{article.author}"
+                android:textSize="13sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+
+            <!--<TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:text="Category"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"/>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
