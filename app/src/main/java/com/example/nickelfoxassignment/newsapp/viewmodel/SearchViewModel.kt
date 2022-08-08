@@ -9,17 +9,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class NewsViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     newsRepository: NewsRepository,
 ) : ViewModel() {
 
-    private val categoryInput = MutableLiveData("")
+    private val searchInput = MutableLiveData("")
 
-    fun setCategoryValue(category: String) {
-        categoryInput.value = category
+    fun setSearchValue(query: String) {
+        searchInput.value = query
     }
 
-    val list: LiveData<PagingData<Article>> = categoryInput.switchMap {
-        newsRepository.getAllNewsStream(category = it).cachedIn(viewModelScope)
+    val searchList: LiveData<PagingData<Article>> = searchInput.switchMap { query->
+            newsRepository.getAllSearchNewsStream(q = query).cachedIn(viewModelScope)
     }
 }

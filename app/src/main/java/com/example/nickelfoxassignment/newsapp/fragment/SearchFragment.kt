@@ -18,19 +18,19 @@ import com.example.nickelfoxassignment.newsapp.adapter.NewsAdapter
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
-import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
+import com.example.nickelfoxassignment.newsapp.viewmodel.SearchViewModel
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
-import kotlinx.android.synthetic.main.fragment_search.*
 
-
+@AndroidEntryPoint
 class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
 
-    private val viewModel by viewModels<NewsViewModel>()
+    private val viewModel by viewModels<SearchViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
     private val newsAdapter = NewsAdapter(this, this)
     private lateinit var binding: FragmentSearchBinding
@@ -58,7 +58,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
 
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    activity?.shortToast("Error in fetching data")
+                    //activity?.shortToast("Error in fetching data")
                 }
             }
         }
@@ -66,13 +66,15 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     private fun setupListeners() {
-        tvSearch.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                viewModel.setSearchValue(tvSearch.text.toString())
-                return@OnEditorActionListener true
-            }
-            false
-        })
+        binding.apply {
+            tvSearch.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    viewModel.setSearchValue(tvSearch.text.toString())
+                    return@OnEditorActionListener true
+                }
+                false
+            })
+        }
     }
 
     override fun articleClick(bundle: Bundle) {

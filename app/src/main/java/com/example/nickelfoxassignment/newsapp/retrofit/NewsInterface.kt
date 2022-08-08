@@ -16,8 +16,7 @@ interface NewsInterface {
 
     @GET("everything")
     suspend fun getAllNews(
-        @Query("country") country: String,
-        @Query("query") query: String,
+        @Query("q") q: String?,
         @Query("apiKey") apiKey : String,
         @Query("pageSize") pageSize : Int,
     ): NewsResponse

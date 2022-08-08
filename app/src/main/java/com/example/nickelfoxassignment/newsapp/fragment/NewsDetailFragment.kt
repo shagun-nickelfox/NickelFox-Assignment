@@ -71,9 +71,6 @@ class NewsDetailFragment : Fragment() {
                     requireArguments()["url"].toString()
                 )
             }
-            ivBack.setOnClickListener {
-
-            }
         }
     }
 }

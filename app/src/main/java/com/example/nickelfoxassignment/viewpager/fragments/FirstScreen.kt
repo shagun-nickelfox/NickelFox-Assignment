@@ -20,8 +20,8 @@ class FirstScreen : Fragment() {
         binding = FragmentFirstScreenBinding.inflate(inflater, container, false)
 
         binding.tvFirstScreen.setOnClickListener {
-            it.context.shortToast("First Screen Clicked")
-            val intent = Intent (activity, NewsActivity::class.java)
+            it.context.shortToast("Opening...")
+            val intent = Intent(activity, NewsActivity::class.java)
             startActivity(intent)
         }
         return binding.root

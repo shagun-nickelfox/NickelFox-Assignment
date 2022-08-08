@@ -5,7 +5,6 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 
 fun Toolbar.showToolbar(
     titleToolbar: String,
