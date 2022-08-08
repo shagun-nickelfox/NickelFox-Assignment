@@ -10,12 +10,12 @@ import com.example.nickelfoxassignment.Constants
 import retrofit2.HttpException
 import java.io.IOException
 
-const val STARTING_INDEX = 1
-const val NETWORK_PAGE_SIZE = 10
+const val STARTING_NEWS_INDEX = 1
+const val NEWS_PAGE_SIZE = 10
 
-class NewsPagingSource(
+class SearchPagingSource(
     private val newsInterface: NewsInterface,
-    private val category: String?
+    private val query: String
 ) : PagingSource<Int, Article>() {
 
     private lateinit var data: NewsResponse
@@ -29,22 +29,22 @@ class NewsPagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
-        val position = params.key ?: STARTING_INDEX
+        val position = params.key ?: STARTING_NEWS_INDEX
 
         return try {
-            data = newsInterface.getTopHeadlines(
-                "in", category,
+            data = newsInterface.getAllNews(
+                "in", query,
                 Constants.API_KEY, params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {
                 null
             } else {
-                position + (params.loadSize / NETWORK_PAGE_SIZE)
+                position + (params.loadSize / NEWS_PAGE_SIZE)
             }
             LoadResult.Page(
                 data = repos,
-                prevKey = if (position == STARTING_INDEX) null else position - 1,
+                prevKey = if (position == STARTING_NEWS_INDEX) null else position - 1,
                 nextKey = nextKey
             )
         } catch (e: IOException) {

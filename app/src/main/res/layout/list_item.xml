@@ -1,66 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    app:cardElevation="8dp">
 
-    <data>
-        <variable
-            name="article"
-            type="com.example.nickelfoxassignment.newsapp.retrofit.response.Article" />
-    </data>
-
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        android:layout_margin="8dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="37dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/ivHeadline"
+            android:layout_width="137dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvHeadline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp">
+            android:layout_marginStart="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/constraint"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivHeadline"
-                android:scaleType="centerCrop"
-                android:layout_width="137dp"
-                android:layout_height="140dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvNewsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
 
-            <TextView
-                android:id="@+id/tvHeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="@{article.title}"
-                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvNewsCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:text=""
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor" />
 
-            <TextView
-                android:id="@+id/tvAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="10dp"
-                android:text="@{article.author}"
-                android:textSize="13sp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+        <ImageView
+            android:id="@+id/ivNewsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:src="@drawable/ellipse"
+            app:layout_constraintStart_toStartOf="@+id/tvNewsCategory"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory"
+            tools:ignore="ContentDescription" />
 
-            <!--<TextView
-                android:id="@+id/tvCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="10dp"
-                android:text="Category"
-                android:layout_marginTop="14dp"
-                app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-                app:layout_constraintTop_toBottomOf="@+id/tvAuthor"/>-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvNewsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="13dp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@+id/ivNewsTime"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory" />
 
-    </androidx.cardview.widget.CardView>
-</layout>
+        <TextView
+            android:id="@+id/tvMoreOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ripple_effect_view"
+            android:text="@string/three_dots"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/ic_divider"
+        tools:ignore="ContentDescription" />
+
+</androidx.cardview.widget.CardView>

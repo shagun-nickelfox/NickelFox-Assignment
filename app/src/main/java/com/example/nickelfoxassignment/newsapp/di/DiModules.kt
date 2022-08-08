@@ -1,6 +1,6 @@
 package com.example.nickelfoxassignment.newsapp.di
 
-import com.example.nickelfoxassignment.newsapp.helper.NewsRepository
+import com.example.nickelfoxassignment.newsapp.repository.NewsRepository
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import dagger.Module
 import dagger.Provides

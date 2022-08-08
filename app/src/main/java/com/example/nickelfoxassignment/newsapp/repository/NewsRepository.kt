@@ -1,0 +1,33 @@
+package com.example.nickelfoxassignment.newsapp.repository
+
+import androidx.lifecycle.LiveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
+import com.example.nickelfoxassignment.newsapp.paging.NETWORK_PAGE_SIZE
+import com.example.nickelfoxassignment.newsapp.paging.NewsPagingSource
+import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
+import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
+
+class NewsRepository(private val newsInterface: NewsInterface) {
+    fun getAllNewsStream(category:String?): LiveData<PagingData<Article>> = Pager(
+        config = PagingConfig(
+            NETWORK_PAGE_SIZE,
+            enablePlaceholders = false
+        ),
+        pagingSourceFactory ={
+            NewsPagingSource(newsInterface,category)
+        }
+    ).liveData
+
+    fun getAllSearchNewsStream(query:String?): LiveData<PagingData<Article>> = Pager(
+        config = PagingConfig(
+            NETWORK_PAGE_SIZE,
+            enablePlaceholders = false
+        ),
+        pagingSourceFactory ={
+            NewsPagingSource(newsInterface,query)
+        }
+    ).liveData
+}

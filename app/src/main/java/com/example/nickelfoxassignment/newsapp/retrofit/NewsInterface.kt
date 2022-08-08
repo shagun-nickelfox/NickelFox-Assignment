@@ -9,18 +9,16 @@ interface NewsInterface {
     @GET("top-headlines")
     suspend fun getTopHeadlines(
         @Query("country") country: String,
-        @Query("category") category: String,
+        @Query("category") category: String?,
         @Query("apiKey") apiKey : String,
-        @Query("page") page : Int,
         @Query("pageSize") pageSize : Int,
     ): NewsResponse
 
     @GET("everything")
     suspend fun getAllNews(
         @Query("country") country: String,
-        @Query("category") category: String,
+        @Query("query") query: String,
         @Query("apiKey") apiKey : String,
-        @Query("page") page : Int,
         @Query("pageSize") pageSize : Int,
     ): NewsResponse
 }

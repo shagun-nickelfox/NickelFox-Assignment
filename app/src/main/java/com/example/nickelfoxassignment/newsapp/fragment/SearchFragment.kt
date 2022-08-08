@@ -2,12 +2,12 @@ package com.example.nickelfoxassignment.newsapp.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,35 +20,34 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
 import com.example.nickelfoxassignment.R
-import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
+import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
+import kotlinx.android.synthetic.main.fragment_search.*
 
-@AndroidEntryPoint
-class NewsFragment : Fragment(), ArticleClickInterface,
+
+class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
 
     private val viewModel by viewModels<NewsViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
     private val newsAdapter = NewsAdapter(this, this)
-    private lateinit var binding: FragmentNewsBinding
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsBinding.inflate(inflater, container, false)
-        setupChipListener()
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        setupListeners()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.list.observe(viewLifecycleOwner) {
+        viewModel.searchList.observe(viewLifecycleOwner) {
             newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
-
         newsAdapter.addLoadStateListener { state ->
             when (state.refresh) {
                 is LoadState.Loading ->
@@ -59,52 +58,32 @@ class NewsFragment : Fragment(), ArticleClickInterface,
 
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+                    activity?.shortToast("Error in fetching data")
                 }
             }
         }
-
         view.recycler_view.adapter = newsAdapter
     }
 
-    private fun setupChipListener() {
-        binding.apply {
-            chipTop.setOnClickListener {
-                viewModel.setCategoryValue("")
+    private fun setupListeners() {
+        tvSearch.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                viewModel.setSearchValue(tvSearch.text.toString())
+                return@OnEditorActionListener true
             }
-            chipBusiness.setOnClickListener {
-                viewModel.setCategoryValue("business")
-            }
-            chipEntertainment.setOnClickListener {
-                viewModel.setCategoryValue("entertainment")
-            }
-            chipHealth.setOnClickListener {
-                viewModel.setCategoryValue("health")
-            }
-            chipGeneral.setOnClickListener {
-                viewModel.setCategoryValue("general")
-            }
-            chipScience.setOnClickListener {
-                viewModel.setCategoryValue("science")
-            }
-            chipSports.setOnClickListener {
-                viewModel.setCategoryValue("sports")
-            }
-            chipTechnology.setOnClickListener {
-                viewModel.setCategoryValue("technology")
-            }
-        }
+            false
+        })
     }
 
     override fun articleClick(bundle: Bundle) {
         findNavController().navigate(
-            R.id.action_newsFragment_to_newsDetailFragment,
+            R.id.action_searchFragment_to_newsDetailFragment,
             bundle
         )
     }
 
     override fun moreOptionsClick(article: Article, time: String) {
-        val popupMenu = PopupMenu(activity, view, Gravity.BOTTOM)
+        val popupMenu = PopupMenu(activity, view)
         popupMenu.menuInflater.inflate(R.menu.item_menu, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {

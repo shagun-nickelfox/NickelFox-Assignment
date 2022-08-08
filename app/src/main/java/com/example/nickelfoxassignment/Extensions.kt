@@ -5,6 +5,7 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 
 fun Toolbar.showToolbar(
     titleToolbar: String,
@@ -46,6 +47,17 @@ fun Context.longToast(text: String) {
 fun <T> Context.showAnotherActivity(activity: Class<T>) {
     val intent = Intent(this, activity)
     startActivity(intent)
+}
+
+fun Context.shareData(headline: String, url: String) {
+    val intent = Intent()
+    intent.action = Intent.ACTION_SEND
+    intent.type = "text/plain"
+    intent.putExtra(Intent.EXTRA_SUBJECT, "News")
+    var shareMessage = "\n" + headline + "\n\n"
+    shareMessage = shareMessage + url + "\n\n"
+    intent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+    startActivity(Intent.createChooser(intent, "Share to"))
 }
 
 

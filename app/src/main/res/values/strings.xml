@@ -103,4 +103,17 @@
     <string name="tan">TAN</string>
     <string name="backArrow">←</string>
     <string name="zero">0</string>
+    <string name="bookmarked">Bookmarked</string>
+    <string name="news_24">News 24</string>
+    <string name="for_you">For You</string>
+    <string name="top">Top</string>
+    <string name="business">Business</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="general">General</string>
+    <string name="health">Health</string>
+    <string name="science">Science</string>
+    <string name="sports">Sports</string>
+    <string name="technology">Technology</string>
+    <string name="three_dots">...</string>
+    <string name="search">Search</string>
 </resources>
