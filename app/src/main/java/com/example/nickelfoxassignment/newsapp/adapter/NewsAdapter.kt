@@ -75,10 +75,11 @@ class NewsAdapter(
                 articleClickInterface.articleClick(bundle)
             }
 
-            holder.itemView.tvMoreOptions.setOnClickListener {
+            holder.itemView.tvMoreOptions.setOnClickListener { view ->
                 moreOptionsClickInterface.moreOptionsClick(
                     item,
-                    holder.itemView.tvNewsTime.text.toString()
+                    holder.itemView.tvNewsTime.text.toString(),
+                    holder.itemView.tvMoreOptions
                 )
             }
 
@@ -142,5 +143,5 @@ interface ArticleClickInterface {
 }
 
 interface MoreOptionsClickInterface {
-    fun moreOptionsClick(article: Article, time: String)
+    fun moreOptionsClick(article: Article, time: String, view: View)
 }

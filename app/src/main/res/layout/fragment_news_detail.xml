@@ -6,25 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".newsapp.fragment.NewsDetailFragment">
 
-   <!-- <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/ripple_effect_view"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />-->
+    <!-- <ImageView
+         android:id="@+id/ivBack"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="25dp"
+         android:layout_marginTop="40dp"
+         android:background="@drawable/ripple_effect_view"
+         android:src="@drawable/ic_back"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         tools:ignore="ContentDescription" />-->
 
     <ImageView
         android:id="@+id/ivBookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="27dp"
         android:layout_marginEnd="66.17dp"
         android:background="@drawable/ripple_effect_view"
+        android:padding="8dp"
         android:src="@drawable/ic_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,10 +35,12 @@
         android:id="@+id/ivShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ripple_effect_view"
+        android:padding="8dp"
         android:src="@drawable/ic_share"
+        app:layout_constraintStart_toEndOf="@+id/ivBookmark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
@@ -57,8 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="@color/black"
         android:text=""
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/ivHeadlineDetail" />
@@ -111,8 +114,8 @@
             android:id="@+id/tvContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:text=""
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
     </ScrollView>

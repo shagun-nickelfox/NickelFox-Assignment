@@ -23,6 +23,7 @@ class NewsActivity : AppCompatActivity() {
         val navController: NavController = navHostFragment.navController
         val bottomNavigationView =
             findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
         setupWithNavController(bottomNavigationView, navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->

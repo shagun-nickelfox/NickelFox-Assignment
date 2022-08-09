@@ -47,7 +47,7 @@ class BookmarkAdapter(
         }
 
         holder.itemView.tvMoreOptions.setOnClickListener {
-            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(allBookmarkNews[position])
+            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(allBookmarkNews[position],holder.itemView.tvMoreOptions)
         }
     }
 
@@ -63,5 +63,5 @@ class BookmarkAdapter(
 }
 
 interface MoreOptionsBookmarkClickInterface {
-    fun moreOptionsBookmarkClick(bookmark: Bookmark)
+    fun moreOptionsBookmarkClick(bookmark: Bookmark,view: View)
 }

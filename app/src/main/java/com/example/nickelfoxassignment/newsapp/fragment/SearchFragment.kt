@@ -1,12 +1,13 @@
 package com.example.nickelfoxassignment.newsapp.fragment
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.PopupMenu
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,6 +24,7 @@ import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
 import com.example.nickelfoxassignment.newsapp.viewmodel.SearchViewModel
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
 
@@ -67,13 +69,18 @@ class SearchFragment : Fragment(), ArticleClickInterface,
 
     private fun setupListeners() {
         binding.apply {
-            tvSearch.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
+            tvSearch.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    activity?.hideKeyboard(v)
                     viewModel.setSearchValue(tvSearch.text.toString())
                     return@OnEditorActionListener true
                 }
                 false
             })
+
+            textInputLayout.setEndIconOnClickListener {
+                tvSearch.text?.clear()
+            }
         }
     }
 
@@ -84,10 +91,9 @@ class SearchFragment : Fragment(), ArticleClickInterface,
         )
     }
 
-    override fun moreOptionsClick(article: Article, time: String) {
-        val popupMenu = PopupMenu(activity, view)
-        popupMenu.menuInflater.inflate(R.menu.item_menu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener { menuItem ->
+    override fun moreOptionsClick(article: Article, time: String, view: View) {
+        val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
+        popupMenu?.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
                 (activity as Context).shareData(
                     article.title!!,
@@ -109,6 +115,12 @@ class SearchFragment : Fragment(), ArticleClickInterface,
             }
             true
         }
-        popupMenu.show()
+        popupMenu?.show()
     }
+}
+
+private fun Context.hideKeyboard(view: View) {
+    val inputMethodManager =
+        getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }

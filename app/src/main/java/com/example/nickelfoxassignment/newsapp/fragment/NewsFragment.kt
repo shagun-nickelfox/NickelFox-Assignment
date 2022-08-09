@@ -2,16 +2,14 @@ package com.example.nickelfoxassignment.newsapp.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.PopupMenu
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.NewsAdapter
@@ -19,10 +17,9 @@ import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
-import com.example.nickelfoxassignment.R
-import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
 
@@ -103,10 +100,9 @@ class NewsFragment : Fragment(), ArticleClickInterface,
         )
     }
 
-    override fun moreOptionsClick(article: Article, time: String) {
-        val popupMenu = PopupMenu(activity, view, Gravity.BOTTOM)
-        popupMenu.menuInflater.inflate(R.menu.item_menu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener { menuItem ->
+    override fun moreOptionsClick(article: Article, time: String, view: View) {
+        val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
+        popupMenu?.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
                 (activity as Context).shareData(
                     article.title!!,
@@ -128,6 +124,6 @@ class NewsFragment : Fragment(), ArticleClickInterface,
             }
             true
         }
-        popupMenu.show()
+        popupMenu?.show()
     }
 }
