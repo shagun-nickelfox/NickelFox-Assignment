@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
     tools:context=".newsapp.fragment.NewsFragment">
 
     <TextView
@@ -12,13 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10.06dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="146dp"
         android:text="@string/news_24"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/ivLogoDot"
+        app:layout_constraintStart_toEndOf="@+id/ivLogoDot"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -49,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAppName">
 
@@ -137,9 +137,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="27dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         tools:listitem="@layout/list_item" />
 

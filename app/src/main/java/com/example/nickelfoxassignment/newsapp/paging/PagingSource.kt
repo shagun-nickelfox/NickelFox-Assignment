@@ -1,8 +1,6 @@
 package com.example.nickelfoxassignment.newsapp.paging
 
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.retrofit.response.NewsResponse
@@ -20,21 +18,13 @@ class NewsPagingSource(
 
     private lateinit var data: NewsResponse
 
-    @ExperimentalPagingApi
-    override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
-        }
-    }
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val position = params.key ?: STARTING_INDEX
 
         return try {
             data = newsInterface.getTopHeadlines(
                 "in", category,
-                Constants.API_KEY, params.loadSize
+                Constants.API_KEY, position, params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {

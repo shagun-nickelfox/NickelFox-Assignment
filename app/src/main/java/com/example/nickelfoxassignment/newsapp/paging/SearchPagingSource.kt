@@ -1,8 +1,6 @@
 package com.example.nickelfoxassignment.newsapp.paging
 
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.retrofit.response.NewsResponse
@@ -26,7 +24,7 @@ class SearchPagingSource(
         return try {
             data = newsInterface.getAllNews(
                 q,
-                Constants.API_KEY, params.loadSize
+                Constants.API_KEY, position, params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {
