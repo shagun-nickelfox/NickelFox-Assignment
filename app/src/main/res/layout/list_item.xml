@@ -1,105 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView"
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    app:cardElevation="8dp">
+    android:layout_marginTop="20dp"
+    android:layout_marginHorizontal="16dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
-        android:layout_width="match_parent"
+    <ImageView
+        tools:src="@drawable/ic_launcher_background"
+        android:id="@+id/ivHeadline"
+        android:layout_width="137dp"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        tools:text="Monarch population soars 4,900 percent since last year in thrilling 2021 western migration"
+        android:id="@+id/tvHeadline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="37dp">
+        android:layout_marginStart="10dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@+id/constraint"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+        app:layout_constraintTop_toTopOf="@id/ivHeadline" />
 
-        <ImageView
-            android:id="@+id/ivHeadline"
-            android:layout_width="137dp"
-            android:layout_height="140dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+    <TextView
+        tools:text="By Andy Corbley"
+        android:id="@+id/tvNewsAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/tvHeadline"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
 
-        <TextView
-            android:id="@+id/tvHeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="@+id/constraint"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        tools:text="World"
+        android:id="@+id/tvNewsCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:textColor="@color/blue"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHeadline"
+        app:layout_constraintStart_toStartOf="@+id/tvNewsAuthor"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor" />
 
-        <TextView
-            android:id="@+id/tvNewsAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text=""
-            android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-            app:layout_constraintTop_toBottomOf="@+id/tvHeadline" />
+    <ImageView
+        android:id="@+id/ivNewsTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ellipse"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/tvNewsCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewsCategory"
+        tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/tvNewsCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="14dp"
-            android:text=""
-            android:textColor="@color/blue"
-            app:layout_constraintStart_toEndOf="@+id/ivHeadline"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor" />
+    <TextView
+        tools:text="1m ago"
+        android:id="@+id/tvNewsTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewsCategory"
+        app:layout_constraintStart_toEndOf="@+id/ivNewsTime"
+        app:layout_constraintTop_toTopOf="@+id/tvNewsCategory" />
 
-        <ImageView
-            android:id="@+id/ivNewsTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:src="@drawable/ellipse"
-            app:layout_constraintStart_toStartOf="@+id/tvNewsCategory"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory"
-            tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/tvMoreOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:src="@drawable/ic_more"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewsCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNewsCategory" />
 
-        <TextView
-            android:id="@+id/tvNewsTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="13dp"
-            android:text=""
-            app:layout_constraintStart_toEndOf="@+id/ivNewsTime"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory" />
-
-        <TextView
-            android:id="@+id/tvMoreOptions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="@drawable/ripple_effect_view"
-            android:text="@string/three_dots"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsAuthor" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:src="@drawable/ic_divider"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="37dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHeadline"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
