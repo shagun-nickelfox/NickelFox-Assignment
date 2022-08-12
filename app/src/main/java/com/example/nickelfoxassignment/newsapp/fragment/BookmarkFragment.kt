@@ -14,6 +14,7 @@ import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsBookmarkClickI
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.databinding.FragmentBookmarkBinding
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
@@ -21,22 +22,59 @@ import kotlinx.android.synthetic.main.fragment_news.view.*
 
 class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkClickInterface {
 
+    private lateinit var binding: FragmentBookmarkBinding
     private val viewModel by viewModels<BookmarkViewModel>()
     private val bookmarkAdapter = BookmarkAdapter(this, this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_bookmark, container, false)
+    ): View {
+        binding = FragmentBookmarkBinding.inflate(inflater, container, false)
+        setupChipListener()
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.recycler_view.adapter = bookmarkAdapter
-
-        viewModel.allBookmarkNews.observe(viewLifecycleOwner) { list ->
+        viewModel.allBookmark.observe(viewLifecycleOwner) { list ->
             list?.let {
-                bookmarkAdapter.updateList(it)
+                bookmarkAdapter.submitList(list)
+            }
+        }
+        view.recycler_view.adapter = bookmarkAdapter
+    }
+
+    private fun setupChipListener() {
+        binding.apply {
+            chipForYou.setOnClickListener {
+                viewModel.setCategory("For You")
+            }
+            chipTop.setOnClickListener {
+                viewModel.setCategory("Top")
+            }
+            chipBusiness.setOnClickListener {
+                viewModel.setCategory("Business")
+            }
+            chipEntertainment.setOnClickListener {
+                viewModel.setCategory("Entertainment")
+            }
+            chipHealth.setOnClickListener {
+                viewModel.setCategory("Health")
+            }
+            chipGeneral.setOnClickListener {
+                viewModel.setCategory("General")
+            }
+            chipScience.setOnClickListener {
+                viewModel.setCategory("Science")
+            }
+            chipSports.setOnClickListener {
+                viewModel.setCategory("Sports")
+            }
+            chipTechnology.setOnClickListener {
+                viewModel.setCategory("Technology")
+            }
+            chipSearched.setOnClickListener {
+                viewModel.setCategory("Searched")
             }
         }
     }

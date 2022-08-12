@@ -13,7 +13,8 @@ class Bookmark(
     @ColumnInfo(name = "source") val source: String?,
     @ColumnInfo(name = "image") val image: String?,
     @ColumnInfo(name = "time") val time: String?,
-    @ColumnInfo(name = "url") val url: String?
+    @ColumnInfo(name = "url") val url: String?,
+    @ColumnInfo(name = "category") val category: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var id = 0

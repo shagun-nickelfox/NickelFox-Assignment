@@ -31,6 +31,7 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
     private val newsAdapter = NewsAdapter(this, this)
     private lateinit var binding: FragmentNewsBinding
+    private var category = "ForYou"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,45 +68,55 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private fun setupChipListener() {
         binding.apply {
             chipForYou.setOnClickListener {
-                viewModel.setChipValue("ForYou")
+                viewModel.setChipValue("For You")
                 viewModel.setCategoryValue("")
+                category = "For You"
             }
             chipTop.setOnClickListener {
                 viewModel.setChipValue("Top")
                 viewModel.setCategoryValue("")
+                category = "Top"
             }
             chipBusiness.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Business")
                 viewModel.setCategoryValue("business")
+                category = "Business"
             }
             chipEntertainment.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Entertainment")
                 viewModel.setCategoryValue("entertainment")
+                category = "Entertainment"
             }
             chipHealth.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Health")
                 viewModel.setCategoryValue("health")
+                category = "Health"
             }
             chipGeneral.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("General")
                 viewModel.setCategoryValue("general")
+                category = "General"
             }
             chipScience.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Science")
                 viewModel.setCategoryValue("science")
+                category = "Science"
             }
             chipSports.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Sports")
                 viewModel.setCategoryValue("sports")
+                category = "Sports"
             }
             chipTechnology.setOnClickListener {
-                viewModel.setChipValue("")
+                viewModel.setChipValue("Technology")
                 viewModel.setCategoryValue("technology")
+                category = "Technology"
             }
         }
     }
 
     override fun articleClick(bundle: Bundle) {
+        bundle.putString("category", category)
         findNavController().navigate(
             R.id.action_newsFragment_to_newsDetailFragment,
             bundle
@@ -129,7 +140,8 @@ class NewsFragment : Fragment(), ArticleClickInterface,
                         article.source?.name,
                         article.urlToImage,
                         time,
-                        article.url
+                        article.url,
+                        category
                     )
                 )
                 (activity as Context).shortToast("Added to Bookmark")

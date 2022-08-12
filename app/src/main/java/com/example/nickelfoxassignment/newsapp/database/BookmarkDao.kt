@@ -6,8 +6,8 @@ import androidx.room.*
 @Dao
 interface BookmarkDao {
 
-    @Query("Select * from bookmark_table order by id asc")
-    fun getBookmarkNews(): LiveData<List<Bookmark>>
+    @Query("Select * from bookmark_table where category= :categoryValue order by id asc")
+    fun getBookmarkNews(categoryValue: String): LiveData<List<Bookmark>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(bookmark: Bookmark): Long

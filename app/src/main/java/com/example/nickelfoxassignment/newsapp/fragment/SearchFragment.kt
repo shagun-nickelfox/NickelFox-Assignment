@@ -85,6 +85,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun articleClick(bundle: Bundle) {
+        bundle.putString("category","Searched")
         findNavController().navigate(
             R.id.action_searchFragment_to_newsDetailFragment,
             bundle
@@ -108,7 +109,8 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                         article.source?.name,
                         article.urlToImage,
                         time,
-                        article.url
+                        article.url,
+                        "Searched"
                     )
                 )
                 (activity as Context).shortToast("Added to Bookmark")

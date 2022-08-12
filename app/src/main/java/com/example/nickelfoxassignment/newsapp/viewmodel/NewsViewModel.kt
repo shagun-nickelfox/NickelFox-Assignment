@@ -14,7 +14,7 @@ class NewsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val categoryInput = MutableLiveData("")
-    private var chipValue : String = "ForYou"
+    private var chipValue : String = "For You"
 
     fun setCategoryValue(category: String) {
         categoryInput.value = category

@@ -43,7 +43,6 @@ class NewsDetailFragment : Fragment() {
 
     }
 
-
     private fun setupListeners() {
         binding.apply {
             ivBookmark.setOnClickListener {
@@ -55,7 +54,8 @@ class NewsDetailFragment : Fragment() {
                         requireArguments()["source"].toString(),
                         requireArguments()["image"].toString(),
                         tvTime.text.toString(),
-                        ""
+                        "",
+                        requireArguments()["category"].toString()
                     )
                 )
                 val id = viewModel.getId()

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
@@ -13,9 +15,19 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class BookmarkAdapter(
     private val articleClickInterface: ArticleClickInterface,
     private val moreOptionsBookmarkClickInterface: MoreOptionsBookmarkClickInterface
-) : RecyclerView.Adapter<BookmarkAdapter.ViewHolder>() {
+) : ListAdapter<Bookmark,BookmarkAdapter.ViewHolder>(DIFF_UTIL) {
 
-    private val allBookmarkNews = ArrayList<Bookmark>()
+    companion object {
+        val DIFF_UTIL = object : DiffUtil.ItemCallback<Bookmark>() {
+            override fun areItemsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
+                return oldItem.title == newItem.title
+            }
+        }
+    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -26,39 +38,31 @@ class BookmarkAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.tvHeadline.text = allBookmarkNews[position].title
-        holder.itemView.tvNewsAuthor.text = allBookmarkNews[position].author
-        holder.itemView.tvNewsCategory.text = allBookmarkNews[position].source
-        holder.itemView.tvNewsTime.text = allBookmarkNews[position].time
-        Glide.with(holder.itemView).load(allBookmarkNews[position].image)
+        val item = getItem(position)
+
+        holder.itemView.tvHeadline.text = item.title
+        holder.itemView.tvNewsAuthor.text = item.author
+        holder.itemView.tvNewsCategory.text = item.source
+        holder.itemView.tvNewsTime.text = item.time
+        Glide.with(holder.itemView).load(item.image)
             .into(holder.itemView.ivHeadline)
 
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
-            bundle.putString("title", allBookmarkNews[position].title)
-            bundle.putString("author", allBookmarkNews[position].author)
-            bundle.putString("source", allBookmarkNews[position].source)
-            bundle.putString("time", allBookmarkNews[position].time)
-            bundle.putString("description", allBookmarkNews[position].description)
-            bundle.putString("image", allBookmarkNews[position].image)
-            bundle.putString("url", allBookmarkNews[position].url)
+            bundle.putString("title", item.title)
+            bundle.putString("author", item.author)
+            bundle.putString("source", item.source)
+            bundle.putString("time", item.time)
+            bundle.putString("description", item.description)
+            bundle.putString("image", item.image)
+            bundle.putString("url", item.url)
 
             articleClickInterface.articleClick(bundle)
         }
 
         holder.itemView.tvMoreOptions.setOnClickListener {
-            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(allBookmarkNews[position],holder.itemView.tvMoreOptions)
+            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(item,holder.itemView.tvMoreOptions)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return allBookmarkNews.size
-    }
-
-    fun updateList(newBookmark: List<Bookmark>) {
-        allBookmarkNews.clear()
-        allBookmarkNews.addAll(newBookmark)
-        notifyDataSetChanged()
     }
 }
 

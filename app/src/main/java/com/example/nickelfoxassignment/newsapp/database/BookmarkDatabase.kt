@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Bookmark::class], version = 8, exportSchema = false)
+@Database(entities = [Bookmark::class], version = 9, exportSchema = false)
 abstract class BookmarkDatabase : RoomDatabase() {
 
     abstract fun getBookmarkDao(): BookmarkDao
@@ -19,7 +19,7 @@ abstract class BookmarkDatabase : RoomDatabase() {
                     context.applicationContext,
                     BookmarkDatabase::class.java,
                     "bookmark_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }

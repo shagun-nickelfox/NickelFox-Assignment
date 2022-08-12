@@ -5,7 +5,6 @@ import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 
 class BookmarkRepository(private val bookmarkDao: BookmarkDao) {
-    val allBookmark: LiveData<List<Bookmark>> = bookmarkDao.getBookmarkNews()
 
     fun insert(bookmark: Bookmark): Long {
         return bookmarkDao.insert(bookmark)

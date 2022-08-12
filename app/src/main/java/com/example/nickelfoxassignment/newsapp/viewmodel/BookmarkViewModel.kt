@@ -1,10 +1,9 @@
 package com.example.nickelfoxassignment.newsapp.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
+import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDatabase
 import com.example.nickelfoxassignment.newsapp.repository.BookmarkRepository
 import kotlinx.coroutines.Dispatchers
@@ -13,13 +12,21 @@ import kotlinx.coroutines.launch
 class BookmarkViewModel(application: Application) : AndroidViewModel(application) {
 
     private var insertedId: Long = 0
-    val allBookmarkNews: LiveData<List<Bookmark>>
     private val repository: BookmarkRepository
+    private var dao: BookmarkDao
+    private var categoryInput = MutableLiveData("For You")
 
     init {
-        val dao = BookmarkDatabase.getDatabase(application).getBookmarkDao()
+        dao = BookmarkDatabase.getDatabase(application).getBookmarkDao()
         repository = BookmarkRepository(dao)
-        allBookmarkNews = repository.allBookmark
+    }
+
+    fun setCategory(categoryValue: String) {
+        categoryInput.value = categoryValue
+    }
+
+    val allBookmark: LiveData<List<Bookmark>> = categoryInput.switchMap {
+        dao.getBookmarkNews(it)
     }
 
     fun addBookmark(bookmark: Bookmark) = viewModelScope.launch(Dispatchers.IO) {

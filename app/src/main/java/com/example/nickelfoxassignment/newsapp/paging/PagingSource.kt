@@ -25,8 +25,8 @@ class NewsPagingSource(
 
         return try {
             data = newsInterface.getTopHeadlines(
-                if (chip == "ForYou") Locale.getDefault().country else "",
-                if (chip == "ForYou" || chip == "Top") Locale.getDefault().language else "",
+                if (chip == "For You") Locale.getDefault().country else "",
+                Locale.getDefault().language,
                 category,
                 Constants.API_KEY,
                 position,

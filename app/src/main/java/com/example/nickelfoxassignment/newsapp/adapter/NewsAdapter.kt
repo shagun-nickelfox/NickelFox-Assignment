@@ -75,7 +75,7 @@ class NewsAdapter(
                 articleClickInterface.articleClick(bundle)
             }
 
-            holder.itemView.tvMoreOptions.setOnClickListener { view ->
+            holder.itemView.tvMoreOptions.setOnClickListener {
                 moreOptionsClickInterface.moreOptionsClick(
                     item,
                     holder.itemView.tvNewsTime.text.toString(),
