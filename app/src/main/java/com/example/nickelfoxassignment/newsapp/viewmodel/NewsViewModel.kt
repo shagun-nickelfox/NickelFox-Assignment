@@ -14,12 +14,17 @@ class NewsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val categoryInput = MutableLiveData("")
+    private var chipValue : String = "ForYou"
 
     fun setCategoryValue(category: String) {
         categoryInput.value = category
     }
 
+    fun setChipValue(chip: String) {
+        chipValue = chip
+    }
+
     val list: LiveData<PagingData<Article>> = categoryInput.switchMap {
-        newsRepository.getAllNewsStream(category = it).cachedIn(viewModelScope)
+        newsRepository.getAllNewsStream(category = it,chipValue).cachedIn(viewModelScope)
     }
 }

@@ -66,28 +66,40 @@ class NewsFragment : Fragment(), ArticleClickInterface,
 
     private fun setupChipListener() {
         binding.apply {
+            chipForYou.setOnClickListener {
+                viewModel.setChipValue("ForYou")
+                viewModel.setCategoryValue("")
+            }
             chipTop.setOnClickListener {
+                viewModel.setChipValue("Top")
                 viewModel.setCategoryValue("")
             }
             chipBusiness.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("business")
             }
             chipEntertainment.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("entertainment")
             }
             chipHealth.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("health")
             }
             chipGeneral.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("general")
             }
             chipScience.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("science")
             }
             chipSports.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("sports")
             }
             chipTechnology.setOnClickListener {
+                viewModel.setChipValue("")
                 viewModel.setCategoryValue("technology")
             }
         }

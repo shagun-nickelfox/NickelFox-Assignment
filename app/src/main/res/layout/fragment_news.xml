@@ -58,13 +58,22 @@
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipTop"
+                android:id="@+id/chipForYou"
                 style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:checkable="true"
                 android:checked="true"
+                android:text="@string/for_you" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTop"
+                style="@style/CustomChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:checkable="true"
                 android:text="@string/top" />
 
             <com.google.android.material.chip.Chip

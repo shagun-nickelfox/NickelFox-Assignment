@@ -7,13 +7,15 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.NewsResponse
 import com.example.nickelfoxassignment.Constants
 import retrofit2.HttpException
 import java.io.IOException
+import java.util.*
 
 const val STARTING_INDEX = 1
 const val NETWORK_PAGE_SIZE = 10
 
 class NewsPagingSource(
     private val newsInterface: NewsInterface,
-    private val category: String?
+    private val category: String?,
+    private val chip: String?
 ) : PagingSource<Int, Article>() {
 
     private lateinit var data: NewsResponse
@@ -23,8 +25,12 @@ class NewsPagingSource(
 
         return try {
             data = newsInterface.getTopHeadlines(
-                "in", category,
-                Constants.API_KEY, position, params.loadSize
+                if (chip == "ForYou") Locale.getDefault().country else "",
+                if (chip == "ForYou" || chip == "Top") Locale.getDefault().language else "",
+                category,
+                Constants.API_KEY,
+                position,
+                params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {

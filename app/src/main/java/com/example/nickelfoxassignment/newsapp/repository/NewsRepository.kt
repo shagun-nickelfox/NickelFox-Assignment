@@ -12,13 +12,13 @@ import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 
 class NewsRepository(private val newsInterface: NewsInterface) {
-    fun getAllNewsStream(category: String?): LiveData<PagingData<Article>> = Pager(
+    fun getAllNewsStream(category: String?,chip: String?): LiveData<PagingData<Article>> = Pager(
         config = PagingConfig(
             NETWORK_PAGE_SIZE,
             enablePlaceholders = false
         ),
         pagingSourceFactory = {
-            NewsPagingSource(newsInterface, category)
+            NewsPagingSource(newsInterface, category, chip)
         }
     ).liveData
 
