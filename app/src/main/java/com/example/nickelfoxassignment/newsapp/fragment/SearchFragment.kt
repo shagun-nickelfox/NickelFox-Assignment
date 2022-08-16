@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView.OnEditorActionListener
@@ -69,6 +70,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
 
     private fun setupListeners() {
         binding.apply {
+            tvSearch.requestFocus()
             tvSearch.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     activity?.hideKeyboard(v)
@@ -77,6 +79,8 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                 }
                 false
             })
+            val manager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            manager.showSoftInput(tvSearch, InputMethodManager.SHOW_IMPLICIT)
 
             textInputLayout.setEndIconOnClickListener {
                 tvSearch.text?.clear()

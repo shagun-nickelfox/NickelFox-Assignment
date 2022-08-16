@@ -27,6 +27,8 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionSearch"
             android:inputType="text"
+            android:focusable="true"
+            android:focusedByDefault="true"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
