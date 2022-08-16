@@ -117,5 +117,5 @@
     <string name="three_dots">...</string>
     <string name="search">Search</string>
     <string name="searched">Searched</string>
-    <string name="source_time">%1$s! . %1$s!</string>
+    <string name="source_time">%1$s • %2$s</string>
 </resources>
