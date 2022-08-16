@@ -46,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="@+id/constraint"
         app:layout_constraintStart_toStartOf="@+id/tvHeadline"
         app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
-        tools:text="By Andy Corble" />
+        tools:ignore="RtlSymmetry"
+        tools:text="By Andy Corm" />
 
     <TextView
         android:id="@+id/tvNewsCategory"

@@ -43,8 +43,8 @@ class NewsAdapter(
         val item = getItem(position)
 
         val options: RequestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_person)
-            .error(R.drawable.ic_person)
+            .placeholder(R.drawable.ic_image)
+            .error(R.drawable.ic_image)
 
         if (item != null) {
             val date = item.publishedAt?.let { getDateTimeDifference(it) }
