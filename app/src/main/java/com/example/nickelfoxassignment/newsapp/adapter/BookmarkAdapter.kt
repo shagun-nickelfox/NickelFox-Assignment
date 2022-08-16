@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class BookmarkAdapter(
     private val articleClickInterface: ArticleClickInterface,
     private val moreOptionsBookmarkClickInterface: MoreOptionsBookmarkClickInterface
-) : ListAdapter<Bookmark,BookmarkAdapter.ViewHolder>(DIFF_UTIL) {
+) : ListAdapter<Bookmark, BookmarkAdapter.ViewHolder>(DIFF_UTIL) {
 
     companion object {
         val DIFF_UTIL = object : DiffUtil.ItemCallback<Bookmark>() {
@@ -41,7 +41,7 @@ class BookmarkAdapter(
         val item = getItem(position)
 
         holder.itemView.tvHeadline.text = item.title
-        holder.itemView.tvNewsAuthor.text = item.author
+        holder.itemView.tvNewsAuthor.text = "By ${item.author}"
         holder.itemView.tvNewsCategory.text = item.source
         holder.itemView.tvNewsTime.text = item.time
         Glide.with(holder.itemView).load(item.image)
@@ -61,11 +61,14 @@ class BookmarkAdapter(
         }
 
         holder.itemView.tvMoreOptions.setOnClickListener {
-            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(item,holder.itemView.tvMoreOptions)
+            moreOptionsBookmarkClickInterface.moreOptionsBookmarkClick(
+                item,
+                holder.itemView.tvMoreOptions
+            )
         }
     }
 }
 
 interface MoreOptionsBookmarkClickInterface {
-    fun moreOptionsBookmarkClick(bookmark: Bookmark,view: View)
+    fun moreOptionsBookmarkClick(bookmark: Bookmark, view: View)
 }

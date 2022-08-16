@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -17,12 +16,11 @@ import java.util.*
 
 class NewsAdapter(
     private val articleClickInterface: ArticleClickInterface,
-    private val moreOptionsClickInterface: MoreOptionsClickInterface
+    private val moreOptionsClickInterface: MoreOptionsClickInterface,
 ) :
-    PagingDataAdapter<Article, NewsAdapter.MyViewHolder>(DIFF_UTIL) {
+    PagingDataAdapter<Article, NewsAdapter.MyViewHolder>(DiffUtil()) {
 
-    companion object {
-        val DIFF_UTIL = object : DiffUtil.ItemCallback<Article>() {
+    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<Article>() {
             override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return oldItem == newItem
             }
@@ -31,7 +29,6 @@ class NewsAdapter(
                 return oldItem.title == newItem.title
             }
         }
-    }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -44,7 +41,7 @@ class NewsAdapter(
 
         if (item != null) {
             holder.itemView.tvHeadline.text = item.title
-            holder.itemView.tvNewsAuthor.text = item.author
+            holder.itemView.tvNewsAuthor.text = "By ${item.author}"
             holder.itemView.tvNewsCategory.text = item.source?.name ?: ""
             val date = item.publishedAt?.let { getDateTimeDifference(it) }
             if (date != null) {
