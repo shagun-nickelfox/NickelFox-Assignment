@@ -85,7 +85,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun articleClick(bundle: Bundle) {
-        bundle.putString("category","Searched")
+        bundle.putString("category", "Searched")
         findNavController().navigate(
             R.id.action_searchFragment_to_newsDetailFragment,
             bundle
