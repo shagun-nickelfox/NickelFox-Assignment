@@ -70,17 +70,21 @@ class SearchFragment : Fragment(), ArticleClickInterface,
 
     private fun setupListeners() {
         binding.apply {
-            tvSearch.requestFocus()
-            tvSearch.setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    activity?.hideKeyboard(v)
-                    viewModel.setSearchValue(tvSearch.text.toString())
-                    return@OnEditorActionListener true
+            tvSearch.apply {
+                onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+                    if (hasFocus)
+                        activity?.showKeyboard(v)
                 }
-                false
-            })
-            val manager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            manager.showSoftInput(tvSearch, InputMethodManager.SHOW_IMPLICIT)
+                setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        activity?.hideKeyboard(v)
+                        viewModel.setSearchValue(tvSearch.text.toString())
+                        return@OnEditorActionListener true
+                    }
+                    false
+                })
+                requestFocus()
+            }
 
             textInputLayout.setEndIconOnClickListener {
                 tvSearch.text?.clear()
@@ -129,4 +133,10 @@ private fun Context.hideKeyboard(view: View) {
     val inputMethodManager =
         getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+private fun Context.showKeyboard(view: View) {
+    val inputMethodManager =
+        getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.showSoftInput(view, 0)
 }
