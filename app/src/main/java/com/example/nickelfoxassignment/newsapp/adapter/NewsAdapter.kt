@@ -29,11 +29,11 @@ class NewsAdapter(
 
     class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem == newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem == newItem
         }
     }
 
@@ -65,7 +65,6 @@ class NewsAdapter(
                 item.source?.name,
                 calculatedDate
             )
-
             val len1 = resources.split(" • ")[0].length
             val spannable = SpannableString(resources)
             spannable.setSpan(
@@ -82,8 +81,13 @@ class NewsAdapter(
 
             if (item.author == null)
                 item.author = "Anonymous"
+            val author = holder.itemView.resources.getString(
+                R.string.news_author,
+                item.author
+            )
+
             holder.itemView.tvHeadline.text = item.title
-            holder.itemView.tvNewsAuthor.text = "By ${item.author}"
+            holder.itemView.tvNewsAuthor.text = author
             holder.itemView.tvNewsCategory.text = spannable
             Glide.with(holder.itemView).load(item.urlToImage).apply(options)
                 .into(holder.itemView.ivHeadline)

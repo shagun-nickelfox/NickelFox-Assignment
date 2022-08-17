@@ -1,6 +1,5 @@
 package com.example.nickelfoxassignment.newsapp.repository
 
-import androidx.lifecycle.LiveData
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 

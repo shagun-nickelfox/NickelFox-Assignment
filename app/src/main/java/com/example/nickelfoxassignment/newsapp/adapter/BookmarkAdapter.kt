@@ -48,6 +48,8 @@ class BookmarkAdapter(
 
         val resources =
             holder.itemView.resources.getString(R.string.source_time, item.source, item.time)
+        val author =
+            holder.itemView.resources.getString(R.string.news_author, item.author)
         val len1 = resources.split(" • ")[0].length
         val spannable = SpannableString(resources)
         spannable.setSpan(
@@ -63,7 +65,7 @@ class BookmarkAdapter(
         )
 
         holder.itemView.tvHeadline.text = item.title
-        holder.itemView.tvNewsAuthor.text = "By ${item.author}"
+        holder.itemView.tvNewsAuthor.text = author
         holder.itemView.tvNewsCategory.text = spannable
         Glide.with(holder.itemView).load(item.image)
             .into(holder.itemView.ivHeadline)

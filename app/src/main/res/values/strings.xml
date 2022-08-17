@@ -114,8 +114,8 @@
     <string name="science">Science</string>
     <string name="sports">Sports</string>
     <string name="technology">Technology</string>
-    <string name="three_dots">...</string>
     <string name="search">Search</string>
     <string name="searched">Searched</string>
     <string name="source_time">%1$s • %2$s</string>
+    <string name="news_author">By %1$s</string>
 </resources>

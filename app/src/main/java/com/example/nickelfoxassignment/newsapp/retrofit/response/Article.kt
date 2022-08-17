@@ -2,6 +2,7 @@ package com.example.nickelfoxassignment.newsapp.retrofit.response
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 data class Article(
@@ -13,4 +14,6 @@ data class Article(
     val title: String?,
     val url: String?,
     val urlToImage: String?
-):Parcelable
+):Parcelable{
+    val id = UUID.randomUUID()
+}

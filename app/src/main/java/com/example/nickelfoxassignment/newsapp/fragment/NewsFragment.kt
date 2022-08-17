@@ -6,9 +6,9 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
@@ -23,11 +23,6 @@ import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NewsFragment : Fragment(), ArticleClickInterface,
@@ -37,7 +32,8 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
     private val newsAdapter = NewsAdapter(this, this)
     private lateinit var binding: FragmentNewsBinding
-    private var category = "ForYou"
+    private var category = "For You"
+    private val emptyList: PagingData<Article> = PagingData.empty()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,21 +45,14 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        lifecycleScope.launch {
-            newsAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
-                .filter { it.refresh is LoadState.NotLoading }
-                .collect { binding.recyclerView.scrollToPosition(0) }
-        }
-
         viewModel.list.observe(viewLifecycleOwner) {
             newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
 
         newsAdapter.addLoadStateListener { state ->
             when (state.refresh) {
-                is LoadState.Loading -> {
+                is LoadState.Loading ->
                     view.progressBar.visibility = View.VISIBLE
-                }
 
                 is LoadState.NotLoading ->
                     view.progressBar.visibility = View.GONE
@@ -81,46 +70,55 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private fun setupChipListener() {
         binding.apply {
             chipForYou.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("For You")
                 viewModel.setCategoryValue("")
                 category = "For You"
             }
             chipTop.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Top")
                 viewModel.setCategoryValue("")
                 category = "Top"
             }
             chipBusiness.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Business")
                 viewModel.setCategoryValue("business")
                 category = "Business"
             }
             chipEntertainment.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Entertainment")
                 viewModel.setCategoryValue("entertainment")
                 category = "Entertainment"
             }
             chipHealth.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Health")
                 viewModel.setCategoryValue("health")
                 category = "Health"
             }
             chipGeneral.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("General")
                 viewModel.setCategoryValue("general")
                 category = "General"
             }
             chipScience.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Science")
                 viewModel.setCategoryValue("science")
                 category = "Science"
             }
             chipSports.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Sports")
                 viewModel.setCategoryValue("sports")
                 category = "Sports"
             }
             chipTechnology.setOnClickListener {
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("Technology")
                 viewModel.setCategoryValue("technology")
                 category = "Technology"
