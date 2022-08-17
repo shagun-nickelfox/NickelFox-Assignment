@@ -1,24 +1,23 @@
 package com.example.nickelfoxassignment.newsapp.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
-import com.example.nickelfoxassignment.newsapp.database.BookmarkDatabase
 import com.example.nickelfoxassignment.newsapp.repository.BookmarkRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookmarkViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class BookmarkViewModel @Inject constructor(bookmarkDao: BookmarkDao) : ViewModel() {
 
     private var insertedId: Long = 0
     private val repository: BookmarkRepository
-    private var dao: BookmarkDao
     private var categoryInput = MutableLiveData("For You")
 
     init {
-        dao = BookmarkDatabase.getDatabase(application).getBookmarkDao()
-        repository = BookmarkRepository(dao)
+        repository = BookmarkRepository(bookmarkDao)
     }
 
     fun setCategory(categoryValue: String) {
@@ -26,7 +25,7 @@ class BookmarkViewModel(application: Application) : AndroidViewModel(application
     }
 
     val allBookmark: LiveData<List<Bookmark>> = categoryInput.switchMap {
-        dao.getBookmarkNews(it)
+        bookmarkDao.getBookmarkNews(it)
     }
 
     fun addBookmark(bookmark: Bookmark) = viewModelScope.launch(Dispatchers.IO) {

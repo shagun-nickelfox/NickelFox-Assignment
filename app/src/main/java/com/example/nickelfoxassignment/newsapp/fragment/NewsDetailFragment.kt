@@ -73,7 +73,7 @@ class NewsDetailFragment : Fragment() {
             }
 
             ivBack.setOnClickListener {
-              activity?.onBackPressed()
+                activity?.onBackPressed()
             }
         }
     }

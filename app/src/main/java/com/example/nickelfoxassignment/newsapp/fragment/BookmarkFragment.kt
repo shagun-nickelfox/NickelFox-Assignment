@@ -18,8 +18,10 @@ import com.example.nickelfoxassignment.databinding.FragmentBookmarkBinding
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
 
+@AndroidEntryPoint
 class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkClickInterface {
 
     private lateinit var binding: FragmentBookmarkBinding
