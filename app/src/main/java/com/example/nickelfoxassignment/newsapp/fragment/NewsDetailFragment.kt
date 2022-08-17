@@ -71,6 +71,11 @@ class NewsDetailFragment : Fragment() {
                     requireArguments()["url"].toString()
                 )
             }
+
+            ivBack.setOnClickListener {
+              activity?.onBackPressed()
+            }
         }
     }
+
 }
