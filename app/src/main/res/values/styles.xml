@@ -5,4 +5,30 @@
         <item name="boxStrokeWidth">2dp</item>
     </style>
 
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="OutlinedRoundedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded
+        </item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">32dp</item>
+        <item name="backgroundColor">@color/blue</item>
+    </style>
+
+    <style name="CustomChipStyle">
+        <item name="checkedIconEnabled">false</item>
+        <item name="checkedIcon">@null</item>
+        <!-- Chip background color selector -->
+        <item name="chipBackgroundColor">@color/chip_state_list</item>
+        <!-- Chip text color selector -->
+        <item name="android:textColor">@color/chip_text_list</item>
+    </style>
+
 </resources>

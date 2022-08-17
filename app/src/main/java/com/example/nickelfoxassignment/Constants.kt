@@ -20,4 +20,5 @@ object Constants {
     const val MULTIPLY_ = "×"
     const val MOD = "%"
     const val DOT = "."
+    const val API_KEY = "b09bc742e38f493ea00f19b67606f287"
 }

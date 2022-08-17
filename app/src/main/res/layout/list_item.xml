@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="20dp">
+
+    <ImageView
+        android:id="@+id/ivHeadline"
+        android:layout_width="137dp"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tvHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@+id/constraint"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/ivHeadline"
+        app:layout_constraintTop_toTopOf="@id/ivHeadline"
+        tools:text="Monarch population soars 4,900 percent since last year in thrilling 2021 western migration" />
+
+    <TextView
+        android:id="@+id/tvNewsAuthor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:maxLines="2"
+        android:paddingEnd="16dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/constraint"
+        app:layout_constraintStart_toStartOf="@+id/tvHeadline"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
+        tools:ignore="RtlSymmetry"
+        tools:text="By Andy Corm" />
+
+    <TextView
+        android:id="@+id/tvNewsCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:maxLines="2"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHeadline"
+        app:layout_constraintEnd_toStartOf="@+id/tvMoreOptions"
+        app:layout_constraintStart_toStartOf="@+id/tvNewsAuthor"
+        tools:text="World" />
+
+    <ImageView
+        android:id="@+id/tvMoreOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:src="@drawable/ic_more"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNewsCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNewsCategory"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/ic_divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHeadline"
+        tools:ignore="ContentDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

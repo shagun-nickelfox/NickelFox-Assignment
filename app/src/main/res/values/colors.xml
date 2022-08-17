@@ -24,6 +24,6 @@
     <color name="cardBackground">#EF754E</color>
     <color name="grey">#80FBFBFB</color>
     <color name="skyBlue">#0B94DF</color>
-    <color name="orange">#EA841B</color>
-
+    <color name="orange">#EA841B</color>#919191
+    <color name="timeColour">#919191</color>
 </resources>

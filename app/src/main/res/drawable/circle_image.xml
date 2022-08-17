@@ -1,0 +1,5 @@
+<style android:name="roundedImageViewRounded"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:name="cornerFamily">rounded</item>
+    <item android:name="cornerSize">50%</item>
+</style>
