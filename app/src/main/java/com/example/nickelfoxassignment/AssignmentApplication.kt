@@ -1,7 +1,7 @@
-package com.example.nickelfoxassignment.newsapp.helper
+package com.example.nickelfoxassignment
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class BaseClass : Application()
+class AssignmentApplication : Application()
