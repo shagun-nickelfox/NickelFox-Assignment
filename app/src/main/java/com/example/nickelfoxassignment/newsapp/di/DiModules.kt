@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDatabase
-import com.example.nickelfoxassignment.newsapp.repository.NewsRepository
+import com.example.nickelfoxassignment.newsapp.database.NewsDatabase
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import dagger.Module
 import dagger.Provides
@@ -34,8 +34,12 @@ object DiModules {
 
     @Singleton
     @Provides
-    fun provideNewsRepository(newsInterface: NewsInterface): NewsRepository {
-        return NewsRepository(newsInterface)
+    fun provideNewsDatabase(@ApplicationContext appContext: Context): NewsDatabase {
+        return Room.databaseBuilder(
+            appContext,
+            NewsDatabase::class.java,
+            "news_database"
+        ).build()
     }
 
     @Singleton
@@ -54,4 +58,15 @@ object DiModules {
         return appDatabase.getBookmarkDao()
     }
 
+    /*@Singleton
+    @Provides
+    fun provideNewsDao(newsDatabase: NewsDatabase): NewsDao {
+        return newsDatabase.getNewsDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideNewsRepository(newsInterface: NewsInterface,newsDao: NewsDao): NewsRepository {
+        return NewsRepository(newsInterface,newsDao)
+    }*/
 }

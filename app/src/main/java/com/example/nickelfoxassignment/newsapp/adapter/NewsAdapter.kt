@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -21,23 +22,18 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class NewsAdapter(
-    private val articleClickInterface: ArticleClickInterface,
-    private val moreOptionsClickInterface: MoreOptionsClickInterface,
+   private val articleClickInterface: ArticleClickInterface,
+   private val moreOptionsClickInterface: MoreOptionsClickInterface,
 ) :
-    PagingDataAdapter<Article, NewsAdapter.MyViewHolder>(DiffUtil()) {
+    PagingDataAdapter<Article, NewsAdapter.MyViewHolder>(ListComparator()) {
     private lateinit var calculatedDate: String
 
-    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<Article>() {
-        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem == newItem
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val itemView =
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.list_item, parent, false)
+        return MyViewHolder(itemView)
     }
-
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = getItem(position)
@@ -62,7 +58,7 @@ class NewsAdapter(
 
             val resources = holder.itemView.resources.getString(
                 R.string.source_time,
-                item.source?.name,
+                item.source.name,
                 calculatedDate
             )
             val len1 = resources.split(" • ")[0].length
@@ -96,7 +92,7 @@ class NewsAdapter(
                 val bundle = Bundle()
                 bundle.putString("title", item.title)
                 bundle.putString("author", item.author)
-                bundle.putString("source", item.source?.name)
+                bundle.putString("source", item.source.name)
                 bundle.putString("time", calculatedDate)
                 bundle.putString("description", item.description)
                 bundle.putString("image", item.urlToImage)
@@ -116,12 +112,7 @@ class NewsAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.list_item, parent, false)
-        return MyViewHolder(itemView)
-    }
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private fun getDateTimeDifference(before: String): DateDifference {
 
@@ -166,6 +157,13 @@ class NewsAdapter(
         val seconds: Long
     )
 
+    class ListComparator : DiffUtil.ItemCallback<Article>() {
+        override fun areItemsTheSame(oldItem: Article, newItem: Article) =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: Article, newItem: Article) =
+            oldItem == newItem
+    }
 }
 
 interface ArticleClickInterface {

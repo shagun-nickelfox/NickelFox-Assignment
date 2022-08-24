@@ -1,19 +1,25 @@
 package com.example.nickelfoxassignment.newsapp.retrofit.response
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
+@Entity(tableName = "article_table")
 data class Article(
-    var author: String?,
-    val content: String,
-    val description: String?,
-    var publishedAt: String?,
-    val source: Source?,
-    val title: String?,
-    val url: String?,
-    val urlToImage: String?
-):Parcelable{
-    val id = UUID.randomUUID()
+    @SerializedName("author") var author: String?,
+    @SerializedName("content") val content: String?,
+    @SerializedName("description") val description: String?,
+    @SerializedName("publishedAt") var publishedAt: String?,
+    @SerializedName("source") val source: Source,
+    @PrimaryKey(autoGenerate = false)
+    @SerializedName("title") val title: String,
+    @SerializedName("url") val url: String?,
+    @SerializedName("urlToImage") val urlToImage: String?
+) : Parcelable{
+    var category : String? = null
+    var id  = UUID.randomUUID()
 }

@@ -12,6 +12,7 @@ import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
@@ -29,20 +30,20 @@ import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
 
+@ExperimentalPagingApi
 @AndroidEntryPoint
 class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
-
     private val viewModel by viewModels<SearchViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this, this)
+    private val newsAdapter = NewsAdapter(this,this)
     private lateinit var binding: FragmentSearchBinding
     private val emptyList: PagingData<Article> = PagingData.empty()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ):View {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         setupListeners()
         return binding.root
@@ -106,17 +107,19 @@ class SearchFragment : Fragment(), ArticleClickInterface,
         val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
         popupMenu?.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
-                (activity as Context).shareData(
-                    article.title!!,
-                    article.url!!
-                )
+                article.url?.let {
+                    (activity as Context).shareData(
+                        article.title,
+                        it
+                    )
+                }
             } else {
                 bookmarkViewModel.addBookmark(
                     Bookmark(
                         article.title,
                         article.author,
                         article.description,
-                        article.source?.name,
+                        article.source.name,
                         article.urlToImage,
                         time,
                         article.url,

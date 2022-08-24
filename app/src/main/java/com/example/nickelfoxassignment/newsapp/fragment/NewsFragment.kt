@@ -6,9 +6,12 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
@@ -23,14 +26,16 @@ import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
+import kotlinx.coroutines.launch
 
+@ExperimentalPagingApi
 @AndroidEntryPoint
 class NewsFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
 
     private val viewModel by viewModels<NewsViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this, this)
+    private val newsAdapter = NewsAdapter(this,this)
     private lateinit var binding: FragmentNewsBinding
     private var category = "For You"
     private val emptyList: PagingData<Article> = PagingData.empty()
@@ -45,8 +50,18 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.list.observe(viewLifecycleOwner) {
-            newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        super.onViewCreated(view, savedInstanceState)
+        view.recycler_view.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = newsAdapter
+        }
+
+        lifecycleScope.launch {
+            viewModel.getTopHeadlines.observe(viewLifecycleOwner) {
+                it?.let {
+                    newsAdapter.submitData(lifecycle, it)
+                }
+            }
         }
 
         newsAdapter.addLoadStateListener { state ->
@@ -63,8 +78,6 @@ class NewsFragment : Fragment(), ArticleClickInterface,
                 }
             }
         }
-
-        view.recycler_view.adapter = newsAdapter
     }
 
     private fun setupChipListener() {
@@ -138,17 +151,19 @@ class NewsFragment : Fragment(), ArticleClickInterface,
         val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
         popupMenu?.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
-                (activity as Context).shareData(
-                    article.title!!,
-                    article.url!!
-                )
+                article.url?.let {
+                    (activity as Context).shareData(
+                        article.title,
+                        it
+                    )
+                }
             } else {
                 bookmarkViewModel.addBookmark(
                     Bookmark(
                         article.title,
                         article.author,
                         article.description,
-                        article.source?.name,
+                        article.source.name,
                         article.urlToImage,
                         time,
                         article.url,

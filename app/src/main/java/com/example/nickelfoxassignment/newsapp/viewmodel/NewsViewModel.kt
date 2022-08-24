@@ -1,6 +1,7 @@
 package com.example.nickelfoxassignment.newsapp.viewmodel
 
 import androidx.lifecycle.*
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.nickelfoxassignment.newsapp.repository.NewsRepository
@@ -8,9 +9,10 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+@ExperimentalPagingApi
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    newsRepository: NewsRepository,
+    newsRepository: NewsRepository
 ) : ViewModel() {
 
     private val categoryInput = MutableLiveData("")
@@ -24,7 +26,7 @@ class NewsViewModel @Inject constructor(
         chipValue = chip
     }
 
-    val list: LiveData<PagingData<Article>> = categoryInput.switchMap {
-        newsRepository.getAllNewsStream(category = it, chipValue).cachedIn(viewModelScope)
+    val getTopHeadlines = categoryInput.switchMap {
+        newsRepository.getTopHeadlines(category = it, chipValue).asLiveData().cachedIn(viewModelScope)
     }
 }
