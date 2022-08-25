@@ -2,10 +2,8 @@ package com.example.nickelfoxassignment.newsapp.viewmodel
 
 import androidx.lifecycle.*
 import androidx.paging.ExperimentalPagingApi
-import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.nickelfoxassignment.newsapp.repository.NewsRepository
-import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -27,6 +25,7 @@ class NewsViewModel @Inject constructor(
     }
 
     val getTopHeadlines = categoryInput.switchMap {
-        newsRepository.getTopHeadlines(category = it, chipValue).asLiveData().cachedIn(viewModelScope)
+        newsRepository.getTopHeadlines(category = it, chipValue).asLiveData()
+            .cachedIn(viewModelScope)
     }
 }

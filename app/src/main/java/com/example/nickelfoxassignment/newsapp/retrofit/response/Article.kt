@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 @Entity(tableName = "article_table")
@@ -18,8 +17,8 @@ data class Article(
     @PrimaryKey(autoGenerate = false)
     @SerializedName("title") val title: String,
     @SerializedName("url") val url: String?,
-    @SerializedName("urlToImage") val urlToImage: String?
-) : Parcelable{
-    var category : String? = null
-    var id  = UUID.randomUUID()
+    @SerializedName("urlToImage") val urlToImage: String?,
+) : Parcelable {
+    var category: String? = null
+    var id: String? = null
 }

@@ -118,4 +118,5 @@
     <string name="searched">Searched</string>
     <string name="source_time">%1$s • %2$s</string>
     <string name="news_author">By %1$s</string>
+    <string name="error">"You have made too many requests recently. Developer accounts are limited to 50 requests in every 12 hours."</string>
 </resources>

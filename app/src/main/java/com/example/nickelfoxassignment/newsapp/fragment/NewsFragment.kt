@@ -3,7 +3,6 @@ package com.example.nickelfoxassignment.newsapp.fragment
 import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,7 +11,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.*
 import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
@@ -21,9 +20,6 @@ import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
-import com.example.nickelfoxassignment.shareData
-import com.example.nickelfoxassignment.shortToast
-import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
 import kotlinx.coroutines.launch
@@ -35,7 +31,7 @@ class NewsFragment : Fragment(), ArticleClickInterface,
 
     private val viewModel by viewModels<NewsViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this,this)
+    private val newsAdapter = NewsAdapter(this, this)
     private lateinit var binding: FragmentNewsBinding
     private var category = "For You"
     private val emptyList: PagingData<Article> = PagingData.empty()
@@ -51,37 +47,40 @@ class NewsFragment : Fragment(), ArticleClickInterface,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.recycler_view.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = newsAdapter
-        }
 
         lifecycleScope.launch {
-            viewModel.getTopHeadlines.observe(viewLifecycleOwner) {
-                it?.let {
-                    newsAdapter.submitData(lifecycle, it)
+            viewModel.getTopHeadlines.observe(viewLifecycleOwner) { pagingData ->
+                pagingData?.let {
+                    newsAdapter.submitData(lifecycle, pagingData)
                 }
             }
         }
 
         newsAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
+            when (val currentState = state.refresh) {
                 is LoadState.Loading ->
                     view.progressBar.visibility = View.VISIBLE
-
                 is LoadState.NotLoading ->
                     view.progressBar.visibility = View.GONE
-
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+                    if (currentState.error.toString() == "retrofit2.HttpException: HTTP 429 ")
+                        context?.getString(R.string.error)?.let { activity?.longToast(it) }
                 }
             }
+        }
+        view.recycler_view.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = newsAdapter
         }
     }
 
     private fun setupChipListener() {
         binding.apply {
+            swipeLayout.setOnRefreshListener {
+                newsAdapter.refresh()
+                swipeLayout.isRefreshing = false
+            }
             chipForYou.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 viewModel.setChipValue("For You")
@@ -111,12 +110,6 @@ class NewsFragment : Fragment(), ArticleClickInterface,
                 viewModel.setChipValue("Health")
                 viewModel.setCategoryValue("health")
                 category = "Health"
-            }
-            chipGeneral.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("General")
-                viewModel.setCategoryValue("general")
-                category = "General"
             }
             chipScience.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)

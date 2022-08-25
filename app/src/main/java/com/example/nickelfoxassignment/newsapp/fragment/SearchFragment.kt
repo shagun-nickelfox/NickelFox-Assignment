@@ -36,14 +36,14 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
     private val viewModel by viewModels<SearchViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this,this)
+    private val newsAdapter = NewsAdapter(this, this)
     private lateinit var binding: FragmentSearchBinding
     private val emptyList: PagingData<Article> = PagingData.empty()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ):View {
+    ): View {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         setupListeners()
         return binding.root

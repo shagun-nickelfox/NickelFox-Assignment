@@ -1,6 +1,5 @@
 package com.example.nickelfoxassignment.newsapp.paging
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -17,11 +16,16 @@ import java.util.*
 class NewsRemoteMediator(
     private val newsInterface: NewsInterface,
     private val newsDatabase: NewsDatabase,
-    private val category:String,
-    private val chip : String
+    private val category: String,
+    private val chip: String
 ) : RemoteMediator<Int, Article>() {
     private val newsDao = newsDatabase.getNewsDao()
     private val newsRemoteKeysDao = newsDatabase.getRemoteKeysDao()
+    private var previousChip = ""
+
+    override suspend fun initialize(): InitializeAction {
+        return InitializeAction.LAUNCH_INITIAL_REFRESH
+    }
 
     override suspend fun load(
         loadType: LoadType,
@@ -61,19 +65,25 @@ class NewsRemoteMediator(
                     50
                 )
 
-            for (article in response.articles){
+            response.articles.onEach { article ->
                 article.category = chip
+                article.id = UUID.randomUUID().toString()
             }
+
             val endOfPaginationReached = response.articles.isEmpty()
 
             val prevPage = if (currentPage == 1) null else currentPage - 1
             val nextPage = if (endOfPaginationReached) null else currentPage + 1
 
             newsDatabase.withTransaction {
-                /*if (loadType == LoadType.REFRESH) {
-                    newsDao.deleteAllImages()
-                    newsRemoteKeysDao.deleteAllRemoteKeys()
-                }*/
+                if (previousChip == chip) {
+                    if (loadType == LoadType.REFRESH) {
+                        newsDao.deleteAllImages()
+                        newsRemoteKeysDao.deleteAllRemoteKeys()
+                    }
+                }
+
+                previousChip = chip
 
                 val keys = response.articles.map { unsplashImage ->
                     ArticleRemoteKeys(

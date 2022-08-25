@@ -1,6 +1,5 @@
 package com.example.nickelfoxassignment.newsapp.retrofit
 
-import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.retrofit.response.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

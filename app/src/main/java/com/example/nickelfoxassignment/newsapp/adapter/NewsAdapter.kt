@@ -22,8 +22,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class NewsAdapter(
-   private val articleClickInterface: ArticleClickInterface,
-   private val moreOptionsClickInterface: MoreOptionsClickInterface,
+    private val articleClickInterface: ArticleClickInterface,
+    private val moreOptionsClickInterface: MoreOptionsClickInterface,
 ) :
     PagingDataAdapter<Article, NewsAdapter.MyViewHolder>(ListComparator()) {
     private lateinit var calculatedDate: String

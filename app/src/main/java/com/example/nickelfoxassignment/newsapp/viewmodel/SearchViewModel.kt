@@ -21,7 +21,7 @@ class SearchViewModel @Inject constructor(
         searchInput.value = query
     }
 
-    val searchList: LiveData<PagingData<Article>> = searchInput.switchMap { query->
-            newsRepository.getAllSearchNewsStream(q = query).cachedIn(viewModelScope)
+    val searchList: LiveData<PagingData<Article>> = searchInput.switchMap { query ->
+        newsRepository.getAllSearchNewsStream(q = query).cachedIn(viewModelScope)
     }
 }

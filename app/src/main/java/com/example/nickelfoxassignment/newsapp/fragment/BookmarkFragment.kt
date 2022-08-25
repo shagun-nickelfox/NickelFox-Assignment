@@ -63,9 +63,6 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
             chipHealth.setOnClickListener {
                 viewModel.setCategory("Health")
             }
-            chipGeneral.setOnClickListener {
-                viewModel.setCategory("General")
-            }
             chipScience.setOnClickListener {
                 viewModel.setCategory("Science")
             }

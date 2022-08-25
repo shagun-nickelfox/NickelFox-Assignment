@@ -15,7 +15,7 @@ class NewsRepository @Inject constructor(
     private val newsInterface: NewsInterface,
     private val newsDatabase: NewsDatabase
 ) {
-    fun getTopHeadlines(category:String,chip:String): Flow<PagingData<Article>> {
+    fun getTopHeadlines(category: String, chip: String): Flow<PagingData<Article>> {
         val pagingSourceFactory = { newsDatabase.getNewsDao().getTopHeadlines(chip) }
         return Pager(
             config = PagingConfig(pageSize = 50),
@@ -31,7 +31,7 @@ class NewsRepository @Inject constructor(
 
     fun getAllSearchNewsStream(q: String?): LiveData<PagingData<Article>> = Pager(
         config = PagingConfig(
-            50,
+            10,
             enablePlaceholders = false
         ),
         pagingSourceFactory = {
