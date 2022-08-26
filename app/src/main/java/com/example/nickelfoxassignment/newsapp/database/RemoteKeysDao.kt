@@ -14,6 +14,6 @@ interface RemoteKeysDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(remoteKeys: List<ArticleRemoteKeys>)
 
-    @Query("DELETE FROM article_remote_keys")
-    suspend fun deleteAllRemoteKeys()
+    @Query("DELETE FROM article_remote_keys where category = :category")
+    suspend fun deleteAllRemoteKeys(category: String)
 }

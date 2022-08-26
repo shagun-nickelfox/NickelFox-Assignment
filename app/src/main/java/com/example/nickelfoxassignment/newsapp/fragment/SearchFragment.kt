@@ -104,8 +104,8 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun moreOptionsClick(article: Article, time: String, view: View) {
-        val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
-        popupMenu?.setOnMenuItemClickListener { menuItem ->
+        val popupMenu = showPopUpMenu(R.menu.item_menu, view)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
                 article.url?.let {
                     (activity as Context).shareData(
@@ -130,7 +130,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
             }
             true
         }
-        popupMenu?.show()
+        popupMenu.show()
     }
 }
 

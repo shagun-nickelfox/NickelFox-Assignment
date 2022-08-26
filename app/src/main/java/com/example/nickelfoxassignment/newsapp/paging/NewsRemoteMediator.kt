@@ -78,8 +78,8 @@ class NewsRemoteMediator(
             newsDatabase.withTransaction {
                 if (previousChip == chip) {
                     if (loadType == LoadType.REFRESH) {
-                        newsDao.deleteAllImages()
-                        newsRemoteKeysDao.deleteAllRemoteKeys()
+                        newsDao.deleteAllImages(chip)
+                        newsRemoteKeysDao.deleteAllRemoteKeys(chip)
                     }
                 }
 
@@ -88,6 +88,7 @@ class NewsRemoteMediator(
                 val keys = response.articles.map { unsplashImage ->
                     ArticleRemoteKeys(
                         id = unsplashImage.title,
+                        category = unsplashImage.category,
                         prev = prevPage,
                         next = nextPage
                     )

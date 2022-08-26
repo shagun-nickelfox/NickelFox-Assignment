@@ -86,8 +86,8 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
     }
 
     override fun moreOptionsBookmarkClick(bookmark: Bookmark, view: View) {
-        val popupMenu = activity?.showPopUpMenu(R.menu.bookmark_menu, view)
-        popupMenu?.setOnMenuItemClickListener { menuItem ->
+        val popupMenu = showPopUpMenu(R.menu.bookmark_menu, view)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
                 (activity as Context).shareData(
                     bookmark.title!!,
@@ -99,6 +99,6 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
             }
             true
         }
-        popupMenu?.show()
+        popupMenu.show()
     }
 }

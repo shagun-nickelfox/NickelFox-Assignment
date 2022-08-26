@@ -13,6 +13,6 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addImages(images: List<Article>)
 
-    @Query("DELETE FROM article_table")
-    suspend fun deleteAllImages()
+    @Query("DELETE FROM article_table where category = :category")
+    suspend fun deleteAllImages(category: String)
 }

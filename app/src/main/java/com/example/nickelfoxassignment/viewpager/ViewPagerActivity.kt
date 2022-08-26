@@ -2,7 +2,6 @@ package com.example.nickelfoxassignment.viewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.paging.ExperimentalPagingApi
 import com.example.nickelfoxassignment.databinding.ActivityViewPagerBinding
 import com.example.nickelfoxassignment.viewpager.fragments.FirstScreen
 import com.example.nickelfoxassignment.viewpager.fragments.SecondScreen

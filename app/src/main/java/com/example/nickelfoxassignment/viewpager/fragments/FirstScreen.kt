@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.paging.ExperimentalPagingApi
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.databinding.FragmentFirstScreenBinding
 import com.example.nickelfoxassignment.newsapp.NewsActivity

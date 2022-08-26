@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">#fff</item>
         <item name="boxStrokeWidth">2dp</item>
@@ -30,5 +31,4 @@
         <!-- Chip text color selector -->
         <item name="android:textColor">@color/chip_text_list</item>
     </style>
-
 </resources>

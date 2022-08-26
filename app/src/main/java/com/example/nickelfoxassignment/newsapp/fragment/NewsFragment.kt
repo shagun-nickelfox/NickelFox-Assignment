@@ -35,6 +35,7 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private lateinit var binding: FragmentNewsBinding
     private var category = "For You"
     private val emptyList: PagingData<Article> = PagingData.empty()
+    private var errorText = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,24 +53,29 @@ class NewsFragment : Fragment(), ArticleClickInterface,
             viewModel.getTopHeadlines.observe(viewLifecycleOwner) { pagingData ->
                 pagingData?.let {
                     newsAdapter.submitData(lifecycle, pagingData)
+                    errorText = false
                 }
             }
         }
 
         newsAdapter.addLoadStateListener { state ->
             when (val currentState = state.refresh) {
-                is LoadState.Loading ->
+                is LoadState.Loading -> {
                     view.progressBar.visibility = View.VISIBLE
-                is LoadState.NotLoading ->
+                }
+                is LoadState.NotLoading -> {
                     view.progressBar.visibility = View.GONE
+                }
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    if (currentState.error.toString() == "retrofit2.HttpException: HTTP 429 ")
+                    if (currentState.error.toString() == "retrofit2.HttpException: HTTP 429 " && !errorText)
                         context?.getString(R.string.error)?.let { activity?.longToast(it) }
+                    errorText = true
                 }
             }
         }
         view.recycler_view.apply {
+            itemAnimator = null
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
         }
@@ -79,6 +85,7 @@ class NewsFragment : Fragment(), ArticleClickInterface,
         binding.apply {
             swipeLayout.setOnRefreshListener {
                 newsAdapter.refresh()
+                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
                 swipeLayout.isRefreshing = false
             }
             chipForYou.setOnClickListener {
@@ -141,8 +148,8 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun moreOptionsClick(article: Article, time: String, view: View) {
-        val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
-        popupMenu?.setOnMenuItemClickListener { menuItem ->
+        val popupMenu = showPopUpMenu(R.menu.item_menu, view)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
             if (menuItem.title == "Share") {
                 article.url?.let {
                     (activity as Context).shareData(
@@ -167,6 +174,6 @@ class NewsFragment : Fragment(), ArticleClickInterface,
             }
             true
         }
-        popupMenu?.show()
+        popupMenu.show()
     }
 }
