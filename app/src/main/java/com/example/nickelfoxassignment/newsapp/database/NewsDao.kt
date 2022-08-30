@@ -10,9 +10,9 @@ interface NewsDao {
     @Query("SELECT * FROM article_table where category = :category")
     fun getTopHeadlines(category: String): PagingSource<Int, Article>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addImages(images: List<Article>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addArticles(images: List<Article>)
 
     @Query("DELETE FROM article_table where category = :category")
-    suspend fun deleteAllImages(category: String)
+    suspend fun deleteArticles(category: String)
 }

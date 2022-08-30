@@ -54,7 +54,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
             newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
         newsAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
+            when (val currentState = state.refresh) {
                 is LoadState.Loading ->
                     view.progressBar.visibility = View.VISIBLE
 
@@ -63,7 +63,8 @@ class SearchFragment : Fragment(), ArticleClickInterface,
 
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    //activity?.shortToast("Error in fetching data")
+                    if (currentState.error.toString() == resources.getString(R.string.data_fetch_error))
+                        context?.shortToast(getString(R.string.internet_error))
                 }
             }
         }
@@ -96,7 +97,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun articleClick(bundle: Bundle) {
-        bundle.putString("category", "Searched")
+        bundle.putString("category", resources.getString(R.string.searched))
         findNavController().navigate(
             R.id.action_searchFragment_to_newsDetailFragment,
             bundle
@@ -106,7 +107,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     override fun moreOptionsClick(article: Article, time: String, view: View) {
         val popupMenu = showPopUpMenu(R.menu.item_menu, view)
         popupMenu.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.title == "Share") {
+            if (menuItem.title == resources.getString(R.string.share)) {
                 article.url?.let {
                     (activity as Context).shareData(
                         article.title,
@@ -114,19 +115,30 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                     )
                 }
             } else {
-                bookmarkViewModel.addBookmark(
-                    Bookmark(
-                        article.title,
-                        article.author,
-                        article.description,
-                        article.source.name,
-                        article.urlToImage,
-                        time,
-                        article.url,
-                        "Searched"
-                    )
-                )
-                (activity as Context).shortToast("Added to Bookmark")
+                bookmarkViewModel.exists(
+                    article.author,
+                    article.title,
+                    article.source.name
+                ).observe(viewLifecycleOwner) { exists ->
+                    if (exists) {
+                        (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
+                    } else {
+                        bookmarkViewModel.addBookmark(
+                            Bookmark(
+                                article.title,
+                                article.author,
+                                article.description,
+                                article.source.name,
+                                article.urlToImage,
+                                time,
+                                article.url,
+                                resources.getString(R.string.searched),
+                                article.id
+                            )
+                        )
+                        (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
+                    }
+                }
             }
             true
         }

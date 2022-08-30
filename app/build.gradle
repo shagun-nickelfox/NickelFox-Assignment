@@ -27,8 +27,12 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
         }
     }
     compileOptions {
@@ -71,6 +75,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
     implementation 'net.objecthunter:exp4j:0.4.8'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.2'
 
     // Room components
     implementation "androidx.room:room-runtime:2.4.3"
@@ -99,7 +105,6 @@ dependencies {
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.3"
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //paging

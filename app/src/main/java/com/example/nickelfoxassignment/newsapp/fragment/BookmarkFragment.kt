@@ -39,7 +39,7 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.allBookmark.observe(viewLifecycleOwner) { list ->
-            list?.let {
+            if (list != null) {
                 bookmarkAdapter.submitList(list)
             }
         }
@@ -49,31 +49,31 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
     private fun setupChipListener() {
         binding.apply {
             chipForYou.setOnClickListener {
-                viewModel.setCategory("For You")
+                viewModel.setCategory(resources.getString(R.string.for_you))
             }
             chipTop.setOnClickListener {
-                viewModel.setCategory("Top")
+                viewModel.setCategory(resources.getString(R.string.top))
             }
             chipBusiness.setOnClickListener {
-                viewModel.setCategory("Business")
+                viewModel.setCategory(resources.getString(R.string.business))
             }
             chipEntertainment.setOnClickListener {
-                viewModel.setCategory("Entertainment")
+                viewModel.setCategory(resources.getString(R.string.entertainment))
             }
             chipHealth.setOnClickListener {
-                viewModel.setCategory("Health")
+                viewModel.setCategory(resources.getString(R.string.health))
             }
             chipScience.setOnClickListener {
-                viewModel.setCategory("Science")
+                viewModel.setCategory(resources.getString(R.string.science))
             }
             chipSports.setOnClickListener {
-                viewModel.setCategory("Sports")
+                viewModel.setCategory(resources.getString(R.string.sports))
             }
             chipTechnology.setOnClickListener {
-                viewModel.setCategory("Technology")
+                viewModel.setCategory(resources.getString(R.string.technology))
             }
             chipSearched.setOnClickListener {
-                viewModel.setCategory("Searched")
+                viewModel.setCategory(resources.getString(R.string.searched))
             }
         }
     }
@@ -81,21 +81,21 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
     override fun articleClick(bundle: Bundle) {
         findNavController().navigate(
             R.id.action_bookmarkFragment_to_newsDetailFragment,
-            bundle
+            bundle,
         )
     }
 
     override fun moreOptionsBookmarkClick(bookmark: Bookmark, view: View) {
         val popupMenu = showPopUpMenu(R.menu.bookmark_menu, view)
         popupMenu.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.title == "Share") {
+            if (menuItem.title == resources.getString(R.string.share)) {
                 (activity as Context).shareData(
                     bookmark.title!!,
                     bookmark.url!!
                 )
             } else {
                 viewModel.deleteBookmark(bookmark)
-                (activity as Context).shortToast("Remove from Bookmark")
+                (activity as Context).shortToast(resources.getString(R.string.remove_bookmark))
             }
             true
         }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
@@ -22,7 +21,6 @@ import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_news.view.*
-import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
 @AndroidEntryPoint
@@ -49,12 +47,10 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch {
-            viewModel.getTopHeadlines.observe(viewLifecycleOwner) { pagingData ->
-                pagingData?.let {
-                    newsAdapter.submitData(lifecycle, pagingData)
-                    errorText = false
-                }
+        viewModel.getTopHeadlines.observe(viewLifecycleOwner) { pagingData ->
+            if (pagingData != null) {
+                newsAdapter.submitData(lifecycle, pagingData)
+                errorText = false
             }
         }
 
@@ -68,12 +64,16 @@ class NewsFragment : Fragment(), ArticleClickInterface,
                 }
                 is LoadState.Error -> {
                     view.progressBar.visibility = View.GONE
-                    if (currentState.error.toString() == "retrofit2.HttpException: HTTP 429 " && !errorText)
-                        context?.getString(R.string.error)?.let { activity?.longToast(it) }
+                    if (currentState.error.toString() == resources.getString(R.string.http_error) && !errorText)
+                        context?.shortToast(getString(R.string.error))
+                    else if (currentState.error.toString() == resources.getString(R.string.data_fetch_error) && !errorText) {
+                        context?.shortToast(getString(R.string.internet_error))
+                    }
                     errorText = true
                 }
             }
         }
+
         view.recycler_view.apply {
             itemAnimator = null
             layoutManager = LinearLayoutManager(activity)
@@ -84,57 +84,58 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     private fun setupChipListener() {
         binding.apply {
             swipeLayout.setOnRefreshListener {
+                swipeLayout.isRefreshing = false
                 newsAdapter.refresh()
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                swipeLayout.isRefreshing = false
+                progressBar.visibility = View.VISIBLE
             }
             chipForYou.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("For You")
-                viewModel.setCategoryValue("")
-                category = "For You"
+                viewModel.setChipValue(resources.getString(R.string.for_you))
+                viewModel.setCategoryValue(resources.getString(R.string.empty_string))
+                category = resources.getString(R.string.for_you)
             }
             chipTop.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Top")
-                viewModel.setCategoryValue("")
-                category = "Top"
+                viewModel.setChipValue(resources.getString(R.string.top))
+                viewModel.setCategoryValue(resources.getString(R.string.empty_string))
+                category = resources.getString(R.string.top)
             }
             chipBusiness.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Business")
-                viewModel.setCategoryValue("business")
-                category = "Business"
+                viewModel.setChipValue(resources.getString(R.string.business))
+                viewModel.setCategoryValue(resources.getString(R.string.small_business))
+                category = resources.getString(R.string.business)
             }
             chipEntertainment.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Entertainment")
-                viewModel.setCategoryValue("entertainment")
-                category = "Entertainment"
+                viewModel.setChipValue(resources.getString(R.string.entertainment))
+                viewModel.setCategoryValue(resources.getString(R.string.small_entertainment))
+                category = resources.getString(R.string.entertainment)
             }
             chipHealth.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Health")
-                viewModel.setCategoryValue("health")
-                category = "Health"
+                viewModel.setChipValue(resources.getString(R.string.health))
+                viewModel.setCategoryValue(resources.getString(R.string.small_health))
+                category = resources.getString(R.string.health)
             }
             chipScience.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Science")
-                viewModel.setCategoryValue("science")
-                category = "Science"
+                viewModel.setChipValue(resources.getString(R.string.science))
+                viewModel.setCategoryValue(resources.getString(R.string.small_science))
+                category = resources.getString(R.string.science)
             }
             chipSports.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Sports")
-                viewModel.setCategoryValue("sports")
-                category = "Sports"
+                viewModel.setChipValue(resources.getString(R.string.sports))
+                viewModel.setCategoryValue(resources.getString(R.string.small_sports))
+                category = resources.getString(R.string.sports)
             }
             chipTechnology.setOnClickListener {
                 newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue("Technology")
-                viewModel.setCategoryValue("technology")
-                category = "Technology"
+                viewModel.setChipValue(resources.getString(R.string.technology))
+                viewModel.setCategoryValue(resources.getString(R.string.small_technology))
+                category = resources.getString(R.string.technology)
             }
         }
     }
@@ -150,7 +151,7 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     override fun moreOptionsClick(article: Article, time: String, view: View) {
         val popupMenu = showPopUpMenu(R.menu.item_menu, view)
         popupMenu.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.title == "Share") {
+            if (menuItem.title == resources.getString(R.string.share)) {
                 article.url?.let {
                     (activity as Context).shareData(
                         article.title,
@@ -158,19 +159,30 @@ class NewsFragment : Fragment(), ArticleClickInterface,
                     )
                 }
             } else {
-                bookmarkViewModel.addBookmark(
-                    Bookmark(
-                        article.title,
-                        article.author,
-                        article.description,
-                        article.source.name,
-                        article.urlToImage,
-                        time,
-                        article.url,
-                        category
-                    )
-                )
-                (activity as Context).shortToast("Added to Bookmark")
+                bookmarkViewModel.exists(
+                    article.author,
+                    article.title,
+                    article.source.name
+                ).observe(viewLifecycleOwner) { exists ->
+                    if (exists) {
+                        (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
+                    } else {
+                        bookmarkViewModel.addBookmark(
+                            Bookmark(
+                                article.title,
+                                article.author,
+                                article.description,
+                                article.source.name,
+                                article.urlToImage,
+                                time,
+                                article.url,
+                                category,
+                                article.id
+                            )
+                        )
+                        (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
+                    }
+                }
             }
             true
         }

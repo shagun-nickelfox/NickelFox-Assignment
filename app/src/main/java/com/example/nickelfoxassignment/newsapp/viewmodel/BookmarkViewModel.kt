@@ -32,11 +32,15 @@ class BookmarkViewModel @Inject constructor(bookmarkDao: BookmarkDao) : ViewMode
         insertedId = repository.insert(bookmark)
     }
 
-    fun getId(): Long {
-        return insertedId
-    }
-
     fun deleteBookmark(bookmark: Bookmark) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(bookmark)
+    }
+
+    fun exists(
+        author: String?,
+        title: String,
+        source: String?
+    ): LiveData<Boolean> {
+        return repository.exists(author, title, source)
     }
 }

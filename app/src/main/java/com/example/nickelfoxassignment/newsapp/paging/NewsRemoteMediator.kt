@@ -67,7 +67,6 @@ class NewsRemoteMediator(
 
             response.articles.onEach { article ->
                 article.category = chip
-                article.id = UUID.randomUUID().toString()
             }
 
             val endOfPaginationReached = response.articles.isEmpty()
@@ -78,7 +77,7 @@ class NewsRemoteMediator(
             newsDatabase.withTransaction {
                 if (previousChip == chip) {
                     if (loadType == LoadType.REFRESH) {
-                        newsDao.deleteAllImages(chip)
+                        newsDao.deleteArticles(chip)
                         newsRemoteKeysDao.deleteAllRemoteKeys(chip)
                     }
                 }
@@ -94,7 +93,7 @@ class NewsRemoteMediator(
                     )
                 }
                 newsRemoteKeysDao.addAllRemoteKeys(remoteKeys = keys)
-                newsDao.addImages(response.articles)
+                newsDao.addArticles(response.articles)
             }
             MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (e: Exception) {

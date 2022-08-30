@@ -97,6 +97,7 @@ class NewsAdapter(
                 bundle.putString("description", item.description)
                 bundle.putString("image", item.urlToImage)
                 bundle.putString("url", item.url)
+                bundle.putString("id", item.id)
 
                 articleClickInterface.articleClick(bundle)
             }

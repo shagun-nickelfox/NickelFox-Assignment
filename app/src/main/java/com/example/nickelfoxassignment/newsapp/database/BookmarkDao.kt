@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface BookmarkDao {
 
-    @Query("Select * from bookmark_table where category= :categoryValue order by id asc")
+    @Query("Select * from bookmark_table where category= :categoryValue")
     fun getBookmarkNews(categoryValue: String): LiveData<List<Bookmark>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -14,4 +14,7 @@ interface BookmarkDao {
 
     @Delete
     fun delete(bookmark: Bookmark)
+
+    @Query("SELECT EXISTS (SELECT 1 FROM bookmark_table WHERE author = :author and title = :title and source = :source)")
+    fun exists(author: String?, title: String, source: String?): Boolean
 }

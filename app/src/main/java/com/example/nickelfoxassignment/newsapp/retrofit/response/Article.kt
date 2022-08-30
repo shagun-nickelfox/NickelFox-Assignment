@@ -3,11 +3,13 @@ package com.example.nickelfoxassignment.newsapp.retrofit.response
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.nickelfoxassignment.Constants.ARTICLE_TABLE
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
-@Entity(tableName = "article_table")
+@Entity(tableName = ARTICLE_TABLE)
 data class Article(
     @SerializedName("author") var author: String?,
     @SerializedName("content") val content: String?,
@@ -18,7 +20,8 @@ data class Article(
     @SerializedName("title") val title: String,
     @SerializedName("url") val url: String?,
     @SerializedName("urlToImage") val urlToImage: String?,
+    var category: String?
 ) : Parcelable {
-    var category: String? = null
-    var id: String? = null
+    val id: String
+        get() = UUID.randomUUID().toString()
 }

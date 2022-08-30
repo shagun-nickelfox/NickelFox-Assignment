@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.databinding.FragmentNewsDetailBinding
@@ -46,23 +47,29 @@ class NewsDetailFragment : Fragment() {
     private fun setupListeners() {
         binding.apply {
             ivBookmark.setOnClickListener {
-                viewModel.addBookmark(
-                    Bookmark(
-                        tvHeadlineDetail.text.toString(),
-                        tvAuthor.text.toString(),
-                        tvContent.text.toString(),
-                        requireArguments()["source"].toString(),
-                        requireArguments()["image"].toString(),
-                        tvTime.text.toString(),
-                        "",
-                        requireArguments()["category"].toString()
-                    )
-                )
-                val id = viewModel.getId()
-                if (id.toInt() == -1) {
-                    (activity as Context).shortToast("Already added to Bookmark")
-                } else {
-                    (activity as Context).shortToast("Added to Bookmark")
+                viewModel.exists(
+                    tvAuthor.text.toString(),
+                    tvHeadlineDetail.text.toString(),
+                    requireArguments()["source"].toString()
+                ).observe(viewLifecycleOwner) { exists ->
+                    if (exists) {
+                        (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
+                    } else {
+                        viewModel.addBookmark(
+                            Bookmark(
+                                tvHeadlineDetail.text.toString(),
+                                tvAuthor.text.toString(),
+                                tvContent.text.toString(),
+                                requireArguments()["source"].toString(),
+                                requireArguments()["image"].toString(),
+                                tvTime.text.toString(),
+                                "",
+                                requireArguments()["category"].toString(),
+                                requireArguments()["id"].toString()
+                            )
+                        )
+                        (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
+                    }
                 }
             }
             ivShare.setOnClickListener {
@@ -77,5 +84,4 @@ class NewsDetailFragment : Fragment() {
             }
         }
     }
-
 }
