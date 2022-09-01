@@ -27,5 +27,5 @@ class NewsViewModel @Inject constructor(
     val getTopHeadlines = categoryInput.switchMap {
         newsRepository.getTopHeadlines(category = it, chipValue).asLiveData()
             .cachedIn(viewModelScope)
-    }
+    }.asFlow()
 }

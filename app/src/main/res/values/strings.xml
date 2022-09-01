@@ -133,4 +133,6 @@
     <string name="internet_error">No internet access.</string>
     <string name="data_fetch_error">java.net.UnknownHostException: Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
     <string name="anonymous">Anonymous</string>
+    <string name="retry"><u>Retry</u></string>
+    <string name="loading">Loading...</string>
 </resources>

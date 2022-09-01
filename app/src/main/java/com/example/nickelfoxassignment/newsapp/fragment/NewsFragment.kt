@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
@@ -12,15 +13,16 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.*
 import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
-import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
-import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
-import com.example.nickelfoxassignment.newsapp.adapter.NewsAdapter
+import com.example.nickelfoxassignment.newsapp.adapter.*
 import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.fragment_news.view.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
 @AndroidEntryPoint
@@ -47,28 +49,24 @@ class NewsFragment : Fragment(), ArticleClickInterface,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getTopHeadlines.observe(viewLifecycleOwner) { pagingData ->
-            if (pagingData != null) {
+        lifecycleScope.launch {
+            viewModel.getTopHeadlines.collectLatest { pagingData ->
                 newsAdapter.submitData(lifecycle, pagingData)
-                errorText = false
             }
         }
 
         newsAdapter.addLoadStateListener { state ->
             when (val currentState = state.refresh) {
                 is LoadState.Loading -> {
-                    view.progressBar.visibility = View.VISIBLE
+                    progressBar.visibility = View.VISIBLE
                 }
                 is LoadState.NotLoading -> {
-                    view.progressBar.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                 }
                 is LoadState.Error -> {
-                    view.progressBar.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     if (currentState.error.toString() == resources.getString(R.string.http_error) && !errorText)
                         context?.shortToast(getString(R.string.error))
-                    else if (currentState.error.toString() == resources.getString(R.string.data_fetch_error) && !errorText) {
-                        context?.shortToast(getString(R.string.internet_error))
-                    }
                     errorText = true
                 }
             }
@@ -77,7 +75,9 @@ class NewsFragment : Fragment(), ArticleClickInterface,
         view.recycler_view.apply {
             itemAnimator = null
             layoutManager = LinearLayoutManager(activity)
-            adapter = newsAdapter
+            adapter = newsAdapter.withLoadStateFooter(
+                footer = LoaderAdapter { newsAdapter.retry() },
+            )
         }
     }
 
@@ -86,58 +86,41 @@ class NewsFragment : Fragment(), ArticleClickInterface,
             swipeLayout.setOnRefreshListener {
                 swipeLayout.isRefreshing = false
                 newsAdapter.refresh()
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                progressBar.visibility = View.VISIBLE
+                newsAdapter.submitData(lifecycle, emptyList)
+                //progressBar.visibility = View.VISIBLE
             }
             chipForYou.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.for_you))
-                viewModel.setCategoryValue(resources.getString(R.string.empty_string))
-                category = resources.getString(R.string.for_you)
+                setCategory(R.string.for_you, R.string.empty_string)
             }
             chipTop.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.top))
-                viewModel.setCategoryValue(resources.getString(R.string.empty_string))
-                category = resources.getString(R.string.top)
+                setCategory(R.string.top, R.string.empty_string)
             }
             chipBusiness.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.business))
-                viewModel.setCategoryValue(resources.getString(R.string.small_business))
-                category = resources.getString(R.string.business)
+                setCategory(R.string.business, R.string.small_business)
             }
             chipEntertainment.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.entertainment))
-                viewModel.setCategoryValue(resources.getString(R.string.small_entertainment))
-                category = resources.getString(R.string.entertainment)
+                setCategory(R.string.entertainment, R.string.small_entertainment)
             }
             chipHealth.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.health))
-                viewModel.setCategoryValue(resources.getString(R.string.small_health))
-                category = resources.getString(R.string.health)
+                setCategory(R.string.health, R.string.small_health)
             }
             chipScience.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.science))
-                viewModel.setCategoryValue(resources.getString(R.string.small_science))
-                category = resources.getString(R.string.science)
+                setCategory(R.string.science, R.string.small_science)
             }
             chipSports.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.sports))
-                viewModel.setCategoryValue(resources.getString(R.string.small_sports))
-                category = resources.getString(R.string.sports)
+                setCategory(R.string.sports, R.string.small_sports)
             }
             chipTechnology.setOnClickListener {
-                newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
-                viewModel.setChipValue(resources.getString(R.string.technology))
-                viewModel.setCategoryValue(resources.getString(R.string.small_technology))
-                category = resources.getString(R.string.technology)
+                setCategory(R.string.technology, R.string.small_technology)
             }
         }
+    }
+
+    private fun setCategory(chip: Int, categoryValue: Int) {
+        newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
+        viewModel.setChipValue(resources.getString(chip))
+        viewModel.setCategoryValue(resources.getString(categoryValue))
+        category = resources.getString(chip)
     }
 
     override fun articleClick(bundle: Bundle) {

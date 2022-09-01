@@ -25,4 +25,5 @@ ext {
     coroutines = '1.5.0'
     lifecycleVersion = '2.5.1'
     roomVersion = '2.4.3'
+    BASE_URL = "https://newsapi.org/v2/"
 }

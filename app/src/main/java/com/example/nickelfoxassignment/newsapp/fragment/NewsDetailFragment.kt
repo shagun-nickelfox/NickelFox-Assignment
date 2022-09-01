@@ -21,6 +21,7 @@ class NewsDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsDetailBinding
     private val viewModel by viewModels<BookmarkViewModel>()
+    private var articleExists = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,40 +37,52 @@ class NewsDetailFragment : Fragment() {
             Glide.with(binding.root).load(requireArguments()["image"])
                 .into(ivHeadlineDetail)
         }
+        checkArticleInBookmark()
         setupListeners()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    }
 
+    private fun checkArticleInBookmark() {
+        binding.apply {
+            viewModel.exists(
+                tvAuthor.text.toString(),
+                tvHeadlineDetail.text.toString(),
+                requireArguments()["source"].toString()
+            ).observe(viewLifecycleOwner) { exists ->
+                if (exists) {
+                    ivBookmark.setImageResource(R.drawable.bookmark_selected)
+                    articleExists = true
+                }
+            }
+            articleExists = false
+        }
     }
 
     private fun setupListeners() {
         binding.apply {
             ivBookmark.setOnClickListener {
-                viewModel.exists(
-                    tvAuthor.text.toString(),
-                    tvHeadlineDetail.text.toString(),
-                    requireArguments()["source"].toString()
-                ).observe(viewLifecycleOwner) { exists ->
-                    if (exists) {
-                        (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
-                    } else {
-                        viewModel.addBookmark(
-                            Bookmark(
-                                tvHeadlineDetail.text.toString(),
-                                tvAuthor.text.toString(),
-                                tvContent.text.toString(),
-                                requireArguments()["source"].toString(),
-                                requireArguments()["image"].toString(),
-                                tvTime.text.toString(),
-                                "",
-                                requireArguments()["category"].toString(),
-                                requireArguments()["id"].toString()
-                            )
+                if (articleExists) {
+                    (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
+                } else {
+                    viewModel.addBookmark(
+                        Bookmark(
+                            tvHeadlineDetail.text.toString(),
+                            tvAuthor.text.toString(),
+                            tvContent.text.toString(),
+                            requireArguments()["source"].toString(),
+                            requireArguments()["image"].toString(),
+                            tvTime.text.toString(),
+                            "",
+                            requireArguments()["category"].toString(),
+                            requireArguments()["id"].toString()
                         )
-                        (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
-                    }
+                    )
+                    articleExists = true
+                    (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
+                    ivBookmark.setImageResource(R.drawable.bookmark_selected)
                 }
             }
             ivShare.setOnClickListener {

@@ -1,6 +1,7 @@
 package com.example.nickelfoxassignment.newsapp.di
 
 import android.content.Context
+import android.net.ConnectivityManager
 import androidx.room.Room
 import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.Constants.BOOKMARK_DATABASE
@@ -23,6 +24,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DiModules {
+
+    @Singleton
+    @Provides
+    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
+        return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    }
 
     @Provides
     fun provideBaseUrl() = BuildConfig.BASE_URL

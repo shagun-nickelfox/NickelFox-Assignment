@@ -4,9 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.example.nickelfoxassignment.Constants.Bookmark_TABLE
+import com.example.nickelfoxassignment.Constants.BOOKMARK_TABLE
 
-@Entity(tableName = Bookmark_TABLE, indices = [Index(value = ["title"], unique = true)])
+@Entity(tableName = BOOKMARK_TABLE, indices = [Index(value = ["title"], unique = true)])
 class Bookmark(
     @ColumnInfo(name = "title") val title: String?,
     @ColumnInfo(name = "author") val author: String?,
