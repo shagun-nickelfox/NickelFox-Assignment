@@ -1,10 +1,10 @@
 package com.example.nickelfoxassignment.newsapp.paging
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
-import com.example.nickelfoxassignment.newsapp.retrofit.response.NewsResponse
-import com.example.nickelfoxassignment.Constants
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -16,15 +16,13 @@ class SearchPagingSource(
     private val q: String?
 ) : PagingSource<Int, Article>() {
 
-    private lateinit var data: NewsResponse
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val position = params.key ?: STARTING_NEWS_INDEX
 
         return try {
-            data = newsInterface.getAllNews(
+            val data = newsInterface.getAllNews(
                 q,
-                Constants.API_KEY, position, params.loadSize
+                BuildConfig.API_KEY, position, params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {
@@ -41,6 +39,13 @@ class SearchPagingSource(
             LoadResult.Error(e)
         } catch (e: HttpException) {
             LoadResult.Error(e)
+        }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
+        return state.anchorPosition?.let {
+            state.closestPageToPosition(it)?.prevKey?.plus(1)
+                ?: state.closestPageToPosition(it)?.nextKey?.minus(1)
         }
     }
 }

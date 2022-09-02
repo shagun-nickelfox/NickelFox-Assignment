@@ -1,5 +1,6 @@
 package com.example.nickelfoxassignment.newsapp.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
@@ -26,11 +27,12 @@ class BookmarkAdapter(
     companion object {
         val DIFF_UTIL = object : DiffUtil.ItemCallback<Bookmark>() {
             override fun areItemsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
-                return oldItem == newItem
+                return oldItem.title == newItem.title
             }
 
+            @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
-                return oldItem.title == newItem.title
+                return oldItem == newItem
             }
         }
     }

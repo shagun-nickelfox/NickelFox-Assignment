@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView.OnEditorActionListener
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
-import androidx.paging.PagingData
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.NewsAdapter
@@ -22,55 +25,83 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
+import com.example.nickelfoxassignment.newsapp.adapter.ArticlesLoadStateAdapter
 import com.example.nickelfoxassignment.newsapp.viewmodel.SearchViewModel
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_news.view.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
+@ExperimentalPagingApi
 @AndroidEntryPoint
 class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
-
     private val viewModel by viewModels<SearchViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this, this)
+    private lateinit var newsAdapter: NewsAdapter
     private lateinit var binding: FragmentSearchBinding
-    private val emptyList: PagingData<Article> = PagingData.empty()
+    private lateinit var footer: ArticlesLoadStateAdapter
+    private lateinit var header: ArticlesLoadStateAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
-        setupListeners()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.searchList.observe(viewLifecycleOwner) {
-            newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        setupRV()
+        setupListeners()
+        setupObservers()
+    }
+
+    private fun setupRV() {
+        binding.apply {
+            newsAdapter = NewsAdapter(this@SearchFragment, this@SearchFragment)
+            header = ArticlesLoadStateAdapter { newsAdapter.refresh() }
+            footer = ArticlesLoadStateAdapter { newsAdapter.retry() }
+
+            recyclerView.layoutManager = LinearLayoutManager(activity)
+            recyclerView.adapter = newsAdapter.withLoadStateHeaderAndFooter(
+                footer = footer,
+                header = header
+            )
         }
-        newsAdapter.addLoadStateListener { state ->
-            when (state.refresh) {
-                is LoadState.Loading ->
-                    view.progressBar.visibility = View.VISIBLE
+    }
 
-                is LoadState.NotLoading ->
-                    view.progressBar.visibility = View.GONE
-
-                is LoadState.Error -> {
-                    view.progressBar.visibility = View.GONE
-                    //activity?.shortToast("Error in fetching data")
-                }
+    private fun setupObservers() {
+        lifecycleScope.launch {
+            viewModel.searchList.collectLatest {
+                newsAdapter.submitData(lifecycle, it)
             }
         }
-        view.recycler_view.adapter = newsAdapter
     }
 
     private fun setupListeners() {
         binding.apply {
+            newsAdapter.addLoadStateListener { state ->
+                header.loadState = state.refresh
+                recyclerView.isVisible = state.refresh !is LoadState.Loading
+                when (val currentState = state.refresh) {
+                    is LoadState.Loading ->
+                        progressBar.visibility = View.VISIBLE
+
+                    is LoadState.NotLoading ->
+                        progressBar.visibility = View.GONE
+
+                    is LoadState.Error -> {
+                        progressBar.visibility = View.GONE
+                        if (currentState.error.toString() == resources.getString(R.string.net_error))
+                            context?.shortToast(getString(R.string.internet_error))
+                        else if (currentState.error.toString() == resources.getString(R.string.retrofit_error))
+                            context?.shortToast(getString(R.string.api_error))
+                    }
+                }
+            }
             tvSearch.apply {
                 onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
                     if (hasFocus)
@@ -78,7 +109,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                 }
                 setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
+                        newsAdapter.refresh()
                         activity?.hideKeyboard(v)
                         viewModel.setSearchValue(tvSearch.text.toString())
                         return@OnEditorActionListener true
@@ -95,7 +126,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun articleClick(bundle: Bundle) {
-        bundle.putString("category", "Searched")
+        bundle.putString("category", resources.getString(R.string.searched))
         findNavController().navigate(
             R.id.action_searchFragment_to_newsDetailFragment,
             bundle
@@ -103,31 +134,44 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     }
 
     override fun moreOptionsClick(article: Article, time: String, view: View) {
-        val popupMenu = activity?.showPopUpMenu(R.menu.item_menu, view)
-        popupMenu?.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.title == "Share") {
-                (activity as Context).shareData(
-                    article.title!!,
-                    article.url!!
-                )
-            } else {
-                bookmarkViewModel.addBookmark(
-                    Bookmark(
+        val popupMenu = showPopUpMenu(R.menu.item_menu, view)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.title == resources.getString(R.string.share)) {
+                article.url?.let {
+                    (activity as Context).shareData(
                         article.title,
-                        article.author,
-                        article.description,
-                        article.source?.name,
-                        article.urlToImage,
-                        time,
-                        article.url,
-                        "Searched"
+                        it
                     )
-                )
-                (activity as Context).shortToast("Added to Bookmark")
+                }
+            } else {
+                bookmarkViewModel.exists(
+                    article.author,
+                    article.title,
+                    article.source.name
+                ).observe(viewLifecycleOwner) { exists ->
+                    if (exists) {
+                        (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))
+                    } else {
+                        bookmarkViewModel.addBookmark(
+                            Bookmark(
+                                article.title,
+                                article.author,
+                                article.description,
+                                article.source.name,
+                                article.urlToImage,
+                                time,
+                                article.url,
+                                resources.getString(R.string.searched),
+                                article.id
+                            )
+                        )
+                        (activity as Context).shortToast(resources.getString(R.string.added_bookmark))
+                    }
+                }
             }
             true
         }
-        popupMenu?.show()
+        popupMenu.show()
     }
 }
 

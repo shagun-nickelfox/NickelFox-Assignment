@@ -61,7 +61,7 @@ fun Context.shareData(headline: String, url: String) {
     startActivity(Intent.createChooser(intent, "Share to"))
 }
 
-fun Context.showPopUpMenu(menuRes: Int, view: View): PopupMenu {
+fun showPopUpMenu(menuRes: Int, view: View): PopupMenu {
     val popupMenu = PopupMenu(view.context, view)
     popupMenu.menuInflater.inflate(menuRes, popupMenu.menu)
     try {
@@ -72,9 +72,8 @@ fun Context.showPopUpMenu(menuRes: Int, view: View): PopupMenu {
             .getDeclaredMethod("setForceShowIcon", Boolean::class.java)
             .invoke(mPopup, true)
     } catch (e: Exception) {
-    } finally {
-        return popupMenu
     }
+    return popupMenu
 }
 
 

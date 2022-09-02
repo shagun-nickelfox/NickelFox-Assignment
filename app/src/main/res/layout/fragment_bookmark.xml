@@ -74,15 +74,6 @@
                 android:text="@string/entertainment" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipGeneral"
-                style="@style/CustomChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:checkable="true"
-                android:text="@string/general" />
-
-            <com.google.android.material.chip.Chip
                 android:id="@+id/chipHealth"
                 style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"

@@ -21,8 +21,10 @@ task clean(type: Delete) {
 }
 
 ext {
-    paging_version = "3.0.0-alpha03"
+    paging_version = "3.1.1"
     coroutines = '1.5.0'
     lifecycleVersion = '2.5.1'
     roomVersion = '2.4.3'
+    BASE_URL = "https://newsapi.org/v2/"
+    API_KEY = "ad338c84402645d499b452d4759dcd10"
 }

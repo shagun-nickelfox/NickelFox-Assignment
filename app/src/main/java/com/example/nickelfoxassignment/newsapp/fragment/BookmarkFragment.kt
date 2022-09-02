@@ -18,8 +18,9 @@ import com.example.nickelfoxassignment.databinding.FragmentBookmarkBinding
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
-import kotlinx.android.synthetic.main.fragment_news.view.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkClickInterface {
 
     private lateinit var binding: FragmentBookmarkBinding
@@ -31,50 +32,55 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBookmarkBinding.inflate(inflater, container, false)
-        setupChipListener()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupRv()
+        setupChipListener()
+        setupObserver()
+    }
+
+    private fun setupObserver() {
         viewModel.allBookmark.observe(viewLifecycleOwner) { list ->
-            list?.let {
+            if (list != null) {
                 bookmarkAdapter.submitList(list)
             }
         }
-        view.recycler_view.adapter = bookmarkAdapter
+    }
+
+    private fun setupRv() {
+        binding.recyclerView.adapter = bookmarkAdapter
     }
 
     private fun setupChipListener() {
         binding.apply {
             chipForYou.setOnClickListener {
-                viewModel.setCategory("For You")
+                viewModel.setCategory(resources.getString(R.string.for_you))
             }
             chipTop.setOnClickListener {
-                viewModel.setCategory("Top")
+                viewModel.setCategory(resources.getString(R.string.top))
             }
             chipBusiness.setOnClickListener {
-                viewModel.setCategory("Business")
+                viewModel.setCategory(resources.getString(R.string.business))
             }
             chipEntertainment.setOnClickListener {
-                viewModel.setCategory("Entertainment")
+                viewModel.setCategory(resources.getString(R.string.entertainment))
             }
             chipHealth.setOnClickListener {
-                viewModel.setCategory("Health")
-            }
-            chipGeneral.setOnClickListener {
-                viewModel.setCategory("General")
+                viewModel.setCategory(resources.getString(R.string.health))
             }
             chipScience.setOnClickListener {
-                viewModel.setCategory("Science")
+                viewModel.setCategory(resources.getString(R.string.science))
             }
             chipSports.setOnClickListener {
-                viewModel.setCategory("Sports")
+                viewModel.setCategory(resources.getString(R.string.sports))
             }
             chipTechnology.setOnClickListener {
-                viewModel.setCategory("Technology")
+                viewModel.setCategory(resources.getString(R.string.technology))
             }
             chipSearched.setOnClickListener {
-                viewModel.setCategory("Searched")
+                viewModel.setCategory(resources.getString(R.string.searched))
             }
         }
     }
@@ -82,24 +88,24 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
     override fun articleClick(bundle: Bundle) {
         findNavController().navigate(
             R.id.action_bookmarkFragment_to_newsDetailFragment,
-            bundle
+            bundle,
         )
     }
 
     override fun moreOptionsBookmarkClick(bookmark: Bookmark, view: View) {
-        val popupMenu = activity?.showPopUpMenu(R.menu.bookmark_menu, view)
-        popupMenu?.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.title == "Share") {
+        val popupMenu = showPopUpMenu(R.menu.bookmark_menu, view)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.title == resources.getString(R.string.share)) {
                 (activity as Context).shareData(
                     bookmark.title!!,
                     bookmark.url!!
                 )
             } else {
                 viewModel.deleteBookmark(bookmark)
-                (activity as Context).shortToast("Remove from Bookmark")
+                (activity as Context).shortToast(resources.getString(R.string.remove_bookmark))
             }
             true
         }
-        popupMenu?.show()
+        popupMenu.show()
     }
 }

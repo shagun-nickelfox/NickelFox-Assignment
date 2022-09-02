@@ -23,7 +23,8 @@
     <color name="cardColor2">#6DE6DB</color>
     <color name="cardBackground">#EF754E</color>
     <color name="grey">#80FBFBFB</color>
-    <color name="skyBlue">#0B94DF</color>
+    <color name="skyBlue">#255EED</color>
+    <color name="darkBlue">#033BC6</color>
     <color name="orange">#EA841B</color>#919191
     <color name="timeColour">#919191</color>
 </resources>
