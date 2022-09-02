@@ -28,28 +28,19 @@ class NewsDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewsDetailBinding.inflate(inflater, container, false)
-
-        binding.apply {
-            tvHeadlineDetail.text = requireArguments()["title"] as String?
-            tvAuthor.text = requireArguments()["author"] as String?
-            tvContent.text = requireArguments()["description"] as String?
-            tvTime.text = requireArguments()["time"] as String?
-            Glide.with(binding.root).load(requireArguments()["image"])
-                .into(ivHeadlineDetail)
-        }
-        checkArticleInBookmark()
-        setupListeners()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        checkArticleInBookmark()
+        setupListeners()
     }
 
     private fun checkArticleInBookmark() {
         binding.apply {
             viewModel.exists(
-                tvAuthor.text.toString(),
-                tvHeadlineDetail.text.toString(),
+                requireArguments()["author"] as String,
+                requireArguments()["title"] as String,
                 requireArguments()["source"].toString()
             ).observe(viewLifecycleOwner) { exists ->
                 if (exists) {
@@ -63,6 +54,13 @@ class NewsDetailFragment : Fragment() {
 
     private fun setupListeners() {
         binding.apply {
+            tvHeadlineDetail.text = requireArguments()["title"] as String?
+            tvAuthor.text = requireArguments()["author"] as String?
+            tvContent.text = requireArguments()["description"] as String?
+            tvTime.text = requireArguments()["time"] as String?
+            Glide.with(binding.root).load(requireArguments()["image"])
+                .into(ivHeadlineDetail)
+
             ivBookmark.setOnClickListener {
                 if (articleExists) {
                     (activity as Context).shortToast(resources.getString(R.string.already_added_bookmark))

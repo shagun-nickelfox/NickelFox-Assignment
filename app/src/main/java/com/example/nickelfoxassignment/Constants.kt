@@ -20,7 +20,6 @@ object Constants {
     const val MULTIPLY_ = "×"
     const val MOD = "%"
     const val DOT = "."
-    const val API_KEY = "8fd3bca8c9ae451581b5290e53d3dd65"
     const val ARTICLE_TABLE = "article_table"
     const val BOOKMARK_TABLE = "bookmark_table"
     const val ARTICLE_REMOTE_KEYS_TABLE = "article_remote_keys"

@@ -3,13 +3,13 @@ package com.example.nickelfoxassignment.newsapp.fragment
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.*
 import com.example.nickelfoxassignment.databinding.FragmentNewsBinding
@@ -19,8 +19,6 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_user.*
-import kotlinx.android.synthetic.main.fragment_news.view.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -31,63 +29,64 @@ class NewsFragment : Fragment(), ArticleClickInterface,
 
     private val viewModel by viewModels<NewsViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this, this)
+    private lateinit var newsAdapter: NewsAdapter
     private lateinit var binding: FragmentNewsBinding
     private var category = "For You"
-    private val emptyList: PagingData<Article> = PagingData.empty()
-    private var errorText = false
+    private lateinit var footer: ArticlesLoadStateAdapter
+    private lateinit var header: ArticlesLoadStateAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewsBinding.inflate(inflater, container, false)
-        setupChipListener()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch {
-            viewModel.getTopHeadlines.collectLatest { pagingData ->
-                newsAdapter.submitData(lifecycle, pagingData)
-            }
-        }
+        setupRv()
+        setupListener()
+        setupObserver()
+    }
 
-        newsAdapter.addLoadStateListener { state ->
-            when (val currentState = state.refresh) {
-                is LoadState.Loading -> {
-                    progressBar.visibility = View.VISIBLE
-                }
-                is LoadState.NotLoading -> {
-                    progressBar.visibility = View.GONE
-                }
-                is LoadState.Error -> {
-                    progressBar.visibility = View.GONE
-                    if (currentState.error.toString() == resources.getString(R.string.http_error) && !errorText)
-                        context?.shortToast(getString(R.string.error))
-                    errorText = true
-                }
-            }
-        }
+    private fun setupRv() {
+        binding.apply {
+            newsAdapter = NewsAdapter(this@NewsFragment, this@NewsFragment)
+            header = ArticlesLoadStateAdapter { newsAdapter.refresh() }
+            footer = ArticlesLoadStateAdapter { newsAdapter.retry() }
 
-        view.recycler_view.apply {
-            itemAnimator = null
-            layoutManager = LinearLayoutManager(activity)
-            adapter = newsAdapter.withLoadStateFooter(
-                footer = LoaderAdapter { newsAdapter.retry() },
+            rvArticles.itemAnimator = null
+            rvArticles.layoutManager = LinearLayoutManager(activity)
+            rvArticles.adapter = newsAdapter.withLoadStateHeaderAndFooter(
+                footer = footer,
+                header = header
             )
         }
     }
 
-    private fun setupChipListener() {
+    private fun setupListener() {
         binding.apply {
+            newsAdapter.addLoadStateListener { state ->
+                header.loadState = state.refresh
+                rvArticles.isVisible = state.refresh !is LoadState.Loading
+                when (state.refresh) {
+                    is LoadState.Loading -> {
+                        progressBar.visibility = View.VISIBLE
+                    }
+                    is LoadState.NotLoading -> {
+                        progressBar.visibility = View.GONE
+                    }
+                    is LoadState.Error -> {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+            }
+
             swipeLayout.setOnRefreshListener {
                 swipeLayout.isRefreshing = false
                 newsAdapter.refresh()
-                newsAdapter.submitData(lifecycle, emptyList)
-                //progressBar.visibility = View.VISIBLE
             }
             chipForYou.setOnClickListener {
                 setCategory(R.string.for_you, R.string.empty_string)
@@ -116,8 +115,15 @@ class NewsFragment : Fragment(), ArticleClickInterface,
         }
     }
 
+    private fun setupObserver() {
+        lifecycleScope.launch {
+            viewModel.getTopHeadlines.collectLatest { pagingData ->
+                newsAdapter.submitData(lifecycle, pagingData)
+            }
+        }
+    }
+
     private fun setCategory(chip: Int, categoryValue: Int) {
-        newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
         viewModel.setChipValue(resources.getString(chip))
         viewModel.setCategoryValue(resources.getString(categoryValue))
         category = resources.getString(chip)

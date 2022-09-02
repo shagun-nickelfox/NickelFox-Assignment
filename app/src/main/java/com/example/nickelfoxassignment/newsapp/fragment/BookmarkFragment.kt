@@ -19,7 +19,6 @@ import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_news.view.*
 
 @AndroidEntryPoint
 class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkClickInterface {
@@ -33,17 +32,25 @@ class BookmarkFragment : Fragment(), ArticleClickInterface, MoreOptionsBookmarkC
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBookmarkBinding.inflate(inflater, container, false)
-        setupChipListener()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupRv()
+        setupChipListener()
+        setupObserver()
+    }
+
+    private fun setupObserver() {
         viewModel.allBookmark.observe(viewLifecycleOwner) { list ->
             if (list != null) {
                 bookmarkAdapter.submitList(list)
             }
         }
-        view.recycler_view.adapter = bookmarkAdapter
+    }
+
+    private fun setupRv() {
+        binding.recyclerView.adapter = bookmarkAdapter
     }
 
     private fun setupChipListener() {

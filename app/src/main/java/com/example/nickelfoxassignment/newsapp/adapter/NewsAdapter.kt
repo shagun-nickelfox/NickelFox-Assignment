@@ -76,7 +76,7 @@ class NewsAdapter(
             )
 
             if (item.author == null)
-                item.author = "Anonymous"
+                item.author = holder.itemView.resources.getString(R.string.anonymous)
             val author = holder.itemView.resources.getString(
                 R.string.news_author,
                 item.author

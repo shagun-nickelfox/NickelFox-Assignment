@@ -29,6 +29,7 @@ class BookmarkAdapter(
             override fun areItemsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
                 return oldItem.title == newItem.title
             }
+
             @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(oldItem: Bookmark, newItem: Bookmark): Boolean {
                 return oldItem == newItem

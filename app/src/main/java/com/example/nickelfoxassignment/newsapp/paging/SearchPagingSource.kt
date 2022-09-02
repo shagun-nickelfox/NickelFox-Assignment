@@ -2,9 +2,9 @@ package com.example.nickelfoxassignment.newsapp.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
-import com.example.nickelfoxassignment.Constants
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -22,7 +22,7 @@ class SearchPagingSource(
         return try {
             val data = newsInterface.getAllNews(
                 q,
-                Constants.API_KEY, position, params.loadSize
+                BuildConfig.API_KEY, position, params.loadSize
             )
             val repos = data.articles
             val nextKey = if (repos.isEmpty()) {

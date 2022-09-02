@@ -11,10 +11,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView.OnEditorActionListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.NewsAdapter
@@ -23,12 +25,14 @@ import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
+import com.example.nickelfoxassignment.newsapp.adapter.ArticlesLoadStateAdapter
 import com.example.nickelfoxassignment.newsapp.viewmodel.SearchViewModel
 import com.example.nickelfoxassignment.shareData
 import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_news.view.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
 @AndroidEntryPoint
@@ -36,8 +40,10 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     MoreOptionsClickInterface {
     private val viewModel by viewModels<SearchViewModel>()
     private val bookmarkViewModel by viewModels<BookmarkViewModel>()
-    private val newsAdapter = NewsAdapter(this, this)
+    private lateinit var newsAdapter: NewsAdapter
     private lateinit var binding: FragmentSearchBinding
+    private lateinit var footer: ArticlesLoadStateAdapter
+    private lateinit var header: ArticlesLoadStateAdapter
     private val emptyList: PagingData<Article> = PagingData.empty()
 
     override fun onCreateView(
@@ -45,34 +51,57 @@ class SearchFragment : Fragment(), ArticleClickInterface,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
-        setupListeners()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.searchList.observe(viewLifecycleOwner) {
-            newsAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        setupRV()
+        setupListeners()
+        setupObservers()
+
+    }
+
+    private fun setupRV() {
+        binding.apply {
+            newsAdapter = NewsAdapter(this@SearchFragment, this@SearchFragment)
+            header = ArticlesLoadStateAdapter { newsAdapter.retry() }
+            footer = ArticlesLoadStateAdapter { newsAdapter.retry() }
+
+            recyclerView.layoutManager = LinearLayoutManager(activity)
+            recyclerView.adapter = newsAdapter.withLoadStateHeaderAndFooter(
+                footer = footer,
+                header = header
+            )
         }
-        newsAdapter.addLoadStateListener { state ->
-            when (val currentState = state.refresh) {
-                is LoadState.Loading ->
-                    view.progressBar.visibility = View.VISIBLE
+    }
 
-                is LoadState.NotLoading ->
-                    view.progressBar.visibility = View.GONE
-
-                is LoadState.Error -> {
-                    view.progressBar.visibility = View.GONE
-                    if (currentState.error.toString() == resources.getString(R.string.data_fetch_error))
-                        context?.shortToast(getString(R.string.internet_error))
-                }
+    private fun setupObservers() {
+        lifecycleScope.launch {
+            viewModel.searchList.collectLatest {
+                newsAdapter.submitData(lifecycle, it)
             }
         }
-        view.recycler_view.adapter = newsAdapter
     }
 
     private fun setupListeners() {
         binding.apply {
+            newsAdapter.addLoadStateListener { state ->
+                when (val currentState = state.refresh) {
+                    is LoadState.Loading ->
+                        progressBar.visibility = View.VISIBLE
+
+                    is LoadState.NotLoading ->
+                        progressBar.visibility = View.GONE
+
+                    is LoadState.Error -> {
+                        progressBar.visibility = View.GONE
+                        if (currentState.error.toString() == resources.getString(R.string.net_error))
+                            context?.shortToast(getString(R.string.internet_error))
+                        else if (currentState.error.toString() == resources.getString(R.string.retrofit_error))
+                            context?.shortToast(getString(R.string.api_error))
+                    }
+                }
+            }
             tvSearch.apply {
                 onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
                     if (hasFocus)

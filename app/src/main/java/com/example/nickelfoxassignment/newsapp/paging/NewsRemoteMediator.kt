@@ -5,7 +5,7 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.newsapp.database.ArticleRemoteKeys
 import com.example.nickelfoxassignment.newsapp.database.NewsDatabase
 import com.example.nickelfoxassignment.newsapp.retrofit.NewsInterface
@@ -23,9 +23,6 @@ class NewsRemoteMediator(
     private val newsRemoteKeysDao = newsDatabase.getRemoteKeysDao()
     private var previousChip = ""
 
-    override suspend fun initialize(): InitializeAction {
-        return InitializeAction.LAUNCH_INITIAL_REFRESH
-    }
 
     override suspend fun load(
         loadType: LoadType,
@@ -57,12 +54,13 @@ class NewsRemoteMediator(
 
             val response =
                 newsInterface.getTopHeadlines(
-                    if (chip == "For You") Locale.getDefault().country else "",
+                    if (chip == "For You"
+                    ) Locale.getDefault().country else "",
                     Locale.getDefault().language,
                     category,
-                    Constants.API_KEY,
+                    BuildConfig.API_KEY,
                     currentPage,
-                    50
+                    20
                 )
 
             response.articles.onEach { article ->
@@ -71,9 +69,6 @@ class NewsRemoteMediator(
 
             val endOfPaginationReached = response.articles.isEmpty()
 
-            val prevPage = if (currentPage == 1) null else currentPage - 1
-            val nextPage = if (endOfPaginationReached) null else currentPage + 1
-
             newsDatabase.withTransaction {
                 if (previousChip == chip) {
                     if (loadType == LoadType.REFRESH) {
@@ -81,6 +76,8 @@ class NewsRemoteMediator(
                         newsRemoteKeysDao.deleteAllRemoteKeys(chip)
                     }
                 }
+                val prevPage = if (currentPage == 1) null else currentPage - 1
+                val nextPage = if (endOfPaginationReached) null else currentPage + 1
 
                 previousChip = chip
 
@@ -128,5 +125,4 @@ class NewsRemoteMediator(
                 newsRemoteKeysDao.getRemoteKeys(id = unsplashImage.title)
             }
     }
-
 }

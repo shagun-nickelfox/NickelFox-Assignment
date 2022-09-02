@@ -130,8 +130,11 @@
     <string name="source_time">%1$s • %2$s</string>
     <string name="news_author">By %1$s</string>
     <string name="error">You have made too many requests recently. Developer accounts are limited to 50 requests in every 12 hours.</string>
-    <string name="internet_error">No internet access.</string>
-    <string name="data_fetch_error">java.net.UnknownHostException: Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
+    <string name="internet_error">No internet access</string>
+    <string name="api_error">Api request limit exceed</string>
+    <string name="retrofit_error">"retrofit2.HttpException: HTTP 429 "</string>
+    <string name="data_fetch_error">Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
+    <string name="net_error">java.net.UnknownHostException: Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
     <string name="anonymous">Anonymous</string>
     <string name="retry"><u>Retry</u></string>
     <string name="loading">Loading...</string>
