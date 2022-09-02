@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView.OnEditorActionListener
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
@@ -44,7 +44,6 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     private lateinit var binding: FragmentSearchBinding
     private lateinit var footer: ArticlesLoadStateAdapter
     private lateinit var header: ArticlesLoadStateAdapter
-    private val emptyList: PagingData<Article> = PagingData.empty()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,13 +57,12 @@ class SearchFragment : Fragment(), ArticleClickInterface,
         setupRV()
         setupListeners()
         setupObservers()
-
     }
 
     private fun setupRV() {
         binding.apply {
             newsAdapter = NewsAdapter(this@SearchFragment, this@SearchFragment)
-            header = ArticlesLoadStateAdapter { newsAdapter.retry() }
+            header = ArticlesLoadStateAdapter { newsAdapter.refresh() }
             footer = ArticlesLoadStateAdapter { newsAdapter.retry() }
 
             recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -86,6 +84,8 @@ class SearchFragment : Fragment(), ArticleClickInterface,
     private fun setupListeners() {
         binding.apply {
             newsAdapter.addLoadStateListener { state ->
+                header.loadState = state.refresh
+                recyclerView.isVisible = state.refresh !is LoadState.Loading
                 when (val currentState = state.refresh) {
                     is LoadState.Loading ->
                         progressBar.visibility = View.VISIBLE
@@ -109,7 +109,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                 }
                 setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        newsAdapter.submitData(viewLifecycleOwner.lifecycle, emptyList)
+                        newsAdapter.refresh()
                         activity?.hideKeyboard(v)
                         viewModel.setSearchValue(tvSearch.text.toString())
                         return@OnEditorActionListener true
