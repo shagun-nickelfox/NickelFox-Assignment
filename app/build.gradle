@@ -23,6 +23,8 @@ android {
         versionName "1.0"
         buildConfigField "String", "BASE_URL", "\"$BASE_URL\""
         buildConfigField "String", "API_KEY", "\"$API_KEY\""
+        buildConfigField "String", "UPLOAD_BASE_URL", "\"$UPLOAD_BASE_URL\""
+        buildConfigField "String", "CLIENT_ID", "\"$CLIENT_ID\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

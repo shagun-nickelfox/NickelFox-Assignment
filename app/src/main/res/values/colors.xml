@@ -27,4 +27,6 @@
     <color name="darkBlue">#033BC6</color>
     <color name="orange">#EA841B</color>#919191
     <color name="timeColour">#919191</color>
+    <color name="light_green">#a5d6a7</color>
+    <color name="dark_green">#75a478</color>
 </resources>

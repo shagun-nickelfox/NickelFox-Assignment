@@ -26,5 +26,7 @@ ext {
     lifecycleVersion = '2.5.1'
     roomVersion = '2.4.3'
     BASE_URL = "https://newsapi.org/v2/"
-    API_KEY = "ad338c84402645d499b452d4759dcd10"
+    API_KEY = "8fd3bca8c9ae451581b5290e53d3dd65"
+    UPLOAD_BASE_URL = "https://api.imgur.com"
+    CLIENT_ID = "b44b242af5a2c34"
 }
