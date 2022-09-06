@@ -24,15 +24,20 @@ class ImageUploadActivity : AppCompatActivity() {
     private val imageViewModel by viewModels<ImageUploadViewModel>()
     private var imageUri: Uri? = null
 
-    companion object {
-        private const val PERMISSION_CODE = 1001
-    }
-
     private val selectImage =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             if (uri != null) {
                 binding.ivSelectedImage.setImageURI(uri)
                 imageUri = uri
+            }
+        }
+
+    private val requestPermissions =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                chooseImageGallery()
+            } else {
+                this.shortToast(resources.getString(R.string.permission_denied))
             }
         }
 
@@ -92,8 +97,7 @@ class ImageUploadActivity : AppCompatActivity() {
 
     private fun takePermissions() {
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-            requestPermissions(permissions, PERMISSION_CODE)
+            requestPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
         } else {
             chooseImageGallery()
         }
@@ -107,22 +111,5 @@ class ImageUploadActivity : AppCompatActivity() {
         binding.piProgressIndicator.isVisible = progressBarVisibility
         binding.btnUploadImage.isVisible = btnVisibility
         binding.btnSelectImage.isVisible = btnVisibility
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    chooseImageGallery()
-                } else {
-                    this.shortToast(resources.getString(R.string.permission_denied))
-                }
-            }
-        }
     }
 }
