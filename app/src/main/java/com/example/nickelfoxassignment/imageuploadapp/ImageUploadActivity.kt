@@ -1,8 +1,6 @@
 package com.example.nickelfoxassignment.imageuploadapp
 
 import android.Manifest
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -30,12 +28,11 @@ class ImageUploadActivity : AppCompatActivity() {
         private const val PERMISSION_CODE = 1001
     }
 
-    private var resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                binding.ivSelectedImage.setImageURI(data?.data)
-                imageUri = data?.data
+    private val selectImage =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            if (uri != null) {
+                binding.ivSelectedImage.setImageURI(uri)
+                imageUri = uri
             }
         }
 
@@ -103,9 +100,7 @@ class ImageUploadActivity : AppCompatActivity() {
     }
 
     private fun chooseImageGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        resultLauncher.launch(intent)
+        selectImage.launch("image/*")
     }
 
     private fun viewVisibility(btnVisibility: Boolean, progressBarVisibility: Boolean) {
