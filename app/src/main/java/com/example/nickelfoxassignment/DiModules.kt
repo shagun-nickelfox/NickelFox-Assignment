@@ -14,12 +14,15 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Qualifier
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -33,20 +36,30 @@ object DiModules {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
-        val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.apply { loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY }
-        OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
+    fun provideOkHttpClient(): OkHttpClient {
+        val okHttpClient = OkHttpClient.Builder()
+        okHttpClient
+            .addInterceptor(Interceptor { chain ->
+                val request: Request = chain.request()
+                    .newBuilder()
+                    .addHeader("Authorization", "Client-ID ${BuildConfig.CLIENT_ID}")
+                    .build()
+                chain.proceed(request)
+            })
+        return if (BuildConfig.DEBUG) {
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.apply {
+                loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            }
+            okHttpClient.addInterceptor(loggingInterceptor).build()
+        } else okHttpClient
             .build()
-    } else OkHttpClient
-        .Builder()
-        .build()
+    }
 
     @Singleton
     @Provides
     @NewsRetrofit
-    fun provideRetrofit1(okHttpClient: OkHttpClient): Retrofit {
+    fun provideNewsRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BuildConfig.BASE_URL)
@@ -57,7 +70,7 @@ object DiModules {
     @Singleton
     @Provides
     @UploadImageRetrofit
-    fun provideRetrofit2(okHttpClient: OkHttpClient): Retrofit {
+    fun provideImageUploadRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BuildConfig.UPLOAD_BASE_URL)
