@@ -18,12 +18,18 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DiModules {
+
+    @Qualifier
+    annotation class NewsRetrofit
+
+    @Qualifier
+    annotation class UploadImageRetrofit
 
     @Provides
     @Singleton
@@ -39,7 +45,7 @@ object DiModules {
 
     @Singleton
     @Provides
-    @Named("retrofit_1")
+    @NewsRetrofit
     fun provideRetrofit1(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -50,7 +56,7 @@ object DiModules {
 
     @Singleton
     @Provides
-    @Named("retrofit_2")
+    @UploadImageRetrofit
     fun provideRetrofit2(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -61,7 +67,7 @@ object DiModules {
 
     @Singleton
     @Provides
-    fun provideNewsInterface(@Named("retrofit_1") retrofit: Retrofit): NewsInterface {
+    fun provideNewsInterface(@NewsRetrofit retrofit: Retrofit): NewsInterface {
         return retrofit.create(NewsInterface::class.java)
     }
 
@@ -100,7 +106,7 @@ object DiModules {
 
     @Singleton
     @Provides
-    fun provideImgurApiInterface(@Named("retrofit_2") retrofit: Retrofit): ImgurApi {
+    fun provideImgurApiInterface(@UploadImageRetrofit retrofit: Retrofit): ImgurApi {
         return retrofit.create(ImgurApi::class.java)
     }
 }
