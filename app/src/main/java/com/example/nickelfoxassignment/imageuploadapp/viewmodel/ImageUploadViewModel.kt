@@ -18,6 +18,6 @@ class ImageUploadViewModel @Inject constructor(uploadRepository: UploadRepositor
     }
 
     suspend fun uploadImage(): Result<Data> {
-        return imageUri.value.let { repository.uploadFile(it!!, null) }
+        return imageUri.value.let { repository.uploadFile(it!!) }
     }
 }

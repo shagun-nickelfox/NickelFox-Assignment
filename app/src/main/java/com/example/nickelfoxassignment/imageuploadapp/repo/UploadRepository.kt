@@ -16,7 +16,7 @@ class UploadRepository @Inject constructor(
     private val imgurApi: ImgurApi,
     private val context: Context
 ) {
-    suspend fun uploadFile(uri: Uri, title: String?): Result<Data> {
+    suspend fun uploadFile(uri: Uri): Result<Data> {
         return try {
             val file = copyStreamToFile(uri)
 
@@ -25,9 +25,8 @@ class UploadRepository @Inject constructor(
 
             val response = imgurApi.uploadFile(
                 filePart,
-                name = title?.toRequestBody() ?: file.name.toRequestBody()
+                name = file.name.toRequestBody()
             )
-
             if (response.isSuccessful) {
                 Result.success(response.body()!!.data)
             } else {
