@@ -148,4 +148,6 @@
     <string name="uploading_error">Error in uploading</string>
     <string name="choose_image">Please choose an image to upload!</string>
     <string name="exception">Unknown network Exception.</string>
+    <string name="select_gallery_image">Select gallery-image</string>
+    <string name="take_image">Take image</string>
 </resources>
