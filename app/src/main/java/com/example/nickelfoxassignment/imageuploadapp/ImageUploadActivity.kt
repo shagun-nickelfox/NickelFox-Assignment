@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
@@ -36,6 +37,7 @@ class ImageUploadActivity : AppCompatActivity() {
     private val imageViewModel by viewModels<ImageUploadViewModel>()
     private var imageUri: Uri? = null
     private var latestTmpUri: Uri? = null
+    private lateinit var currentImagePath: String
 
     private val selectImage =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -65,7 +67,7 @@ class ImageUploadActivity : AppCompatActivity() {
             }
         }
 
-    private val requestWritePermissions =
+    private val requestMultiplePermissions =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             if (it.any { permission -> !permission.value }) {
                 this.shortToast(resources.getString(R.string.permission_denied))
@@ -99,15 +101,11 @@ class ImageUploadActivity : AppCompatActivity() {
                 showImageSelectOptions(true)
             }
             btnTakeImageButton.setOnClickListener {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                    takeWritePermissions()
-                } else {
-                    takeImage()
-                }
+                requestClickImagePermissions()
             }
             btnSelectImageButton.setOnClickListener {
-                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
-                    takeReadPermissions()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                    requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                 } else {
                     chooseImageGallery()
                 }
@@ -121,6 +119,30 @@ class ImageUploadActivity : AppCompatActivity() {
                 } else {
                     this@ImageUploadActivity.shortToast(resources.getString(R.string.choose_image))
                 }
+            }
+        }
+    }
+
+    private fun requestClickImagePermissions() {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+                && checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
+            ) {
+                requestMultiplePermissions.launch(
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                )
+            } else if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                requestMultiplePermissions.launch(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+            } else if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+                requestMultiplePermissions.launch(arrayOf(Manifest.permission.CAMERA))
+            }else{
+                takeImage()
+            }
+        } else {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+                requestMultiplePermissions.launch(arrayOf(Manifest.permission.CAMERA))
+            }else{
+                takeImage()
             }
         }
     }
@@ -144,30 +166,6 @@ class ImageUploadActivity : AppCompatActivity() {
         binding.btnTakeImageButton.isVisible = visible
     }
 
-    private fun takeReadPermissions() {
-        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-            requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-        } else {
-            chooseImageGallery()
-        }
-    }
-
-    private fun takeWritePermissions() {
-        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED || checkSelfPermission(
-                Manifest.permission.CAMERA
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
-            requestWritePermissions.launch(
-                arrayOf(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CAMERA
-                )
-            )
-        } else {
-            takeImage()
-        }
-    }
-
     private fun chooseImageGallery() {
         selectImage.launch("image/*")
     }
@@ -182,19 +180,28 @@ class ImageUploadActivity : AppCompatActivity() {
     }
 
     private fun getTmpFileUri(): Uri {
-        val tmpFile = File.createTempFile(createImageName(), ".jpg", cacheDir).apply {
-            createNewFile()
-        }
         return FileProvider.getUriForFile(
             applicationContext,
             "${BuildConfig.APPLICATION_ID}.provider",
-            tmpFile
+            createImageFile()
         )
     }
 
     private fun createImageName(): String {
         val timeStamp = SimpleDateFormat.getDateTimeInstance().format(Date())
         return "JPEG_${timeStamp}_"
+    }
+
+    private fun createImageFile(): File {
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+
+        return File.createTempFile(
+            createImageName(),
+            ".jpg",
+            storageDir
+        ).apply {
+            currentImagePath = absolutePath
+        }
     }
 
     private fun getBitmapFromUri(uri: Uri?): Bitmap {
@@ -207,7 +214,7 @@ class ImageUploadActivity : AppCompatActivity() {
     }
 
     private fun galleryAddPic() {
-        val imageCollection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val imageCollection = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
             MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
         } else {
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -216,6 +223,9 @@ class ImageUploadActivity : AppCompatActivity() {
         val contentValues = ContentValues().apply {
             put(MediaStore.Images.Media.DISPLAY_NAME, "${createImageName()}.jpg")
             put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+            put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+            put(MediaStore.Images.Media.WIDTH, bitMap.width)
+            put(MediaStore.Images.Media.HEIGHT, bitMap.height)
         }
         contentResolver.insert(imageCollection, contentValues)
         try {
