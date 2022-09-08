@@ -150,4 +150,6 @@
     <string name="exception">Unknown network Exception.</string>
     <string name="select_gallery_image">Select gallery-image</string>
     <string name="take_image">Take image</string>
+    <string name="saving_error">Couldn\'t save bitmap</string>
+    <string name="media_store_error">Couldn\'t create MediaStore entry.</string>
 </resources>

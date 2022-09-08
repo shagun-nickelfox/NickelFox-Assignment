@@ -50,12 +50,10 @@ class ImageUploadActivity : AppCompatActivity() {
     private val takeImageResult =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
             if (isSuccess) {
-                latestTmpUri?.let { uri ->
-                    binding.ivSelectedImage.setImageURI(uri)
-                    imageUri = uri
-                    galleryAddPic()
-                    binding.tvResultLink.text = ""
-                }
+                binding.ivSelectedImage.setImageURI(latestTmpUri)
+                imageUri = latestTmpUri
+                galleryAddPic()
+                binding.tvResultLink.text = ""
             }
         }
 
@@ -172,12 +170,8 @@ class ImageUploadActivity : AppCompatActivity() {
     }
 
     private fun takeImage() {
-        lifecycleScope.launchWhenStarted {
-            getTmpFileUri().let { uri ->
-                latestTmpUri = uri
-                takeImageResult.launch(uri)
-            }
-        }
+        latestTmpUri = getTmpFileUri()
+        takeImageResult.launch(latestTmpUri)
     }
 
     private fun getTmpFileUri(): Uri {
@@ -227,11 +221,11 @@ class ImageUploadActivity : AppCompatActivity() {
             contentResolver.insert(imageCollection, contentValues)?.also { uri ->
                 contentResolver.openOutputStream(uri).use { outputStream ->
                     if (!bitMap.compress(Bitmap.CompressFormat.JPEG, 95, outputStream))
-                        throw IOException("Couldn't save bitmap")
+                        throw IOException(resources.getString(R.string.saving_error))
                 }
-            } ?: throw IOException("Couldn't create MediaStore entry.")
+            } ?: throw IOException(resources.getString(R.string.media_store_error))
         } catch (e: IOException) {
-            e.printStackTrace()
+            this.shortToast(e.message.toString())
         }
     }
 

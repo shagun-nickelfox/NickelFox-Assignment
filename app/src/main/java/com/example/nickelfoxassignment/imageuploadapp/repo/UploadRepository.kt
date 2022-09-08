@@ -7,7 +7,6 @@ import com.example.nickelfoxassignment.imageuploadapp.api.ImgurApi
 import com.example.nickelfoxassignment.imageuploadapp.model.Data
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.io.FileOutputStream
 import javax.inject.Inject
@@ -24,8 +23,7 @@ class UploadRepository @Inject constructor(
                 MultipartBody.Part.createFormData("image", file.name, file.asRequestBody())
 
             val response = imgurApi.uploadFile(
-                filePart,
-                name = file.name.toRequestBody()
+                filePart
             )
             if (response.isSuccessful) {
                 Result.success(response.body()!!.data)
