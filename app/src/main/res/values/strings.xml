@@ -155,5 +155,6 @@
     <string name="choose_option">Choose an option</string>
     <string name="choose_message">How do you want to choose an image?</string>
     <string name="enable_permission">Enable Media Permission</string>
-    <string name="enable_permission_message">This app needs the media permission, please turn on your media permission from app settings</string>
+    <string name="enable_media_permission">This app needs the media permission, please turn on your media permission from app settings</string>
+    <string name="enable_camera_permission">This app needs the camera permission, please turn on your camera permission from app settings</string>
 </resources>

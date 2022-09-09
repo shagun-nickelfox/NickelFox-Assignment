@@ -64,12 +64,12 @@ class ImageUploadActivity : AppCompatActivity() {
             }
         }
 
-    private val requestCameraPermissions =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (isGranted) {
-                takeImage()
-            } else {
+    private val requestMultipleCameraPermissions =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            if (permissions.any { !it.value }) {
                 this.shortToast(resources.getString(R.string.permission_denied))
+            } else {
+                takeImage()
             }
         }
 
@@ -126,26 +126,40 @@ class ImageUploadActivity : AppCompatActivity() {
      * alert dialog to give user a option to select between camera and gallery for uploading a image
      */
     private fun showImageOptionsDialog() {
+        val minSdk29OrAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
         MaterialAlertDialogBuilder(this@ImageUploadActivity)
             .setTitle(resources.getString(R.string.choose_option))
             .setMessage(resources.getString(R.string.choose_message))
             .setNegativeButton(CAMERA) { dialog, _ ->
                 when {
-                    checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED ->
+                    checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
+                            (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED || minSdk29OrAbove) ->
                         takeImage()
-                    shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) ->
-                        showPermissionDialog()
-                    else -> requestCameraPermissions.launch(Manifest.permission.CAMERA)
+                    shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> showPermissionDialog(
+                        resources.getString(R.string.enable_camera_permission)
+                    )
+                    shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> showPermissionDialog(
+                        resources.getString(R.string.enable_media_permission)
+                    )
+                    else -> if (minSdk29OrAbove) requestMultipleCameraPermissions.launch(
+                        arrayOf(Manifest.permission.CAMERA)
+                    )
+                    else requestMultipleCameraPermissions.launch(
+                        arrayOf(
+                            Manifest.permission.CAMERA,
+                            Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                    )
                 }
                 dialog.dismiss()
             }
             .setPositiveButton(GALLERY) { dialog, _ ->
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                if (!minSdk29OrAbove) {
                     when {
                         checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ->
                             chooseImageGallery()
                         shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) ->
-                            showPermissionDialog()
+                            showPermissionDialog(resources.getString(R.string.enable_media_permission))
                         else -> requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                     }
                 } else chooseImageGallery()
@@ -156,10 +170,10 @@ class ImageUploadActivity : AppCompatActivity() {
     /**
      * alert dialog to tell user to provide a specific permission if user denied it previously
      */
-    private fun showPermissionDialog() {
+    private fun showPermissionDialog(message: String) {
         MaterialAlertDialogBuilder(this)
             .setTitle(resources.getString(R.string.enable_permission))
-            .setMessage(resources.getString(R.string.enable_permission_message))
+            .setMessage(message)
             .setPositiveButton(APP_SETTINGS) { dialog, _ ->
                 Intent().apply {
                     action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
