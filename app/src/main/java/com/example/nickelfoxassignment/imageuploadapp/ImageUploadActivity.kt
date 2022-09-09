@@ -2,6 +2,7 @@ package com.example.nickelfoxassignment.imageuploadapp
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -9,9 +10,9 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
+import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -23,37 +24,34 @@ import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityImageUploadBinding
 import com.example.nickelfoxassignment.imageuploadapp.viewmodel.ImageUploadViewModel
 import com.example.nickelfoxassignment.shortToast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileDescriptor
 import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class ImageUploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImageUploadBinding
     private val imageViewModel by viewModels<ImageUploadViewModel>()
     private var imageUri: Uri? = null
-    private var latestTmpUri: Uri? = null
 
     private val selectImage =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             if (uri != null) {
                 binding.ivSelectedImage.setImageURI(uri)
-                binding.tvResultLink.text = ""
+                binding.tvResultLink.text = EMPTY_STRING
                 imageUri = uri
             }
         }
 
-    private val takeImageResult =
+    private val clickImage =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
             if (isSuccess) {
-                binding.ivSelectedImage.setImageURI(latestTmpUri)
-                imageUri = latestTmpUri
+                binding.ivSelectedImage.setImageURI(imageUri)
                 galleryAddPic()
-                binding.tvResultLink.text = ""
+                binding.tvResultLink.text = EMPTY_STRING
             }
         }
 
@@ -66,12 +64,12 @@ class ImageUploadActivity : AppCompatActivity() {
             }
         }
 
-    private val requestMultiplePermissions =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-            if (it.any { permission -> !permission.value }) {
-                this.shortToast(resources.getString(R.string.permission_denied))
-            } else {
+    private val requestCameraPermissions =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
                 takeImage()
+            } else {
+                this.shortToast(resources.getString(R.string.permission_denied))
             }
         }
 
@@ -80,12 +78,8 @@ class ImageUploadActivity : AppCompatActivity() {
         binding = ActivityImageUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        changeStatusBarColour()
-        setupListeners()
-    }
-
-    private fun changeStatusBarColour() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.dark_green)
+        setupListeners()
     }
 
     private fun setupListeners() {
@@ -97,20 +91,9 @@ class ImageUploadActivity : AppCompatActivity() {
                 )
             )
             btnSelectImage.setOnClickListener {
-                showImageSelectOptions(true)
-            }
-            btnTakeImageButton.setOnClickListener {
-                requestClickImagePermissions()
-            }
-            btnSelectImageButton.setOnClickListener {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                    requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-                } else {
-                    chooseImageGallery()
-                }
+                showImageOptionsDialog()
             }
             btnUploadImage.setOnClickListener {
-                showImageSelectOptions(false)
                 if (imageUri != null) {
                     viewVisibility(btnVisibility = false, progressBarVisibility = true)
                     imageViewModel.selectedImageUri(imageUri!!)
@@ -118,30 +101,6 @@ class ImageUploadActivity : AppCompatActivity() {
                 } else {
                     this@ImageUploadActivity.shortToast(resources.getString(R.string.choose_image))
                 }
-            }
-        }
-    }
-
-    private fun requestClickImagePermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            if (checkSelfPermission(Manifest.permission.ACCESS_MEDIA_LOCATION) == PackageManager.PERMISSION_DENIED
-                && checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
-            ) {
-                requestMultiplePermissions.launch(
-                    arrayOf(Manifest.permission.ACCESS_MEDIA_LOCATION, Manifest.permission.CAMERA)
-                )
-            } else if (checkSelfPermission(Manifest.permission.ACCESS_MEDIA_LOCATION) == PackageManager.PERMISSION_DENIED) {
-                requestMultiplePermissions.launch(arrayOf(Manifest.permission.ACCESS_MEDIA_LOCATION))
-            } else if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
-                requestMultiplePermissions.launch(arrayOf(Manifest.permission.CAMERA))
-            } else {
-                takeImage()
-            }
-        } else {
-            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
-                requestMultiplePermissions.launch(arrayOf(Manifest.permission.CAMERA))
-            } else {
-                takeImage()
             }
         }
     }
@@ -160,40 +119,68 @@ class ImageUploadActivity : AppCompatActivity() {
         }
     }
 
-    private fun showImageSelectOptions(visible: Boolean) {
-        binding.btnSelectImageButton.isVisible = visible
-        binding.btnTakeImageButton.isVisible = visible
+    private fun showImageOptionsDialog() {
+        MaterialAlertDialogBuilder(this@ImageUploadActivity)
+            .setTitle(resources.getString(R.string.choose_option))
+            .setMessage(resources.getString(R.string.choose_message))
+            .setNegativeButton(CAMERA) { dialog, _ ->
+                when {
+                    checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED ->
+                        takeImage()
+                    shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) ->
+                        showPermissionDialog()
+                    else -> requestCameraPermissions.launch(Manifest.permission.CAMERA)
+                }
+                dialog.dismiss()
+            }
+            .setPositiveButton(GALLERY) { dialog, _ ->
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                    when {
+                        checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ->
+                            chooseImageGallery()
+                        shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) ->
+                            showPermissionDialog()
+                        else -> requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    }
+                } else chooseImageGallery()
+                dialog.dismiss()
+            }.show()
+    }
+
+    private fun showPermissionDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(resources.getString(R.string.enable_permission))
+            .setMessage(resources.getString(R.string.enable_permission_message))
+            .setPositiveButton(APP_SETTINGS) { dialog, _ ->
+                Intent().apply {
+                    action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                    val uri = Uri.fromParts(PACKAGE, packageName, null)
+                    data = uri
+                    dialog.dismiss()
+                    startActivity(this)
+                }
+            }
+            .setNegativeButton(NOT_NOW) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun chooseImageGallery() {
-        selectImage.launch("image/*")
+        selectImage.launch(GALLERY_MIME_TYPE)
     }
 
     private fun takeImage() {
-        latestTmpUri = getTmpFileUri()
-        takeImageResult.launch(latestTmpUri)
+        imageUri = getTmpFileUri()
+        clickImage.launch(imageUri)
     }
 
     private fun getTmpFileUri(): Uri {
+        val file = File(applicationContext.filesDir, "JPEG_${System.currentTimeMillis()}_.jpg")
         return FileProvider.getUriForFile(
             applicationContext,
             "${BuildConfig.APPLICATION_ID}.provider",
-            createImageFile()
-        )
-    }
-
-    private fun createImageName(): String {
-        val timeStamp = SimpleDateFormat.getDateTimeInstance().format(Date())
-        return "JPEG_${timeStamp}_"
-    }
-
-    private fun createImageFile(): File {
-        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-
-        return File.createTempFile(
-            createImageName(),
-            ".jpg",
-            storageDir
+            file
         )
     }
 
@@ -212,10 +199,10 @@ class ImageUploadActivity : AppCompatActivity() {
         } else {
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         }
-        val bitMap = getBitmapFromUri(latestTmpUri)
+        val bitMap = getBitmapFromUri(imageUri)
         val contentValues = ContentValues().apply {
-            put(MediaStore.Images.Media.DISPLAY_NAME, "${createImageName()}.jpg")
-            put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
+            put(MediaStore.Images.Media.DISPLAY_NAME, "JPEG_${System.currentTimeMillis()}_.jpg")
+            put(MediaStore.Images.Media.MIME_TYPE, ADD_GALLERY_MIME_TYPE)
         }
         try {
             contentResolver.insert(imageCollection, contentValues)?.also { uri ->
@@ -233,5 +220,16 @@ class ImageUploadActivity : AppCompatActivity() {
         binding.piProgressIndicator.isVisible = progressBarVisibility
         binding.btnUploadImage.isVisible = btnVisibility
         binding.btnSelectImage.isVisible = btnVisibility
+    }
+
+    companion object {
+        const val CAMERA = "Camera"
+        const val GALLERY = "Gallery"
+        const val APP_SETTINGS = "App Settings"
+        const val NOT_NOW = "Not Now"
+        const val PACKAGE = "package"
+        const val GALLERY_MIME_TYPE = "image/*"
+        const val ADD_GALLERY_MIME_TYPE = "image/jpeg"
+        const val EMPTY_STRING = ""
     }
 }

@@ -20,7 +20,7 @@ class UploadRepository @Inject constructor(
             val file = copyStreamToFile(uri)
 
             val filePart =
-                MultipartBody.Part.createFormData("image", file.name, file.asRequestBody())
+                MultipartBody.Part.createFormData(IMAGE, file.name, file.asRequestBody())
 
             val response = imgurApi.uploadFile(
                 filePart
@@ -36,7 +36,7 @@ class UploadRepository @Inject constructor(
     }
 
     private fun copyStreamToFile(uri: Uri): File {
-        val outputFile = File.createTempFile("temp", null)
+        val outputFile = File.createTempFile(uri.lastPathSegment ?: TEMP, null)
 
         context.contentResolver.openInputStream(uri)?.use { input ->
             val outputStream = FileOutputStream(outputFile)
@@ -51,5 +51,10 @@ class UploadRepository @Inject constructor(
             }
         }
         return outputFile
+    }
+
+    companion object {
+        const val IMAGE = "image"
+        const val TEMP = "temp"
     }
 }

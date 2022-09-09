@@ -152,4 +152,8 @@
     <string name="take_image">Take image</string>
     <string name="saving_error">Couldn\'t save bitmap</string>
     <string name="media_store_error">Couldn\'t create MediaStore entry.</string>
+    <string name="choose_option">Choose an option</string>
+    <string name="choose_message">How do you want to choose an image?</string>
+    <string name="enable_permission">Enable Media Permission</string>
+    <string name="enable_permission_message">This app needs the media permission, please turn on your media permission from app settings</string>
 </resources>
