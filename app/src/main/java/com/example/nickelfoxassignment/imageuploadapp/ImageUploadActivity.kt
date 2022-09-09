@@ -50,7 +50,7 @@ class ImageUploadActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
             if (isSuccess) {
                 binding.ivSelectedImage.setImageURI(imageUri)
-                galleryAddPic()
+                addPicToGallery()
                 binding.tvResultLink.text = EMPTY_STRING
             }
         }
@@ -105,6 +105,9 @@ class ImageUploadActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Observe the result of the image upload api
+     */
     private fun setupObservers() {
         lifecycleScope.launch {
             imageViewModel.uploadImage().onSuccess { data ->
@@ -119,6 +122,9 @@ class ImageUploadActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * alert dialog to give user a option to select between camera and gallery for uploading a image
+     */
     private fun showImageOptionsDialog() {
         MaterialAlertDialogBuilder(this@ImageUploadActivity)
             .setTitle(resources.getString(R.string.choose_option))
@@ -147,6 +153,9 @@ class ImageUploadActivity : AppCompatActivity() {
             }.show()
     }
 
+    /**
+     * alert dialog to tell user to provide a specific permission if user denied it previously
+     */
     private fun showPermissionDialog() {
         MaterialAlertDialogBuilder(this)
             .setTitle(resources.getString(R.string.enable_permission))
@@ -166,15 +175,24 @@ class ImageUploadActivity : AppCompatActivity() {
             .show()
     }
 
+    /**
+     * to launch an result API for selecting an image from gallery
+     */
     private fun chooseImageGallery() {
         selectImage.launch(GALLERY_MIME_TYPE)
     }
 
+    /**
+     * to launch an result API which opens a camera to click a picture
+     */
     private fun takeImage() {
         imageUri = getTmpFileUri()
         clickImage.launch(imageUri)
     }
 
+    /**
+     * provide a temp uri to takeImage() function to store the data of image clicked by user
+     */
     private fun getTmpFileUri(): Uri {
         val file = File(applicationContext.filesDir, "JPEG_${System.currentTimeMillis()}_.jpg")
         return FileProvider.getUriForFile(
@@ -184,6 +202,9 @@ class ImageUploadActivity : AppCompatActivity() {
         )
     }
 
+    /**
+     * function to convert a uri into bitmap and give it to addPicToGallery() function
+     */
     private fun getBitmapFromUri(uri: Uri?): Bitmap {
         val parcelFileDescriptor: ParcelFileDescriptor? =
             contentResolver.openFileDescriptor(uri!!, "r")
@@ -193,7 +214,10 @@ class ImageUploadActivity : AppCompatActivity() {
         return image
     }
 
-    private fun galleryAddPic() {
+    /**
+     * function to add an image to external storage
+     */
+    private fun addPicToGallery() {
         val imageCollection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
         } else {
@@ -216,6 +240,9 @@ class ImageUploadActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * to show and hide the buttons and progress bar
+     */
     private fun viewVisibility(btnVisibility: Boolean, progressBarVisibility: Boolean) {
         binding.piProgressIndicator.isVisible = progressBarVisibility
         binding.btnUploadImage.isVisible = btnVisibility
