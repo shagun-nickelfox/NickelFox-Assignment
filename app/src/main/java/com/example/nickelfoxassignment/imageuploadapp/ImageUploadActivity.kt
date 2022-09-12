@@ -41,6 +41,7 @@ class ImageUploadActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             if (uri != null) {
                 binding.ivSelectedImage.setImageURI(uri)
+                binding.ivCancelImage.isVisible = true
                 binding.tvResultLink.text = EMPTY_STRING
                 imageUri = uri
             }
@@ -50,6 +51,7 @@ class ImageUploadActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
             if (isSuccess) {
                 binding.ivSelectedImage.setImageURI(imageUri)
+                binding.ivCancelImage.isVisible = true
                 addPicToGallery()
                 binding.tvResultLink.text = EMPTY_STRING
             }
@@ -60,14 +62,14 @@ class ImageUploadActivity : AppCompatActivity() {
             if (isGranted) {
                 chooseImageGallery()
             } else {
-                this.shortToast(resources.getString(R.string.permission_denied))
+                this.shortToast(getString(R.string.permission_denied))
             }
         }
 
     private val requestMultipleCameraPermissions =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             if (permissions.any { !it.value }) {
-                this.shortToast(resources.getString(R.string.permission_denied))
+                this.shortToast(getString(R.string.permission_denied))
             } else {
                 takeImage()
             }
@@ -99,8 +101,11 @@ class ImageUploadActivity : AppCompatActivity() {
                     imageViewModel.selectedImageUri(imageUri!!)
                     setupObservers()
                 } else {
-                    this@ImageUploadActivity.shortToast(resources.getString(R.string.choose_image))
+                    this@ImageUploadActivity.shortToast(getString(R.string.choose_image))
                 }
+            }
+            ivCancelImage.setOnClickListener {
+                showCancelDialog()
             }
         }
     }
@@ -113,11 +118,14 @@ class ImageUploadActivity : AppCompatActivity() {
             imageViewModel.uploadImage().onSuccess { data ->
                 viewVisibility(btnVisibility = true, progressBarVisibility = false)
                 binding.tvResultLink.text = data.link
-                this@ImageUploadActivity.shortToast(resources.getString(R.string.image_uploaded))
+                this@ImageUploadActivity.shortToast(getString(R.string.image_uploaded))
             }
             imageViewModel.uploadImage().onFailure {
                 viewVisibility(btnVisibility = true, progressBarVisibility = false)
-                this@ImageUploadActivity.shortToast(resources.getString(R.string.uploading_error))
+                if (it.localizedMessage == getString(R.string.host_error))
+                    this@ImageUploadActivity.shortToast(getString(R.string.internet_error))
+                else
+                    this@ImageUploadActivity.shortToast(getString(R.string.uploading_error))
             }
         }
     }
@@ -128,18 +136,18 @@ class ImageUploadActivity : AppCompatActivity() {
     private fun showImageOptionsDialog() {
         val minSdk29OrAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
         MaterialAlertDialogBuilder(this@ImageUploadActivity)
-            .setTitle(resources.getString(R.string.choose_option))
-            .setMessage(resources.getString(R.string.choose_message))
+            .setTitle(getString(R.string.choose_option))
+            .setMessage(getString(R.string.choose_message))
             .setNegativeButton(CAMERA) { dialog, _ ->
                 when {
                     checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
                             (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED || minSdk29OrAbove) ->
                         takeImage()
                     shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> showPermissionDialog(
-                        resources.getString(R.string.enable_camera_permission)
+                        getString(R.string.enable_camera_permission)
                     )
                     shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> showPermissionDialog(
-                        resources.getString(R.string.enable_media_permission)
+                        getString(R.string.enable_media_permission)
                     )
                     else -> if (minSdk29OrAbove) requestMultipleCameraPermissions.launch(
                         arrayOf(Manifest.permission.CAMERA)
@@ -159,7 +167,7 @@ class ImageUploadActivity : AppCompatActivity() {
                         checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ->
                             chooseImageGallery()
                         shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) ->
-                            showPermissionDialog(resources.getString(R.string.enable_media_permission))
+                            showPermissionDialog(getString(R.string.enable_media_permission))
                         else -> requestReadPermissions.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                     }
                 } else chooseImageGallery()
@@ -172,7 +180,7 @@ class ImageUploadActivity : AppCompatActivity() {
      */
     private fun showPermissionDialog(message: String) {
         MaterialAlertDialogBuilder(this)
-            .setTitle(resources.getString(R.string.enable_permission))
+            .setTitle(getString(R.string.enable_permission))
             .setMessage(message)
             .setPositiveButton(APP_SETTINGS) { dialog, _ ->
                 Intent().apply {
@@ -184,6 +192,25 @@ class ImageUploadActivity : AppCompatActivity() {
                 }
             }
             .setNegativeButton(NOT_NOW) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    /**
+     * alert dialog to ask user confirmation to delete an image
+     */
+    private fun showCancelDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.cancel_image))
+            .setMessage(getString(R.string.cancel_image_message))
+            .setPositiveButton(YES) { dialog, _ ->
+                binding.ivCancelImage.isVisible = false
+                binding.ivSelectedImage.setImageURI(null)
+                imageUri = null
+                dialog.dismiss()
+            }
+            .setNegativeButton(NO) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -246,9 +273,9 @@ class ImageUploadActivity : AppCompatActivity() {
             contentResolver.insert(imageCollection, contentValues)?.also { uri ->
                 contentResolver.openOutputStream(uri).use { outputStream ->
                     if (!bitMap.compress(Bitmap.CompressFormat.JPEG, 95, outputStream))
-                        throw IOException(resources.getString(R.string.saving_error))
+                        throw IOException(getString(R.string.saving_error))
                 }
-            } ?: throw IOException(resources.getString(R.string.media_store_error))
+            } ?: throw IOException(getString(R.string.media_store_error))
         } catch (e: IOException) {
             this.shortToast(e.message.toString())
         }
@@ -272,5 +299,7 @@ class ImageUploadActivity : AppCompatActivity() {
         const val GALLERY_MIME_TYPE = "image/*"
         const val ADD_GALLERY_MIME_TYPE = "image/jpeg"
         const val EMPTY_STRING = ""
+        const val YES = "Yes"
+        const val NO = "No"
     }
 }
