@@ -16,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.newsapp.adapter.ArticleClickInterface
 import com.example.nickelfoxassignment.newsapp.adapter.MoreOptionsClickInterface
@@ -109,7 +110,7 @@ class SearchFragment : Fragment(), ArticleClickInterface,
                 }
                 setOnEditorActionListener(OnEditorActionListener { v, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        newsAdapter.refresh()
+                        newsAdapter.submitData(lifecycle, PagingData.empty())
                         activity?.hideKeyboard(v)
                         viewModel.setSearchValue(tvSearch.text.toString())
                         return@OnEditorActionListener true

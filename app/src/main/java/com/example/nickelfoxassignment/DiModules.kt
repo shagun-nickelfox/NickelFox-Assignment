@@ -1,11 +1,10 @@
-package com.example.nickelfoxassignment.newsapp.di
+package com.example.nickelfoxassignment
 
 import android.content.Context
-import android.net.ConnectivityManager
 import androidx.room.Room
-import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.Constants.BOOKMARK_DATABASE
 import com.example.nickelfoxassignment.Constants.NEWS_DATABASE
+import com.example.nickelfoxassignment.imageuploadapp.api.ImgurApi
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDatabase
 import com.example.nickelfoxassignment.newsapp.database.NewsDatabase
@@ -15,50 +14,73 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Qualifier
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DiModules {
 
-    @Singleton
+    @Qualifier
+    annotation class NewsRetrofit
+
+    @Qualifier
+    annotation class UploadImageRetrofit
+
     @Provides
-    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
-        return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient {
+        val okHttpClient = OkHttpClient.Builder()
+        okHttpClient
+            .addInterceptor(Interceptor { chain ->
+                val request: Request = chain.request()
+                    .newBuilder()
+                    .addHeader("Authorization", "Client-ID ${BuildConfig.CLIENT_ID}")
+                    .build()
+                chain.proceed(request)
+            })
+        return if (BuildConfig.DEBUG) {
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.apply {
+                loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            }
+            okHttpClient.addInterceptor(loggingInterceptor).build()
+        } else okHttpClient
+            .build()
     }
 
-    @Provides
-    fun provideBaseUrl() = BuildConfig.BASE_URL
-
-    @Provides
-    @Singleton
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
-        val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.apply { loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY }
-        OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
-    } else OkHttpClient
-        .Builder()
-        .build()
-
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL: String): Retrofit {
+    @NewsRetrofit
+    fun provideNewsRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideNewsInterface(retrofit: Retrofit): NewsInterface {
+    @UploadImageRetrofit
+    fun provideImageUploadRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BuildConfig.UPLOAD_BASE_URL)
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideNewsInterface(@NewsRetrofit retrofit: Retrofit): NewsInterface {
         return retrofit.create(NewsInterface::class.java)
     }
 
@@ -86,5 +108,18 @@ object DiModules {
     @Provides
     fun provideBookmarkDao(appDatabase: BookmarkDatabase): BookmarkDao {
         return appDatabase.getBookmarkDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideContext(@ApplicationContext appContext: Context): Context {
+        return appContext
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideImgurApiInterface(@UploadImageRetrofit retrofit: Retrofit): ImgurApi {
+        return retrofit.create(ImgurApi::class.java)
     }
 }

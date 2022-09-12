@@ -1,11 +1,13 @@
 package com.example.nickelfoxassignment.viewpager.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.nickelfoxassignment.databinding.FragmentSecondScreenBinding
+import com.example.nickelfoxassignment.imageuploadapp.ImageUploadActivity
 import com.example.nickelfoxassignment.shortToast
 
 class SecondScreen : Fragment() {
@@ -17,8 +19,10 @@ class SecondScreen : Fragment() {
     ): View {
         binding = FragmentSecondScreenBinding.inflate(inflater, container, false)
 
-        binding.tvSecondScreen.setOnClickListener {
-            it.context.shortToast("Second Screen Clicked")
+        binding.root.setOnClickListener {
+            it.context.shortToast("Opening...")
+            val intent = Intent(activity, ImageUploadActivity::class.java)
+            startActivity(intent)
         }
         return binding.root
     }

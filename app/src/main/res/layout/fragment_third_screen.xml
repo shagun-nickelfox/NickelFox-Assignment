@@ -13,7 +13,7 @@
         app:cardCornerRadius="30dp"
         app:cardUseCompatPadding="true"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/green">
+        app:cardBackgroundColor="@color/pink">
 
         <TextView
             android:layout_width="wrap_content"
