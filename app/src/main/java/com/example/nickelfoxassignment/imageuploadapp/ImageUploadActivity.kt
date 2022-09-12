@@ -207,6 +207,7 @@ class ImageUploadActivity : AppCompatActivity() {
             .setPositiveButton(YES) { dialog, _ ->
                 binding.ivCancelImage.isVisible = false
                 binding.ivSelectedImage.setImageURI(null)
+                binding.tvResultLink.text = EMPTY_STRING
                 imageUri = null
                 dialog.dismiss()
             }
