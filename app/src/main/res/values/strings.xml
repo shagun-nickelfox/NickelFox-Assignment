@@ -4,8 +4,6 @@
     <string name="title">title</string>
     <string name="description">Image of a cartoon</string>
     <string name="hello_world">Hello World</string>
-    <string name="hello_world_hope_you_all_are_doing_good">Hello World, Hope you all are doing good!!</string>
-    <string name="google_map_key">AIzaSyCdaXdBoknw4yatmOo3msPxctpu6Cs8G58</string>
     <string name="cartoon">Image of a cartoon</string>
     <string name="zoom">zoom</string>
     <string name="rotation">Rotation</string>
@@ -14,8 +12,6 @@
     <string name="move">move</string>
     <string name="slide">slide</string>
     <string name="form_submission">Form Submission</string>
-    <string name="animations_demo_screen">Animations Demo Screen</string>
-    <string name="calculator_ui">Calculator UI</string>
     <string name="google_maps_screen">Google Maps Screen</string>
     <string name="date_of_birth">Date Of Birth</string>
     <string name="gender">Gender</string>
@@ -29,10 +25,7 @@
     <string name="rating">Rating</string>
     <string name="terms">Accept all the terms and conditions</string>
     <string name="submit">Submit</string>
-    <string name="find">Find</string>
-    <string name="assignment_0">Assignment 0</string>
     <string name="marker_clustering">Marker Clustering</string>
-    <string name="shared_transition">Shared Transition</string>
     <string name="user_onBoarding">User\'s OnBoarding</string>
     <string name="logo">Logo</string>
     <string name="divide">÷</string>
@@ -42,7 +35,6 @@
     <string name="crashlytics">Crashlytics</string>
     <string name="equal">=</string>
     <string name="ac">AC</string>
-    <string name="sign">+/-</string>
     <string name="mod">%</string>
     <string name="_1">1</string>
     <string name="_4">4</string>
@@ -56,7 +48,6 @@
     <string name="_6">6</string>
     <string name="_9">9</string>
     <string name="_00">00</string>
-    <string name="operation">1.000 × 4 + 2 × 1</string>
     <string name="result">4002</string>
     <string name="equalTo">=</string>
     <string name="logo_image">Logo Image</string>
@@ -81,13 +72,11 @@
     <string name="calculator">Calculator</string>
     <string name="image_of_google_maps">Image of google maps</string>
     <string name="first_assignment">First Assignment</string>
-    <string name="user_OnBoarding">User\'s OnBoarding</string>
     <string name="viewpager_demo">ViewPager Demo</string>
     <string name="image_of_gender">Image of gender</string>
     <string name="image_of_rating">Image of rating</string>
     <string name="crash">Crash</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="third_screen">Third Screen</string>
     <string name="first_screen">News App</string>
     <string name="second_screen">Image Upload App</string>
@@ -98,11 +87,7 @@
     <string name="passwordReset_description">Enter your email id to receive a password reset link</string>
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
-    <string name="sin">SIN</string>
-    <string name="cos">COS</string>
-    <string name="tan">TAN</string>
     <string name="backArrow">←</string>
-    <string name="zero">0</string>
     <string name="bookmarked">Bookmarked</string>
     <string name="news_24">News 24</string>
     <string name="for_you">For You</string>
@@ -126,19 +111,14 @@
     <string name="remove_bookmark">Remove from Bookmark</string>
     <string name="added_bookmark">Added to Bookmark</string>
     <string name="already_added_bookmark">Already exists in Bookmarked!</string>
-    <string name="http_error">"retrofit2.HttpException: HTTP 429 "</string>
     <string name="source_time">%1$s • %2$s</string>
     <string name="news_author">By %1$s</string>
-    <string name="error">You have made too many requests recently. Developer accounts are limited to 50 requests in every 12 hours.</string>
     <string name="internet_error">No internet access</string>
     <string name="api_error">Api request limit exceed</string>
     <string name="retrofit_error">retrofit2.HttpException: HTTP 429</string>
-    <string name="retrofit_small_error">HTTP 429</string>
     <string name="data_fetch_error">Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
     <string name="net_error">java.net.UnknownHostException: Unable to resolve host \"newsapi.org\": No address associated with hostname</string>
     <string name="anonymous">Anonymous</string>
-    <string name="retry"><u>Retry</u></string>
-    <string name="loading">Loading...</string>
     <string name="image">Image</string>
     <string name="choose_an_image">CHOOSE AN IMAGE</string>
     <string name="upload_to_imgur">UPLOAD TO IMGUR</string>
@@ -148,8 +128,6 @@
     <string name="uploading_error">Error in uploading</string>
     <string name="choose_image">Please choose an image to upload!</string>
     <string name="exception">Unknown network Exception.</string>
-    <string name="select_gallery_image">Select gallery-image</string>
-    <string name="take_image">Take image</string>
     <string name="saving_error">Couldn\'t save bitmap</string>
     <string name="media_store_error">Couldn\'t create MediaStore entry.</string>
     <string name="choose_option">Choose an option</string>
