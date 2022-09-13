@@ -139,4 +139,7 @@
     <string name="cancel_image_message">Are you sure you want to remove this image?</string>
     <string name="cancel_image_desc">cancelImage</string>
     <string name="host_error">Unable to resolve host \"api.imgur.com\": No address associated with hostname</string>
+    <string name="stopwatch">Stopwatch</string>
+    <string name="lap">Lap</string>
+    <string name="time_stopwatch">00 : 00</string>
 </resources>
