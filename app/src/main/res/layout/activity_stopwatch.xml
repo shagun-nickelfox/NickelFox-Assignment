@@ -43,14 +43,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="103dp"
         android:layout_marginTop="149dp"
         android:layout_marginEnd="104dp"
-        android:src="@drawable/ic_subtract"
+        android:background="@drawable/shadow"
+        android:src="@drawable/ring"
+        app:contentPadding="@dimen/dp_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvStopwatch"
@@ -60,9 +62,11 @@
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="78dp"
         android:layout_marginBottom="79dp"
+        android:background="@drawable/circle_time"
+        android:gravity="center"
         android:text="@string/time_stopwatch"
         android:textColor="@color/white"
         android:textSize="28sp"
@@ -77,6 +81,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="113dp"
+        android:layout_marginBottom="143dp"
         android:paddingHorizontal="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/ivPlayCircle"
@@ -98,8 +103,7 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvLapTime" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvLap"
@@ -122,12 +126,34 @@
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="53dp"
-        android:background="@drawable/bg_circle_24"
-        android:elevation="5dp"
-        android:src="@drawable/ic_triangle"
+        android:src="@drawable/bg_circle_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tvLap"
         app:layout_constraintStart_toEndOf="@id/tvReset"
         tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:contentDescription="@string/pause_image"
+        android:src="@drawable/pause"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/ivPlayCircle"
+        app:layout_constraintTop_toTopOf="@id/ivPlayCircle" />
+
+    <ImageView
+        android:id="@+id/ivPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:contentDescription="@string/play_image"
+        android:src="@drawable/play"
+        app:layout_constraintStart_toStartOf="@id/ivPlayCircle"
+        app:layout_constraintTop_toTopOf="@id/ivPlayCircle" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
