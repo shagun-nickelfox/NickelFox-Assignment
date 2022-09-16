@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.lap_list_item.view.*
 
 class LapAdapter(private val context: Context) :
     RecyclerView.Adapter<LapAdapter.ViewHolder>() {
-    private var list: ArrayList<String> = ArrayList()
+    var list: ArrayList<String> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
         val myListItem = LayoutInflater.from(context)
             .inflate(R.layout.lap_list_item, parent, false)
@@ -28,6 +28,11 @@ class LapAdapter(private val context: Context) :
 
     fun addItemToList(item: String) {
         list.add(item)
+        notifyDataSetChanged()
+    }
+
+    fun clearList() {
+        list.clear()
         notifyDataSetChanged()
     }
 

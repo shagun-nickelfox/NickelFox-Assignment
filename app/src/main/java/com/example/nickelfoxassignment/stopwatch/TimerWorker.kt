@@ -17,6 +17,7 @@ class TimerWorker(context: Context, workerParameters: WorkerParameters) :
     }
 
     override fun doWork(): Result {
+        //Utils.sendNotification(applicationContext)
         timer?.cancel()
         timer = Timer()
         timerTask = object : TimerTask() {
@@ -25,7 +26,7 @@ class TimerWorker(context: Context, workerParameters: WorkerParameters) :
                 Constants.DATA.postValue(getTimerText())
             }
         }
-        timer!!.scheduleAtFixedRate(timerTask, 0, 10)
+        timer!!.scheduleAtFixedRate(timerTask, 0, 1000)
         if (!running) {
             timer?.cancel()
             timer = null
