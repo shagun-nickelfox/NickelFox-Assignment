@@ -36,7 +36,7 @@
         android:id="@+id/ivWatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="54dp"
         android:layout_marginEnd="71.48dp"
         android:src="@drawable/watch"
         app:layout_constraintEnd_toEndOf="parent"

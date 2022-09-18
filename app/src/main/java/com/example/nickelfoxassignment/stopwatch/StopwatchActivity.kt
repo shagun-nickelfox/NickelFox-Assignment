@@ -2,6 +2,8 @@ package com.example.nickelfoxassignment.stopwatch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.Data
@@ -20,6 +22,10 @@ class StopwatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStopwatchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+        }
 
         setupAdapter()
         setupListeners()
