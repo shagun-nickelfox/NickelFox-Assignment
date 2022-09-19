@@ -1,7 +1,6 @@
 package com.example.nickelfoxassignment
 
 import androidx.lifecycle.MutableLiveData
-import com.example.nickelfoxassignment.imageuploadapp.model.Data
 
 object Constants {
     const val ONE = "1"
@@ -28,6 +27,8 @@ object Constants {
     const val ARTICLE_REMOTE_KEYS_TABLE = "article_remote_keys"
     const val NEWS_DATABASE = "news_database"
     const val BOOKMARK_DATABASE = "bookmark_database"
-    var DATA : MutableLiveData<String> = MutableLiveData<String>("00 : 00")
-    var SECONDS : MutableLiveData<Int> = MutableLiveData(0)
+    const val RUNNING = "running"
+    var DATA: MutableLiveData<String> = MutableLiveData<String>("00 : 00")
+    var SECONDS: MutableLiveData<Long> = MutableLiveData(0)
+    var IS_RESET: MutableLiveData<Boolean> = MutableLiveData(false)
 }

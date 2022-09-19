@@ -6,17 +6,17 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
+import androidx.work.*
 import com.example.nickelfoxassignment.Constants
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityStopwatchBinding
+import kotlin.collections.HashSet
 
 
 class StopwatchActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStopwatchBinding
     private lateinit var lapAdapter: LapAdapter
+    private var myWorkRequest: OneTimeWorkRequest? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,30 +38,30 @@ class StopwatchActivity : AppCompatActivity() {
         binding.rvLapTime.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onPause() {
+    override fun onStop() {
         saveData()
-        super.onPause()
+        super.onStop()
     }
 
     private fun setupListeners() {
         binding.apply {
             tvReset.setOnClickListener {
+                startAndStopWorker(false)
                 ivPlay.isVisible = true
                 ivPause.isVisible = false
                 lapAdapter.clearList()
-                startAndStopWorker(false)
-                Constants.DATA.value = getString(R.string.time_stopwatch)
-                Constants.SECONDS.value = 0
-                tvTime.text = Constants.DATA.value
+                Constants.IS_RESET.value = true
             }
             ivPlayCircle.setOnClickListener {
                 if (ivPlay.isVisible) {
                     ivPause.isVisible = true
                     ivPlay.isVisible = false
+                    Constants.IS_RESET.value = false
                     startAndStopWorker(true)
                 } else {
                     ivPause.isVisible = false
                     ivPlay.isVisible = true
+                    Constants.IS_RESET.value = false
                     startAndStopWorker(false)
                 }
             }
@@ -76,30 +76,30 @@ class StopwatchActivity : AppCompatActivity() {
     }
 
     private fun saveData() {
-        val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE)
         val myEdit = sharedPreferences.edit()
         val set: MutableSet<String> = HashSet()
         set.addAll(lapAdapter.list)
-        myEdit.putBoolean("play", binding.ivPlay.isVisible)
-        myEdit.putBoolean("pause", binding.ivPause.isVisible)
-        myEdit.putStringSet("lapList", set)
+        myEdit.putBoolean(PLAY, binding.ivPlay.isVisible)
+        myEdit.putBoolean(PAUSE, binding.ivPause.isVisible)
+        myEdit.putStringSet(LAP_LIST, set)
         myEdit.apply()
     }
 
     private fun startAndStopWorker(running: Boolean) {
         val data =
-            Data.Builder().putBoolean("running", running)
+            Data.Builder().putBoolean(Constants.RUNNING, running)
                 .build()
-        val myWorkRequest =
+        myWorkRequest =
             OneTimeWorkRequest.Builder(TimerWorker::class.java).setInputData(data).build()
-        WorkManager.getInstance(applicationContext).beginWith(myWorkRequest).enqueue()
+        WorkManager.getInstance(applicationContext).beginWith(myWorkRequest!!).enqueue()
     }
 
     private fun setupObservers() {
-        val sh = getSharedPreferences("MySharedPref", MODE_PRIVATE)
-        binding.ivPlay.isVisible = sh.getBoolean("play", true)
-        binding.ivPause.isVisible = sh.getBoolean("pause", false)
-        val list = sh.getStringSet("lapList", null)
+        val sh = getSharedPreferences(SHARED_PREF, MODE_PRIVATE)
+        binding.ivPlay.isVisible = sh.getBoolean(PLAY, true)
+        binding.ivPause.isVisible = sh.getBoolean(PAUSE, false)
+        val list = sh.getStringSet(LAP_LIST, null)
         if (list != null) {
             for (i in list) {
                 lapAdapter.addItemToList(i)
@@ -108,6 +108,13 @@ class StopwatchActivity : AppCompatActivity() {
         Constants.DATA.observe(this@StopwatchActivity) { data ->
             binding.tvTime.text = data
         }
+    }
+
+    companion object {
+        const val PLAY = "play"
+        const val PAUSE = "pause"
+        const val LAP_LIST = "lapList"
+        const val SHARED_PREF = "MySharedPref"
     }
 }
 
