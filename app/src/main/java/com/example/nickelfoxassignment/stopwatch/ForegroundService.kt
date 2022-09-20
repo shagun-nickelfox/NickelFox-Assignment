@@ -45,10 +45,6 @@ class ForegroundService : Service() {
         return START_STICKY
     }
 
-    override fun stopService(intent: Intent?): Boolean {
-        return super.stopService(intent)
-    }
-
     private fun getTimerText(): String {
         val minutes = (secs!! / 1000) / 60
         val seconds = ((secs!! / 1000) % 60)
