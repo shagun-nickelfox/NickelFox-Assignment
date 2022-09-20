@@ -91,6 +91,8 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".stopwatch.ForegroundService" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
