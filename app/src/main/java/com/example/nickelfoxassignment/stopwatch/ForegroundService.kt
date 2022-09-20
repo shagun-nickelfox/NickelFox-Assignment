@@ -1,5 +1,6 @@
 package com.example.nickelfoxassignment.stopwatch
 
+import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -33,9 +34,9 @@ class ForegroundService : Service() {
                 Constants.SECONDS.postValue(0)
                 Constants.DATA.postValue("00 : 00")
             }
-            removeNotification(this@ForegroundService)
             timer?.cancel()
             timer = null
+            removeNotification(this@ForegroundService)
         }
         startForeground(
             1,
@@ -66,12 +67,15 @@ class ForegroundService : Service() {
     }
 
     private fun updateNotification(context: Context) {
-        NotificationBuilder.createNotificationChannel(context)
-            .notify(1, NotificationBuilder.getNotificationBuilder(context).build())
+        val notificationManager =
+            getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(1, NotificationBuilder.getNotificationBuilder(context).build())
     }
 
     private fun removeNotification(ctx: Context) {
-        NotificationBuilder.createNotificationChannel(ctx).cancel(1)
+        val notificationManager =
+            getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancelAll()
         ctx.stopService(Intent(ctx, ForegroundService::class.java))
     }
 

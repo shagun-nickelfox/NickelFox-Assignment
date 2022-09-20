@@ -28,6 +28,9 @@ object Constants {
     const val NEWS_DATABASE = "news_database"
     const val BOOKMARK_DATABASE = "bookmark_database"
     const val RUNNING = "running"
+    const val CHANNEL_ID = "timer_notify"
+    const val NOTIFICATION_NAME = "Timer Notification"
+    const val NOTIFICATION_DESC = "This channel is used to display the current timer"
     var DATA: MutableLiveData<String> = MutableLiveData<String>("00 : 00")
     var SECONDS: MutableLiveData<Long> = MutableLiveData(0)
     var IS_RESET: MutableLiveData<Boolean> = MutableLiveData(false)
