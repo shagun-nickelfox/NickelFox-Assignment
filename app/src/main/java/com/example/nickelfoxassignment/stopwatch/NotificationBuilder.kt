@@ -1,8 +1,10 @@
 package com.example.nickelfoxassignment.stopwatch
 
-import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -11,7 +13,20 @@ import com.example.nickelfoxassignment.Constants
 import com.example.nickelfoxassignment.R
 
 object NotificationBuilder {
-    fun getNotification(context: Context): Notification {
+
+    fun createNotificationChannel(context: Context): NotificationManager {
+        val name = NOTIFICATION_NAME
+        val descriptionText = NOTIFICATION_DESC
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val mChannel = NotificationChannel(NOTIFY, name, importance)
+        mChannel.description = descriptionText
+        val notificationManager =
+            context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(mChannel)
+        return notificationManager
+    }
+
+    fun getNotificationBuilder(context: Context): NotificationCompat.Builder {
         val intent = Intent(context, StopwatchActivity::class.java).apply {
             flags = FLAG_ACTIVITY_CLEAR_TOP or FLAG_ACTIVITY_SINGLE_TOP
         }
@@ -27,9 +42,11 @@ object NotificationBuilder {
             setOnlyAlertOnce(true)
             setContentIntent(pendingIntent)
             setSmallIcon(R.drawable.ic_launcher_foreground)
-        }.build()
+        }
     }
 
     private const val NOTIFY = "notify"
     private const val TIME_ELAPSED = "Time Elapsed"
+    private const val NOTIFICATION_NAME = "Timer_Notification"
+    private const val NOTIFICATION_DESC = "Timer Notification Description"
 }
