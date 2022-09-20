@@ -5,21 +5,19 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
+import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.Constants
 import java.util.*
 
 class ForegroundService : Service() {
     private var secs: Long? = 0
     private var timerTask: TimerTask? = null
-    private lateinit var notificationManager: NotificationManager
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        notificationManager =
-            applicationContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         secs = Constants.SECONDS.value
         timer?.cancel()
         timer = Timer()
@@ -37,8 +35,7 @@ class ForegroundService : Service() {
                 Constants.SECONDS.postValue(0)
                 Constants.DATA.postValue("00 : 00")
             }
-            notificationManager.cancelAll()
-            stopSelf()
+            removeNotification(applicationContext)
             timer?.cancel()
             timer = null
         }
@@ -49,8 +46,8 @@ class ForegroundService : Service() {
         return START_STICKY
     }
 
-    override fun stopService(name: Intent?): Boolean {
-        return super.stopService(name)
+    override fun stopService(intent: Intent?): Boolean {
+        return super.stopService(intent)
     }
 
     private fun getTimerText(): String {
@@ -73,8 +70,17 @@ class ForegroundService : Service() {
     private fun updateNotification(context: Context) {
         val notification =
             NotificationBuilder.getNotification(context)
-        val notifyId = 1
-        notificationManager.notify(notifyId, notification)
+        getSystemService(NotificationManager::class.java)?.notify(
+            1,
+            notification
+        )
+    }
+
+    private fun removeNotification(ctx: Context) {
+        ContextCompat.getSystemService(ctx, NotificationManager::class.java)?.cancel(
+            1
+        )
+        ctx.stopService(Intent(ctx, ForegroundService::class.java))
     }
 
     companion object {
