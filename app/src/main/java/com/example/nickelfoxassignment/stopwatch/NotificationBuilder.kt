@@ -26,8 +26,28 @@ object NotificationBuilder {
             setOnlyAlertOnce(true)
             setContentIntent(pendingIntent)
             priority = NotificationCompat.PRIORITY_HIGH
+            addAction(createAction(Constants.PAUSE, context))
+            addAction(createAction(Constants.RESET, context))
+            addAction(createAction(Constants.LAP, context))
             setSmallIcon(R.drawable.ic_launcher_foreground)
         }
+    }
+
+    private fun createAction(action: String, context: Context): NotificationCompat.Action {
+        return NotificationCompat.Action(
+            R.drawable.cancel,
+            action,
+            createPendingIntent(action, context)
+        )
+    }
+
+    private fun createPendingIntent(action: String, context: Context): PendingIntent {
+        return PendingIntent.getBroadcast(
+            context, 0,
+            Intent(context, TimerBroadcastReceiver::class.java)
+                .setAction(action),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
     }
 
     private const val TIME_ELAPSED = "Time Elapsed"

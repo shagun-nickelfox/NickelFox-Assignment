@@ -34,6 +34,7 @@ class ForegroundService : Service() {
                 Constants.SECONDS.postValue(0)
                 Constants.DATA.postValue("00 : 00")
             }
+            stopForeground(true)
             timer?.cancel()
             timer = null
             removeNotification(this@ForegroundService)
