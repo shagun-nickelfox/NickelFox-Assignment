@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.nickelfoxassignment.databinding.FragmentThirdScreenBinding
-import com.example.nickelfoxassignment.shortToast
 import com.example.nickelfoxassignment.stopwatch.StopwatchActivity
 
 class ThirdScreen : Fragment() {
@@ -18,7 +17,6 @@ class ThirdScreen : Fragment() {
         binding = FragmentThirdScreenBinding.inflate(inflater, container, false)
 
         binding.root.setOnClickListener {
-            it.context.shortToast("Opening...")
             val intent = Intent(activity, StopwatchActivity::class.java)
             startActivity(intent)
         }

@@ -94,7 +94,7 @@ class StopwatchActivity : AppCompatActivity() {
     private fun updateUI(play: Boolean, pause: Boolean) {
         binding.ivPause.isVisible = pause
         binding.ivPlay.isVisible = play
-        if (Constants.IS_RESET.value!!)
+        if (Constants.IS_RESET.value == true)
             lapAdapter.clearList()
     }
 

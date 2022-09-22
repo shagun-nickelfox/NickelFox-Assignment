@@ -6,37 +6,38 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import com.example.nickelfoxassignment.Constants
+import java.text.SimpleDateFormat
 import java.util.*
 
-class ForegroundService : Service() {
-    private var secs: Long? = 0
-    private var timerTask: TimerTask? = null
+class ForegroundService : Service(), CountUpListeners {
+    private var timer: Timer = Timer()
+    private val sdf = SimpleDateFormat(PATTERN, Locale.getDefault())
+    private lateinit var notificationManager: NotificationManager
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        secs = Constants.SECONDS.value
-        timer?.cancel()
-        timer = Timer()
-        if (intent!!.getBooleanExtra(Constants.RUNNING, false)) {
-            timerTask = object : TimerTask() {
-                override fun run() {
-                    secs = secs!! + 1
-                    Constants.DATA.postValue(getTimerText())
-                    updateNotification(context = this@ForegroundService)
-                }
-            }
-            timer!!.scheduleAtFixedRate(timerTask, 0, 1)
+    companion object {
+        const val PATTERN = "mm:ss.SS"
+        const val TIME_ZONE = "GMT"
+        const val INITIAL_DATA = "00 : 00"
+    }
+
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        sdf.timeZone = TimeZone.getTimeZone(TIME_ZONE)
+
+        if (intent.getBooleanExtra(Constants.RUNNING, false)) {
+            val millis = Constants.SECONDS.value
+            timer = CountUpTimer(millis ?: 0, 100L, this)
         } else {
-            if (Constants.IS_RESET.value!!) {
+            if (Constants.IS_RESET.value == true) {
                 Constants.SECONDS.postValue(0)
-                Constants.DATA.postValue("00 : 00")
+                Constants.DATA.postValue(INITIAL_DATA)
             }
+            timer.cancel()
             stopForeground(true)
-            timer?.cancel()
-            timer = null
             removeNotification(this@ForegroundService)
         }
         startForeground(
@@ -46,29 +47,6 @@ class ForegroundService : Service() {
         return START_STICKY
     }
 
-    private fun getTimerText(): String {
-        val minutes = (secs!! / 1000) / 60
-        val seconds = ((secs!! / 1000) % 60)
-        Constants.SECONDS.postValue(secs!!)
-        return formatTime(seconds, minutes, secs!!)
-    }
-
-    private fun formatTime(seconds: Long, minutes: Long, millis: Long): String {
-        return String.format(
-            "%02d",
-            minutes
-        ) + " : " + String.format("%02d", seconds) + "." + String.format(
-            "%02d",
-            (millis % 100)
-        )
-    }
-
-    private fun updateNotification(context: Context) {
-        val notificationManager =
-            getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(1, NotificationBuilder.getNotificationBuilder(context).build())
-    }
-
     private fun removeNotification(ctx: Context) {
         val notificationManager =
             getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -76,7 +54,17 @@ class ForegroundService : Service() {
         ctx.stopService(Intent(ctx, ForegroundService::class.java))
     }
 
-    companion object {
-        var timer: Timer? = null
+    override fun onTick(l: Long) {
+        Constants.SECONDS.postValue(l)
+        val timeString = sdf.format(Date(l))
+        Constants.DATA.postValue(timeString)
+        notificationManager.notify(
+            1,
+            NotificationBuilder.getNotificationBuilder(applicationContext).build()
+        )
     }
+}
+
+interface CountUpListeners {
+    fun onTick(l: Long)
 }
