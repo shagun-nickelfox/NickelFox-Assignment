@@ -15,4 +15,8 @@ class CountUpTimer(
             }
         }, incrementer, incrementer)
     }
+
+    interface CountUpListeners {
+        fun onTick(l: Long)
+    }
 }

@@ -9,7 +9,7 @@ import com.example.nickelfoxassignment.Constants
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ForegroundService : Service(), CountUpListeners {
+class ForegroundService : Service(), CountUpTimer.CountUpListeners {
     private var timer: Timer = Timer()
     private val sdf = SimpleDateFormat(PATTERN, Locale.getDefault())
     private lateinit var notificationManager: NotificationManager
@@ -63,8 +63,4 @@ class ForegroundService : Service(), CountUpListeners {
             NotificationBuilder.getNotificationBuilder(applicationContext).build()
         )
     }
-}
-
-interface CountUpListeners {
-    fun onTick(l: Long)
 }
