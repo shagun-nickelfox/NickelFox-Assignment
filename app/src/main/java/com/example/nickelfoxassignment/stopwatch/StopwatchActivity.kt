@@ -70,8 +70,13 @@ class StopwatchActivity : AppCompatActivity() {
                 updateUI(play = true, reset = true)
             }
             ivPlayCircle.setOnClickListener {
-                updateUI(play = !ivPlay.isVisible, pause = ivPlay.isVisible)
-                startAndStopWorker(play = ivPlay.isVisible)
+                if (ivPlay.isVisible) {
+                    updateUI(play = false, pause = true)
+                    startAndStopWorker(play = true)
+                } else {
+                    updateUI(play = true, pause = false)
+                    startAndStopWorker(pause = true)
+                }
             }
             tvLap.setOnClickListener {
                 addItemToLap()

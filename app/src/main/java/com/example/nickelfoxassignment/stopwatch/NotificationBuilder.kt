@@ -15,17 +15,15 @@ object NotificationBuilder {
         time: String,
         running: Boolean
     ): NotificationCompat.Builder {
-
         return NotificationCompat.Builder(context, Constants.CHANNEL_ID).apply {
             setContentText(time)
             setOnlyAlertOnce(true)
             setContentIntent(pi)
             priority = NotificationCompat.PRIORITY_HIGH
-            if(running) {
+            if (running) {
                 addAction(createAction(NotificationActions.PAUSE.name, context))
                 addAction(createAction(NotificationActions.LAP.name, context))
-            }
-            else{
+            } else {
                 addAction(createAction(NotificationActions.PLAY.name, context))
                 addAction(createAction(NotificationActions.RESET.name, context))
             }

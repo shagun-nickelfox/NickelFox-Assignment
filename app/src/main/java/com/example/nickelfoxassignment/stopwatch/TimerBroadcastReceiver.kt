@@ -3,12 +3,17 @@ package com.example.nickelfoxassignment.stopwatch
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import com.example.nickelfoxassignment.utils.Constants
 import com.example.nickelfoxassignment.utils.NotificationActions
 
 class TimerBroadcastReceiver : BroadcastReceiver() {
+    companion object {
+        const val TAG = "TimerBroadcastReceiver"
+    }
 
     override fun onReceive(context: Context, intent: Intent) {
+        Log.d(TAG, "onReceive: action: ${intent.action}")
         when (intent.action) {
             NotificationActions.PAUSE.name -> {
                 startServiceWitBundle(context, NotificationActions.PAUSE)
@@ -22,6 +27,7 @@ class TimerBroadcastReceiver : BroadcastReceiver() {
                 val i = Intent(Constants.BROADCAST_NAME)
                 i.putExtra(NotificationActions.PLAY.name, true)
                 i.putExtra(NotificationActions.PAUSE.name, false)
+                i.putExtra(NotificationActions.RESET.name, true)
                 context.sendBroadcast(i)
             }
             NotificationActions.PLAY.name -> {
@@ -45,9 +51,9 @@ class TimerBroadcastReceiver : BroadcastReceiver() {
             ForegroundService::class.java
         ).apply {
             when (action) {
-                NotificationActions.PLAY -> putExtra(NotificationActions.PLAY.name, false)
-                NotificationActions.PAUSE -> putExtra(NotificationActions.PAUSE.name, false)
-                NotificationActions.RESET -> putExtra(NotificationActions.RESET.name, false)
+                NotificationActions.PLAY,
+                NotificationActions.PAUSE,
+                NotificationActions.RESET -> putExtra(action.name, true)
                 else -> Unit
             }
         })

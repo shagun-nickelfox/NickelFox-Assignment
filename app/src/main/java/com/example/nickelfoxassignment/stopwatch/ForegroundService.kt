@@ -16,6 +16,8 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
     private var timer: Timer = Timer()
     private lateinit var notificationManager: NotificationManager
     private lateinit var pendingIntent: PendingIntent
+    private var notifyHandler = 0L
+
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
@@ -78,14 +80,17 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
 
     override fun onTick(l: Long) {
         Constants.SECONDS.postValue(l)
-        notificationManager.notify(
-            1,
-            NotificationBuilder.getNotificationBuilder(
-                this,
-                pendingIntent,
-                l.getStopwatchTime(Constants.PATTERN_MIN_SEC),
-                true
-            ).build()
-        )
+        if (l - 1000 == notifyHandler) {
+            notifyHandler = l
+            notificationManager.notify(
+                1,
+                NotificationBuilder.getNotificationBuilder(
+                    applicationContext,
+                    pendingIntent,
+                    l.getStopwatchTime(Constants.PATTERN_MIN_SEC),
+                    true
+                ).build()
+            )
+        }
     }
 }
