@@ -12,8 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivitySignUpBinding
-import com.example.nickelfoxassignment.shortToast
-import com.example.nickelfoxassignment.showAnotherActivity
+import com.example.nickelfoxassignment.utils.shortToast
+import com.example.nickelfoxassignment.utils.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.util.regex.Pattern

@@ -9,7 +9,7 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityUserBinding
-import com.example.nickelfoxassignment.showAnotherActivity
+import com.example.nickelfoxassignment.utils.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 

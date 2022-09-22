@@ -1,32 +1,41 @@
 package com.example.nickelfoxassignment.stopwatch
 
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.os.IBinder
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.utils.Constants
+import com.example.nickelfoxassignment.utils.getStopwatchTime
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ForegroundService : Service(), CountUpTimer.CountUpListeners {
     private var timer: Timer = Timer()
-    private val sdf = SimpleDateFormat(PATTERN, Locale.getDefault())
     private lateinit var notificationManager: NotificationManager
+    private lateinit var pendingIntent :PendingIntent
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
 
     companion object {
-        const val PATTERN = "mm:ss.SS"
-        const val TIME_ZONE = "GMT"
         const val INITIAL_DATA = "00 : 00"
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            Intent(this, StopwatchActivity::class.java).apply {
+                this.flags = FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        sdf.timeZone = TimeZone.getTimeZone(TIME_ZONE)
+
 
         if (intent.getBooleanExtra(Constants.RUNNING, false)) {
             val millis = Constants.SECONDS.value
@@ -34,15 +43,15 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
         } else {
             if (Constants.IS_RESET.value == true) {
                 Constants.SECONDS.postValue(0)
-                Constants.DATA.postValue(INITIAL_DATA)
+                //Constants.DATA.postValue(INITIAL_DATA)
+                stopForeground(true)
+                removeNotification(this@ForegroundService)
             }
             timer.cancel()
-            stopForeground(true)
-            removeNotification(this@ForegroundService)
         }
         startForeground(
             1,
-            NotificationBuilder.getNotificationBuilder(applicationContext).build()
+            NotificationBuilder.getNotificationBuilder(this,pendingIntent, INITIAL_DATA).build()
         )
         return START_STICKY
     }
@@ -56,11 +65,10 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
 
     override fun onTick(l: Long) {
         Constants.SECONDS.postValue(l)
-        val timeString = sdf.format(Date(l))
-        Constants.DATA.postValue(timeString)
+        //Constants.DATA.postValue(timeString)
         notificationManager.notify(
             1,
-            NotificationBuilder.getNotificationBuilder(applicationContext).build()
+            NotificationBuilder.getNotificationBuilder(this,pendingIntent, l.getStopwatchTime()).build()
         )
     }
 }

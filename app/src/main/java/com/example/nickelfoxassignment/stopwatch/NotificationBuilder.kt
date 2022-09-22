@@ -3,32 +3,25 @@ package com.example.nickelfoxassignment.stopwatch
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
-import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import androidx.core.app.NotificationCompat
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.utils.Constants
 import com.example.nickelfoxassignment.R
+import com.example.nickelfoxassignment.utils.NotificationActions
 
 object NotificationBuilder {
-    fun getNotificationBuilder(context: Context): NotificationCompat.Builder {
-        val intent = Intent(context, StopwatchActivity::class.java).apply {
-            flags = FLAG_ACTIVITY_CLEAR_TOP or FLAG_ACTIVITY_SINGLE_TOP
-        }
-        val pendingIntent = PendingIntent.getActivity(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-        )
+    fun getNotificationBuilder(
+        context: Context,
+        pi: PendingIntent,
+        time: String
+    ): NotificationCompat.Builder {
+
         return NotificationCompat.Builder(context, Constants.CHANNEL_ID).apply {
-            setContentTitle(TIME_ELAPSED)
-            setContentText("${Constants.DATA.value}")
+            setContentText(time)
             setOnlyAlertOnce(true)
-            setContentIntent(pendingIntent)
+            setContentIntent(pi)
             priority = NotificationCompat.PRIORITY_HIGH
-            addAction(createAction(Constants.PAUSE, context))
-            addAction(createAction(Constants.RESET, context))
-            addAction(createAction(Constants.LAP, context))
+            addAction(createAction(NotificationActions.PAUSE.name, context))
+            addAction(createAction(NotificationActions.LAP.name, context))
             setSmallIcon(R.drawable.ic_launcher_foreground)
         }
     }
@@ -49,6 +42,4 @@ object NotificationBuilder {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
     }
-
-    private const val TIME_ELAPSED = "Time Elapsed"
 }

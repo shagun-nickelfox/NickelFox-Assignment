@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.utils.Constants
 
 class TimerWorker(context: Context, workerParameters: WorkerParameters) :
     Worker(context, workerParameters) {

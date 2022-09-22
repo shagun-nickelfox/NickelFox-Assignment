@@ -4,35 +4,46 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.utils.Constants
+import com.example.nickelfoxassignment.utils.NotificationActions
 
 class TimerBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
-        if (intent.action.equals(Constants.PAUSE)) {
-            startServiceWitBundle(context)
+        if (intent.action.equals(NotificationActions.PAUSE.name)) {
+            startServiceWitBundle(context, NotificationActions.PAUSE)
             val i = Intent(Constants.BROADCAST_NAME)
-            i.putExtra(Constants.PLAY, true)
-            i.putExtra(Constants.PAUSE, false)
+            i.putExtra(NotificationActions.PLAY.name, true)
+            i.putExtra(NotificationActions.PAUSE.name, false)
             context.sendBroadcast(i)
-        } else if (intent.action.equals(Constants.RESET)) {
+        } else if (intent.action.equals(NotificationActions.RESET.name)) {
             Constants.IS_RESET.value = true
-            startServiceWitBundle(context)
+            startServiceWitBundle(context, NotificationActions.RESET)
             val i = Intent(Constants.BROADCAST_NAME)
-            i.putExtra(Constants.PLAY, true)
-            i.putExtra(Constants.PAUSE, false)
+            i.putExtra(NotificationActions.PLAY.name, true)
+            i.putExtra(NotificationActions.PAUSE.name, false)
+            context.sendBroadcast(i)
+        } else if (intent.action.equals(NotificationActions.PLAY.name)) {
+            startServiceWitBundle(context, NotificationActions.PLAY)
+            val i = Intent(Constants.BROADCAST_NAME)
+            i.putExtra(NotificationActions.PLAY.name, false)
+            i.putExtra(NotificationActions.PAUSE.name, true)
             context.sendBroadcast(i)
         } else {
             val i = Intent(Constants.BROADCAST_NAME)
-            i.putExtra(Constants.LAP, Constants.DATA.value)
+            i.putExtra(NotificationActions.LAP.name, true)
             context.sendBroadcast(i)
         }
     }
 
-    private fun startServiceWitBundle(context: Context) {
+    private fun startServiceWitBundle(context: Context, action: NotificationActions) {
         val bundle = Bundle()
-        bundle.putBoolean(Constants.RUNNING, false)
+        bundle.putString("Action", "")
+        if (action == NotificationActions.PLAY)
+            bundle.putBoolean(Constants.RUNNING, true)
+        else
+            bundle.putBoolean(Constants.RUNNING, false)
         val intent = Intent(
             context,
             ForegroundService::class.java

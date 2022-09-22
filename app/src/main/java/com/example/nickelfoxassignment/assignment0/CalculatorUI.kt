@@ -8,6 +8,10 @@ import com.example.nickelfoxassignment.assignment0.calculatorhistory.Calculation
 import com.example.nickelfoxassignment.assignment0.calculatorhistory.CalculationViewModel
 import com.example.nickelfoxassignment.assignment0.calculatorhistory.HistoryActivity
 import com.example.nickelfoxassignment.databinding.ActivityCalculatorUiBinding
+import com.example.nickelfoxassignment.utils.Constants
+import com.example.nickelfoxassignment.utils.longToast
+import com.example.nickelfoxassignment.utils.showAnotherActivity
+import com.example.nickelfoxassignment.utils.showToolbar
 import kotlinx.android.synthetic.main.activity_calculator_ui.*
 
 class CalculatorUI : AppCompatActivity() {

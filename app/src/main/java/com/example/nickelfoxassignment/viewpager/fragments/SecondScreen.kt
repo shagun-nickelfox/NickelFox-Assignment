@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nickelfoxassignment.databinding.FragmentSecondScreenBinding
 import com.example.nickelfoxassignment.imageuploadapp.ImageUploadActivity
-import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.utils.shortToast
 
 class SecondScreen : Fragment() {
     private lateinit var binding: FragmentSecondScreenBinding

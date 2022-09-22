@@ -11,9 +11,11 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.*
-import com.example.nickelfoxassignment.Constants
+import com.example.nickelfoxassignment.utils.Constants
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityStopwatchBinding
+import com.example.nickelfoxassignment.utils.NotificationActions
+import com.example.nickelfoxassignment.utils.getStopwatchTime
 
 class StopwatchActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStopwatchBinding
@@ -36,15 +38,16 @@ class StopwatchActivity : AppCompatActivity() {
 
     private val broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
-            val b = intent.extras
-            val play = b!!.getBoolean(Constants.PLAY)
-            val pause = b.getBoolean(Constants.PAUSE)
-            val item = b.getString(Constants.LAP)
-            if (play || pause)
-                updateUI(play = play, pause = pause)
-            if (item != null)
-                addItemToLap(item)
-            saveDataInSharedPref()
+            intent.extras?.let { b ->
+                val play = b.getBoolean(NotificationActions.PLAY.name, false)
+                val pause = b.getBoolean(NotificationActions.PAUSE.name, false)
+                val lap = b.getBoolean(NotificationActions.LAP.name,false)
+                if (play || pause)
+                    updateUI(play = play, pause = pause)
+                else if (lap)
+                    addItemToLap()
+                saveDataInSharedPref()
+            }
         }
     }
 
@@ -78,7 +81,7 @@ class StopwatchActivity : AppCompatActivity() {
                 }
             }
             tvLap.setOnClickListener {
-                addItemToLap(tvTime.text.toString())
+                addItemToLap()
             }
             ivBackArrow.setOnClickListener {
                 super.onBackPressed()
@@ -86,9 +89,11 @@ class StopwatchActivity : AppCompatActivity() {
         }
     }
 
-    private fun addItemToLap(value: String) {
-        if (binding.ivPause.isVisible)
-            lapAdapter.addItemToList(value)
+    private fun addItemToLap() {
+        Constants.SECONDS.value?.let{secs->
+            if (binding.ivPause.isVisible)
+                lapAdapter.addItemToList(secs.getStopwatchTime())
+        }
     }
 
     private fun updateUI(play: Boolean, pause: Boolean) {
@@ -128,8 +133,8 @@ class StopwatchActivity : AppCompatActivity() {
                 lapAdapter.addItemToList(i)
             }
         }
-        Constants.DATA.observe(this@StopwatchActivity) { data ->
-            binding.tvTime.text = data
+        Constants.SECONDS.observe(this@StopwatchActivity) { data ->
+            binding.tvTime.text = data.getStopwatchTime()
         }
     }
 
