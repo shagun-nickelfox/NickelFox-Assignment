@@ -27,19 +27,13 @@ object Constants {
     const val ARTICLE_REMOTE_KEYS_TABLE = "article_remote_keys"
     const val NEWS_DATABASE = "news_database"
     const val BOOKMARK_DATABASE = "bookmark_database"
-    const val RUNNING = "running"
     const val CHANNEL_ID = "timer_notify"
-    /*const val RESET = "RESET"
-    const val PAUSE = "PAUSE"
-    const val LAP = "LAP"
-    const val PLAY = "PLAY"*/
     const val BROADCAST_NAME = "timer_broadcast"
     const val NOTIFICATION_NAME = "Timer Notification"
     const val NOTIFICATION_DESC = "This channel is used to display the current timer"
     const val SHARED_PREF = "TimerSharedPref"
     const val PATTERN = "mm:ss.SS"
+    const val PATTERN_MIN_SEC = "mm:ss"
     const val TIME_ZONE = "GMT"
-    //var DATA: MutableLiveData<String> = MutableLiveData<String>("00 : 00")
-    var SECONDS: MutableLiveData<Long> = MutableLiveData(0)
-    var IS_RESET: MutableLiveData<Boolean> = MutableLiveData(false)
+    val SECONDS: MutableLiveData<Long> = MutableLiveData(0)
 }

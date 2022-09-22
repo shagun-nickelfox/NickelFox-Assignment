@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.example.nickelfoxassignment.stopwatch.ForegroundService
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.regex.Pattern
 
 fun Toolbar.showToolbar(
     titleToolbar: String,
@@ -48,8 +49,8 @@ fun Context.longToast(text: String) {
     ).show()
 }
 
-fun Long.getStopwatchTime(): String {
-    val sdf = SimpleDateFormat(Constants.PATTERN, Locale.getDefault())
+fun Long.getStopwatchTime(pattern: String = Constants.PATTERN): String {
+    val sdf = SimpleDateFormat(pattern, Locale.getDefault())
     sdf.timeZone = TimeZone.getTimeZone(Constants.TIME_ZONE)
     return sdf.format(Date(this))
 }

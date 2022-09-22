@@ -41,9 +41,10 @@ class StopwatchActivity : AppCompatActivity() {
             intent.extras?.let { b ->
                 val play = b.getBoolean(NotificationActions.PLAY.name, false)
                 val pause = b.getBoolean(NotificationActions.PAUSE.name, false)
-                val lap = b.getBoolean(NotificationActions.LAP.name,false)
+                val reset = b.getBoolean(NotificationActions.RESET.name, false)
+                val lap = b.getBoolean(NotificationActions.LAP.name, false)
                 if (play || pause)
-                    updateUI(play = play, pause = pause)
+                    updateUI(play = play, pause = pause, reset = reset)
                 else if (lap)
                     addItemToLap()
                 saveDataInSharedPref()
@@ -65,20 +66,12 @@ class StopwatchActivity : AppCompatActivity() {
     private fun setupListeners() {
         binding.apply {
             tvReset.setOnClickListener {
-                startAndStopWorker(false)
-                Constants.IS_RESET.value = true
-                updateUI(play = true, pause = false)
+                startAndStopWorker(reset = true)
+                updateUI(play = true, reset = true)
             }
             ivPlayCircle.setOnClickListener {
-                if (ivPlay.isVisible) {
-                    Constants.IS_RESET.value = false
-                    updateUI(play = false, pause = true)
-                    startAndStopWorker(true)
-                } else {
-                    Constants.IS_RESET.value = false
-                    updateUI(play = true, pause = false)
-                    startAndStopWorker(false)
-                }
+                updateUI(play = !ivPlay.isVisible, pause = ivPlay.isVisible)
+                startAndStopWorker(play = ivPlay.isVisible)
             }
             tvLap.setOnClickListener {
                 addItemToLap()
@@ -90,16 +83,20 @@ class StopwatchActivity : AppCompatActivity() {
     }
 
     private fun addItemToLap() {
-        Constants.SECONDS.value?.let{secs->
+        Constants.SECONDS.value?.let { secs ->
             if (binding.ivPause.isVisible)
                 lapAdapter.addItemToList(secs.getStopwatchTime())
         }
     }
 
-    private fun updateUI(play: Boolean, pause: Boolean) {
+    private fun updateUI(
+        play: Boolean = false,
+        pause: Boolean = false,
+        reset: Boolean = false
+    ) {
         binding.ivPause.isVisible = pause
         binding.ivPlay.isVisible = play
-        if (Constants.IS_RESET.value == true)
+        if (reset)
             lapAdapter.clearList()
     }
 
@@ -114,10 +111,16 @@ class StopwatchActivity : AppCompatActivity() {
         myEdit.apply()
     }
 
-    private fun startAndStopWorker(running: Boolean) {
-        val data =
-            Data.Builder().putBoolean(Constants.RUNNING, running)
-                .build()
+    private fun startAndStopWorker(
+        play: Boolean = false,
+        pause: Boolean = false,
+        reset: Boolean = false
+    ) {
+        val data = Data.Builder()
+            .putBoolean(NotificationActions.PLAY.name, play)
+            .putBoolean(NotificationActions.PAUSE.name, pause)
+            .putBoolean(NotificationActions.RESET.name, reset)
+            .build()
         myWorkRequest =
             OneTimeWorkRequest.Builder(TimerWorker::class.java).setInputData(data).build()
         WorkManager.getInstance(applicationContext).beginWith(myWorkRequest!!).enqueue()

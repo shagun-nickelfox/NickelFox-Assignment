@@ -12,7 +12,8 @@ object NotificationBuilder {
     fun getNotificationBuilder(
         context: Context,
         pi: PendingIntent,
-        time: String
+        time: String,
+        running: Boolean
     ): NotificationCompat.Builder {
 
         return NotificationCompat.Builder(context, Constants.CHANNEL_ID).apply {
@@ -20,8 +21,14 @@ object NotificationBuilder {
             setOnlyAlertOnce(true)
             setContentIntent(pi)
             priority = NotificationCompat.PRIORITY_HIGH
-            addAction(createAction(NotificationActions.PAUSE.name, context))
-            addAction(createAction(NotificationActions.LAP.name, context))
+            if(running) {
+                addAction(createAction(NotificationActions.PAUSE.name, context))
+                addAction(createAction(NotificationActions.LAP.name, context))
+            }
+            else{
+                addAction(createAction(NotificationActions.PLAY.name, context))
+                addAction(createAction(NotificationActions.RESET.name, context))
+            }
             setSmallIcon(R.drawable.ic_launcher_foreground)
         }
     }
