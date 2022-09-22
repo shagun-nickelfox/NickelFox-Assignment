@@ -18,7 +18,6 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
     private lateinit var pendingIntent: PendingIntent
     private var notifyHandler = 0L
 
-
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
