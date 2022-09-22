@@ -2,8 +2,8 @@ package com.example.nickelfoxassignment
 
 import android.content.Context
 import androidx.room.Room
-import com.example.nickelfoxassignment.Constants.BOOKMARK_DATABASE
-import com.example.nickelfoxassignment.Constants.NEWS_DATABASE
+import com.example.nickelfoxassignment.utils.Constants.BOOKMARK_DATABASE
+import com.example.nickelfoxassignment.utils.Constants.NEWS_DATABASE
 import com.example.nickelfoxassignment.imageuploadapp.api.ImgurApi
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDao
 import com.example.nickelfoxassignment.newsapp.database.BookmarkDatabase

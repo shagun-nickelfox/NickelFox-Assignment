@@ -15,9 +15,9 @@ import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentBookmarkBinding
-import com.example.nickelfoxassignment.shareData
-import com.example.nickelfoxassignment.shortToast
-import com.example.nickelfoxassignment.showPopUpMenu
+import com.example.nickelfoxassignment.utils.shareData
+import com.example.nickelfoxassignment.utils.shortToast
+import com.example.nickelfoxassignment.utils.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

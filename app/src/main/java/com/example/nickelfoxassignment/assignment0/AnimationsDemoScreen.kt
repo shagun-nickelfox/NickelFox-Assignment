@@ -6,7 +6,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityAnimationsDemoScreenBinding
-import com.example.nickelfoxassignment.showToolbar
+import com.example.nickelfoxassignment.utils.showToolbar
 import kotlinx.android.synthetic.main.activity_animations_demo_screen.*
 
 class AnimationsDemoScreen : AppCompatActivity() {

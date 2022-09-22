@@ -18,6 +18,9 @@ import com.example.nickelfoxassignment.newsapp.database.Bookmark
 import com.example.nickelfoxassignment.newsapp.retrofit.response.Article
 import com.example.nickelfoxassignment.newsapp.viewmodel.BookmarkViewModel
 import com.example.nickelfoxassignment.newsapp.viewmodel.NewsViewModel
+import com.example.nickelfoxassignment.utils.shareData
+import com.example.nickelfoxassignment.utils.shortToast
+import com.example.nickelfoxassignment.utils.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

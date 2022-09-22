@@ -23,7 +23,7 @@ import com.example.nickelfoxassignment.BuildConfig
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityImageUploadBinding
 import com.example.nickelfoxassignment.imageuploadapp.viewmodel.ImageUploadViewModel
-import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.utils.shortToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

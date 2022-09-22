@@ -19,7 +19,7 @@
     <color name="cardColor2">#6DE6DB</color>
     <color name="grey">#80FBFBFB</color>
     <color name="skyBlue">#255EED</color>
-    #919191
+    <color name="round24_color">#202020</color>
     <color name="light_green">#a5d6a7</color>
     <color name="dark_green">#75a478</color>
 </resources>

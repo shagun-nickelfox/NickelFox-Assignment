@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nickelfoxassignment.assignment0.CalculatorUI
 import com.example.nickelfoxassignment.databinding.ActivityHistoryBinding
-import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.utils.shortToast
 
 class HistoryActivity : AppCompatActivity(), CalculationClickInterface, CalculationDeleteInterface {
     private lateinit var binding: ActivityHistoryBinding

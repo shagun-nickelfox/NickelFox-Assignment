@@ -16,9 +16,9 @@ import androidx.core.util.Pair
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityUserLoginBinding
 import com.example.nickelfoxassignment.databinding.DialogForgotPasswordBinding
-import com.example.nickelfoxassignment.longToast
-import com.example.nickelfoxassignment.shortToast
-import com.example.nickelfoxassignment.showAnotherActivity
+import com.example.nickelfoxassignment.utils.longToast
+import com.example.nickelfoxassignment.utils.shortToast
+import com.example.nickelfoxassignment.utils.showAnotherActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_user_login.*
 

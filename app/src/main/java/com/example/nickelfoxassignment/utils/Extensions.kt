@@ -1,4 +1,4 @@
-package com.example.nickelfoxassignment
+package com.example.nickelfoxassignment.utils
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,10 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import com.example.nickelfoxassignment.stopwatch.ForegroundService
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.regex.Pattern
 
 fun Toolbar.showToolbar(
     titleToolbar: String,
@@ -43,6 +47,12 @@ fun Context.longToast(text: String) {
         text,
         Toast.LENGTH_LONG
     ).show()
+}
+
+fun Long.getStopwatchTime(pattern: String = Constants.PATTERN): String {
+    val sdf = SimpleDateFormat(pattern, Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone(Constants.TIME_ZONE)
+    return sdf.format(Date(this))
 }
 
 fun <T> Context.showAnotherActivity(activity: Class<T>) {

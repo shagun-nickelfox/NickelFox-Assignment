@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityButtonsBinding
-import com.example.nickelfoxassignment.showAnotherActivity
-import com.example.nickelfoxassignment.showToolbar
+import com.example.nickelfoxassignment.utils.showAnotherActivity
+import com.example.nickelfoxassignment.utils.showToolbar
 
 class ButtonsActivity : AppCompatActivity() {
 

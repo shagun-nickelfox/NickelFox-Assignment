@@ -28,9 +28,9 @@ import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.FragmentSearchBinding
 import com.example.nickelfoxassignment.newsapp.adapter.ArticlesLoadStateAdapter
 import com.example.nickelfoxassignment.newsapp.viewmodel.SearchViewModel
-import com.example.nickelfoxassignment.shareData
-import com.example.nickelfoxassignment.shortToast
-import com.example.nickelfoxassignment.showPopUpMenu
+import com.example.nickelfoxassignment.utils.shareData
+import com.example.nickelfoxassignment.utils.shortToast
+import com.example.nickelfoxassignment.utils.showPopUpMenu
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

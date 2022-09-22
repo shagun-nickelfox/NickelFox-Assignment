@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityTransitionBinding
-import com.example.nickelfoxassignment.showToolbar
+import com.example.nickelfoxassignment.utils.showToolbar
 
 class TransitionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransitionBinding

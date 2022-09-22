@@ -3,7 +3,7 @@ package com.example.nickelfoxassignment.newsapp.retrofit.response
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.nickelfoxassignment.Constants.ARTICLE_TABLE
+import com.example.nickelfoxassignment.utils.Constants.ARTICLE_TABLE
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.util.*

@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.nickelfoxassignment.R
 import com.example.nickelfoxassignment.databinding.ActivityGoogleMapsScreenBinding
-import com.example.nickelfoxassignment.shortToast
+import com.example.nickelfoxassignment.utils.shortToast
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
