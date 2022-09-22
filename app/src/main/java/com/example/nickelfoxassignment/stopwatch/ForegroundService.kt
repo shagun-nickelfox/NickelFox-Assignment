@@ -18,10 +18,6 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
     private lateinit var pendingIntent: PendingIntent
     private var notifyHandler = 0L
 
-    override fun onBind(intent: Intent?): IBinder? {
-        TODO("Not yet implemented")
-    }
-
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val play = intent.getBooleanExtra(NotificationActions.PLAY.name, false)
         val pause = intent.getBooleanExtra(NotificationActions.PAUSE.name, false)
@@ -70,6 +66,10 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
         return START_STICKY
     }
 
+    override fun onBind(intent: Intent?): IBinder? {
+        return null
+    }
+
     private fun removeNotification(ctx: Context) {
         val notificationManager =
             getSystemService(NOTIFICATION_SERVICE) as NotificationManager
@@ -79,7 +79,7 @@ class ForegroundService : Service(), CountUpTimer.CountUpListeners {
 
     override fun onTick(l: Long) {
         Constants.SECONDS.postValue(l)
-        if (l - 1000 == notifyHandler) {
+        if (l - notifyHandler == 1000L) {
             notifyHandler = l
             notificationManager.notify(
                 1,
